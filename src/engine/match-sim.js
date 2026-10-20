@@ -32,8 +32,57 @@ function pickShooter(rng, team, kind) {
   return pickWeighted(rng, team.lineup, (p) => SHOOTER_WEIGHT[p.pos] * p.attrs.shooting);
 }
 
+// Ritmo 5 = neutro. Foco troca ataque por defesa.
+const FOCUS = {
+  balanced: { attack: 1, defense: 1 },
+  attack: { attack: 1.08, defense: 0.94 },
+  defense: { attack: 0.94, defense: 1.08 },
+};
+const workRateFactor = (wr) => 0.9 + wr * 0.02;
+// Energia perdida por minuto: ~0,38 no ritmo 5 com físico 60.
+const ENERGY_DRAIN = 0.55;
+
+function effectiveStrength(m, side) {
+  const { workRate, focus } = m.tactics[side];
+  const base = teamStrength(m[side], { energy: m.energy });
+  return {
+    attack: base.attack * workRateFactor(workRate) * FOCUS[focus].attack,
+    defense: base.defense * workRateFactor(workRate) * FOCUS[focus].defense,
+  };
+}
+
+function drainEnergy(m) {
+  for (const side of SIDES) {
+    const effort = 0.5 + m.tactics[side].workRate / 10;
+    for (const p of m[side].lineup) {
+      const loss = ENERGY_DRAIN * effort * (1 - p.attrs.physical / 200);
+      m.energy[p.id] = Math.max(0, m.energy[p.id] - loss);
+    }
+  }
+}
+
+const clampRating = (r) => Math.round(Math.min(10, Math.max(3, r)) * 10) / 10;
+function bumpRating(m, id, delta) { m.ratings[id] = clampRating(m.ratings[id] + delta); }
+
+function rateChance(m, side, shooterId, outcome) {
+  if (outcome === 'goal') {
+    bumpRating(m, shooterId, 1.0);
+    for (const p of m[side].lineup) if (p.id !== shooterId) bumpRating(m, p.id, 0.1);
+    for (const p of m[other(side)].lineup) {
+      if (p.pos === 'GOL') bumpRating(m, p.id, -0.3);
+      else if (p.pos === 'ZAG' || p.pos === 'LAT') bumpRating(m, p.id, -0.1);
+    }
+  } else if (outcome === 'saved') {
+    bumpRating(m, shooterId, 0.1);
+    const gk = m[other(side)].lineup.find((p) => p.pos === 'GOL');
+    if (gk) bumpRating(m, gk.id, 0.2);
+  } else {
+    bumpRating(m, shooterId, -0.1);
+  }
+}
+
 function simulateMinute(m, rng) {
-  const strength = { home: teamStrength(m.home), away: teamStrength(m.away) };
+  const strength = { home: effectiveStrength(m, 'home'), away: effectiveStrength(m, 'away') };
   for (const side of SIDES) {
     const edge = strength[side].attack / strength[other(side)].defense;
     if (rng.next() >= CHANCE_PER_MINUTE * edge ** CHANCE_EXPONENT) continue;
@@ -45,6 +94,7 @@ function simulateMinute(m, rng) {
     const scored = rng.next() < conversion;
     const outcome = scored ? 'goal' : rng.next() < 0.5 ? 'saved' : 'wide';
     m.events.push({ minute: m.minute, type: 'chance', kind, side, playerId: shooter.id, outcome });
+    rateChance(m, side, shooter.id, outcome);
     if (scored) {
       m.score[side] += 1;
       m.events.push({ minute: m.minute, type: 'goal', kind, side, playerId: shooter.id });
@@ -52,15 +102,27 @@ function simulateMinute(m, rng) {
   }
 }
 
+const everyone = (home, away) => [...home.lineup, ...away.lineup];
+
 export function createMatch({ home, away, seed, userSide = null }) {
+  const ids = everyone(home, away).map((p) => p.id);
   return {
     home, away, userSide,
     rng: seed >>> 0,
     phase: 'first',
     minute: 0,
     score: { home: 0, away: 0 },
+    tactics: { home: { workRate: 5, focus: 'balanced' }, away: { workRate: 5, focus: 'balanced' } },
+    ratings: Object.fromEntries(ids.map((id) => [id, 6.5])),
+    energy: Object.fromEntries(ids.map((id) => [id, 100])),
     events: [{ minute: 0, type: 'kickoff' }],
   };
+}
+
+export function setTactics(m, side, { workRate, focus } = {}) {
+  const t = m.tactics[side];
+  if (workRate !== undefined) t.workRate = Math.min(10, Math.max(1, Math.round(workRate)));
+  if (focus !== undefined && FOCUS[focus]) t.focus = focus;
 }
 
 export function advanceMinute(m) {
@@ -69,6 +131,7 @@ export function advanceMinute(m) {
   const rng = createRng(m.rng);
   simulateMinute(m, rng);
   m.rng = rng.state();
+  drainEnergy(m);
   if (m.minute >= HALF_END[m.phase]) {
     const ended = m.phase === 'second';
     m.phase = ended ? 'ended' : 'halftime';

@@ -35,7 +35,7 @@ Referência de mecânica: `docs/referencia.md` (análise dos prints e do vídeo)
 
 ### Base
 - [x] A1 Casca: `index.html` com import map + `vendor/` fixado; teste: página abre sem erro no console (Playwright).
-- [ ] A2 `rng.js`: mesma semente → mesma sequência; sementes diferentes → sequências diferentes.
+- [x] A2 `rng.js`: mesma semente → mesma sequência; sementes diferentes → sequências diferentes.
 
 ### Simulação em texto
 - [ ] A3 `teams.js`: força calculada dos atributos; time mais forte tem ataque maior.

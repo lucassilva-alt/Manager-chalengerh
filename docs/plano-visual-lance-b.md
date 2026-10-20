@@ -22,7 +22,7 @@
 ## Tarefas
 
 ### V — Visual
-- [ ] V1 Boneco CC0: reduzir o pacote às animações usadas → `assets/models/player.glb` + créditos
+- [x] V1 Boneco CC0: reduzir o pacote às animações usadas → `assets/models/player.glb` + créditos
 - [ ] V2 Uniforme por shader (camisa, calção, meião, pele, goleiro) + número nas costas
 - [ ] V3 Animação: mistura parado/trote/corrida pela velocidade; chute e mergulho por código; comemoração
 - [ ] V4 Luz, sombras, céu e tone mapping

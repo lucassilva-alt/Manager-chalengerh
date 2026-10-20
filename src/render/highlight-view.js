@@ -5,23 +5,24 @@ import { stepWorld } from '../engine/highlight/highlight.js';
 import { DT } from '../engine/highlight/physics.js';
 import { FIELD } from '../engine/highlight/field.js';
 import { classifyGesture, swipeToShot } from '../input/gestures.js';
-import { createPitch } from './pitch.js';
+import { createEnvironment } from './env/index.js';
 import { createFigure, animateFigure } from './figure.js';
 import { createPlayer } from './player-model.js';
 import { createAnimator } from './player-animator.js';
+import { createQualityGovernor, QUALITY } from './quality.js';
 import { createOverlays } from './overlays.js';
 
 const CAMERA_OFFSET = new THREE.Vector3(-22, 28, 14);
 const LOOK_AHEAD = 6;      // m à frente da bola, para o lado do ataque
 const CAMERA_LERP = 3;     // suavização por segundo
-const MAX_STEPS_PER_FRAME = 5;
+const MAX_STEPS_PER_FRAME = 12; // até 0,2 s de recuperação por quadro em aparelho lento
 const PICK_RADIUS = 1.6;   // m para acertar um jogador com o dedo
 const GOAL_PICK = { fromX: FIELD.halfLength - 3, halfWidth: 9 };
 const SHOT_CAMERA = { back: 2.6, height: 0.7 };
 const DIVE_TILT = 1.25;    // rad: goleiro quase deitado no ar
 const DIVE_LIFT = 0.45;    // m
 
-export function createHighlightView(container, { world, teams, onShotUi, asset = null }) {
+export function createHighlightView(container, { world, teams, onShotUi, asset = null, quality = null }) {
   const renderer = new THREE.WebGLRenderer({ antialias: true, powerPreference: 'high-performance' });
   renderer.setPixelRatio(Math.min(2, window.devicePixelRatio || 1));
   renderer.outputColorSpace = THREE.SRGBColorSpace;
@@ -31,11 +32,21 @@ export function createHighlightView(container, { world, teams, onShotUi, asset =
   container.appendChild(labelLayer);
 
   const scene = new THREE.Scene();
-  scene.background = new THREE.Color('#9cc7e8');
-  scene.add(new THREE.HemisphereLight(0xffffff, 0x4a6b3a, 1.6));
-  const sun = new THREE.DirectionalLight(0xffffff, 1.4);
-  sun.position.set(-30, 60, 20);
-  scene.add(sun, createPitch());
+  const env = createEnvironment(renderer, scene, teams);
+  // Qualidade automática: alto = sombras + resolução cheia; médio = sem sombras;
+  // baixo = resolução reduzida e sem torcida.
+  const PRESETS = {
+    [QUALITY.HIGH]: { ratio: Math.min(2, window.devicePixelRatio || 1), shadows: true, crowd: true },
+    [QUALITY.MEDIUM]: { ratio: 1, shadows: false, crowd: true },
+    [QUALITY.LOW]: { ratio: 0.75, shadows: false, crowd: false },
+  };
+  const applyQuality = (level) => {
+    const q = PRESETS[level];
+    renderer.setPixelRatio(q.ratio);
+    env.setQuality(q);
+    resize?.();
+  };
+  const governor = createQualityGovernor({ fixed: quality, onChange: applyQuality });
 
   const camera = new THREE.PerspectiveCamera(38, 1, 0.1, 400);
   const focus = new THREE.Vector3(world.ball.pos.x + LOOK_AHEAD, 0, world.ball.pos.y);
@@ -60,12 +71,10 @@ export function createHighlightView(container, { world, teams, onShotUi, asset =
     figures.set(a.id, fig);
     scene.add(fig.obj);
   }
-  const ball = new THREE.Mesh(new THREE.SphereGeometry(0.22, 16, 12), new THREE.MeshLambertMaterial({ color: 0xffffff }));
-  scene.add(ball);
   const overlays = createOverlays(scene, labelLayer, names);
 
   let pending = null, acc = 0, last = performance.now(), raf = 0, frames = 0;
-  let mode = 'play', drag = null, gesture = null;
+  let mode = 'play', drag = null, gesture = null, netShaken = false;
   const listeners = new Set();
 
   // ---- projeções ----
@@ -155,7 +164,7 @@ export function createHighlightView(container, { world, teams, onShotUi, asset =
   }
   const ro = new ResizeObserver(resize);
   ro.observe(container);
-  resize();
+  applyQuality(governor.level);
 
   function placeCamera(dt) {
     if (mode === 'shot') {
@@ -196,14 +205,16 @@ export function createHighlightView(container, { world, teams, onShotUi, asset =
         animateFigure(obj, { vx: a.vel.x, vy: a.vel.y, dt: world.awaitingInput ? 0 : dt, kicking });
       }
     }
-    ball.position.set(world.ball.pos.x, world.ball.pos.z + 0.22, world.ball.pos.y);
+    if (world.status === 'goal' && !netShaken) { env.netHit(world.attackDir); netShaken = true; }
     placeCamera(dt);
+    env.update(world.awaitingInput ? dt * 0.2 : dt, focus, world.ball);
     overlays.update(world, { drag, project, mode });
     renderer.render(scene, camera);
   }
 
   function frame(now) {
-    const dt = Math.min(0.1, (now - last) / 1000);
+    governor.frame(now - last);
+    const dt = Math.min(0.2, (now - last) / 1000);
     last = now;
     acc += dt;
     let steps = 0;
@@ -233,11 +244,21 @@ export function createHighlightView(container, { world, teams, onShotUi, asset =
     cameraTarget: () => ({ x: focus.x, y: focus.z }),
     figureCount: () => figures.size,
     usesModels: () => !!asset,
+    quality: () => governor.level,
     animOf: (id) => figures.get(id)?.animator?.clip ?? null,
     kickOf: (id) => figures.get(id)?.animator?.kick ?? 0,
     diveOf: (id) => figures.get(id)?.animator?.dive ?? 0,
+    animWeight: (id) => figures.get(id)?.animator?.weight ?? 0,
     frames: () => frames,
     stats: () => ({ calls: renderer.info.render.calls, triangles: renderer.info.render.triangles }),
+    environment: () => {
+      let shadowCasters = 0;
+      scene.traverse((o) => { if (o.castShadow) shadowCasters++; });
+      return {
+        toneMapping: renderer.toneMapping === THREE.ACESFilmicToneMapping ? 'ACESFilmic' : String(renderer.toneMapping),
+        shadows: renderer.shadowMap.enabled, shadowCasters, ...env.info(),
+      };
+    },
     dispose() {
       cancelAnimationFrame(raf);
       ro.disconnect();

@@ -23,8 +23,11 @@ function exposeHighlight(view) {
     animOf: view.animOf,
     kickOf: view.kickOf,
     diveOf: view.diveOf,
+    animWeight: view.animWeight,
     frames: view.frames,
     stats: view.stats,
+    environment: view.environment,
+    quality: view.quality,
   };
 }
 

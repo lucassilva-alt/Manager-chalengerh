@@ -76,3 +76,12 @@ test('goleiro mergulha inclinando o corpo para o lado do chute', async () => {
   await page.waitForFunction((id) => window.__hl.diveOf(id) > 0.5, gk, { timeout: 8000 });
   await page.close();
 });
+
+test('primeiro quadro já mostra a pose da animação (sem braços abertos de manequim)', async () => {
+  const page = await browser.newPage({ viewport: { width: 844, height: 390 } });
+  await page.goto(`${base}?dev=highlight&seed=3`);
+  await page.waitForFunction(() => window.__hl?.ready === true && window.__hl.frames() >= 1, null, { timeout: 20000 });
+  const weights = await page.evaluate(() => window.__hl.world().agents.map((a) => window.__hl.animWeight(a.id)));
+  assert.ok(weights.every((w) => w === 1), `pesos ${weights}`);
+  await page.close();
+});

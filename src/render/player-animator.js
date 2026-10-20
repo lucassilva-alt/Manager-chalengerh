@@ -28,8 +28,9 @@ export function createAnimator(player) {
     if (!next) return;
     next.timeScale = timeScale;
     if (current === name) return;
-    next.reset().fadeIn(FADE).play();
-    if (current) player.actions[current].fadeOut(FADE);
+    next.reset().play();
+    // Primeira animação entra com peso cheio: transição a partir do nada mostra a pose de manequim.
+    if (current) { next.fadeIn(FADE); player.actions[current].fadeOut(FADE); }
     current = name;
   }
 
@@ -38,6 +39,7 @@ export function createAnimator(player) {
     // 0 se a perna não existe: o chute só conta quando o osso de fato gira.
     get kick() { return thigh && shin ? kick : 0; },
     get dive() { return dive; },
+    get weight() { return current ? player.actions[current].getEffectiveWeight() : 0; },
     update(agent, world, dt) {
       const speed = Math.hypot(agent.vel.x, agent.vel.y);
       const scorer = world.status === 'goal' && world.lastKick?.from === agent.id;

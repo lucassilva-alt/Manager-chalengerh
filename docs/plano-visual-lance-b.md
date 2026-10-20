@@ -25,14 +25,14 @@
 - [x] V1 Boneco CC0: reduzir o pacote às animações usadas → `assets/models/player.glb` + créditos
 - [x] V2 Uniforme por shader (camisa, calção, meião, pele, goleiro) + número nas costas
 - [x] V3 Animação: mistura parado/trote/corrida pela velocidade; chute e mergulho por código; comemoração
-- [ ] V4 Luz, sombras, céu e tone mapping
-- [ ] V5 Gramado de alta qualidade
-- [ ] V6 Gols com rede de malha e bandeiras de escanteio
-- [ ] V7 Estádio, refletores, placas e torcida
-- [ ] V8 Bola com gomos e giro
+- [x] V4 Luz, sombras, céu e tone mapping
+- [x] V5 Gramado de alta qualidade
+- [x] V6 Gols com rede de malha e bandeiras de escanteio
+- [x] V7 Estádio, refletores, placas e torcida
+- [x] V8 Bola com gomos e giro
 - [ ] V9 Interface estilo TV + fontes
 - [ ] V10 Retratos dos jogadores por código
-- [ ] V11 Orçamento de desempenho (instâncias, sombras, medir)
+- [x] V11 Orçamento de desempenho (instâncias, sombras, medir)
 
 ### L — Lance completo
 - [ ] L1 Lance de defesa: adversário ataca, você escolhe o bote ou a cobertura (marcador vermelho + seta)

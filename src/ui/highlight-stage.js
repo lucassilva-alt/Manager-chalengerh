@@ -5,6 +5,10 @@ import { useEffect, useRef, useState } from 'preact/hooks';
 import htm from 'htm';
 import { createHighlightView } from '../render/highlight-view.js';
 import { loadPlayerAsset } from '../render/player-model.js';
+import { QUALITY } from '../render/quality.js';
+
+// ?quality=high|medium|low fixa o nível gráfico (prints, testes); sem ele é automático.
+const FIXED_QUALITY = { high: QUALITY.HIGH, medium: QUALITY.MEDIUM, low: QUALITY.LOW }[new URLSearchParams(location.search).get('quality')] ?? null;
 import { t } from '../i18n/index.js';
 
 const html = htm.bind(h);
@@ -19,7 +23,7 @@ export function HighlightStage({ world, teams, onView, onEnd, onSkip, finished =
     // Sem o modelo (ex.: falha de rede) o lance segue com os bonecos simples.
     loadPlayerAsset().catch(() => null).then((asset) => {
       if (cancelled) return;
-      v = createHighlightView(host.current, { world, teams, onShotUi: setShotUi, asset });
+      v = createHighlightView(host.current, { world, teams, onShotUi: setShotUi, asset, quality: FIXED_QUALITY });
       view.current = v;
       onView?.(v);
       let ended = false;

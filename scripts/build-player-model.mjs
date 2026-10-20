@@ -3,7 +3,8 @@
 // Uso: node scripts/build-player-model.mjs <AnimationLibrary_Godot_Standard.glb>
 import { NodeIO } from '@gltf-transform/core';
 import { ALL_EXTENSIONS } from '@gltf-transform/extensions';
-import { prune, dedup, resample } from '@gltf-transform/functions';
+import { prune, dedup, resample, weld, simplify } from '@gltf-transform/functions';
+import { MeshoptSimplifier } from 'meshoptimizer';
 import { PLAYER_CLIPS } from '../src/render/player-clips.js';
 
 const [src] = process.argv.slice(2);
@@ -36,6 +37,8 @@ for (const anim of root.listAnimations()) {
 }
 disposeOrphanAccessors();
 // Sem quantize: o uniforme é pintado por região em metros (src/render/kit-material.js).
-await doc.transform(resample(), prune(), dedup());
+// Malha simplificada: o boneco ocupa poucos pixels na câmera do lance.
+await MeshoptSimplifier.ready;
+await doc.transform(resample(), prune(), dedup(), weld(), simplify({ simplifier: MeshoptSimplifier, ratio: 0.3, error: 0.002 }));
 await io.write('assets/models/player.glb', doc);
 console.log('ok', doc.getRoot().listAnimations().map((a) => a.getName()).join(', '));

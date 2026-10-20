@@ -41,6 +41,8 @@ test('lance com 22 bonecos: chamadas de desenho e custo do motor dentro do orça
 
   console.log(JSON.stringify({ fpsSoftwareGL: Number(fps.toFixed(1)), drawCalls: calls, triangles, engineStepMs: Number(stepMs.toFixed(3)) }));
   assert.ok(calls <= 250, `chamadas de desenho ${calls}`);
+  // Celular intermediário: até ~250 mil triângulos por quadro com o estádio completo.
+  assert.ok(triangles <= 250000, `triângulos ${triangles}`);
   assert.ok(stepMs < 1, `motor ${stepMs} ms por passo`);
   await page.close();
 });

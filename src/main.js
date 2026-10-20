@@ -1,12 +1,26 @@
 import { REVISION } from 'three';
 import { h, render } from 'preact';
 import htm from 'htm';
+import { App } from './ui/app.js';
 
 const html = htm.bind(h);
 const params = new URLSearchParams(location.search);
+const seedParam = Number(params.get('seed')) || undefined;
 
-function App() {
-  return html`<main><h1>Manager Challenger</h1></main>`;
+// Ganchos para testes de navegador e depuração (não mudam o jogo).
+function exposeHighlight(view) {
+  window.__hl = {
+    ready: true,
+    world: view.world,
+    input: (cmd) => view.input(cmd),
+    mode: view.mode,
+    overlay: view.overlay,
+    screenOf: view.screenOf,
+    screenOfPoint: view.screenOfPoint,
+    cameraTarget: view.cameraTarget,
+    figureCount: view.figureCount,
+    frames: view.frames,
+  };
 }
 
 async function devHighlight() {
@@ -17,33 +31,19 @@ async function devHighlight() {
     import('./ui/highlight-stage.js'),
   ]);
   const [home, away] = await loadDemoTeams();
-  const seed = Number(params.get('seed')) || 1;
+  const seed = seedParam || 1;
   const m = sim.createMatch({ home, away, seed, userSide: 'home', interactive: true });
   while (!m.pending && m.phase !== 'ended') {
     if (m.phase === 'halftime') sim.startSecondHalf(m); else sim.advanceMinute(m);
   }
   const world = startHighlight(m, { seed });
-  const onView = (view) => {
-    window.__hl = {
-      ready: true,
-      world: () => world,
-      input: (cmd) => view.input(cmd),
-      mode: view.mode,
-      overlay: view.overlay,
-      screenOf: view.screenOf,
-      screenOfPoint: view.screenOfPoint,
-      cameraTarget: view.cameraTarget,
-      figureCount: view.figureCount,
-      frames: view.frames,
-    };
-  };
-  render(html`<${HighlightStage} world=${world} teams=${{ home, away }} onView=${onView} />`, document.getElementById('app'));
+  render(html`<${HighlightStage} world=${world} teams=${{ home, away }} onView=${exposeHighlight} />`, document.getElementById('app'));
 }
 
 if (params.get('dev') === 'highlight') {
   devHighlight();
 } else {
-  render(html`<${App} />`, document.getElementById('app'));
+  render(html`<${App} seed=${seedParam} onHighlightView=${exposeHighlight} />`, document.getElementById('app'));
 }
 
 window.__app = { ready: true, libs: { three: REVISION, preact: typeof h === 'function' } };

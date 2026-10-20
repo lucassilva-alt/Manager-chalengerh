@@ -64,11 +64,11 @@ Referência de mecânica: `docs/referencia.md` (análise dos prints e do vídeo)
 - [x] A22 Sobreposições: círculo de controle, nomes, linhas tracejadas, marcador na defesa.
 
 ### Interface da partida
-- [ ] A23 Tela da partida: campo com nota/energia, relógio com acelerar, relato de eventos, ritmo/foco, pausar.
-- [ ] A24 Pré-jogo e resultado (placar, autores dos gols, notas).
-- [ ] A25 Botão "simular" e intervalo.
+- [x] A23 Tela da partida: campo com nota/energia, relógio com acelerar, relato de eventos, ritmo/foco, pausar.
+- [x] A24 Pré-jogo e resultado (placar, autores dos gols, notas).
+- [x] A25 Botão "simular" e intervalo.
 
 ### Verificação da etapa
-- [ ] A26 E2E Playwright (390×844 e 1366×768): jogar uma partida inteira com lance roteirizado, zero erros no console.
+- [x] A26 E2E Playwright (390×844 e 1366×768): jogar uma partida inteira com lance roteirizado, zero erros no console.
 - [ ] A27 Medir FPS no lance com 22 bonecos em tela de celular (meta 60; registrar o medido).
 - [ ] A28 Relatório da etapa com evidências (saída dos testes, FPS, prints).

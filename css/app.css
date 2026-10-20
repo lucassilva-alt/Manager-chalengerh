@@ -32,3 +32,122 @@ body {
 .btn-danger { background: var(--danger-strong); color: #fff; }
 .hl-cancel { position: absolute; right: calc(var(--space) * 4); bottom: calc(var(--space) * 4); }
 @media (prefers-reduced-motion: reduce) { .btn { transition: none; } }
+
+/* ---------- utilidades ---------- */
+.sr-only { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+.muted { color: var(--text-muted); }
+.loading { padding: calc(var(--space) * 6); text-align: center; }
+.btn-primary { background: var(--success-strong); color: #fff; }
+.btn-ghost { background: var(--surface-2); color: var(--text); }
+.btn-icon { padding: 0; font-size: 20px; background: var(--surface-2); color: var(--text); }
+.btn-icon.is-on { background: var(--accent); color: var(--bg); }
+.btn-lg { min-height: 52px; padding: 0 calc(var(--space) * 10); font-size: 18px; }
+.btn:disabled { opacity: 0.5; cursor: not-allowed; }
+.minute { display: inline-block; min-width: 2.6em; color: var(--accent); font-variant-numeric: tabular-nums; }
+
+/* ---------- pré-jogo e resultado ---------- */
+.pre-match, .result-screen {
+  min-height: 100dvh; display: flex; flex-direction: column; align-items: center; justify-content: center;
+  gap: calc(var(--space) * 5); padding: calc(var(--space) * 4); text-align: center;
+  background: radial-gradient(circle at 50% 30%, var(--surface-2), var(--bg) 70%);
+}
+.pre-teams { display: flex; align-items: center; gap: calc(var(--space) * 6); flex-wrap: wrap; justify-content: center; }
+.pre-team { display: flex; flex-direction: column; align-items: center; gap: calc(var(--space) * 2); font-size: 20px; font-weight: 700; }
+.pre-vs { font-size: 28px; color: var(--text-muted); }
+.pre-note { margin: 0; color: var(--text-muted); font-size: 14px; }
+.result-screen h1 { margin: 0; font-size: 28px; }
+.result-screen h2 { margin: 0; font-size: 18px; color: var(--text-muted); }
+.result-board { display: flex; align-items: center; gap: calc(var(--space) * 5); }
+.result-score { margin: 0; font-size: 48px; font-weight: 800; font-variant-numeric: tabular-nums; }
+.result-goals { list-style: none; margin: 0; padding: 0; display: grid; gap: var(--space); }
+.result-best { margin: 0; }
+
+/* ---------- partida ---------- */
+.match-screen { height: 100dvh; display: grid; grid-template-rows: auto minmax(0, 1fr) auto; overflow: hidden; }
+.scoreboard {
+  display: grid; grid-template-columns: 1fr auto 1fr; align-items: center; gap: calc(var(--space) * 3);
+  padding: calc(var(--space) * 2) calc(var(--space) * 4); background: #0a120d; border-bottom: 1px solid var(--surface-2);
+}
+.sb-team { display: flex; align-items: center; gap: calc(var(--space) * 2); font-weight: 700; min-width: 0; }
+.sb-team span { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.sb-team.away { justify-content: flex-end; }
+.sb-score { margin: 0; font-size: 28px; font-weight: 800; font-variant-numeric: tabular-nums; }
+.match-body { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: calc(var(--space) * 4); padding: calc(var(--space) * 4); min-height: 0; }
+.pitch-panel {
+  position: relative; display: flex; flex-direction: column; justify-content: space-around; gap: calc(var(--space) * 2);
+  min-height: 0; overflow: hidden;
+  padding: calc(var(--space) * 4) calc(var(--space) * 2); border-radius: var(--radius);
+  background: repeating-linear-gradient(180deg, #3f7f35 0 32px, #468c3b 32px 64px);
+}
+.pitch-line { display: flex; justify-content: space-around; gap: var(--space); }
+.chip { display: grid; justify-items: center; gap: 2px; min-width: 0; width: 76px; }
+.chip-rating { font-size: 14px; font-weight: 700; text-shadow: 0 1px 2px rgba(0, 0, 0, 0.7); }
+.chip-badge {
+  display: grid; place-items: center; width: 36px; height: 36px; border-radius: 50%;
+  background: var(--kit); border: 2px solid #fff; font-weight: 800; color: #fff; text-shadow: 0 1px 2px rgba(0, 0, 0, 0.7);
+}
+.chip-name { font-size: 12px; font-weight: 600; text-transform: uppercase; max-width: 100%; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.chip-energy { width: 48px; height: 6px; border-radius: 3px; background: rgba(0, 0, 0, 0.45); overflow: hidden; }
+.chip-energy span { display: block; height: 100%; }
+.chip-energy.high span { background: var(--success); }
+.chip-energy.mid span { background: var(--accent); }
+.chip-energy.low span { background: var(--danger); }
+.team-energy { position: absolute; right: calc(var(--space) * 3); bottom: calc(var(--space) * 2); margin: 0; display: flex; align-items: center; gap: var(--space); font-weight: 700; }
+.feed-panel { display: flex; flex-direction: column; min-height: 0; border-radius: var(--radius); background: var(--surface); overflow: hidden; }
+.clock-bar { display: flex; align-items: center; justify-content: space-between; gap: calc(var(--space) * 2); padding: calc(var(--space) * 2) calc(var(--space) * 3); background: #0a120d; }
+.clock { font-size: 24px; font-weight: 800; color: var(--accent); font-variant-numeric: tabular-nums; }
+.halftime-card { display: grid; gap: calc(var(--space) * 2); padding: calc(var(--space) * 3); background: var(--surface-2); }
+.halftime-card p { margin: 0; }
+.feed { list-style: none; margin: 0; padding: calc(var(--space) * 2) calc(var(--space) * 3); overflow-y: auto; display: grid; gap: calc(var(--space) * 2); align-content: start; }
+.feed-item.goal { font-weight: 800; color: var(--accent); }
+.feed-item.highlight { color: var(--success); }
+.match-controls {
+  display: flex; flex-wrap: wrap; align-items: center; gap: calc(var(--space) * 3);
+  padding: calc(var(--space) * 3) calc(var(--space) * 4); background: #0a120d; border-top: 1px solid var(--surface-2);
+}
+.match-controls .btn-danger, .match-controls .btn-primary { margin-left: auto; }
+.stepper { display: flex; align-items: center; gap: calc(var(--space) * 2); }
+.stepper-body { display: grid; justify-items: center; min-width: 120px; }
+.stepper-label { font-size: 12px; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.04em; }
+.bar10 { display: flex; gap: 2px; }
+.bar10 i { width: 8px; height: 14px; border-radius: 2px; background: var(--surface-2); }
+.bar10 i.on { background: var(--accent); }
+
+/* ---------- lance ---------- */
+.stage { z-index: 10; background: #0a120d; }
+.hl-skip { position: absolute; right: calc(var(--space) * 4); top: calc(var(--space) * 4); }
+.hl-result {
+  position: absolute; inset: 0; display: flex; flex-direction: column; align-items: center; justify-content: center;
+  gap: calc(var(--space) * 3); background: rgba(10, 18, 13, 0.55); text-align: center; padding: calc(var(--space) * 4);
+}
+.hl-result-title { margin: 0; font-size: 56px; font-weight: 900; font-style: italic; letter-spacing: 0.04em; text-shadow: 0 3px 12px rgba(0, 0, 0, 0.6); }
+.hl-result-title.goal { color: #fff; }
+.hl-result-distance { margin: 0; padding: var(--space) calc(var(--space) * 3); border-radius: var(--radius); background: var(--surface); }
+.hl-result-actions { display: flex; gap: calc(var(--space) * 3); flex-wrap: wrap; justify-content: center; }
+
+/* Retrato: painéis empilhados; o relato rola por dentro. */
+@media (orientation: portrait) {
+  .match-body { grid-template-columns: 1fr; grid-template-rows: auto minmax(0, 1fr); }
+  .chip { width: 64px; }
+  .stepper-body { min-width: 96px; }
+}
+
+/* Tela baixa (celular deitado): tudo menor para caber sem rolar. */
+@media (orientation: landscape) and (max-height: 520px) {
+  .scoreboard { padding: var(--space) calc(var(--space) * 4); }
+  .sb-score { font-size: 22px; }
+  .match-body { padding: calc(var(--space) * 2); gap: calc(var(--space) * 2); }
+  .pitch-panel { padding: var(--space); gap: 0; }
+  .chip { width: 60px; gap: 0; }
+  .chip-badge { width: 24px; height: 24px; font-size: 12px; border-width: 1.5px; }
+  .chip-rating { font-size: 11px; }
+  .chip-name { font-size: 9px; }
+  .chip-energy { width: 36px; height: 4px; }
+  .clock-bar { padding: var(--space) calc(var(--space) * 3); }
+  .clock { font-size: 20px; }
+  .feed { gap: var(--space); font-size: 14px; }
+  .match-controls { padding: calc(var(--space) * 2) calc(var(--space) * 3); gap: calc(var(--space) * 2); flex-wrap: nowrap; }
+  .stepper { gap: var(--space); }
+  .stepper-body { min-width: 92px; }
+  .stepper-label { font-size: 10px; }
+}

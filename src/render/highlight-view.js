@@ -193,6 +193,7 @@ export function createHighlightView(container, { world, teams, onShotUi }) {
   raf = requestAnimationFrame(frame);
 
   return {
+    world: () => world,
     input(cmd) { pending = cmd; },
     onFrame(fn) { listeners.add(fn); return () => listeners.delete(fn); },
     cancelShot: () => setMode('play'),

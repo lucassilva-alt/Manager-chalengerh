@@ -1,4 +1,5 @@
-// Palco do lance: monta a vista 3D e a interface por cima (dica, Cancelar).
+// Palco do lance: monta a vista 3D e a interface por cima (dica, Cancelar,
+// Simular lance). `children` entra por cima do 3D (ex.: resultado do lance).
 import { h } from 'preact';
 import { useEffect, useRef, useState } from 'preact/hooks';
 import htm from 'htm';
@@ -7,7 +8,7 @@ import { t } from '../i18n/index.js';
 
 const html = htm.bind(h);
 
-export function HighlightStage({ world, teams, onView, onEnd }) {
+export function HighlightStage({ world, teams, onView, onEnd, onSkip, finished = false, children }) {
   const host = useRef(null);
   const view = useRef(null);
   const [shotUi, setShotUi] = useState(false);
@@ -25,10 +26,14 @@ export function HighlightStage({ world, teams, onView, onEnd }) {
 
   return html`
     <div class="stage" ref=${host}>
-      <p class="hl-hint" aria-live="polite">${shotUi ? t('highlight.swipeHint') : t('highlight.planHint')}</p>
+      ${!finished && html`
+        <p class="hl-hint" aria-live="polite">${shotUi ? t('highlight.swipeHint') : t('highlight.planHint')}</p>`}
+      ${!finished && !shotUi && onSkip && html`
+        <button type="button" class="btn btn-ghost hl-skip" onClick=${onSkip}>${t('highlight.simulate')}</button>`}
       ${shotUi && html`
         <button type="button" class="btn btn-danger hl-cancel" onClick=${() => view.current?.cancelShot()}>
           ${t('common.cancel')}
         </button>`}
+      ${children}
     </div>`;
 }

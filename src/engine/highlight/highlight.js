@@ -1,7 +1,7 @@
 // Mundo do lance jogável: jogadores, bola e regras, em passo fixo.
 // Estado JSON puro: dá para guardar (voltar o lance) e regravar (replay).
 import { createRng } from '../rng.js';
-import { createBall, stepBall } from './physics.js';
+import { createBall, stepBall, DT } from './physics.js';
 import { createAgent, stepAgent } from './agents.js';
 
 const CONTROL_RADIUS = 6;   // zona de condução (círculo verde)
@@ -10,11 +10,16 @@ const BALL_OFFSET = 0.6;    // bola à frente do pé
 const TACKLE_RANGE = 1.0;
 const TACKLE_BASE = 0.04;   // chance por passo com atributos iguais
 const TACKLE_EXPONENT = 3;
+const REACH = 1.0;           // alcance para dominar/interceptar bola solta
+const REACH_HEIGHT = 1.2;
+const KICK_IMMUNITY = 0.3;   // s: quem chutou não domina a própria bola logo em seguida
+const INTERCEPT_BASE = 0.3;  // chance por passo com atributos iguais
+const PASS_MAX_ERROR = (12 * Math.PI) / 180; // erro com passe 0; some com passe 100
 
 const norm = (v) => { const d = Math.hypot(v.x, v.y) || 1; return { x: v.x / d, y: v.y / d }; };
 const dist = (a, b) => Math.hypot(a.x - b.x, a.y - b.y);
 
-export function createWorld({ agents, carrierId, attackDir = 1, seed = 1 }) {
+export function createWorld({ agents, carrierId, attackDir = 1, seed = 1, defendersIdle = false }) {
   const list = agents.map(createAgent);
   const carrier = list.find((a) => a.id === carrierId);
   const ball = createBall({ x: carrier.pos.x + BALL_OFFSET * attackDir, y: carrier.pos.y });
@@ -29,6 +34,8 @@ export function createWorld({ agents, carrierId, attackDir = 1, seed = 1 }) {
     controlCenter: { ...carrier.pos },
     controlRadius: CONTROL_RADIUS,
     status: 'live',
+    defendersIdle,
+    lastKick: null,
   };
 }
 
@@ -41,20 +48,81 @@ function clampToControl(w, p) {
   return { x: c.x + (p.x - c.x) * k, y: c.y + (p.y - c.y) * k };
 }
 
-function applyInput(w, input) {
+// Erro de direção entre -max e +max, mais provável perto de zero.
+const aimError = (rng, max) => (rng.next() + rng.next() - 1) * max;
+
+function rotate(v, angle) {
+  const c = Math.cos(angle), s = Math.sin(angle);
+  return { x: v.x * c - v.y * s, y: v.x * s + v.y * c };
+}
+
+function kickBall(w, kicker, vel, spin, lastKick) {
+  w.ball.vel = vel;
+  w.ball.spin = spin;
+  w.carrierId = null;
+  w.lastKick = { ...lastKick, from: kicker.id, at: w.t, origin: { x: kicker.pos.x, y: kicker.pos.y } };
+}
+
+function pass(w, carrier, receiver, rng) {
+  const d = dist(carrier.pos, receiver.pos);
+  const speed = Math.min(24, Math.max(10, 6 + 0.8 * d));
+  const error = aimError(rng, PASS_MAX_ERROR * (1 - carrier.attrs.passing / 100));
+  const dir = rotate(norm({ x: receiver.pos.x - carrier.pos.x, y: receiver.pos.y - carrier.pos.y }), error);
+  kickBall(w, carrier, { x: dir.x * speed, y: dir.y * speed, z: 0 }, 0, { type: 'pass', to: receiver.id, error });
+}
+
+function applyInput(w, input, rng) {
   if (!input || w.status !== 'live') return;
   const carrier = byId(w, w.carrierId);
-  if (input.type === 'dribble' && carrier?.side === w.attackingSide) {
+  if (!carrier || carrier.side !== w.attackingSide) return;
+  if (input.type === 'dribble') {
     const d = norm(input.dir), len = input.length ?? DRIBBLE_STEP;
     carrier.path = [];
     carrier.target = clampToControl(w, { x: carrier.pos.x + d.x * len, y: carrier.pos.y + d.y * len });
+  } else if (input.type === 'pass') {
+    const receiver = byId(w, input.to);
+    if (receiver && receiver !== carrier && receiver.side === carrier.side) pass(w, carrier, receiver, rng);
   }
 }
 
-function defend(w) {
+// Ponto da trajetória da bola mais perto de `p` (só para frente da bola).
+function interceptPoint(ball, p) {
+  const v = { x: ball.vel.x, y: ball.vel.y }, sp = Math.hypot(v.x, v.y);
+  if (sp < 0.5) return { x: ball.pos.x, y: ball.pos.y };
+  const u = { x: v.x / sp, y: v.y / sp };
+  const along = Math.max(0, (p.x - ball.pos.x) * u.x + (p.y - ball.pos.y) * u.y);
+  return { x: ball.pos.x + u.x * along, y: ball.pos.y + u.y * along };
+}
+
+function moveOffBall(w) {
   const carrier = byId(w, w.carrierId);
   for (const a of w.agents) {
-    if (a.side !== w.attackingSide && carrier) a.target = { ...carrier.pos };
+    if (a.side !== w.attackingSide) {
+      if (w.defendersIdle) continue;
+      a.target = carrier ? { ...carrier.pos } : interceptPoint(w.ball, a.pos);
+    } else if (!carrier && w.lastKick?.to === a.id) {
+      a.target = interceptPoint(w.ball, a.pos);   // receptor vai ao encontro da bola
+    }
+  }
+}
+
+function controlLooseBall(w, rng) {
+  const b = w.ball;
+  if (b.pos.z > REACH_HEIGHT) return;
+  const kicker = w.lastKick && w.t - w.lastKick.at < KICK_IMMUNITY ? w.lastKick.from : null;
+  const passing = byId(w, w.lastKick?.from)?.attrs.passing ?? 60;
+  for (const a of w.agents) {
+    if (a.id === kicker || dist(a.pos, b.pos) > REACH) continue;
+    if (a.side === w.attackingSide) {
+      w.carrierId = a.id;
+      w.controlCenter = { ...a.pos };
+      return;
+    }
+    if (rng.next() < Math.min(0.9, INTERCEPT_BASE * (a.attrs.defending / passing))) {
+      w.carrierId = a.id;
+      w.status = 'lost';
+      return;
+    }
   }
 }
 
@@ -82,13 +150,17 @@ function checkTackles(w, rng) {
 export function stepWorld(w, input = null) {
   if (w.status !== 'live') return w;
   const rng = createRng(w.rng);
-  applyInput(w, input);
-  defend(w);
+  applyInput(w, input, rng);
+  moveOffBall(w);
   for (const a of w.agents) stepAgent(a);
-  if (w.carrierId) carryBall(w);
-  else stepBall(w.ball);
-  if (w.carrierId) checkTackles(w, rng);
+  if (w.carrierId) {
+    carryBall(w);
+    checkTackles(w, rng);
+  } else {
+    stepBall(w.ball);
+    controlLooseBall(w, rng);
+  }
   w.rng = rng.state();
-  w.t += 1 / 60;
+  w.t += DT;
   return w;
 }

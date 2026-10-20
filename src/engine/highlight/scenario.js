@@ -54,6 +54,20 @@ export function buildScenario(m, { seed = m.rng, defendersIdle = false } = {}) {
   return w;
 }
 
+// Começa o lance guardando uma cópia para o "voltar o lance".
+export function startHighlight(m, opts) {
+  const w = buildScenario(m, opts);
+  m.highlightStart = structuredClone(w);
+  return w;
+}
+
+// Devolve o lance do começo (1 vez por partida) ou null.
+export function rewindHighlight(m) {
+  if (!m.highlightStart || m.rewindsLeft <= 0) return null;
+  m.rewindsLeft -= 1;
+  return structuredClone(m.highlightStart);
+}
+
 export function outcomeOf(w) {
   if (w.status === 'goal') return 'goal';
   if (w.status === 'saved') return 'saved';
@@ -61,5 +75,6 @@ export function outcomeOf(w) {
 }
 
 export function finishHighlight(m, w) {
+  m.highlightStart = null;
   resolveHighlight(m, { outcome: outcomeOf(w) });
 }

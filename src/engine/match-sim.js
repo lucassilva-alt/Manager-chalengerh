@@ -130,6 +130,8 @@ export function createMatch({ home, away, seed, userSide = null, interactive = f
   return {
     home, away, userSide, interactive,
     pending: null,
+    highlightStart: null,
+    rewindsLeft: 1,
     rng: seed >>> 0,
     phase: 'first',
     minute: 0,

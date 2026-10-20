@@ -204,6 +204,7 @@ export function createHighlightView(container, { world, teams, onShotUi }) {
     cameraTarget: () => ({ x: focus.x, y: focus.z }),
     figureCount: () => figures.size,
     frames: () => frames,
+    stats: () => ({ calls: renderer.info.render.calls, triangles: renderer.info.render.triangles }),
     dispose() {
       cancelAnimationFrame(raf);
       ro.disconnect();

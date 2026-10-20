@@ -20,6 +20,7 @@ function exposeHighlight(view) {
     cameraTarget: view.cameraTarget,
     figureCount: view.figureCount,
     frames: view.frames,
+    stats: view.stats,
   };
 }
 

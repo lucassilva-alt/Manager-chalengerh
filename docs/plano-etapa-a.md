@@ -46,7 +46,7 @@ Referência de mecânica: `docs/referencia.md` (análise dos prints e do vídeo)
 - [x] A8 Chance do time do jogador gera pedido de lance jogável; "simular" resolve sem lance.
 
 ### Lance jogável (motor)
-- [ ] A9 `physics.js`: bola rola e para por atrito; voo com gravidade; efeito curva a trajetória.
+- [x] A9 `physics.js`: bola rola e para por atrito; voo com gravidade; efeito curva a trajetória.
 - [ ] A10 `agents.js`: jogador vai ao alvo com aceleração limitada; corridas tracejadas dos companheiros.
 - [ ] A11 Conduzir: bola presa ao pé dentro do raio de controle; adversário próximo pode desarmar (por atributos).
 - [ ] A12 Passe: tempo de viagem; interceptação se defensor cruza a linha (por atributos).

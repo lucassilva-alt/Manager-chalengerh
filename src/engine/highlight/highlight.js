@@ -3,6 +3,7 @@
 import { createRng } from '../rng.js';
 import { createBall, stepBall, DT } from './physics.js';
 import { createAgent, stepAgent } from './agents.js';
+import { FIELD } from './field.js';
 
 const CONTROL_RADIUS = 6;   // zona de condução (círculo verde)
 const DRIBBLE_STEP = 5;     // quanto um arrasto leva o jogador à frente
@@ -15,6 +16,11 @@ const REACH_HEIGHT = 1.2;
 const KICK_IMMUNITY = 0.3;   // s: quem chutou não domina a própria bola logo em seguida
 const INTERCEPT_BASE = 0.3;  // chance por passo com atributos iguais
 const PASS_MAX_ERROR = (12 * Math.PI) / 180; // erro com passe 0; some com passe 100
+const SHOT_MAX_ERROR = (14 * Math.PI) / 180; // erro com chute 0, força máxima
+const SHOT_SPEED = { min: 12, range: 24 };  // m/s com força 0 e 1
+const SHOT_LIFT = 12;                       // m/s verticais com lift 1
+const SHOT_SPIN = 12;                       // giro com curl 1
+const POST_BOUNCE = 0.6;
 
 const norm = (v) => { const d = Math.hypot(v.x, v.y) || 1; return { x: v.x / d, y: v.y / d }; };
 const dist = (a, b) => Math.hypot(a.x - b.x, a.y - b.y);
@@ -36,6 +42,7 @@ export function createWorld({ agents, carrierId, attackDir = 1, seed = 1, defend
     status: 'live',
     defendersIdle,
     lastKick: null,
+    events: [],
   };
 }
 
@@ -71,6 +78,40 @@ function pass(w, carrier, receiver, rng) {
   kickBall(w, carrier, { x: dir.x * speed, y: dir.y * speed, z: 0 }, 0, { type: 'pass', to: receiver.id, error });
 }
 
+function shoot(w, carrier, { dir, power = 0.7, curl = 0, lift = 0.2 }, rng) {
+  const p = Math.min(1, Math.max(0, power));
+  const maxError = SHOT_MAX_ERROR * (1 - carrier.attrs.shooting / 100) * (0.5 + 0.5 * p);
+  const error = aimError(rng, maxError);
+  const d = rotate(norm(dir), error);
+  const speed = SHOT_SPEED.min + SHOT_SPEED.range * p;
+  const goal = { x: FIELD.halfLength * w.attackDir, y: 0 };
+  kickBall(w, carrier, { x: d.x * speed, y: d.y * speed, z: SHOT_LIFT * Math.min(1, Math.max(0, lift)) },
+    SHOT_SPIN * Math.min(1, Math.max(-1, curl)),
+    { type: 'shot', error, distance: dist(carrier.pos, goal) });
+}
+
+// Bola cruzando a linha de fundo do ataque: gol, trave/travessão ou fora.
+function checkGoalLine(w, prev) {
+  const b = w.ball, lineX = FIELD.halfLength * w.attackDir;
+  const crossed = w.attackDir > 0 ? prev.x < lineX && b.pos.x >= lineX : prev.x > lineX && b.pos.x <= lineX;
+  if (!crossed) {
+    if (Math.abs(b.pos.y) > FIELD.halfWidth) w.status = 'wide';
+    return;
+  }
+  const k = (lineX - prev.x) / (b.pos.x - prev.x);
+  const y = Math.abs(prev.y + (b.pos.y - prev.y) * k), z = prev.z + (b.pos.z - prev.z) * k;
+  const R = FIELD.ballRadius, gw = FIELD.goalHalfWidth, gh = FIELD.goalHeight, post = FIELD.postRadius;
+  const hitsPost = y > gw - R && y < gw + R + post && z < gh + R;
+  const hitsBar = z > gh - R && z < gh + R + post && y < gw + R;
+  if (hitsPost || hitsBar) {
+    w.events.push({ type: hitsPost ? 'post' : 'bar', t: w.t });
+    b.vel.x = -b.vel.x * POST_BOUNCE;
+    b.pos.x = lineX - w.attackDir * R;
+  } else {
+    w.status = y < gw - R && z < gh - R ? 'goal' : 'wide';
+  }
+}
+
 function applyInput(w, input, rng) {
   if (!input || w.status !== 'live') return;
   const carrier = byId(w, w.carrierId);
@@ -82,6 +123,8 @@ function applyInput(w, input, rng) {
   } else if (input.type === 'pass') {
     const receiver = byId(w, input.to);
     if (receiver && receiver !== carrier && receiver.side === carrier.side) pass(w, carrier, receiver, rng);
+  } else if (input.type === 'shoot') {
+    shoot(w, carrier, input, rng);
   }
 }
 
@@ -157,8 +200,10 @@ export function stepWorld(w, input = null) {
     carryBall(w);
     checkTackles(w, rng);
   } else {
+    const prev = { ...w.ball.pos };
     stepBall(w.ball);
-    controlLooseBall(w, rng);
+    checkGoalLine(w, prev);
+    if (w.status === 'live') controlLooseBall(w, rng);
   }
   w.rng = rng.state();
   w.t += DT;

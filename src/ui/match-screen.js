@@ -7,6 +7,7 @@ import { setTactics } from '../engine/match-sim.js';
 import { Crest } from './crest.js';
 import { HighlightStage } from './highlight-stage.js';
 import { describeEvent } from './commentary.js';
+import { portraitSvg } from './portrait.js';
 import { t } from '../i18n/index.js';
 
 const html = htm.bind(h);
@@ -30,6 +31,7 @@ function useFlow(flow) {
 }
 
 const energyLevel = (e) => (e >= 70 ? 'high' : e >= 45 ? 'mid' : 'low');
+const ratingBand = (r) => (r >= 7 ? 'good' : r >= 6 ? 'mid' : 'bad');
 
 function PitchPanel({ match, side }) {
   const team = match[side];
@@ -41,8 +43,9 @@ function PitchPanel({ match, side }) {
         <div class="pitch-line">
           ${team.lineup.filter((p) => positions.includes(p.pos)).map((p) => html`
             <div class="chip">
-              <span class="chip-rating">${match.ratings[p.id].toFixed(1)}</span>
-              <span class="chip-badge" style=${`--kit:${team.colors.shirt}`}>${p.number}</span>
+              <span class=${`chip-rating rating-${ratingBand(match.ratings[p.id])}`}>${match.ratings[p.id].toFixed(1)}</span>
+              <span class="chip-portrait" dangerouslySetInnerHTML=${{ __html: portraitSvg(p.id, team.colors, { keeper: p.pos === 'GOL' }) }}></span>
+              <span class="chip-number" style=${`--kit:${team.colors.shirt}`}>${p.number}</span>
               <span class="chip-name">${p.name}${goals(p.id) ? html` <span aria-label="gols">⚽${goals(p.id) > 1 ? goals(p.id) : ''}</span>` : ''}</span>
               <span class=${`chip-energy ${energyLevel(match.energy[p.id])}`} role="meter" aria-label="energia"
                 aria-valuemin="0" aria-valuemax="100" aria-valuenow=${Math.round(match.energy[p.id])}>
@@ -112,9 +115,9 @@ export function MatchScreen({ flow, onEnd, onHighlightView }) {
   return html`
     <div class="match-screen">
       <header class="scoreboard">
-        <div class="sb-team"><${Crest} team=${m.home} size=${32} /><span>${m.home.name}</span></div>
-        <p class="sb-score" aria-label="placar">${m.score.home} – ${m.score.away}</p>
-        <div class="sb-team away"><span>${m.away.name}</span><${Crest} team=${m.away} size=${32} /></div>
+        <div class="sb-team"><${Crest} team=${m.home} size=${30} /><span class="sb-tag" style=${`background:${m.home.colors.shirt}`}>${m.home.short}</span><span class="sb-name">${m.home.name}</span></div>
+        <p class="sb-score" aria-label="placar">${m.score.home}<span aria-hidden="true">–</span>${m.score.away}</p>
+        <div class="sb-team away"><span class="sb-name">${m.away.name}</span><span class="sb-tag" style=${`background:${m.away.colors.shirt}`}>${m.away.short}</span><${Crest} team=${m.away} size=${30} /></div>
       </header>
 
       <main class="match-body">
@@ -154,6 +157,7 @@ export function MatchScreen({ flow, onEnd, onHighlightView }) {
 
       ${showStage && html`
         <${HighlightStage} world=${flow.world} teams=${{ home: m.home, away: m.away }}
+          scorebug=${{ home: m.home, away: m.away, score: m.score, minute: m.minute }}
           finished=${flow.state === 'highlightResult'}
           onView=${onHighlightView}
           onEnd=${() => flow.endHighlight()}

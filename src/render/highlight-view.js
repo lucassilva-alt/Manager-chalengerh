@@ -10,6 +10,7 @@ import { createFigure, animateFigure } from './figure.js';
 import { createPlayer } from './player-model.js';
 import { createAnimator } from './player-animator.js';
 import { createQualityGovernor, QUALITY } from './quality.js';
+import { disposeScene } from './dispose.js';
 import { createOverlays } from './overlays.js';
 
 const CAMERA_OFFSET = new THREE.Vector3(-22, 28, 14);
@@ -245,6 +246,8 @@ export function createHighlightView(container, { world, teams, onShotUi, asset =
     figureCount: () => figures.size,
     usesModels: () => !!asset,
     quality: () => governor.level,
+    gpuMemory: () => ({ ...renderer.info.memory, contextLost: renderer.getContext().isContextLost() }),
+    debugScene: () => scene,
     animOf: (id) => figures.get(id)?.animator?.clip ?? null,
     kickOf: (id) => figures.get(id)?.animator?.kick ?? 0,
     diveOf: (id) => figures.get(id)?.animator?.dive ?? 0,
@@ -262,7 +265,10 @@ export function createHighlightView(container, { world, teams, onShotUi, asset =
     dispose() {
       cancelAnimationFrame(raf);
       ro.disconnect();
+      disposeScene(scene);
+      renderer.renderLists.dispose();
       renderer.dispose();
+      renderer.forceContextLoss(); // devolve o contexto WebGL já, sem esperar a coleta de lixo
       canvas.remove();
       labelLayer.remove();
     },

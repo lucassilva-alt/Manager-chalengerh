@@ -30,7 +30,7 @@
 - [x] V6 Gols com rede de malha e bandeiras de escanteio
 - [x] V7 Estádio, refletores, placas e torcida
 - [x] V8 Bola com gomos e giro
-- [ ] V9 Interface estilo TV + fontes
+- [x] V9 Interface estilo TV + fontes
 - [x] V10 Retratos dos jogadores por código
 - [x] V11 Orçamento de desempenho (instâncias, sombras, medir)
 

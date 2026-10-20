@@ -13,10 +13,11 @@ import { t } from '../i18n/index.js';
 
 const html = htm.bind(h);
 
-export function HighlightStage({ world, teams, onView, onEnd, onSkip, finished = false, children }) {
+export function HighlightStage({ world, teams, scorebug = null, onView, onEnd, onSkip, finished = false, children }) {
   const host = useRef(null);
   const view = useRef(null);
   const [shotUi, setShotUi] = useState(false);
+  const [awaiting, setAwaiting] = useState(true);
 
   useEffect(() => {
     let v = null, off = null, cancelled = false;
@@ -28,6 +29,7 @@ export function HighlightStage({ world, teams, onView, onEnd, onSkip, finished =
       onView?.(v);
       let ended = false;
       off = v.onFrame((w) => {
+        setAwaiting(w.awaitingInput && w.status === 'live'); // Preact ignora valor igual
         if (!ended && w.status !== 'live') { ended = true; onEnd?.(w); }
       });
     });
@@ -36,7 +38,14 @@ export function HighlightStage({ world, teams, onView, onEnd, onSkip, finished =
 
   return html`
     <div class="stage" ref=${host}>
-      ${!finished && html`
+      ${scorebug && html`
+        <div class="hl-scorebug" aria-label="placar">
+          <span class="sb-tag" style=${`background:${scorebug.home.colors.shirt}`}>${scorebug.home.short}</span>
+          <span class="hl-scorebug-score">${scorebug.score.home}–${scorebug.score.away}</span>
+          <span class="sb-tag" style=${`background:${scorebug.away.colors.shirt}`}>${scorebug.away.short}</span>
+          <span class="hl-scorebug-min">${scorebug.minute}'</span>
+        </div>`}
+      ${!finished && (awaiting || shotUi) && html`
         <p class="hl-hint" aria-live="polite">${shotUi ? t('highlight.swipeHint') : t('highlight.planHint')}</p>`}
       ${!finished && !shotUi && onSkip && html`
         <button type="button" class="btn btn-ghost hl-skip" onClick=${onSkip}>${t('highlight.simulate')}</button>`}

@@ -28,6 +28,8 @@ function exposeHighlight(view) {
     stats: view.stats,
     environment: view.environment,
     quality: view.quality,
+    gpuMemory: view.gpuMemory,
+    debugScene: view.debugScene,
   };
 }
 

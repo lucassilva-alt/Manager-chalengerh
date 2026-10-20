@@ -39,7 +39,7 @@ Referência de mecânica: `docs/referencia.md` (análise dos prints e do vídeo)
 
 ### Simulação em texto
 - [x] A3 `teams.js`: força calculada dos atributos; time mais forte tem ataque maior.
-- [ ] A4 `match-sim` relógio: 90 min + 2 tempos, intervalo, fim de jogo.
+- [x] A4 `match-sim` relógio: 90 min + 2 tempos, intervalo, fim de jogo.
 - [ ] A5 Eventos (chance, falta, escanteio, pênalti, gol) por força; teste: em 1.000 sementes o mais forte vence mais e a média de gols fica entre 2 e 3.5.
 - [ ] A6 Nota ao vivo (começa 6.5, muda por evento) e energia (cai com ritmo de trabalho).
 - [ ] A7 Ritmo e foco alteram chances e energia (teste comparativo).

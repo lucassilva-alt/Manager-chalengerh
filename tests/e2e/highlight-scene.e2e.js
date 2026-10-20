@@ -31,7 +31,9 @@ for (const viewport of [{ width: 844, height: 390 }, { width: 1366, height: 768 
 
     const camBefore = await page.evaluate(() => window.__hl.cameraTarget().x);
     await page.evaluate(() => window.__hl.input({ type: 'dribble', dir: { x: 1, y: 0 }, length: 6 }));
-    await page.waitForFunction(() => window.__hl.world().t > 1.5, null, { timeout: 15000 });
+    // Por vez: a condução anda e o lance volta a pausar quando ela termina.
+    await page.waitForFunction(() => window.__hl.world().t > 0.5 && window.__hl.world().awaitingInput, null, { timeout: 15000 });
+    await page.waitForTimeout(1500); // câmera suaviza até a nova posição
     const camAfter = await page.evaluate(() => window.__hl.cameraTarget().x);
     assert.ok(camAfter > camBefore + 1, `câmera ${camBefore} → ${camAfter}`);
     assert.deepEqual(errors, []);

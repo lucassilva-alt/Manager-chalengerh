@@ -59,9 +59,9 @@ Referência de mecânica: `docs/referencia.md` (análise dos prints e do vídeo)
 ### Render e controles
 - [x] A18 Cena: gramado, linhas, gols, arquibancada simples; câmera isométrica seguindo a bola.
 - [x] A19 Boneco por código com cor do uniforme; animação de corrida e chute.
-- [ ] A20 Gestos: arrastar = conduzir (seta verde), tocar companheiro = passe, tocar adversário = desarme.
-- [ ] A21 Chute: corte para close da bola, deslizar define direção/força/efeito, Cancelar.
-- [ ] A22 Sobreposições: círculo de controle, nomes, linhas tracejadas, marcador na defesa.
+- [x] A20 Gestos: arrastar = conduzir (seta verde), tocar companheiro = passe, tocar adversário = desarme.
+- [x] A21 Chute: corte para close da bola, deslizar define direção/força/efeito, Cancelar.
+- [x] A22 Sobreposições: círculo de controle, nomes, linhas tracejadas, marcador na defesa.
 
 ### Interface da partida
 - [ ] A23 Tela da partida: campo com nota/energia, relógio com acelerar, relato de eventos, ritmo/foco, pausar.

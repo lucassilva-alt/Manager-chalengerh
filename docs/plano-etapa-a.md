@@ -57,8 +57,8 @@ Referência de mecânica: `docs/referencia.md` (análise dos prints e do vídeo)
 - [x] A17 Replay: buffer dos últimos segundos; distância do chute calculada ("27.0 metros").
 
 ### Render e controles
-- [ ] A18 Cena: gramado, linhas, gols, arquibancada simples; câmera isométrica seguindo a bola.
-- [ ] A19 Boneco por código com cor do uniforme; animação de corrida e chute.
+- [x] A18 Cena: gramado, linhas, gols, arquibancada simples; câmera isométrica seguindo a bola.
+- [x] A19 Boneco por código com cor do uniforme; animação de corrida e chute.
 - [ ] A20 Gestos: arrastar = conduzir (seta verde), tocar companheiro = passe, tocar adversário = desarme.
 - [ ] A21 Chute: corte para close da bola, deslizar define direção/força/efeito, Cancelar.
 - [ ] A22 Sobreposições: círculo de controle, nomes, linhas tracejadas, marcador na defesa.

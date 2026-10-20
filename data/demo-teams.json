@@ -1,0 +1,15 @@
+{
+  "_nota": "Times PROVISÓRIOS só para testar a partida. Elencos reais entram na etapa de dados.",
+  "teams": [
+    {
+      "id": "demo-azul", "name": "Demo Azul", "short": "AZU", "formation": "4-4-2",
+      "colors": { "shirt": "#2d5fd3", "shorts": "#ffffff", "socks": "#2d5fd3" },
+      "level": 66
+    },
+    {
+      "id": "demo-vermelho", "name": "Demo Vermelho", "short": "VER", "formation": "4-4-2",
+      "colors": { "shirt": "#d33a2d", "shorts": "#1d2b6b", "socks": "#d33a2d" },
+      "level": 64
+    }
+  ]
+}

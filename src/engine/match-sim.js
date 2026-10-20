@@ -91,23 +91,45 @@ function simulateMinute(m, rng) {
     if (kind === 'corner' || kind === 'freekick') m.events.push({ minute: m.minute, type: kind, side });
     const shooter = pickShooter(rng, m[side], kind);
     const conversion = Math.min(0.9, kind === 'penalty' ? baseConversion : baseConversion * edge);
-    const scored = rng.next() < conversion;
-    const outcome = scored ? 'goal' : rng.next() < 0.5 ? 'saved' : 'wide';
-    m.events.push({ minute: m.minute, type: 'chance', kind, side, playerId: shooter.id, outcome });
-    rateChance(m, side, shooter.id, outcome);
-    if (scored) {
-      m.score[side] += 1;
-      m.events.push({ minute: m.minute, type: 'goal', kind, side, playerId: shooter.id });
-    }
+    const chance = { side, kind, playerId: shooter.id, conversion };
+    // A chance do time do jogador vira lance jogável; o relógio espera a resposta.
+    if (m.interactive && side === m.userSide) m.pending = chance;
+    else applyChance(m, chance, rollOutcome(rng, conversion));
   }
+  if (m.pending) {
+    const { side, kind, playerId } = m.pending;
+    m.events.push({ minute: m.minute, type: 'highlight', side, kind, playerId });
+  }
+}
+
+function rollOutcome(rng, conversion) {
+  if (rng.next() < conversion) return 'goal';
+  return rng.next() < 0.5 ? 'saved' : 'wide';
+}
+
+function applyChance(m, { side, kind, playerId }, outcome) {
+  m.events.push({ minute: m.minute, type: 'chance', kind, side, playerId, outcome });
+  rateChance(m, side, playerId, outcome);
+  if (outcome === 'goal') {
+    m.score[side] += 1;
+    m.events.push({ minute: m.minute, type: 'goal', kind, side, playerId });
+  }
+}
+
+function closeMinute(m) {
+  if (m.minute < HALF_END[m.phase]) return;
+  const ended = m.phase === 'second';
+  m.phase = ended ? 'ended' : 'halftime';
+  m.events.push({ minute: m.minute, type: ended ? 'fulltime' : 'halftime' });
 }
 
 const everyone = (home, away) => [...home.lineup, ...away.lineup];
 
-export function createMatch({ home, away, seed, userSide = null }) {
+export function createMatch({ home, away, seed, userSide = null, interactive = false }) {
   const ids = everyone(home, away).map((p) => p.id);
   return {
-    home, away, userSide,
+    home, away, userSide, interactive,
+    pending: null,
     rng: seed >>> 0,
     phase: 'first',
     minute: 0,
@@ -126,17 +148,31 @@ export function setTactics(m, side, { workRate, focus } = {}) {
 }
 
 export function advanceMinute(m) {
-  if (m.phase !== 'first' && m.phase !== 'second') return;
+  if (m.pending || (m.phase !== 'first' && m.phase !== 'second')) return;
   m.minute += 1;
   const rng = createRng(m.rng);
   simulateMinute(m, rng);
   m.rng = rng.state();
   drainEnergy(m);
-  if (m.minute >= HALF_END[m.phase]) {
-    const ended = m.phase === 'second';
-    m.phase = ended ? 'ended' : 'halftime';
-    m.events.push({ minute: m.minute, type: ended ? 'fulltime' : 'halftime' });
-  }
+  if (!m.pending) closeMinute(m);
+}
+
+// Desfecho do lance jogável (vem do motor do lance ou de simulateHighlight).
+export function resolveHighlight(m, { outcome }) {
+  if (!m.pending) return;
+  const chance = m.pending;
+  m.pending = null;
+  applyChance(m, chance, outcome);
+  closeMinute(m);
+}
+
+// "Simular" o lance: mesma probabilidade da simulação automática.
+export function simulateHighlight(m) {
+  if (!m.pending) return;
+  const rng = createRng(m.rng);
+  const outcome = rollOutcome(rng, m.pending.conversion);
+  m.rng = rng.state();
+  resolveHighlight(m, { outcome });
 }
 
 export function startSecondHalf(m) {

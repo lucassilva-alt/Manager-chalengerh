@@ -43,7 +43,7 @@ Referência de mecânica: `docs/referencia.md` (análise dos prints e do vídeo)
 - [x] A5 Eventos (chance, falta, escanteio, pênalti, gol) por força; teste: em 1.000 sementes o mais forte vence mais e a média de gols fica entre 2 e 3.5.
 - [x] A6 Nota ao vivo (começa 6.5, muda por evento) e energia (cai com ritmo de trabalho).
 - [x] A7 Ritmo e foco alteram chances e energia (teste comparativo).
-- [ ] A8 Chance do time do jogador gera pedido de lance jogável; "simular" resolve sem lance.
+- [x] A8 Chance do time do jogador gera pedido de lance jogável; "simular" resolve sem lance.
 
 ### Lance jogável (motor)
 - [ ] A9 `physics.js`: bola rola e para por atrito; voo com gravidade; efeito curva a trajetória.

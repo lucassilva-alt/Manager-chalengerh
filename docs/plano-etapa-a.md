@@ -47,7 +47,7 @@ Referência de mecânica: `docs/referencia.md` (análise dos prints e do vídeo)
 
 ### Lance jogável (motor)
 - [x] A9 `physics.js`: bola rola e para por atrito; voo com gravidade; efeito curva a trajetória.
-- [ ] A10 `agents.js`: jogador vai ao alvo com aceleração limitada; corridas tracejadas dos companheiros.
+- [x] A10 `agents.js`: jogador vai ao alvo com aceleração limitada; corridas tracejadas dos companheiros.
 - [ ] A11 Conduzir: bola presa ao pé dentro do raio de controle; adversário próximo pode desarmar (por atributos).
 - [ ] A12 Passe: tempo de viagem; interceptação se defensor cruza a linha (por atributos).
 - [ ] A13 Chute: direção + força + efeito do deslize; gol/fora/trave detectados.

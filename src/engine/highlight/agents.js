@@ -10,8 +10,8 @@ const energyFactor = (e) => 0.6 + 0.4 * (e / 100);
 export const maxSpeed = (a) => (5 + (a.attrs.pace / 99) * 4) * energyFactor(a.energy);
 const maxAccel = (a) => (6 + (a.attrs.physical / 99) * 4) * energyFactor(a.energy);
 
-export function createAgent({ id, side, x, y, attrs, energy = 100 }) {
-  return { id, side, attrs, energy, pos: { x, y }, vel: { x: 0, y: 0 }, target: null, path: [] };
+export function createAgent({ id, side, x, y, attrs, energy = 100, role = null }) {
+  return { id, side, role, attrs, energy, pos: { x, y }, vel: { x: 0, y: 0 }, target: null, path: [] };
 }
 
 export function stepAgent(a) {

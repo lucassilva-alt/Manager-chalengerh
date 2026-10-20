@@ -4,6 +4,7 @@ import { createRng } from '../rng.js';
 import { createBall, stepBall, DT } from './physics.js';
 import { createAgent, stepAgent } from './agents.js';
 import { FIELD } from './field.js';
+import { isKeeper, stepKeeper } from './keeper.js';
 
 const CONTROL_RADIUS = 6;   // zona de condução (círculo verde)
 const DRIBBLE_STEP = 5;     // quanto um arrasto leva o jogador à frente
@@ -141,7 +142,7 @@ function moveOffBall(w) {
   const carrier = byId(w, w.carrierId);
   for (const a of w.agents) {
     if (a.side !== w.attackingSide) {
-      if (w.defendersIdle) continue;
+      if (w.defendersIdle || isKeeper(a)) continue;
       a.target = carrier ? { ...carrier.pos } : interceptPoint(w.ball, a.pos);
     } else if (!carrier && w.lastKick?.to === a.id) {
       a.target = interceptPoint(w.ball, a.pos);   // receptor vai ao encontro da bola
@@ -195,7 +196,10 @@ export function stepWorld(w, input = null) {
   const rng = createRng(w.rng);
   applyInput(w, input, rng);
   moveOffBall(w);
-  for (const a of w.agents) stepAgent(a);
+  for (const a of w.agents) {
+    if (isKeeper(a) && a.side !== w.attackingSide && stepKeeper(w, a, rng)) continue;
+    stepAgent(a);
+  }
   if (w.carrierId) {
     carryBall(w);
     checkTackles(w, rng);

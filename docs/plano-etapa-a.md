@@ -51,7 +51,7 @@ Referência de mecânica: `docs/referencia.md` (análise dos prints e do vídeo)
 - [x] A11 Conduzir: bola presa ao pé dentro do raio de controle; adversário próximo pode desarmar (por atributos).
 - [x] A12 Passe: tempo de viagem; interceptação se defensor cruza a linha (por atributos).
 - [x] A13 Chute: direção + força + efeito do deslize; gol/fora/trave detectados.
-- [ ] A14 `keeper.js`: goleiro prevê a bola e mergulha; defende por atributo e distância.
+- [x] A14 `keeper.js`: goleiro prevê a bola e mergulha; defende por atributo e distância.
 - [ ] A15 Desfecho do lance volta para a simulação (gol muda placar).
 - [ ] A16 Voltar o lance: snapshot antes do lance; 1 uso por partida; estado restaurado idêntico.
 - [ ] A17 Replay: buffer dos últimos segundos; distância do chute calculada ("27.0 metros").

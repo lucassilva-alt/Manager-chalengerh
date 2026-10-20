@@ -22,12 +22,13 @@ const SHOT_SPEED = { min: 12, range: 24 };  // m/s com força 0 e 1
 const SHOT_LIFT = 12;                       // m/s verticais com lift 1
 const SHOT_SPIN = 12;                       // giro com curl 1
 const POST_BOUNCE = 0.6;
+const MAX_DURATION = 25;      // s: lance sem desfecho acaba por tempo
 
 const norm = (v) => { const d = Math.hypot(v.x, v.y) || 1; return { x: v.x / d, y: v.y / d }; };
 const dist = (a, b) => Math.hypot(a.x - b.x, a.y - b.y);
 
 export function createWorld({ agents, carrierId, attackDir = 1, seed = 1, defendersIdle = false }) {
-  const list = agents.map(createAgent);
+  const list = agents.map((spec) => ({ ...createAgent(spec), home: { x: spec.x, y: spec.y } }));
   const carrier = list.find((a) => a.id === carrierId);
   const ball = createBall({ x: carrier.pos.x + BALL_OFFSET * attackDir, y: carrier.pos.y });
   return {
@@ -138,15 +139,41 @@ function interceptPoint(ball, p) {
   return { x: ball.pos.x + u.x * along, y: ball.pos.y + u.y * along };
 }
 
+// Defesa por funções: o mais perto pressiona, o segundo fecha o caminho do
+// gol, os outros seguram a posição puxando um pouco para o lado da bola.
+const PRESSERS_ON_LOOSE_BALL = 2;
+const COVER_SHARE = 0.4;
+const BALL_SIDE_PULL = 0.3;
+
+function holdPosition(w, a) {
+  return { x: a.home.x, y: a.home.y + (w.ball.pos.y - a.home.y) * BALL_SIDE_PULL };
+}
+
+function moveDefenders(w, carrier) {
+  const field = w.agents.filter((a) => a.side !== w.attackingSide && !isKeeper(a));
+  const focus = carrier ? carrier.pos : interceptPoint(w.ball, w.ball.pos);
+  const ranked = [...field].sort((a, b) => dist(a.pos, focus) - dist(b.pos, focus));
+  const goal = { x: FIELD.halfLength * w.attackDir, y: 0 };
+  ranked.forEach((a, i) => {
+    if (carrier) {
+      if (i === 0) a.target = { ...carrier.pos };
+      else if (i === 1) a.target = {
+        x: carrier.pos.x + (goal.x - carrier.pos.x) * COVER_SHARE,
+        y: carrier.pos.y + (goal.y - carrier.pos.y) * COVER_SHARE,
+      };
+      else a.target = holdPosition(w, a);
+    } else {
+      a.target = i < PRESSERS_ON_LOOSE_BALL ? interceptPoint(w.ball, a.pos) : holdPosition(w, a);
+    }
+  });
+}
+
 function moveOffBall(w) {
   const carrier = byId(w, w.carrierId);
-  for (const a of w.agents) {
-    if (a.side !== w.attackingSide) {
-      if (w.defendersIdle || isKeeper(a)) continue;
-      a.target = carrier ? { ...carrier.pos } : interceptPoint(w.ball, a.pos);
-    } else if (!carrier && w.lastKick?.to === a.id) {
-      a.target = interceptPoint(w.ball, a.pos);   // receptor vai ao encontro da bola
-    }
+  if (!w.defendersIdle) moveDefenders(w, carrier);
+  if (!carrier) {
+    const receiver = byId(w, w.lastKick?.to);
+    if (receiver) receiver.target = interceptPoint(w.ball, receiver.pos); // vai ao encontro da bola
   }
 }
 
@@ -154,7 +181,10 @@ function controlLooseBall(w, rng) {
   const b = w.ball;
   if (b.pos.z > REACH_HEIGHT) return;
   const kicker = w.lastKick && w.t - w.lastKick.at < KICK_IMMUNITY ? w.lastKick.from : null;
-  const passing = byId(w, w.lastKick?.from)?.attrs.passing ?? 60;
+  const kickerAttrs = byId(w, w.lastKick?.from)?.attrs;
+  const skill = (w.lastKick?.type === 'shot' ? kickerAttrs?.shooting : kickerAttrs?.passing) ?? 60;
+  // Bola rápida é mais difícil de cortar.
+  const speedFactor = Math.min(1, Math.max(0.15, 12 / (Math.hypot(b.vel.x, b.vel.y) || 1)));
   for (const a of w.agents) {
     if (a.id === kicker || dist(a.pos, b.pos) > REACH) continue;
     if (a.side === w.attackingSide) {
@@ -162,7 +192,7 @@ function controlLooseBall(w, rng) {
       w.controlCenter = { ...a.pos };
       return;
     }
-    if (rng.next() < Math.min(0.9, INTERCEPT_BASE * (a.attrs.defending / passing))) {
+    if (rng.next() < Math.min(0.9, INTERCEPT_BASE * (a.attrs.defending / skill) * speedFactor)) {
       w.carrierId = a.id;
       w.status = 'lost';
       return;
@@ -211,5 +241,6 @@ export function stepWorld(w, input = null) {
   }
   w.rng = rng.state();
   w.t += DT;
+  if (w.status === 'live' && w.t >= MAX_DURATION) w.status = 'timeout';
   return w;
 }

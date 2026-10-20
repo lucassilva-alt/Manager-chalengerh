@@ -7,6 +7,8 @@ import { FIELD } from '../engine/highlight/field.js';
 import { classifyGesture, swipeToShot } from '../input/gestures.js';
 import { createPitch } from './pitch.js';
 import { createFigure, animateFigure } from './figure.js';
+import { createPlayer } from './player-model.js';
+import { createAnimator } from './player-animator.js';
 import { createOverlays } from './overlays.js';
 
 const CAMERA_OFFSET = new THREE.Vector3(-22, 28, 14);
@@ -16,8 +18,10 @@ const MAX_STEPS_PER_FRAME = 5;
 const PICK_RADIUS = 1.6;   // m para acertar um jogador com o dedo
 const GOAL_PICK = { fromX: FIELD.halfLength - 3, halfWidth: 9 };
 const SHOT_CAMERA = { back: 2.6, height: 0.7 };
+const DIVE_TILT = 1.25;    // rad: goleiro quase deitado no ar
+const DIVE_LIFT = 0.45;    // m
 
-export function createHighlightView(container, { world, teams, onShotUi }) {
+export function createHighlightView(container, { world, teams, onShotUi, asset = null }) {
   const renderer = new THREE.WebGLRenderer({ antialias: true, powerPreference: 'high-performance' });
   renderer.setPixelRatio(Math.min(2, window.devicePixelRatio || 1));
   renderer.outputColorSpace = THREE.SRGBColorSpace;
@@ -38,15 +42,23 @@ export function createHighlightView(container, { world, teams, onShotUi }) {
   camera.position.copy(focus).add(CAMERA_OFFSET);
   camera.lookAt(focus);
 
-  const names = {};
-  for (const side of ['home', 'away']) for (const p of teams[side].lineup) names[p.id] = p.name;
+  const names = {}, numbers = {};
+  for (const side of ['home', 'away']) for (const p of teams[side].lineup) { names[p.id] = p.name; numbers[p.id] = p.number; }
+  // Bonecos animados quando o modelo carregou; senão, os bonecos simples por código.
   const figures = new Map();
   for (const a of world.agents) {
     const kit = teams[a.side].colors;
-    const fig = createFigure({ ...kit, keeper: a.role === 'GK', skinIndex: Number(a.id.split('-').at(-1)) || 0 });
-    fig.position.set(a.pos.x, 0, a.pos.y);
+    const keeper = a.role === 'GK';
+    let fig;
+    if (asset) {
+      const player = createPlayer(asset, { kit, number: numbers[a.id] ?? 0, keeper, id: a.id });
+      fig = { obj: player.root, animator: createAnimator(player) };
+    } else {
+      fig = { obj: createFigure({ ...kit, keeper, skinIndex: Number(a.id.split('-').at(-1)) || 0 }), animator: null };
+    }
+    fig.obj.position.set(a.pos.x, 0, a.pos.y);
     figures.set(a.id, fig);
-    scene.add(fig);
+    scene.add(fig.obj);
   }
   const ball = new THREE.Mesh(new THREE.SphereGeometry(0.22, 16, 12), new THREE.MeshLambertMaterial({ color: 0xffffff }));
   scene.add(ball);
@@ -161,11 +173,28 @@ export function createHighlightView(container, { world, teams, onShotUi }) {
 
   function draw(dt) {
     for (const a of world.agents) {
-      const fig = figures.get(a.id);
-      fig.position.set(a.pos.x, 0, a.pos.y);
-      fig.visible = !(mode === 'shot' && a.id === world.carrierId); // no close só bola e gol
-      const kicking = world.lastKick?.from === a.id && world.t - world.lastKick.at < 0.25;
-      animateFigure(fig, { vx: a.vel.x, vy: a.vel.y, dt: world.awaitingInput ? 0 : dt, kicking });
+      const { obj, animator } = figures.get(a.id);
+      obj.position.set(a.pos.x, 0, a.pos.y);
+      obj.visible = !(mode === 'shot' && a.id === world.carrierId); // no close só bola e gol
+      if (animator) {
+        // Correndo: olha para onde vai; parado: olha para a bola.
+        const speed = Math.hypot(a.vel.x, a.vel.y);
+        const look = speed > 0.3 && !world.awaitingInput ? a.vel : { x: world.ball.pos.x - a.pos.x, y: world.ball.pos.y - a.pos.y };
+        obj.rotation.y = Math.atan2(look.x, look.y);
+        animator.update(a, world, dt);
+        // Mergulho: deita o corpo para o lado do pulo e tira do chão.
+        const d = animator.dive;
+        if (d > 0 && world.dive?.dir) {
+          const sideOfModelX = -Math.sin(obj.rotation.y) * world.dive.dir; // + = pulo para a direita do goleiro
+          obj.rotation.z = -Math.sign(sideOfModelX) * DIVE_TILT * d;
+          obj.position.y = DIVE_LIFT * Math.sin(d * Math.PI / 2);
+        } else {
+          obj.rotation.z = 0;
+        }
+      } else {
+        const kicking = world.lastKick?.from === a.id && world.t - world.lastKick.at < 0.25;
+        animateFigure(obj, { vx: a.vel.x, vy: a.vel.y, dt: world.awaitingInput ? 0 : dt, kicking });
+      }
     }
     ball.position.set(world.ball.pos.x, world.ball.pos.z + 0.22, world.ball.pos.y);
     placeCamera(dt);
@@ -203,6 +232,10 @@ export function createHighlightView(container, { world, teams, onShotUi }) {
     screenOfPoint: (p) => project(p),
     cameraTarget: () => ({ x: focus.x, y: focus.z }),
     figureCount: () => figures.size,
+    usesModels: () => !!asset,
+    animOf: (id) => figures.get(id)?.animator?.clip ?? null,
+    kickOf: (id) => figures.get(id)?.animator?.kick ?? 0,
+    diveOf: (id) => figures.get(id)?.animator?.dive ?? 0,
     frames: () => frames,
     stats: () => ({ calls: renderer.info.render.calls, triangles: renderer.info.render.triangles }),
     dispose() {

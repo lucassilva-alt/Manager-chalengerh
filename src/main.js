@@ -19,6 +19,10 @@ function exposeHighlight(view) {
     screenOfPoint: view.screenOfPoint,
     cameraTarget: view.cameraTarget,
     figureCount: view.figureCount,
+    usesModels: view.usesModels,
+    animOf: view.animOf,
+    kickOf: view.kickOf,
+    diveOf: view.diveOf,
     frames: view.frames,
     stats: view.stats,
   };

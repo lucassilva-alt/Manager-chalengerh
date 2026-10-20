@@ -4,6 +4,7 @@ import { h } from 'preact';
 import { useEffect, useRef, useState } from 'preact/hooks';
 import htm from 'htm';
 import { createHighlightView } from '../render/highlight-view.js';
+import { loadPlayerAsset } from '../render/player-model.js';
 import { t } from '../i18n/index.js';
 
 const html = htm.bind(h);
@@ -14,14 +15,19 @@ export function HighlightStage({ world, teams, onView, onEnd, onSkip, finished =
   const [shotUi, setShotUi] = useState(false);
 
   useEffect(() => {
-    const v = createHighlightView(host.current, { world, teams, onShotUi: setShotUi });
-    view.current = v;
-    onView?.(v);
-    let ended = false;
-    const off = v.onFrame((w) => {
-      if (!ended && w.status !== 'live') { ended = true; onEnd?.(w); }
+    let v = null, off = null, cancelled = false;
+    // Sem o modelo (ex.: falha de rede) o lance segue com os bonecos simples.
+    loadPlayerAsset().catch(() => null).then((asset) => {
+      if (cancelled) return;
+      v = createHighlightView(host.current, { world, teams, onShotUi: setShotUi, asset });
+      view.current = v;
+      onView?.(v);
+      let ended = false;
+      off = v.onFrame((w) => {
+        if (!ended && w.status !== 'live') { ended = true; onEnd?.(w); }
+      });
     });
-    return () => { off(); v.dispose(); };
+    return () => { cancelled = true; off?.(); v?.dispose(); };
   }, [world]);
 
   return html`

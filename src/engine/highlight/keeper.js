@@ -33,13 +33,14 @@ const shotIncoming = (w) =>
 // Atualiza o goleiro neste passo. Devolve true se ele cuidou do próprio movimento (mergulho).
 export function stepKeeper(w, gk, rng) {
   if (!shotIncoming(w)) { gk.target = keeperPosition(w); return false; }
-  const dive = (w.dive ??= { by: gk.id, tried: false });
+  const dive = (w.dive ??= { by: gk.id, tried: false, dir: 0 });
   const reaction = 0.25 - 0.15 * g(gk);
   if (w.t - w.lastKick.at < reaction) return false;
   // Ponto onde a bola cruza a linha do goleiro (previsão reta, sem o efeito).
   const b = w.ball, k = (gk.pos.x - b.pos.x) / (b.vel.x || 1e-6);
   const aimY = k > 0 ? b.pos.y + b.vel.y * k : b.pos.y;
   const speed = 5 + 3 * g(gk), dy = aimY - gk.pos.y;
+  if (!dive.dir && Math.abs(dy) > 0.3) dive.dir = Math.sign(dy); // lado do pulo, para a tela
   gk.pos.y += Math.sign(dy) * Math.min(Math.abs(dy), speed * DT);
   gk.vel = { x: 0, y: 0 };
   if (!dive.tried) trySave(w, gk, rng, dive);

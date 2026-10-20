@@ -53,3 +53,13 @@ test('goleiro se posiciona entre a bola e o gol e não sai da área', () => {
   assert.ok(gk.pos.y > 0, 'goleiro anda para o lado da bola');
   assert.ok(GOAL_X - gk.pos.x <= 16.5 && Math.abs(gk.pos.y) <= 20.16, 'dentro da área');
 });
+
+test('mergulho registra o lado do pulo (para a tela inclinar o goleiro)', () => {
+  for (const [y, side] of [[3, 1], [-3, -1]]) {
+    const w = settle(scene({ goalkeeping: 70, seed: 2 }));
+    const s = w.agents[0];
+    stepWorld(w, { type: 'shoot', dir: { x: GOAL_X - s.pos.x, y: y - s.pos.y }, power: 0.7, lift: 0.1 });
+    for (let i = 0; i < 30 && w.status === 'live'; i++) stepWorld(w);
+    assert.equal(w.dive?.dir, side, `chute em y=${y}`);
+  }
+});

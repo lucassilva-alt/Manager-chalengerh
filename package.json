@@ -5,7 +5,7 @@
   "type": "module",
   "description": "Jogo de gestão de futebol com lances jogáveis — web, offline, sem build.",
   "scripts": {
-    "test": "node --test \"tests/engine/**/*.test.js\"",
+    "test": "node --test \"tests/engine/**/*.test.js\" \"tests/unit/**/*.test.js\"",
     "test:e2e": "node --test --test-concurrency=1 \"tests/e2e/*.e2e.js\"",
     "serve": "node tests/e2e/server.js"
   },

@@ -66,7 +66,7 @@ test('gravar o mesmo instante duas vezes não duplica quadro', () => {
 
 test('gravador guarda só os últimos segundos, em ordem', () => {
   const m = pendingMatch(6);
-  const w = startHighlight(m, { seed: 1, defendersIdle: true });
+  const w = startHighlight(m, { seed: 1, defendersIdle: true, turnBased: false });
   const rec = createRecorder({ seconds: 2 });
   for (let i = 0; i < 60 * 5; i++) { stepWorld(w); rec.record(w); }
   const frames = rec.frames();

@@ -32,7 +32,7 @@ function toAgent(m, side, slot) {
   };
 }
 
-export function buildScenario(m, { seed = m.rng, defendersIdle = false } = {}) {
+export function buildScenario(m, { seed = m.rng, defendersIdle = false, turnBased = true } = {}) {
   const { side, playerId } = m.pending;
   const attackers = slots(m[side].lineup, ATTACK_X).map((s) => {
     if (s.player.id === playerId) return { ...s, ...CARRIER_START };
@@ -43,7 +43,7 @@ export function buildScenario(m, { seed = m.rng, defendersIdle = false } = {}) {
     ...attackers.map((s) => toAgent(m, side, s)),
     ...defenders.map((s) => toAgent(m, other(side), s)),
   ];
-  const w = createWorld({ agents, carrierId: playerId, attackDir: 1, seed, defendersIdle });
+  const w = createWorld({ agents, carrierId: playerId, attackDir: 1, seed, defendersIdle, turnBased });
   // Corridas dos companheiros (linhas tracejadas na tela).
   for (const s of attackers) {
     const run = RUN_TO[s.player.pos];

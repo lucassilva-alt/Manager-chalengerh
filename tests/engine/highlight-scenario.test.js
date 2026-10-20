@@ -63,7 +63,7 @@ test('perder a bola ou esgotar o tempo não vale gol', () => {
 
 test('lance sem ação acaba por tempo esgotado', () => {
   const m = pendingMatch(6);
-  const w = buildScenario(m, { seed: 1, defendersIdle: true });
+  const w = buildScenario(m, { seed: 1, defendersIdle: true, turnBased: false });
   for (let i = 0; i < 60 * 40 && w.status === 'live'; i++) stepWorld(w);
   assert.equal(w.status, 'timeout');
 });

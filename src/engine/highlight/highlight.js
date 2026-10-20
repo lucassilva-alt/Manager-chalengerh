@@ -23,11 +23,12 @@ const SHOT_LIFT = 12;                       // m/s verticais com lift 1
 const SHOT_SPIN = 12;                       // giro com curl 1
 const POST_BOUNCE = 0.6;
 const MAX_DURATION = 25;      // s: lance sem desfecho acaba por tempo
+const DRIBBLE_DONE = 0.4;     // m do ponto de condução para devolver a vez ao jogador
 
 const norm = (v) => { const d = Math.hypot(v.x, v.y) || 1; return { x: v.x / d, y: v.y / d }; };
 const dist = (a, b) => Math.hypot(a.x - b.x, a.y - b.y);
 
-export function createWorld({ agents, carrierId, attackDir = 1, seed = 1, defendersIdle = false }) {
+export function createWorld({ agents, carrierId, attackDir = 1, seed = 1, defendersIdle = false, turnBased = true }) {
   const list = agents.map((spec) => ({ ...createAgent(spec), home: { x: spec.x, y: spec.y } }));
   const carrier = list.find((a) => a.id === carrierId);
   const ball = createBall({ x: carrier.pos.x + BALL_OFFSET * attackDir, y: carrier.pos.y });
@@ -43,6 +44,9 @@ export function createWorld({ agents, carrierId, attackDir = 1, seed = 1, defend
     controlRadius: CONTROL_RADIUS,
     status: 'live',
     defendersIdle,
+    turnBased,
+    // Por vez: o tempo só anda depois de um comando e para quando a jogada se completa.
+    awaitingInput: turnBased,
     lastKick: null,
     events: [],
   };
@@ -114,20 +118,33 @@ function checkGoalLine(w, prev) {
   }
 }
 
+// Aplica o comando; devolve true se ele virou jogada.
 function applyInput(w, input, rng) {
-  if (!input || w.status !== 'live') return;
+  if (!input || w.status !== 'live') return false;
   const carrier = byId(w, w.carrierId);
-  if (!carrier || carrier.side !== w.attackingSide) return;
+  if (!carrier || carrier.side !== w.attackingSide) return false;
   if (input.type === 'dribble') {
     const d = norm(input.dir), len = input.length ?? DRIBBLE_STEP;
     carrier.path = [];
     carrier.target = clampToControl(w, { x: carrier.pos.x + d.x * len, y: carrier.pos.y + d.y * len });
-  } else if (input.type === 'pass') {
-    const receiver = byId(w, input.to);
-    if (receiver && receiver !== carrier && receiver.side === carrier.side) pass(w, carrier, receiver, rng);
-  } else if (input.type === 'shoot') {
-    shoot(w, carrier, input, rng);
+    return true;
   }
+  if (input.type === 'pass') {
+    const receiver = byId(w, input.to);
+    if (!receiver || receiver === carrier || receiver.side !== carrier.side) return false;
+    pass(w, carrier, receiver, rng);
+    return true;
+  }
+  if (input.type === 'shoot') {
+    shoot(w, carrier, input, rng);
+    return true;
+  }
+  return false;
+}
+
+function dribbleDone(w) {
+  const c = byId(w, w.carrierId);
+  return c && c.side === w.attackingSide && (!c.target || dist(c.pos, c.target) < DRIBBLE_DONE);
 }
 
 // Ponto da trajetória da bola mais perto de `p` (só para frente da bola).
@@ -190,6 +207,8 @@ function controlLooseBall(w, rng) {
     if (a.side === w.attackingSide) {
       w.carrierId = a.id;
       w.controlCenter = { ...a.pos };
+      a.target = null;
+      if (w.turnBased) w.awaitingInput = true; // dominou: vez do jogador
       return;
     }
     if (rng.next() < Math.min(0.9, INTERCEPT_BASE * (a.attrs.defending / skill) * speedFactor)) {
@@ -224,7 +243,8 @@ function checkTackles(w, rng) {
 export function stepWorld(w, input = null) {
   if (w.status !== 'live') return w;
   const rng = createRng(w.rng);
-  applyInput(w, input, rng);
+  if (applyInput(w, input, rng)) w.awaitingInput = false;
+  if (w.awaitingInput) { w.rng = rng.state(); return w; }
   moveOffBall(w);
   for (const a of w.agents) {
     if (isKeeper(a) && a.side !== w.attackingSide && stepKeeper(w, a, rng)) continue;
@@ -242,5 +262,6 @@ export function stepWorld(w, input = null) {
   w.rng = rng.state();
   w.t += DT;
   if (w.status === 'live' && w.t >= MAX_DURATION) w.status = 'timeout';
+  if (w.turnBased && w.status === 'live' && w.carrierId && dribbleDone(w)) w.awaitingInput = true;
   return w;
 }

@@ -71,4 +71,4 @@ Referência de mecânica: `docs/referencia.md` (análise dos prints e do vídeo)
 ### Verificação da etapa
 - [x] A26 E2E Playwright (390×844 e 1366×768): jogar uma partida inteira com lance roteirizado, zero erros no console.
 - [x] A27 Medir FPS no lance com 22 bonecos em tela de celular (meta 60; registrar o medido).
-- [ ] A28 Relatório da etapa com evidências (saída dos testes, FPS, prints).
+- [x] A28 Relatório da etapa com evidências (saída dos testes, FPS, prints).

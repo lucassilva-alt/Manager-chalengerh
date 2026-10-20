@@ -34,7 +34,7 @@ Referência de mecânica: `docs/referencia.md` (análise dos prints e do vídeo)
 ## Tarefas (cada uma: teste que falha → mínimo → refatorar → commit)
 
 ### Base
-- [ ] A1 Casca: `index.html` com import map + `vendor/` fixado; teste: página abre sem erro no console (Playwright).
+- [x] A1 Casca: `index.html` com import map + `vendor/` fixado; teste: página abre sem erro no console (Playwright).
 - [ ] A2 `rng.js`: mesma semente → mesma sequência; sementes diferentes → sequências diferentes.
 
 ### Simulação em texto

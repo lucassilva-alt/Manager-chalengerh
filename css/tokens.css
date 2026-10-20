@@ -1,0 +1,16 @@
+/* Tokens de cor e tipografia — componentes usam só estas variáveis. */
+:root {
+  --bg: #0f1a14;
+  --surface: #17251d;
+  --surface-2: #203329;
+  --text: #eef4ef;
+  --text-muted: #a9bcb0;
+  --accent: #f2b33d;
+  --success: #3fbf6f;
+  --danger: #e5484d;
+  --pitch: #3d8b3d;
+  --font: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  --space: 4px;
+  --radius: 8px;
+  --touch: 44px;
+}

@@ -43,6 +43,10 @@ async function devHighlight() {
 
 if (params.get('dev') === 'highlight') {
   devHighlight();
+} else if (params.get('dev') === 'kit') {
+  const stage = document.getElementById('app');
+  stage.classList.add('stage');
+  import('./dev/kit.js').then(({ devKit }) => devKit(stage));
 } else {
   render(html`<${App} seed=${seedParam} onHighlightView=${exposeHighlight} />`, document.getElementById('app'));
 }

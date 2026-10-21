@@ -58,3 +58,12 @@ test('formação pesa: 4-3-3 ataca mais que 5-3-2; 5-3-2 defende mais', () => {
   assert.ok(s433.attack > s532.attack, `ataque 433 ${s433.attack} x 532 ${s532.attack}`);
   assert.ok(s532.defense > s433.defense, `defesa 532 ${s532.defense} x 433 ${s433.defense}`);
 });
+
+test('posição genérica da fonte (DF/MF) joga sem punição nas vagas que ela cobre', () => {
+  const broad = ['GK', 'DF', 'DF', 'DF', 'DF', 'MF', 'MF', 'MF', 'MF', 'FW', 'FW', 'DF', 'MF', 'FW']
+    .map((pos, i) => createSquadPlayer({ name: `G${i}`, pos, age: 26, number: i + 1 }, { clubId: 'g', level: 68 }));
+  const xi = pickLineup(broad, '4-4-2');
+  assert.equal(xi.length, 11);
+  assert.ok(xi.every((p) => p.fit === 1), xi.map((p) => `${p.natural}->${p.pos}:${p.fit}`).join(' '));
+  assert.deepEqual(broad[1].roles, ['ZAG', 'LAT']);
+});

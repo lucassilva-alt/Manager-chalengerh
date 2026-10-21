@@ -2,7 +2,7 @@
 // restaurar, voltar o lance); o sorteio vive em `rng` como número.
 import { createRng } from './rng.js';
 import { teamStrength } from './teams.js';
-import { positionFit } from './formations.js';
+import { fitFor } from './formations.js';
 
 const HALF_END = { first: 45, second: 90 };
 const SIDES = ['home', 'away'];
@@ -125,7 +125,7 @@ export function substitute(m, side, outId, inId) {
   if (newStop) s.stops.push(stop);
   s.count += 1;
   const natural = inc.natural ?? inc.pos;
-  const placed = { ...inc, pos: out.pos, natural, fit: positionFit(natural, out.pos) };
+  const placed = { ...inc, pos: out.pos, natural, fit: fitFor(inc, out.pos) };
   m[side] = {
     ...team,
     lineup: team.lineup.map((p) => (p.id === outId ? placed : p)),
@@ -153,7 +153,7 @@ function aiSubstitutions(m, side) {
   for (const out of [...injured, ...tired]) {
     const options = m[side].bench.filter((p) => (p.pos === 'GOL') === (out.pos === 'GOL'));
     if (!options.length) continue;
-    const best = options.reduce((a, b) => (positionFit(b.natural ?? b.pos, out.pos) > positionFit(a.natural ?? a.pos, out.pos) ? b : a));
+    const best = options.reduce((a, b) => (fitFor(b, out.pos) > fitFor(a, out.pos) ? b : a));
     if (!substitute(m, side, out.id, best.id)) return;
   }
 }

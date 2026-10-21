@@ -77,6 +77,9 @@ const POSITION_WORDS = [
   [/^(fw|st|cf|lw|rw|ata|atacante|centroavante|ponta.*|forward|winger|striker)$/, 'ATA'],
 ];
 
+// Fonte que só diz GK/DF/MF/FW: o jogador cobre as vagas daquela faixa sem punição.
+const BROAD_ROLES = { df: ['ZAG', 'LAT'], mf: ['VOL', 'MEI'] };
+
 export function mapPosition(raw) {
   const s = String(raw).trim().toLowerCase();
   return POSITION_WORDS.find(([re]) => re.test(s))?.[1] ?? null;
@@ -85,6 +88,7 @@ export function mapPosition(raw) {
 // Perfil real (nome, posição, idade, número, nacionalidade, qualidade opcional) → jogador do jogo.
 export function createSquadPlayer(profile, { clubId, level }) {
   const pos = mapPosition(profile.pos) ?? profile.pos;
+  const roles = BROAD_ROLES[String(profile.pos).trim().toLowerCase()] ?? [pos];
   const id = `${clubId}-${profile.number ?? profile.name.toLowerCase().replace(/[^a-z0-9]+/g, '-')}`;
   const rng = createRng(hash(`${id}:club`));
   const quality = profile.quality ?? level + rng.int(-CLUB_SPREAD, CLUB_SPREAD);
@@ -96,7 +100,7 @@ export function createSquadPlayer(profile, { clubId, level }) {
     if (!traits.includes(t)) traits.push(t);
   }
   return {
-    id, name: profile.name, number: profile.number ?? null, pos, age: profile.age ?? null,
+    id, name: profile.name, number: profile.number ?? null, pos, roles, age: profile.age ?? null,
     nationality: profile.nationality ?? null,
     attrs, potential, traits,
     morale: 70, form: [], fitness: 100, injury: null,

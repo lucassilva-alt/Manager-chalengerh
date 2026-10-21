@@ -34,6 +34,11 @@ export function positionFit(natural, slot) {
   return NEIGHBORS[natural].includes(slot) ? 0.88 : 0.72;
 }
 
+// Rendimento deste jogador nesta vaga (posições que ele cobre contam como naturais).
+export function fitFor(player, slot) {
+  return player.roles?.includes(slot) ? 1 : positionFit(player.natural ?? player.pos, slot);
+}
+
 // Melhor XI para a formação: primeiro cada vaga com quem é da posição (maior nota
 // primeiro); vagas que sobram, com o melhor improvisado.
 export function pickLineup(squad, formation) {
@@ -42,13 +47,13 @@ export function pickLineup(squad, formation) {
   const taken = new Array(slots.length).fill(null);
   const use = (i, entry) => { taken[i] = entry.p; free.splice(free.indexOf(entry), 1); };
   slots.forEach((s, i) => {
-    const natural = free.find((e) => e.p.pos === s.pos);
+    const natural = free.find((e) => fitFor(e.p, s.pos) === 1);
     if (natural) use(i, natural);
   });
   slots.forEach((s, i) => {
     if (taken[i] || !free.length) return;
-    const best = free.reduce((a, b) => (b.rating * positionFit(b.p.pos, s.pos) > a.rating * positionFit(a.p.pos, s.pos) ? b : a));
+    const best = free.reduce((a, b) => (b.rating * fitFor(b.p, s.pos) > a.rating * fitFor(a.p, s.pos) ? b : a));
     use(i, best);
   });
-  return taken.filter(Boolean).map((p, i) => ({ ...p, natural: p.pos, pos: slots[i].pos, fit: positionFit(p.pos, slots[i].pos), slot: i }));
+  return taken.map((p, i) => p && { ...p, natural: p.natural ?? p.pos, pos: slots[i].pos, fit: fitFor(p, slots[i].pos), slot: i }).filter(Boolean);
 }

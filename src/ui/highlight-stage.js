@@ -16,6 +16,8 @@ const html = htm.bind(h);
 function hintFor(world, shotUi) {
   if (world.mode === 'penalty') return t('highlight.penaltyHint');
   if (world.mode === 'penaltyDefense') return t('highlight.penaltyDefenseHint');
+  if (world.mode === 'freekick') return t('highlight.freekickHint');
+  if (world.mode === 'freekickDefense') return t('highlight.freekickDefenseHint');
   if (shotUi) return t('highlight.swipeHint');
   return world.mode === 'defense' ? t('highlight.defenseHint') : t('highlight.planHint');
 }
@@ -25,6 +27,7 @@ export function HighlightStage({ world, teams, scorebug = null, onView, onEnd, o
   const view = useRef(null);
   const [shotUi, setShotUi] = useState(false);
   const [awaiting, setAwaiting] = useState(true);
+  const setPiece = world.mode === 'penalty' || world.mode === 'freekick';
 
   useEffect(() => {
     let v = null, off = null, cancelled = false;
@@ -59,11 +62,16 @@ export function HighlightStage({ world, teams, scorebug = null, onView, onEnd, o
           ${[[-1, 'diveLeft'], [0, 'diveCenter'], [1, 'diveRight']].map(([dir, key]) => html`
             <button type="button" class="btn btn-ghost" onClick=${() => view.current?.input({ type: 'go', dive: dir })}>${t(`highlight.${key}`)}</button>`)}
         </div>`}
+      ${!finished && awaiting && world.mode === 'freekickDefense' && html`
+        <div class="hl-dive" role="group" aria-label=${t('highlight.wallGroup')}>
+          ${[3, 4, 5].map((n) => html`
+            <button type="button" class="btn btn-ghost" onClick=${() => view.current?.input({ type: 'go', wall: n })}>${t('highlight.wallSize', { n })}</button>`)}
+        </div>`}
       ${!finished && awaiting && world.mode === 'defense' && html`
         <button type="button" class="btn btn-primary hl-go" onClick=${() => view.current?.input({ type: 'go' })}>${t('highlight.start')}</button>`}
-      ${!finished && !shotUi && !world.penalty && onSkip && html`
+      ${!finished && !shotUi && !setPiece && onSkip && html`
         <button type="button" class="btn btn-ghost hl-skip" onClick=${onSkip}>${t('highlight.simulate')}</button>`}
-      ${shotUi && !world.penalty && html`
+      ${shotUi && !setPiece && html`
         <button type="button" class="btn btn-danger hl-cancel" onClick=${() => view.current?.cancelShot()}>
           ${t('common.cancel')}
         </button>`}

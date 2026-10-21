@@ -151,6 +151,7 @@ export function createHighlightView(container, { world, teams, onShotUi, asset =
   canvas.addEventListener('pointercancel', () => { gesture = null; drag = null; });
 
   let shotAnchor = null;
+  const setPiece = world.mode === 'penalty' || world.mode === 'freekick';
   function setMode(next) {
     mode = next;
     // Close do chute com âncora fixa: a câmera não corre atrás da bola.
@@ -161,7 +162,7 @@ export function createHighlightView(container, { world, teams, onShotUi, asset =
     onShotUi?.(next === 'shot');
   }
   function shootFromSwipe(points) {
-    const s = swipeToShot(points, { width: rect().width, height: rect().height });
+    const s = swipeToShot(points, { width: rect().width, height: rect().height }, { freekick: world.mode === 'freekick' });
     if (!s) return;
     const carrier = world.agents.find((a) => a.id === world.carrierId);
     const aimY = s.aim * (FIELD.goalHalfWidth + 0.5);
@@ -169,7 +170,7 @@ export function createHighlightView(container, { world, teams, onShotUi, asset =
       type: 'shoot', dir: { x: FIELD.halfLength - carrier.pos.x, y: aimY - carrier.pos.y },
       power: s.power, lift: s.lift, curl: s.curl,
     };
-    if (!world.penalty) setMode('play'); // no pênalti a câmera fica atrás da marca
+    if (!setPiece) setMode('play'); // na bola parada a câmera fica atrás da bola
     else shotTaken = true;
   }
 
@@ -251,7 +252,7 @@ export function createHighlightView(container, { world, teams, onShotUi, asset =
     raf = requestAnimationFrame(frame);
   }
   raf = requestAnimationFrame(frame);
-  if (world.penalty) setMode('shot'); // pênalti começa no close da bola
+  if (setPiece) setMode('shot'); // pênalti e falta começam no close da bola
 
   return {
     world: () => world,

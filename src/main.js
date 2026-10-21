@@ -55,6 +55,11 @@ async function devHighlight() {
     const side = defense ? 'away' : 'home';
     m.pending = { side, kind: 'penalty', playerId: m[side].lineup.find((p) => p.pos === 'ATA').id, conversion: 0.76 };
   }
+  // ?freekick=1 transforma o lance em falta (a favor; com defense=1, contra).
+  if (params.get('freekick') === '1' && m.pending) {
+    const side = defense ? 'away' : 'home';
+    m.pending = { side, kind: 'freekick', playerId: m[side].lineup.find((p) => p.pos === 'MEI').id, conversion: 0.09 };
+  }
   const world = startHighlight(m, { seed });
   render(html`<${HighlightStage} world=${world} teams=${{ home, away }} onView=${exposeHighlight} />`, document.getElementById('app'));
 }

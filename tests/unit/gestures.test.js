@@ -64,6 +64,14 @@ test('deslize em curva gera efeito para o lado da curva', () => {
   assert.ok(right.curl > 0 && left.curl < 0);
 });
 
+test('falta: bola sobe o bastante para passar a barreira só com força média', () => {
+  const fk = (y) => swipeToShot(swipe([[400, 380], [400, y]]), screen, { freekick: true });
+  const weak = fk(340), mid = fk(260), strong = fk(100);
+  assert.ok(weak.lift < 0.65, `fraco ${weak.lift}`);              // bate na barreira
+  assert.ok(mid.lift >= 0.68 && mid.lift <= 0.76, `médio ${mid.lift}`); // por cima e cai
+  assert.ok(strong.lift > 0.8, `forte ${strong.lift}`);            // por cima do gol
+});
+
 test('deslize curto demais ou para baixo cancela', () => {
   assert.equal(swipeToShot(swipe([[400, 380], [402, 370]]), screen), null);
   assert.equal(swipeToShot(swipe([[400, 200], [400, 380]]), screen), null);

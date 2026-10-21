@@ -23,7 +23,8 @@ export function classifyGesture({ start, end, duration, startHit, endHit, goalHi
 
 // Deslize na tela do chute (pixels; y da tela cresce para baixo).
 // aim: -1 (esquerda) a 1 (direita); curl: lado para onde a curva do dedo puxou.
-export function swipeToShot(points, { width, height }) {
+// Na falta a bola sobe mais: fraco bate na barreira, forte vai por cima do gol.
+export function swipeToShot(points, { width, height }, { freekick = false } = {}) {
   if (points.length < 2) return null;
   const a = points[0], b = points.at(-1);
   const dx = b.x - a.x, up = a.y - b.y, chord = Math.hypot(dx, up);
@@ -38,7 +39,7 @@ export function swipeToShot(points, { width, height }) {
     power,
     aim: clamp(dx / (0.35 * width), -1, 1),
     curl: Math.abs(dev) < 0.04 * chord ? 0 : clamp(dev / (0.25 * chord), -1, 1),
-    lift: 0.1 + 0.2 * power,
+    lift: freekick ? 0.55 + 0.3 * power : 0.1 + 0.2 * power,
   };
 }
 

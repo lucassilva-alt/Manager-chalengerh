@@ -51,3 +51,11 @@
 - [ ] B7 Entrevista pós-jogo (moral, torcida, diretoria)
 
 Cada tarefa: teste que falha → mínimo → refatorar → commit. Toda tarefa visual fecha com print em celular e notebook para comparação.
+
+### E — Clubes reais e escudos (pedido do usuário)
+- [ ] E1 Escudos: SVGs brasileiros de JoseArroyave/football-logos (MIT) copiados em `assets/crests/`, limpos (sem script/eventos), com fallback para o escudo desenhado
+- [ ] E2 Cadastro de clubes reais (nome, sigla, cores, escudo, estádio, capacidade) com fonte por clube
+- [ ] E3 Elencos reais com fonte por clube (sem inventar jogador)
+
+### NSM — Funcionalidades de gestão (após L e B)
+Lista viva: o que aparece no material enviado (prints/vídeo) vira especificação; o que não aparece segue o prompt do projeto.

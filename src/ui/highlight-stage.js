@@ -30,6 +30,8 @@ export function HighlightStage({ world, teams, scorebug = null, onView, onEnd, o
   const [shotUi, setShotUi] = useState(false);
   const [awaiting, setAwaiting] = useState(true);
   const [flight, setFlight] = useState(false); // escanteio: bola no ar, hora de cabecear
+  const [ended, setEnded] = useState(false);
+  const [replaying, setReplaying] = useState(false);
   const setPiece = world.mode === 'penalty' || world.mode === 'freekick';
 
   useEffect(() => {
@@ -44,6 +46,8 @@ export function HighlightStage({ world, teams, scorebug = null, onView, onEnd, o
       off = v.onFrame((w) => {
         setAwaiting(w.awaitingInput && w.status === 'live'); // Preact ignora valor igual
         setFlight(w.status === 'live' && w.corner?.phase === 'flight' && w.corner.pressAt === null);
+        setEnded(w.status !== 'live');
+        setReplaying(v.replaying());
         if (!ended && w.status !== 'live') { ended = true; onEnd?.(w); }
       });
     });
@@ -59,7 +63,7 @@ export function HighlightStage({ world, teams, scorebug = null, onView, onEnd, o
           <span class="sb-tag" style=${`background:${scorebug.away.colors.shirt}`}>${scorebug.away.short}</span>
           <span class="hl-scorebug-min">${scorebug.minute}'</span>
         </div>`}
-      ${!finished && (awaiting || shotUi || flight) && html`
+      ${!finished && !ended && (awaiting || shotUi || flight) && html`
         <p class="hl-hint" aria-live="polite">${hintFor(world, shotUi)}</p>`}
       ${!finished && awaiting && world.mode === 'penaltyDefense' && html`
         <div class="hl-dive" role="group" aria-label=${t('highlight.diveGroup')}>
@@ -88,6 +92,11 @@ export function HighlightStage({ world, teams, scorebug = null, onView, onEnd, o
         <button type="button" class="btn btn-danger hl-cancel" onClick=${() => view.current?.cancelShot()}>
           ${t('common.cancel')}
         </button>`}
-      ${children}
+      ${ended && !replaying && html`
+        <button type="button" class="btn btn-ghost hl-replay-btn" onClick=${() => { view.current?.replay(); setReplaying(true); }}>${t('highlight.replay')}</button>`}
+      ${replaying && html`
+        <span class="hl-replay-badge" aria-live="polite">${t('highlight.replayBadge')}</span>
+        <button type="button" class="btn btn-ghost hl-replay-btn" onClick=${() => { view.current?.skipReplay(); setReplaying(false); }}>${t('highlight.skipReplay')}</button>`}
+      ${!replaying && children}
     </div>`;
 }

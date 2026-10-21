@@ -3,6 +3,7 @@
 import * as THREE from 'three';
 import { stepWorld } from '../engine/highlight/highlight.js';
 import { DT } from '../engine/highlight/physics.js';
+import { createRecorder, frameAt } from '../engine/highlight/replay.js';
 import { FIELD } from '../engine/highlight/field.js';
 import { classifyGesture, classifyDefenseGesture, swipeToShot } from '../input/gestures.js';
 import { createEnvironment } from './env/index.js';
@@ -23,6 +24,9 @@ const GOAL_PICK = { fromX: FIELD.halfLength - 3, halfWidth: 9 };
 const SHOT_CAMERA = { back: 2.6, height: 0.7 };
 const DIVE_TILT = 1.25;    // rad: goleiro quase deitado no ar
 const DIVE_LIFT = 0.45;    // m
+// Replay: TV em câmera lenta no lance todo, depois atrás do gol nos últimos segundos.
+const REPLAY = { tvSpeed: 0.5, goalSpeed: 0.35, goalSeconds: 3, tvZoom: 0.65 };
+const GOAL_CAMERA = { back: 7, height: 2.2 };
 
 export function createHighlightView(container, { world, teams, onShotUi, asset = null, quality = null }) {
   const renderer = new THREE.WebGLRenderer({ antialias: true, powerPreference: 'high-performance' });
@@ -50,7 +54,8 @@ export function createHighlightView(container, { world, teams, onShotUi, asset =
   };
   const governor = createQualityGovernor({ fixed: quality, onChange: applyQuality });
 
-  const camera = new THREE.PerspectiveCamera(38, 1, 0.1, 400);
+  // Alcance cobre o céu (raio 380 m) mesmo com a câmera atrás do gol.
+  const camera = new THREE.PerspectiveCamera(38, 1, 0.1, 800);
   const start = world.corner ? CORNER_FOCUS(world.corner.side) : { x: world.ball.pos.x + LOOK_AHEAD, y: world.ball.pos.y };
   const focus = new THREE.Vector3(start.x, 0, start.y);
   camera.position.copy(focus).add(CAMERA_OFFSET);
@@ -79,6 +84,9 @@ export function createHighlightView(container, { world, teams, onShotUi, asset =
   let pending = null, acc = 0, last = performance.now(), raf = 0, frames = 0;
   let mode = 'play', drag = null, gesture = null, netShaken = false, shotTaken = false;
   const listeners = new Set();
+  const tape = createRecorder();
+  tape.record(world);
+  let replay = null; // { angle, t, end, frames }
 
   // ---- projeções ----
   const rect = () => renderer.domElement.getBoundingClientRect();
@@ -194,7 +202,8 @@ export function createHighlightView(container, { world, teams, onShotUi, asset =
   ro.observe(container);
   applyQuality(governor.level);
 
-  function placeCamera(dt) {
+  function placeCamera(dt, w = world) {
+    if (mode === 'replay') return placeReplayCamera(dt, w);
     if (mode === 'shot') {
       // Close da bola, de frente para o gol.
       const b = shotAnchor ?? world.ball.pos, goal = new THREE.Vector3(FIELD.halfLength, 1, 0);
@@ -210,35 +219,91 @@ export function createHighlightView(container, { world, teams, onShotUi, asset =
     camera.lookAt(focus);
   }
 
-  function draw(dt) {
-    for (const a of world.agents) {
+  function placeReplayCamera(dt, w) {
+    const b = w.ball.pos;
+    if (replay.angle === 'goal') {
+      // Atrás do gol, olhando a bola vir.
+      const goalX = FIELD.halfLength * w.attackDir;
+      camera.position.set(goalX + w.attackDir * GOAL_CAMERA.back, GOAL_CAMERA.height, b.y * 0.3);
+      camera.lookAt(b.x, Math.max(0.5, b.z), b.y);
+      return;
+    }
+    focus.lerp(new THREE.Vector3(b.x, 0, b.y), Math.min(1, dt * CAMERA_LERP * 2));
+    camera.position.copy(focus).addScaledVector(CAMERA_OFFSET, REPLAY.tvZoom);
+    camera.lookAt(focus);
+  }
+
+  // Mundo do replay no instante t: posições gravadas + desfecho só no fim.
+  function replayWorld(t) {
+    const f = frameAt(replay.frames, t);
+    const byId = new Map(f.agents.map((a) => [a.id, a]));
+    const done = t >= replay.end - 1e-6;
+    const kicked = world.lastKick && t >= world.lastKick.at;
+    return {
+      ...world, t, awaitingInput: false,
+      status: done ? world.status : 'live',
+      dive: kicked ? world.dive : null,
+      lastKick: kicked ? world.lastKick : null,
+      ball: { pos: f.ball, vel: f.ballVel, spin: 0 },
+      agents: world.agents.map((a) => ({ ...a, pos: byId.get(a.id)?.pos ?? a.pos, vel: byId.get(a.id)?.vel ?? { x: 0, y: 0 } })),
+    };
+  }
+
+  function startReplay() {
+    const recorded = tape.frames();
+    if (world.status === 'live' || recorded.length < 2) return false;
+    const end = recorded.at(-1).t;
+    replay = { angle: 'tv', t: recorded[0].t, end, frames: recorded };
+    netShaken = false;
+    mode = 'replay';
+    return true;
+  }
+  function stopReplay() {
+    replay = null;
+    mode = 'play';
+    placeCamera(0);
+  }
+  function advanceReplay(dt) {
+    const speed = replay.angle === 'tv' ? REPLAY.tvSpeed : REPLAY.goalSpeed;
+    replay.t += dt * speed;
+    if (replay.t >= replay.end) {
+      if (replay.angle === 'goal') return stopReplay();
+      replay.angle = 'goal';
+      replay.t = Math.max(replay.frames[0].t, replay.end - REPLAY.goalSeconds);
+      netShaken = false;
+    }
+    draw(dt * speed, replayWorld(replay.t));
+  }
+
+  function draw(dt, w = world) {
+    for (const a of w.agents) {
       const { obj, animator } = figures.get(a.id);
       obj.position.set(a.pos.x, 0, a.pos.y);
-      obj.visible = !(mode === 'shot' && a.id === world.carrierId); // no close só bola e gol
+      obj.visible = !(mode === 'shot' && a.id === w.carrierId); // no close só bola e gol
       if (animator) {
         // Correndo: olha para onde vai; parado: olha para a bola.
         const speed = Math.hypot(a.vel.x, a.vel.y);
-        const look = speed > 0.3 && !world.awaitingInput ? a.vel : { x: world.ball.pos.x - a.pos.x, y: world.ball.pos.y - a.pos.y };
+        const look = speed > 0.3 && !w.awaitingInput ? a.vel : { x: w.ball.pos.x - a.pos.x, y: w.ball.pos.y - a.pos.y };
         obj.rotation.y = Math.atan2(look.x, look.y);
-        animator.update(a, world, dt);
+        animator.update(a, w, dt);
         // Mergulho: deita o corpo para o lado do pulo e tira do chão.
         const d = animator.dive;
-        if (d > 0 && world.dive?.dir) {
-          const sideOfModelX = -Math.sin(obj.rotation.y) * world.dive.dir; // + = pulo para a direita do goleiro
+        if (d > 0 && w.dive?.dir) {
+          const sideOfModelX = -Math.sin(obj.rotation.y) * w.dive.dir; // + = pulo para a direita do goleiro
           obj.rotation.z = -Math.sign(sideOfModelX) * DIVE_TILT * d;
           obj.position.y = DIVE_LIFT * Math.sin(d * Math.PI / 2);
         } else {
           obj.rotation.z = 0;
         }
       } else {
-        const kicking = world.lastKick?.from === a.id && world.t - world.lastKick.at < 0.25;
-        animateFigure(obj, { vx: a.vel.x, vy: a.vel.y, dt: world.awaitingInput ? 0 : dt, kicking });
+        const kicking = w.lastKick?.from === a.id && w.t - w.lastKick.at < 0.25;
+        animateFigure(obj, { vx: a.vel.x, vy: a.vel.y, dt: w.awaitingInput ? 0 : dt, kicking });
       }
     }
-    if (world.status === 'goal' && !netShaken) { env.netHit(world.attackDir); netShaken = true; }
-    placeCamera(dt);
-    env.update(world.awaitingInput ? dt * 0.2 : dt, focus, world.ball);
-    overlays.update(world, { drag, project, mode });
+    if (w.status === 'goal' && !netShaken) { env.netHit(w.attackDir); netShaken = true; }
+    placeCamera(dt, w);
+    env.update(w.awaitingInput ? dt * 0.2 : dt, focus, w.ball);
+    overlays.update(w, { drag, project, mode });
     renderer.render(scene, camera);
   }
 
@@ -254,8 +319,9 @@ export function createHighlightView(container, { world, teams, onShotUi, asset =
       acc -= DT;
       steps++;
     }
+    if (steps) tape.record(world);
     if (world.status !== 'live' || world.awaitingInput) acc = 0;
-    draw(dt);
+    if (replay) advanceReplay(dt); else draw(dt);
     frames++;
     for (const fn of listeners) fn(world);
     raf = requestAnimationFrame(frame);
@@ -268,6 +334,11 @@ export function createHighlightView(container, { world, teams, onShotUi, asset =
     input(cmd) { pending = cmd; },
     onFrame(fn) { listeners.add(fn); return () => listeners.delete(fn); },
     cancelShot: () => setMode('play'),
+    replay: startReplay,
+    skipReplay: () => { if (replay) stopReplay(); },
+    replaying: () => !!replay,
+    replayAngle: () => replay?.angle ?? null,
+    replayTime: () => replay?.t ?? null,
     mode: () => mode,
     overlay: () => overlays.state(),
     screenOf: (id) => { const a = world.agents.find((x) => x.id === id); return project({ x: a.pos.x, y: a.pos.y, z: 0.9 }); },

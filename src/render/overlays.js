@@ -149,7 +149,16 @@ export function createOverlays(scene, labelLayer, names) {
     state = { circle: false, arrow: false, runs: 0, threat: false, intent: false, timing: timing.visible };
   }
 
+  function hideAll() {
+    for (const o of [circle, ring, arrow, threat, intent, timing]) o.visible = false;
+    for (const l of runs.children) l.geometry.dispose();
+    runs.clear();
+    for (const el of labels.values()) el.hidden = true;
+    state = { circle: false, arrow: false, runs: 0, threat: false, intent: false, timing: false };
+  }
+
   function update(world, opts) {
+    if (opts.mode === 'replay') return hideAll();
     if (world.corner) return updateCorner(world, opts);
     timing.visible = false;
     if (world.mode === 'defense') return updateDefense(world, opts);

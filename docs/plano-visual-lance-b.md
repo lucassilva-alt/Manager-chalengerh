@@ -39,7 +39,7 @@
 - [x] L2 Pênalti: mira, força, efeito; goleiro escolhe o lado
 - [x] L3 Falta: barreira + chute com efeito
 - [x] L4 Escanteio: alvo do cruzamento + cabeceio no tempo certo
-- [ ] L5 Tela de replay: câmera lenta, dois ângulos
+- [x] L5 Tela de replay: câmera lenta, dois ângulos
 
 ### B — Etapa (b): elenco e tática
 - [ ] B1 Elenco: atributos, idade, potencial, traços, moral, forma (modelo de dados + gerador)

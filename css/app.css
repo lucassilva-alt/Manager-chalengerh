@@ -205,3 +205,12 @@ h1, h2, .display { font-family: var(--font-display); letter-spacing: 0.02em; }
 .hl-result-title.conceded { color: var(--danger); }
 .hl-result-title.defended { color: var(--success); }
 .hl-dive { position: absolute; left: 50%; bottom: calc(var(--space) * 14); transform: translateX(-50%); display: flex; gap: calc(var(--space) * 2); }
+
+/* L5 — replay: selo de TV no topo e botão por cima do resultado. */
+.hl-replay-btn { position: absolute; right: calc(var(--space) * 3); top: calc(var(--space) * 3); z-index: 3; }
+.hl-replay-badge {
+  position: absolute; left: 50%; top: calc(var(--space) * 3); transform: translateX(-50%); z-index: 3;
+  padding: var(--space) calc(var(--space) * 3); border-radius: 4px;
+  background: var(--danger); color: #fff;
+  font: 700 1.125rem/1 'Barlow Condensed', sans-serif; letter-spacing: 0.12em; text-transform: uppercase;
+}

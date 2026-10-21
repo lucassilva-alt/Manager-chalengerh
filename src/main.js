@@ -25,6 +25,8 @@ function exposeHighlight(view) {
     diveOf: view.diveOf,
     animWeight: view.animWeight,
     frames: view.frames,
+    replayAngle: view.replayAngle,
+    replayTime: view.replayTime,
     stats: view.stats,
     environment: view.environment,
     quality: view.quality,

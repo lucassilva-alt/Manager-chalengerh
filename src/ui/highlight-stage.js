@@ -46,7 +46,9 @@ export function HighlightStage({ world, teams, scorebug = null, onView, onEnd, o
           <span class="hl-scorebug-min">${scorebug.minute}'</span>
         </div>`}
       ${!finished && (awaiting || shotUi) && html`
-        <p class="hl-hint" aria-live="polite">${shotUi ? t('highlight.swipeHint') : t('highlight.planHint')}</p>`}
+        <p class="hl-hint" aria-live="polite">${shotUi ? t('highlight.swipeHint') : world.mode === 'defense' ? t('highlight.defenseHint') : t('highlight.planHint')}</p>`}
+      ${!finished && awaiting && world.mode === 'defense' && html`
+        <button type="button" class="btn btn-primary hl-go" onClick=${() => view.current?.input({ type: 'go' })}>${t('highlight.start')}</button>`}
       ${!finished && !shotUi && onSkip && html`
         <button type="button" class="btn btn-ghost hl-skip" onClick=${onSkip}>${t('highlight.simulate')}</button>`}
       ${shotUi && html`

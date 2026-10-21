@@ -41,3 +41,19 @@ export function swipeToShot(points, { width, height }) {
     lift: 0.1 + 0.2 * power,
   };
 }
+
+// Defesa: tocar no atacante com a bola manda o defensor mais perto dar o bote;
+// arrastar de um defensor leva ele a um ponto, ao bote ou a marcar um atacante.
+export function classifyDefenseGesture({ start, end, duration, startHit, endHit, carrierId, carrierPos, defenders, opponents }) {
+  const moved = dist(start, end);
+  const isDefender = (id) => defenders.some((d) => d.id === id);
+  if (moved < TAP_MOVE && duration < TAP_TIME) {
+    if (startHit !== carrierId) return null;
+    const nearest = defenders.reduce((a, b) => (dist(a.pos, carrierPos) <= dist(b.pos, carrierPos) ? a : b));
+    return { type: 'press', by: nearest.id };
+  }
+  if (!isDefender(startHit)) return null;
+  if (endHit === carrierId) return { type: 'press', by: startHit };
+  if (endHit && opponents.includes(endHit)) return { type: 'mark', by: startHit, target: endHit };
+  return { type: 'move', by: startHit, to: { x: end.x, y: end.y } };
+}

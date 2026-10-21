@@ -55,8 +55,15 @@ test('campo mostra 11 retratos e notas coloridas pela faixa', async () => {
 test('no lance: dica só quando é a vez do jogador; placar pequeno no canto', async () => {
   const { page } = await matchPage();
   await page.evaluate(() => { window.__flow.setSpeed(30); window.__flow.play(); });
-  await page.waitForFunction(() => window.__flow.state === 'highlight', null, { timeout: 60000 });
-  await page.waitForFunction(() => window.__hl?.ready === true, null, { timeout: 20000 });
+  // Procura um lance de ataque (os de defesa são pulados aqui).
+  for (let i = 0; i < 30; i++) {
+    await page.waitForFunction(() => ['highlight', 'halftime'].includes(window.__flow.state), null, { timeout: 60000 });
+    const st = await page.evaluate(() => [window.__flow.state, window.__flow.world?.mode]);
+    if (st[0] === 'halftime') { await page.evaluate(() => window.__flow.startSecondHalf()); continue; }
+    if (st[1] === 'attack') break;
+    await page.evaluate(() => window.__flow.skipHighlight());
+  }
+  await page.waitForFunction(() => window.__hl?.ready === true && window.__hl.world() === window.__flow.world, null, { timeout: 20000 });
   await page.locator('.hl-scorebug').waitFor();
   assert.equal(await page.locator('.hl-hint').count(), 1);
   await page.evaluate(() => {

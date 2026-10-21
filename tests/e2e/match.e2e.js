@@ -43,11 +43,16 @@ for (const viewport of [{ width: 390, height: 844 }, { width: 844, height: 390 }
     // Lance jogável: chuta direto e vê o resultado do lance
     await page.waitForFunction(() => window.__flow.state === 'highlight', null, { timeout: 60000 });
     await page.waitForFunction(() => window.__hl?.ready === true, null, { timeout: 15000 });
-    await page.evaluate(() => {
-      const w = window.__hl.world();
-      const c = w.agents.find((a) => a.id === w.carrierId);
-      window.__hl.input({ type: 'shoot', dir: { x: 52.5 - c.pos.x, y: 2 - c.pos.y }, power: 0.85, lift: 0.15, curl: 0 });
-    });
+    // Ataque: chuta direto. Defesa: começa e deixa o lance correr.
+    if (await page.evaluate(() => window.__hl.world().mode) === 'defense') {
+      await page.getByRole('button', { name: 'Começar' }).click();
+    } else {
+      await page.evaluate(() => {
+        const w = window.__hl.world();
+        const c = w.agents.find((a) => a.id === w.carrierId);
+        window.__hl.input({ type: 'shoot', dir: { x: 52.5 - c.pos.x, y: 2 - c.pos.y }, power: 0.85, lift: 0.15, curl: 0 });
+      });
+    }
     await page.locator('.hl-result').waitFor({ timeout: 20000 });
     await page.getByRole('button', { name: 'Continuar' }).click();
     await page.waitForFunction(() => ['running', 'halftime', 'highlight', 'ended'].includes(window.__flow.state));

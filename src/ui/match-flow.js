@@ -5,8 +5,8 @@ import { startHighlight, rewindHighlight, finishHighlight, outcomeOf } from '../
 
 export const MINUTE_SECONDS = 0.6; // 1 minuto de jogo a cada 0,6 s na velocidade normal
 
-export function createMatchFlow({ home, away, seed, userSide = 'home', interactive = true }) {
-  const match = sim.createMatch({ home, away, seed, userSide, interactive });
+export function createMatchFlow({ home, away, seed, userSide = 'home', interactive = true, defend = true }) {
+  const match = sim.createMatch({ home, away, seed, userSide, interactive, defend });
   const listeners = new Set();
   let acc = 0;
 

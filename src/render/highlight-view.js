@@ -4,7 +4,7 @@ import * as THREE from 'three';
 import { stepWorld } from '../engine/highlight/highlight.js';
 import { DT } from '../engine/highlight/physics.js';
 import { FIELD } from '../engine/highlight/field.js';
-import { classifyGesture, swipeToShot } from '../input/gestures.js';
+import { classifyGesture, classifyDefenseGesture, swipeToShot } from '../input/gestures.js';
 import { createEnvironment } from './env/index.js';
 import { createFigure, animateFigure } from './figure.js';
 import { createPlayer } from './player-model.js';
@@ -121,7 +121,22 @@ export function createHighlightView(container, { world, teams, onShotUi, asset =
     g.screen.push({ x: e.clientX, y: e.clientY, t: performance.now() - g.t0 });
     if (mode === 'shot') return shootFromSwipe(g.screen);
     const end = groundAt(e.clientX, e.clientY);
-    if (!g.start || !end || !world.awaitingInput) return;
+    if (!g.start || !end || world.status !== 'live') return;
+    if (world.mode === 'defense') {
+      // Na defesa os comandos valem a qualquer momento do lance.
+      const carrier = world.agents.find((a) => a.id === world.carrierId);
+      if (!carrier || carrier.side !== world.attackingSide) return;
+      const cmd = classifyDefenseGesture({
+        start: g.start, end, duration: performance.now() - g.t0,
+        startHit: agentAt(g.start), endHit: agentAt(end),
+        carrierId: carrier.id, carrierPos: carrier.pos,
+        defenders: world.agents.filter((a) => a.side === world.userSide && a.role !== 'GK'),
+        opponents: world.agents.filter((a) => a.side === world.attackingSide).map((a) => a.id),
+      });
+      if (cmd) pending = cmd;
+      return;
+    }
+    if (!world.awaitingInput) return;
     const carrier = world.agents.find((a) => a.id === world.carrierId);
     if (!carrier || carrier.side !== world.attackingSide) return;
     const cmd = classifyGesture({

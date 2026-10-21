@@ -21,9 +21,10 @@ test('fechar o lance libera texturas, malhas e o contexto WebGL', async () => {
   await page.waitForFunction(() => window.__hl?.ready && window.__hl.world() === window.__flow.world, null, { timeout: 30000 });
   const before = await page.evaluate(() => window.__hl.gpuMemory());
   assert.ok(before.textures > 0 && before.geometries > 0);
-  await page.evaluate(() => window.__flow.skipHighlight());
+  // Guarda o medidor do lance antigo e pausa no mesmo instante (senão já abre outro).
+  await page.evaluate(() => { window.__oldMemory = window.__hl.gpuMemory; window.__flow.skipHighlight(); window.__flow.pause(); });
   await page.waitForFunction(() => !document.querySelector('.stage'));
-  const afterDispose = await page.evaluate(() => window.__hl.gpuMemory());
+  const afterDispose = await page.evaluate(() => window.__oldMemory());
   assert.equal(afterDispose.geometries, 0);
   // Fica só a DFG_LUT do Three.js: 16×16 (~1 KB), única para a biblioteca inteira.
   assert.ok(afterDispose.textures <= 1, `texturas ${afterDispose.textures}`);

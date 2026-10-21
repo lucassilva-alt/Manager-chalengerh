@@ -42,8 +42,12 @@ async function devHighlight() {
   ]);
   const [home, away] = await loadDemoTeams();
   const seed = seedParam || 1;
-  const m = sim.createMatch({ home, away, seed, userSide: 'home', interactive: true });
-  while (!m.pending && m.phase !== 'ended') {
+  // ?defense=1 abre o primeiro lance de defesa (chance do adversário).
+  const defense = params.get('defense') === '1';
+  const m = sim.createMatch({ home, away, seed, userSide: 'home', interactive: true, defend: defense });
+  while (m.phase !== 'ended') {
+    if (m.pending && (!defense || m.pending.side !== m.userSide)) break;
+    if (m.pending) m.pending = null; // pula ataques ao procurar a defesa
     if (m.phase === 'halftime') sim.startSecondHalf(m); else sim.advanceMinute(m);
   }
   const world = startHighlight(m, { seed });

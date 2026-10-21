@@ -25,11 +25,41 @@ export function createOverlays(scene, labelLayer, names) {
   const head = new THREE.Mesh(headGeo, new THREE.MeshBasicMaterial({ color: GREEN, side: THREE.DoubleSide, depthWrite: false }));
   arrow.add(shaft, head);
   const runMat = new THREE.LineDashedMaterial({ color: 0xffffff, dashSize: 0.6, gapSize: 0.45, transparent: true, opacity: 0.9 });
+  const pressMat = new THREE.LineDashedMaterial({ color: 0xe5484d, dashSize: 0.6, gapSize: 0.35 });
+  const moveMat = new THREE.LineDashedMaterial({ color: 0xf2b33d, dashSize: 0.6, gapSize: 0.35 });
   const runs = new THREE.Group();
-  scene.add(circle, ring, arrow, runs);
+  // Defesa: anel vermelho no atacante com a bola e seta branca da jogada dele.
+  const threat = new THREE.Mesh(
+    new THREE.RingGeometry(0.7, 1.0, 32),
+    new THREE.MeshBasicMaterial({ color: 0xe5484d, transparent: true, opacity: 0.95, depthWrite: false }),
+  );
+  threat.rotation.x = -Math.PI / 2;
+  const intent = new THREE.Group();
+  const intentShaft = new THREE.Mesh(new THREE.PlaneGeometry(1, 0.25), new THREE.MeshBasicMaterial({ color: 0xffffff, depthWrite: false, transparent: true, opacity: 0.85 }));
+  intentShaft.rotation.x = -Math.PI / 2;
+  const intentHead = new THREE.Mesh(headGeo, new THREE.MeshBasicMaterial({ color: 0xffffff, side: THREE.DoubleSide, depthWrite: false, transparent: true, opacity: 0.85 }));
+  intent.add(intentShaft, intentHead);
+  scene.add(circle, ring, arrow, runs, threat, intent);
 
   const labels = new Map();
-  let state = { circle: false, arrow: false, runs: 0 };
+  let state = { circle: false, arrow: false, runs: 0, threat: false, intent: false };
+
+  function placeArrow(group, shaftMesh, headMesh, from, to) {
+    const dx = to.x - from.x, dy = to.y - from.y, len = Math.hypot(dx, dy);
+    group.visible = len > 0.5;
+    if (!group.visible) return;
+    group.position.set(from.x, Y + 0.01, from.y);
+    group.rotation.y = -Math.atan2(dy, dx);
+    shaftMesh.scale.x = Math.max(0.1, len - 0.8);
+    shaftMesh.position.x = shaftMesh.scale.x / 2;
+    headMesh.position.x = shaftMesh.scale.x;
+  }
+
+  function line(from, to, mat) {
+    const l = new THREE.Line(new THREE.BufferGeometry().setFromPoints([new THREE.Vector3(from.x, Y, from.y), new THREE.Vector3(to.x, Y, to.y)]), mat);
+    l.computeLineDistances();
+    runs.add(l);
+  }
 
   function label(id) {
     if (!labels.has(id)) {
@@ -53,7 +83,39 @@ export function createOverlays(scene, labelLayer, names) {
     head.position.x = shaft.scale.x;
   }
 
-  function update(world, { drag, project, mode }) {
+  function updateDefense(world, { project }) {
+    const carrier = world.agents.find((a) => a.id === world.carrierId);
+    const attacking = carrier && carrier.side === world.attackingSide && world.status === 'live';
+    circle.visible = false; ring.visible = false; arrow.visible = false;
+    threat.visible = !!attacking;
+    if (attacking) threat.position.set(carrier.pos.x, Y + 0.005, carrier.pos.y);
+    intent.visible = false;
+    if (attacking && carrier.target && !world.awaitingInput) placeArrow(intent, intentShaft, intentHead, carrier.pos, carrier.target);
+    for (const l of runs.children) l.geometry.dispose();
+    runs.clear();
+    const seen = new Set();
+    for (const a of world.agents) {
+      if (a.side !== world.userSide || a.role === 'GK') continue;
+      const order = world.orders[a.id];
+      if (order?.type === 'press' && carrier) line(a.pos, carrier.pos, pressMat);
+      else if (order?.type === 'move') line(a.pos, order.to, moveMat);
+      else if (order?.type === 'mark') { const t = world.agents.find((x) => x.id === order.target); if (t) line(a.pos, t.pos, moveMat); }
+      if (world.awaitingInput) {
+        const p = project({ x: a.pos.x, y: a.pos.y, z: 2.2 });
+        const el = label(a.id);
+        el.style.transform = `translate(${p.x}px, ${p.y}px) translate(-50%, -100%)`;
+        el.hidden = false;
+        seen.add(a.id);
+      }
+    }
+    for (const [id, el] of labels) if (!seen.has(id)) el.hidden = true;
+    state = { circle: false, arrow: false, runs: runs.children.length, threat: threat.visible, intent: intent.visible };
+  }
+
+  function update(world, opts) {
+    if (world.mode === 'defense') return updateDefense(world, opts);
+    threat.visible = false; intent.visible = false;
+    const { drag, project, mode } = opts;
     const carrier = world.agents.find((a) => a.id === world.carrierId);
     const ours = carrier && carrier.side === world.attackingSide && world.status === 'live';
     const planning = ours && world.awaitingInput && mode === 'play';
@@ -94,7 +156,7 @@ export function createOverlays(scene, labelLayer, names) {
       }
     }
     for (const [id, el] of labels) if (!seen.has(id)) el.hidden = true;
-    state = { circle: circle.visible, arrow: arrow.visible, runs: runCount };
+    state = { circle: circle.visible, arrow: arrow.visible, runs: runCount, threat: false, intent: false };
   }
 
   return { update, state: () => state };

@@ -3,8 +3,9 @@ import assert from 'node:assert/strict';
 import { createMatchFlow, MINUTE_SECONDS } from '../../src/ui/match-flow.js';
 import { makeTeam } from '../engine/helpers.js';
 
+// Por padrão sem lances de defesa: estes testes tratam relógio e ataque.
 const newFlow = (seed = 1, opts = {}) =>
-  createMatchFlow({ home: makeTeam('A', 65), away: makeTeam('B', 65), seed, userSide: 'home', ...opts });
+  createMatchFlow({ home: makeTeam('A', 65), away: makeTeam('B', 65), seed, userSide: 'home', defend: false, ...opts });
 
 function tickUntil(flow, pred, max = 100000) {
   for (let i = 0; i < max && !pred(flow); i++) flow.tick(MINUTE_SECONDS);
@@ -92,4 +93,23 @@ test('relógio exibido em mm:ss acompanha o minuto e a fração', () => {
   const f = newFlow(6, { interactive: false }); f.play();
   f.tick(MINUTE_SECONDS * 12.5);
   assert.equal(f.clock(), '12:30');
+});
+
+test('lance de defesa: gol sofrido conta para o adversário', () => {
+  const f = newFlow(1, { defend: true }); f.play();
+  for (let i = 0; i < 5000 && f.state !== 'ended'; i++) {
+    f.tick(MINUTE_SECONDS);
+    if (f.state === 'halftime') f.startSecondHalf();
+    if (f.state === 'highlight') {
+      if (f.world.mode === 'defense') break;
+      f.skipHighlight();
+    }
+  }
+  assert.equal(f.world.mode, 'defense');
+  const before = { ...f.match.score };
+  f.world.status = 'goal';
+  f.endHighlight();
+  f.continueAfterHighlight();
+  assert.equal(f.match.score.away, before.away + 1);
+  assert.equal(f.match.score.home, before.home);
 });

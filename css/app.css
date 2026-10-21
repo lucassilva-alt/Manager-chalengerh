@@ -201,3 +201,6 @@ h1, h2, .display { font-family: var(--font-display); letter-spacing: 0.02em; }
   .btn { font-size: 15px; padding: 0 calc(var(--space) * 3); }
   .hl-result-title { font-size: 52px; }
 }
+.hl-go { position: absolute; right: calc(var(--space) * 3); bottom: calc(var(--space) * 3); }
+.hl-result-title.conceded { color: var(--danger); }
+.hl-result-title.defended { color: var(--success); }

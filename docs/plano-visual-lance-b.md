@@ -35,7 +35,7 @@
 - [x] V11 Orçamento de desempenho (instâncias, sombras, medir)
 
 ### L — Lance completo
-- [ ] L1 Lance de defesa: adversário ataca, você escolhe o bote ou a cobertura (marcador vermelho + seta)
+- [x] L1 Lance de defesa: adversário ataca, você escolhe o bote ou a cobertura (marcador vermelho + seta)
 - [ ] L2 Pênalti: mira, força, efeito; goleiro escolhe o lado
 - [ ] L3 Falta: barreira + chute com efeito
 - [ ] L4 Escanteio: alvo do cruzamento + cabeceio no tempo certo

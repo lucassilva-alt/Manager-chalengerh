@@ -81,11 +81,14 @@ function Stepper({ label, value, onDown, onUp, downLabel, upLabel, children }) {
 
 function HighlightResult({ flow }) {
   const kick = flow.world?.lastKick;
-  const outcome = flow.lastOutcome;
+  // Na defesa o resultado é contado do lado de quem defende.
+  const outcome = flow.world?.mode === 'defense'
+    ? (flow.lastOutcome === 'goal' ? 'conceded' : 'defended')
+    : flow.lastOutcome;
   return html`
     <div class="hl-result" role="dialog" aria-label=${t(`highlight.${outcome}`)}>
       <p class=${`hl-result-title ${outcome}`}>${t(`highlight.${outcome}`)}</p>
-      ${kick?.type === 'shot' && html`<p class="hl-result-distance">${t('highlight.distance', { meters: kick.distance.toFixed(1) })}</p>`}
+      ${kick?.type === 'shot' && flow.world?.mode !== 'defense' && html`<p class="hl-result-distance">${t('highlight.distance', { meters: kick.distance.toFixed(1) })}</p>`}
       <div class="hl-result-actions">
         ${flow.canRewind && html`
           <button type="button" class="btn btn-ghost" onClick=${() => flow.rewind()}>

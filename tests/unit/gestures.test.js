@@ -68,3 +68,35 @@ test('deslize curto demais ou para baixo cancela', () => {
   assert.equal(swipeToShot(swipe([[400, 380], [402, 370]]), screen), null);
   assert.equal(swipeToShot(swipe([[400, 200], [400, 380]]), screen), null);
 });
+
+// L1 — gestos na defesa
+import { classifyDefenseGesture } from '../../src/input/gestures.js';
+const def = {
+  carrierId: 'opp9', carrierPos: { x: 30, y: 0 },
+  defenders: [{ id: 'd4', pos: { x: 36, y: 2 } }, { id: 'd5', pos: { x: 40, y: -8 } }],
+  opponents: ['opp9', 'opp10'],
+};
+
+test('defesa: tocar no atacante com a bola = bote do defensor mais perto', () => {
+  const cmd = classifyDefenseGesture({ ...def, start: { x: 30, y: 0 }, end: { x: 30, y: 0 }, duration: 100, startHit: 'opp9', endHit: 'opp9' });
+  assert.deepEqual(cmd, { type: 'press', by: 'd4' });
+});
+
+test('defesa: arrastar de um defensor até um ponto = posicionar', () => {
+  const cmd = classifyDefenseGesture({ ...def, start: { x: 40, y: -8 }, end: { x: 44, y: -2 }, duration: 400, startHit: 'd5' });
+  assert.deepEqual(cmd, { type: 'move', by: 'd5', to: { x: 44, y: -2 } });
+});
+
+test('defesa: arrastar de um defensor até o atacante com a bola = bote dele', () => {
+  const cmd = classifyDefenseGesture({ ...def, start: { x: 40, y: -8 }, end: { x: 30, y: 0 }, duration: 400, startHit: 'd5', endHit: 'opp9' });
+  assert.deepEqual(cmd, { type: 'press', by: 'd5' });
+});
+
+test('defesa: arrastar de um defensor até outro atacante = marcar', () => {
+  const cmd = classifyDefenseGesture({ ...def, start: { x: 40, y: -8 }, end: { x: 38, y: -12 }, duration: 400, startHit: 'd5', endHit: 'opp10' });
+  assert.deepEqual(cmd, { type: 'mark', by: 'd5', target: 'opp10' });
+});
+
+test('defesa: toque no vazio não faz nada', () => {
+  assert.equal(classifyDefenseGesture({ ...def, start: { x: 0, y: 0 }, end: { x: 0, y: 0 }, duration: 100 }), null);
+});

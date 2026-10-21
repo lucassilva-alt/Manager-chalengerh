@@ -27,7 +27,8 @@ const NOISE = 4;            // ± por atributo
 const PEAK = { from: 24, to: 30 };
 const YOUTH_LOSS = 1.6;     // pontos por ano abaixo do auge
 const AGE_LOSS = 1.5;       // pontos por ano acima do auge
-const CLUB_SPREAD = 6;      // ± em torno do nível do clube quando o cadastro não traz qualidade
+const CLUB_SPREAD = 6;
+const DEFAULT_AGE = 26;      // ± em torno do nível do clube quando o cadastro não traz qualidade
 
 // Personalidade: pesa na conversa do intervalo, na moral e nas reclamações.
 export const TRAITS = ['Líder', 'Profissional', 'Temperamental', 'Tranquilo', 'Preguiçoso', 'Ambicioso', 'Leal', 'Vaidoso'];
@@ -69,11 +70,11 @@ export function ratePlayer({ pos, age, quality, seed }) {
 
 const POSITION_WORDS = [
   [/^(gk|gol|goleiro|goalkeeper)$/, 'GOL'],
-  [/^(cb|zag|zagueiro|centre-back|center-back|defensor central)$/, 'ZAG'],
+  [/^(cb|df|zag|zagueiro|centre-back|center-back|defensor central|defensor)$/, 'ZAG'],
   [/^(lb|rb|lwb|rwb|lat|lateral.*|full-back|ala)$/, 'LAT'],
   [/^(dm|cdm|vol|volante|defensive midfielder)$/, 'VOL'],
-  [/^(cm|am|cam|mei|meia|meio-campista|meio-campo|midfielder|meia-atacante|attacking midfielder)$/, 'MEI'],
-  [/^(st|cf|lw|rw|ata|atacante|centroavante|ponta.*|forward|winger|striker)$/, 'ATA'],
+  [/^(mf|cm|am|cam|mei|meia|meio-campista|meio-campo|midfielder|meia-atacante|attacking midfielder)$/, 'MEI'],
+  [/^(fw|st|cf|lw|rw|ata|atacante|centroavante|ponta.*|forward|winger|striker)$/, 'ATA'],
 ];
 
 export function mapPosition(raw) {
@@ -87,14 +88,15 @@ export function createSquadPlayer(profile, { clubId, level }) {
   const id = `${clubId}-${profile.number ?? profile.name.toLowerCase().replace(/[^a-z0-9]+/g, '-')}`;
   const rng = createRng(hash(`${id}:club`));
   const quality = profile.quality ?? level + rng.int(-CLUB_SPREAD, CLUB_SPREAD);
-  const { attrs, potential } = ratePlayer({ pos, age: profile.age, quality, seed: id });
+  // Sem data de nascimento na fonte: nota calculada com idade de auge, idade fica em branco.
+  const { attrs, potential } = ratePlayer({ pos, age: profile.age ?? DEFAULT_AGE, quality, seed: id });
   const traits = [];
   for (let n = rng.int(0, 2); traits.length < n;) {
     const t = TRAITS[rng.int(0, TRAITS.length - 1)];
     if (!traits.includes(t)) traits.push(t);
   }
   return {
-    id, name: profile.name, number: profile.number ?? null, pos, age: profile.age,
+    id, name: profile.name, number: profile.number ?? null, pos, age: profile.age ?? null,
     nationality: profile.nationality ?? null,
     attrs, potential, traits,
     morale: 70, form: [], fitness: 100, injury: null,

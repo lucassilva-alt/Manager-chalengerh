@@ -4,6 +4,7 @@ import { createWorld } from './highlight.js';
 import { resolveHighlight } from '../match-sim.js';
 import { createRng } from '../rng.js';
 import { placeWall } from './wall.js';
+import { FIELD } from './field.js';
 
 // Profundidade (x) de cada posição no ataque e na defesa; a largura (y)
 // se espalha pelo número de jogadores na mesma posição.
@@ -123,9 +124,71 @@ function buildFreekick(m, { seed }) {
   return w;
 }
 
+// Escanteio: até 5 atacantes na área, cada um com um marcador colado do lado do gol.
+const CORNER_SPOTS = [[46.5, -1], [48, 2.5], [44, 3], [49.5, -3], [42.5, -3.5]];
+const AERIAL_ORDER = ['ATA', 'ZAG', 'VOL', 'MEI', 'LAT'];
+const MARK_ORDER = ['ZAG', 'VOL', 'LAT', 'MEI', 'ATA'];
+const CORNER_AI = { maxTiming: 0.3, minAim: 0.4 };
+
+function buildCorner(m, { seed }) {
+  const { side, playerId } = m.pending;
+  const rng = createRng(seed ^ 0x165667b1);
+  const sy = rng.next() < 0.5 ? -1 : 1;
+  const goalX = 52.5;
+  const defense = m.userSide && side !== m.userSide;
+  const att = m[side].lineup, def = m[other(side)].lineup;
+  const kicker = att.find((p) => p.pos === 'MEI' && p.id !== playerId) ?? att.find((p) => p.pos === 'LAT');
+  const rank = (p) => AERIAL_ORDER.indexOf(p.pos);
+  const field = att.filter((p) => p.id !== playerId && p !== kicker && p.pos !== 'GOL').sort((a, b) => rank(a) - rank(b));
+  const takers = [att.find((p) => p.id === playerId), ...field].slice(0, CORNER_SPOTS.length);
+  const spot = (i) => ({ x: CORNER_SPOTS[i][0], y: CORNER_SPOTS[i][1] * sy });
+  const markers = def.filter((p) => p.pos !== 'GOL').sort((a, b) => MARK_ORDER.indexOf(a.pos) - MARK_ORDER.indexOf(b.pos));
+  const spread = (i, n, w) => (n === 1 ? 0 : -w + (2 * w * i) / (n - 1));
+  const restAtt = field.filter((p) => !takers.includes(p));
+  const restDef = markers.slice(takers.length);
+  const agents = [
+    ...att.map((p) => {
+      if (p === kicker) return toAgent(m, side, { player: p, x: goalX - 1, y: sy * 33.6 });
+      if (p.pos === 'GOL') return toAgent(m, side, { player: p, x: -45, y: 0 });
+      const i = takers.indexOf(p);
+      if (i >= 0) return toAgent(m, side, { player: p, ...spot(i) });
+      const j = restAtt.indexOf(p);
+      return toAgent(m, side, { player: p, x: 30, y: spread(j, restAtt.length, 15) });
+    }),
+    ...def.map((p) => {
+      if (p.pos === 'GOL') return toAgent(m, other(side), { player: p, x: goalX - 0.5, y: sy * 0.5 });
+      const i = markers.indexOf(p);
+      if (i < takers.length) { const s = spot(i); return toAgent(m, other(side), { player: p, x: s.x + 0.8, y: s.y - 0.3 * sy }); }
+      const j = restDef.indexOf(p);
+      const extra = [{ x: goalX - 0.8, y: sy * 3.2 }, { x: goalX - 17, y: 0 }][j] ?? { x: 36, y: spread(j, restDef.length, 12) };
+      return toAgent(m, other(side), { player: p, ...extra });
+    }),
+  ];
+  const w = createWorld({
+    agents, carrierId: kicker.id, attackDir: 1, seed, defendersIdle: true, turnBased: true,
+    mode: defense ? 'cornerDefense' : 'corner', userSide: m.userSide ?? side,
+  });
+  w.ball.pos = { x: goalX - 0.4, y: sy * (FIELD.halfWidth - 0.4), z: 0 };
+  w.corner = { phase: 'aim', side: sy, arrive: null, pressAt: null, aim: 0, ...cornerChoices(rng.state(), sy) };
+  w.awaitingInput = true;
+  return w;
+}
+
+// Alvo, tempo do cabeceio e canto do atacante do jogo, sorteados já no começo.
+function cornerChoices(seed, sy) {
+  const rng = createRng(seed);
+  const i = Math.floor(rng.next() * 3);
+  return {
+    aiTarget: { x: CORNER_SPOTS[i][0], y: CORNER_SPOTS[i][1] * sy },
+    aiTiming: rng.next() * CORNER_AI.maxTiming,
+    aiAim: (rng.next() < 0.5 ? -1 : 1) * (CORNER_AI.minAim + rng.next() * (1 - CORNER_AI.minAim)),
+  };
+}
+
 export function buildScenario(m, { seed = m.rng, defendersIdle = false, turnBased = true } = {}) {
   if (m.pending.kind === 'penalty') return buildPenalty(m, { seed });
   if (m.pending.kind === 'freekick') return buildFreekick(m, { seed });
+  if (m.pending.kind === 'corner') return buildCorner(m, { seed });
   const { side, playerId } = m.pending;
   const attackers = slots(m[side].lineup, ATTACK_X).map((s) => {
     if (s.player.id === playerId) return { ...s, ...CARRIER_START };
@@ -167,7 +230,9 @@ export function rewindHighlight(m) {
   m.rewindsLeft -= 1;
   const w = structuredClone(m.highlightStart);
   // Pênalti: novo sorteio dos cantos, senão daria para ver o pulo e bater do outro lado.
-  if (w.penalty) w.penalty = penaltyChoices((w.rng ^ 0x85ebca6b ^ (m.rewindsLeft + 1) * 2654435761) >>> 0);
+  const reroll = (w.rng ^ 0x85ebca6b ^ (m.rewindsLeft + 1) * 2654435761) >>> 0;
+  if (w.penalty) w.penalty = penaltyChoices(reroll);
+  if (w.corner) Object.assign(w.corner, cornerChoices(reroll, w.corner.side));
   return w;
 }
 

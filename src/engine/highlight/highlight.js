@@ -1,7 +1,7 @@
 // Mundo do lance jogável: jogadores, bola e regras, em passo fixo.
 // Estado JSON puro: dá para guardar (voltar o lance) e regravar (replay).
 import { createRng } from '../rng.js';
-import { createBall, stepBall, DT } from './physics.js';
+import { createBall, stepBall, DT, GRAVITY } from './physics.js';
 import { createAgent, stepAgent } from './agents.js';
 import { FIELD } from './field.js';
 import { isKeeper, stepKeeper } from './keeper.js';
@@ -109,7 +109,7 @@ function shoot(w, carrier, { dir, power = 0.7, curl = 0, lift = 0.2 }, rng) {
     SHOT_SPIN * Math.min(1, Math.max(-1, curl)),
     { type: 'shot', error, distance: dist(carrier.pos, goal) });
   w.ball.dip = SHOT_DIP * Math.max(0, l - 0.35);
-  if (w.penalty || w.wall) w.setPieceTaken = true;
+  if (w.penalty || w.wall || w.corner) w.setPieceTaken = true;
 }
 
 // Bola cruzando a linha de fundo do ataque: gol, trave/travessão ou fora.
@@ -182,11 +182,111 @@ function applyFreekickInput(w, input, rng) {
   return true;
 }
 
-// Depois da cobrança (falta/pênalti), o rebote vira jogada normal.
+// Escanteio: cruzamento alto até o alvo; o cabeceio se decide quando a bola chega.
+const CROSS = { speed: 20, minT: 1.1, maxT: 1.8, height: 2.0, noise: 2.5 };
+const CORNER_AREA = { minX: 40, maxX: 51, maxY: 12 };
+const HEADER_WINDOW = 0.35; // s de folga para o toque no tempo certo
+const HEADER_REACH = 2.5;   // m: mais longe que isso da bola não alcança
+const DUEL_SHARPNESS = 5;
+const MARKER_EDGE = 0.3;     // marcador entre o atacante e o gol leva vantagem
+const HEADER_ERROR = (12 * Math.PI) / 180; // cabeçada é menos precisa que chute
+const clamp = (v, lo, hi) => Math.min(hi, Math.max(lo, v));
+
+// Velocidade inicial que leva a bola a `to` em `steps` passos (corrige arrasto e gravidade).
+function lobVelocity(from, to, steps) {
+  const T = steps * DT;
+  const vel = { x: (to.x - from.x) / T, y: (to.y - from.y) / T, z: (to.z - from.z) / T + 0.5 * GRAVITY * T };
+  for (let k = 0; k < 3; k++) {
+    const b = { pos: { ...from }, vel: { ...vel }, spin: 0, dip: 0 };
+    for (let i = 0; i < steps; i++) stepBall(b);
+    vel.x += (to.x - b.pos.x) / T; vel.y += (to.y - b.pos.y) / T; vel.z += (to.z - b.pos.z) / T;
+  }
+  return vel;
+}
+
+function cross(w, kicker, to, rng) {
+  const c = w.corner, err = (1 - kicker.attrs.passing / 100) * CROSS.noise;
+  const target = {
+    x: clamp(to.x, CORNER_AREA.minX, CORNER_AREA.maxX) + aimError(rng, err),
+    y: clamp(to.y, -CORNER_AREA.maxY, CORNER_AREA.maxY) + aimError(rng, err),
+    z: CROSS.height,
+  };
+  const steps = Math.round(clamp(dist(w.ball.pos, target) / CROSS.speed, CROSS.minT, CROSS.maxT) / DT);
+  kickBall(w, kicker, lobVelocity(w.ball.pos, target, steps), 0, { type: 'cross' });
+  w.setPieceTaken = true;
+  c.phase = 'flight';
+  c.arrive = w.t + steps * DT;
+  // Quem vai na bola: o atacante mais perto do ponto e o marcador dele.
+  const nearest = (list, p) => list.reduce((best, a) => (dist(a.pos, p) < dist(best.pos, p) ? a : best));
+  const runner = nearest(w.agents.filter((a) => a.side === w.attackingSide && a !== kicker && !isKeeper(a)), target);
+  const marker = nearest(w.agents.filter((a) => a.side !== w.attackingSide && !isKeeper(a)), runner.pos);
+  runner.target = { x: target.x, y: target.y };
+  marker.target = { x: target.x + 0.6 * w.attackDir, y: target.y };
+  c.runnerId = runner.id;
+  c.markerId = marker.id;
+}
+
+// Escanteio a favor: escolhe o alvo e cabeceia. Contra: manda cobrar e afasta.
+function applyCornerInput(w, input, rng) {
+  const c = w.corner;
+  if (c.phase === 'flight') {
+    if (input.type === 'header' && c.pressAt === null) { c.pressAt = w.t; c.aim = clamp(input.aim ?? 0, -1, 1); }
+    return false;
+  }
+  if (c.phase !== 'aim') return false;
+  const kicker = byId(w, w.carrierId);
+  if (w.mode === 'corner') {
+    if (input.type !== 'cross' || !input.to) return false;
+    cross(w, kicker, input.to, rng);
+    return true;
+  }
+  if (input.type !== 'go') return false;
+  cross(w, kicker, c.aiTarget, rng);
+  return true;
+}
+
+// Disputa pelo alto: tempo do toque, físico e quem está mais perto da bola.
+function resolveCorner(w, rng) {
+  const c = w.corner, b = w.ball.pos;
+  c.phase = 'done';
+  c.landing = { ...b };
+  const A = byId(w, c.runnerId), D = byId(w, c.markerId);
+  const dA = dist(A.pos, b), dD = dist(D.pos, b);
+  const timing = (at) => (at === null ? 0 : Math.max(0, 1 - Math.abs(at - c.arrive) / HEADER_WINDOW));
+  const aiQ = 1 - c.aiTiming / HEADER_WINDOW;
+  const userAttacks = w.mode === 'corner';
+  const qA = userAttacks ? timing(c.pressAt) : aiQ;
+  const qD = userAttacks ? aiQ : timing(c.pressAt);
+  const canA = qA > 0 && dA <= HEADER_REACH, canD = dD <= HEADER_REACH;
+  const sA = 0.6 * qA + 0.4 * (A.attrs.physical / 100) - 0.1 * dA;
+  const sD = MARKER_EDGE + 0.6 * qD + 0.4 * ((D.attrs.physical + D.attrs.defending) / 200) - 0.1 * dD;
+  const pA = !canA ? 0 : !canD ? 0.95 : 1 / (1 + Math.exp(-DUEL_SHARPNESS * (sA - sD)));
+  if (rng.next() < pA) return header(w, A, userAttacks ? c.aim : c.aiAim, qA, rng);
+  if (canD) {
+    w.carrierId = D.id;
+    w.status = 'lost';
+    w.events.push({ type: 'clearance', by: D.id, t: w.t });
+  }
+  // Ninguém alcançou: a bola segue solta.
+}
+
+function header(w, A, aim, q, rng) {
+  const b = w.ball.pos, goalX = FIELD.halfLength * w.attackDir;
+  const y = aim * (FIELD.goalHalfWidth - 0.5);
+  const dir = rotate({ x: goalX - b.x, y: y - b.y }, aimError(rng, HEADER_ERROR * (1.5 - q)));
+  shoot(w, A, { dir, power: 0.05 + 0.1 * q, lift: 0 }, rng); // 13–15,6 m/s
+  // Cabeçada para baixo: chega ao gol na altura de ~0,8 m.
+  const t = Math.abs(goalX - b.x) / (Math.hypot(w.ball.vel.x, w.ball.vel.y) || 1);
+  w.ball.vel.z = (0.8 - b.z) / t + 0.5 * GRAVITY * t;
+  w.events.push({ type: 'header', by: A.id, t: w.t });
+}
+
+// Depois da cobrança (falta/pênalti/escanteio), o rebote vira jogada normal.
 function resumeOpenPlay(w) {
-  w.mode = w.mode === 'freekickDefense' || w.mode === 'penaltyDefense' ? 'defense' : 'attack';
+  w.mode = ['freekickDefense', 'penaltyDefense', 'cornerDefense'].includes(w.mode) ? 'defense' : 'attack';
   w.penalty = null;
   w.wall = null;
+  w.corner = null;
   w.setPieceTaken = false;
   w.turnBased = w.mode === 'attack';
   w.defendersIdle = false;
@@ -214,6 +314,7 @@ function applyInput(w, input, rng) {
   if (w.mode === 'defense') return applyDefenseInput(w, input);
   if (w.penalty) return applyPenaltyInput(w, input, rng);
   if (w.wall) return applyFreekickInput(w, input, rng);
+  if (w.corner) return applyCornerInput(w, input, rng);
   const carrier = byId(w, w.carrierId);
   if (!carrier || carrier.side !== w.attackingSide) return false;
   if (input.type === 'dribble') {
@@ -410,6 +511,10 @@ export function stepWorld(w, input = null) {
   const rng = createRng(w.rng);
   if (applyInput(w, input, rng)) w.awaitingInput = false;
   if (w.awaitingInput) { w.rng = rng.state(); return w; }
+  if (w.corner?.phase === 'flight' && w.t >= w.corner.arrive - 1e-9) {
+    resolveCorner(w, rng);
+    if (w.status !== 'live') { w.rng = rng.state(); return w; }
+  }
   if (w.mode === 'defense') attackByAi(w, rng);
   moveOffBall(w);
   for (const a of w.agents) {
@@ -426,7 +531,7 @@ export function stepWorld(w, input = null) {
     stepBall(w.ball);
     if (w.wall) checkWall(w, prev);
     if (w.status === 'live') checkGoalLine(w, prev);
-    if (w.status === 'live') controlLooseBall(w, rng);
+    if (w.status === 'live' && w.corner?.phase !== 'flight') controlLooseBall(w, rng);
   }
   w.rng = rng.state();
   w.t += DT;

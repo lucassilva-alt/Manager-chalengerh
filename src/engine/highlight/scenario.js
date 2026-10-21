@@ -3,6 +3,7 @@
 import { createWorld } from './highlight.js';
 import { resolveHighlight } from '../match-sim.js';
 import { createRng } from '../rng.js';
+import { placeWall } from './wall.js';
 
 // Profundidade (x) de cada posição no ataque e na defesa; a largura (y)
 // se espalha pelo número de jogadores na mesma posição.
@@ -83,8 +84,48 @@ function penaltyChoices(seed) {
   return { keeperDive: pickSide(rng), shotSide: pickSide(rng), diveDir: null, power: 0.75 + rng.next() * 0.2, aimNoise: (rng.next() - 0.5) * 0.6 };
 }
 
+// Falta: bola entre 18 e 32 m, barreira a 9,15 m cobrindo o canto mais perto.
+const FK = { minDist: 20, maxDist: 30, maxSide: 12, wallSize: 4 };
+
+function buildFreekick(m, { seed }) {
+  const { side, playerId } = m.pending;
+  const rng = createRng(seed ^ 0x27d4eb2f);
+  const goalX = 52.5;
+  const y = (rng.next() * 2 - 1) * FK.maxSide;
+  const d = FK.minDist + rng.next() * (FK.maxDist - FK.minDist);
+  const spot = { x: goalX - Math.sqrt(Math.max(d * d - y * y, 18 * 18)), y };
+  const defense = m.userSide && side !== m.userSide;
+  const spread = (i, n, w) => (n === 1 ? 0 : -w + (2 * w * i) / (n - 1));
+  const att = m[side].lineup, def = m[other(side)].lineup;
+  const attField = att.filter((p) => p.id !== playerId && p.pos !== 'GOL');
+  const defField = def.filter((p) => p.pos !== 'GOL');
+  const agents = [
+    ...att.map((p) => {
+      if (p.id === playerId) return toAgent(m, side, { player: p, x: spot.x - 0.6, y: spot.y });
+      if (p.pos === 'GOL') return toAgent(m, side, { player: p, x: -45, y: 0 });
+      const i = attField.indexOf(p);
+      return toAgent(m, side, { player: p, x: goalX - 12 - (i % 3) * 3, y: spread(i, attField.length, 14) });
+    }),
+    ...def.map((p) => {
+      if (p.pos === 'GOL') return toAgent(m, other(side), { player: p, x: goalX - 0.5, y: -Math.sign(y) * 0.6 });
+      const i = defField.indexOf(p);
+      return toAgent(m, other(side), { player: p, x: goalX - 8 - (i % 3) * 3, y: spread(i, defField.length, 13) + 0.9 });
+    }),
+  ];
+  const w = createWorld({
+    agents, carrierId: playerId, attackDir: 1, seed, defendersIdle: true, turnBased: true,
+    mode: defense ? 'freekickDefense' : 'freekick', userSide: m.userSide ?? side,
+  });
+  placeWall(w, FK.wallSize);
+  // Escolhas do batedor do jogo (falta contra), sorteadas já no começo.
+  w.freekick = { power: 0.6 + rng.next() * 0.08, lift: 0.58 + rng.next() * 0.1, aimNoise: (rng.next() - 0.5) * 0.8 };
+  w.awaitingInput = true;
+  return w;
+}
+
 export function buildScenario(m, { seed = m.rng, defendersIdle = false, turnBased = true } = {}) {
   if (m.pending.kind === 'penalty') return buildPenalty(m, { seed });
+  if (m.pending.kind === 'freekick') return buildFreekick(m, { seed });
   const { side, playerId } = m.pending;
   const attackers = slots(m[side].lineup, ATTACK_X).map((s) => {
     if (s.player.id === playerId) return { ...s, ...CARRIER_START };

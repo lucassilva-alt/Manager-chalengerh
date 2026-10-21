@@ -14,14 +14,14 @@ const BOUNCE_GRIP = 0.9;    // velocidade horizontal que sobra no quique
 const STOP_SPEED = 0.05;
 
 export function createBall({ x, y, z = 0 }) {
-  return { pos: { x, y, z }, vel: { x: 0, y: 0, z: 0 }, spin: 0 };
+  return { pos: { x, y, z }, vel: { x: 0, y: 0, z: 0 }, spin: 0, dip: 0 };
 }
 
 export function stepBall(ball) {
   const { pos, vel } = ball;
   const airborne = pos.z > 0 || vel.z > 0;
   if (airborne) {
-    vel.z -= GRAVITY * DT;
+    vel.z -= (GRAVITY + (ball.dip ?? 0)) * DT; // dip: queda extra do chute com efeito por cima
     const drag = 1 - AIR_DRAG * DT;
     vel.x *= drag; vel.y *= drag; vel.z *= drag;
     // Efeito: aceleração perpendicular à velocidade no plano do campo.
@@ -39,6 +39,7 @@ export function stepBall(ball) {
   pos.x += vel.x * DT; pos.y += vel.y * DT; pos.z += vel.z * DT;
   if (pos.z <= 0 && vel.z <= 0 && airborne) {
     pos.z = 0;
+    ball.dip = 0;
     if (-vel.z > BOUNCE_MIN) {
       vel.z = -vel.z * BOUNCE;
       vel.x *= BOUNCE_GRIP; vel.y *= BOUNCE_GRIP;

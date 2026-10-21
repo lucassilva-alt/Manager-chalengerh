@@ -6,6 +6,7 @@ import { createAgent, stepAgent } from './agents.js';
 import { FIELD } from './field.js';
 import { isKeeper, stepKeeper } from './keeper.js';
 import { decideAttack } from './attack-ai.js';
+import { placeWall } from './wall.js';
 
 const CONTROL_RADIUS = 6;   // zona de condução (círculo verde)
 const DRIBBLE_STEP = 5;     // quanto um arrasto leva o jogador à frente
@@ -25,6 +26,8 @@ const SHOT_SPEED = { min: 12, range: 24 };  // m/s com força 0 e 1
 const SHOT_LIFT = 12;                       // m/s verticais com lift 1
 const SHOT_SPIN = 12;                       // giro com curl 1
 const POST_BOUNCE = 0.6;
+const SHOT_DIP = 7;          // m/s² de queda extra por unidade de lift acima de 0,35 (topspin)
+const RECEIVE_MAX_SPEED = 18; // m/s: bola mais rápida que isso não é dominada, só bate no jogador
 const MAX_DURATION = 25;      // s: lance sem desfecho acaba por tempo
 const AI_TICK = 0.4;          // s entre decisões do atacante controlado pelo jogo
 const DRIBBLE_DONE = 0.4;     // m do ponto de condução para devolver a vez ao jogador
@@ -101,9 +104,12 @@ function shoot(w, carrier, { dir, power = 0.7, curl = 0, lift = 0.2 }, rng) {
   const d = rotate(norm(dir), error);
   const speed = SHOT_SPEED.min + SHOT_SPEED.range * p;
   const goal = { x: FIELD.halfLength * w.attackDir, y: 0 };
-  kickBall(w, carrier, { x: d.x * speed, y: d.y * speed, z: SHOT_LIFT * Math.min(1, Math.max(0, lift)) },
+  const l = Math.min(1, Math.max(0, lift));
+  kickBall(w, carrier, { x: d.x * speed, y: d.y * speed, z: SHOT_LIFT * l },
     SHOT_SPIN * Math.min(1, Math.max(-1, curl)),
     { type: 'shot', error, distance: dist(carrier.pos, goal) });
+  w.ball.dip = SHOT_DIP * Math.max(0, l - 0.35);
+  if (w.penalty || w.wall) w.setPieceTaken = true;
 }
 
 // Bola cruzando a linha de fundo do ataque: gol, trave/travessão ou fora.
@@ -159,10 +165,55 @@ function applyPenaltyInput(w, input, rng) {
   return true;
 }
 
+// Falta a favor: só chute. Falta contra: escolhe o tamanho da barreira e manda bater.
+function applyFreekickInput(w, input, rng) {
+  const shooter = byId(w, w.carrierId);
+  if (w.mode === 'freekick') {
+    if (input.type !== 'shoot') return false;
+    shoot(w, shooter, input, rng);
+    return true;
+  }
+  if (input.type !== 'go') return false;
+  if (input.wall) placeWall(w, Math.max(3, Math.min(5, input.wall)));
+  // Batedor do jogo: canto oposto à barreira, com efeito para dentro.
+  const far = w.wall.center.y > w.ball.pos.y ? -1 : 1;
+  const aim = { x: FIELD.halfLength * w.attackDir, y: far * (FIELD.goalHalfWidth - 1.1) + w.freekick.aimNoise };
+  shoot(w, shooter, { dir: { x: aim.x - w.ball.pos.x, y: aim.y - w.ball.pos.y }, power: w.freekick.power, lift: w.freekick.lift, curl: -far * 0.6 }, rng);
+  return true;
+}
+
+// Depois da cobrança (falta/pênalti), o rebote vira jogada normal.
+function resumeOpenPlay(w) {
+  w.mode = w.mode === 'freekickDefense' || w.mode === 'penaltyDefense' ? 'defense' : 'attack';
+  w.penalty = null;
+  w.wall = null;
+  w.setPieceTaken = false;
+  w.turnBased = w.mode === 'attack';
+  w.defendersIdle = false;
+  for (const a of w.agents) a.inWall = false;
+}
+
+// Bola cruzando o plano da barreira abaixo da altura do pulo: bloqueada.
+function checkWall(w, prev) {
+  const wl = w.wall, b = w.ball.pos;
+  const side = (p) => (p.x - wl.center.x) * wl.dir.x + (p.y - wl.center.y) * wl.dir.y;
+  const s0 = side(prev), s1 = side(b);
+  if (s0 >= 0 || s1 < 0) return;
+  const k = s0 / (s0 - s1);
+  const at = { x: prev.x + (b.x - prev.x) * k, y: prev.y + (b.y - prev.y) * k, z: prev.z + (b.z - prev.z) * k };
+  const lateral = Math.abs((at.x - wl.center.x) * wl.perp.x + (at.y - wl.center.y) * wl.perp.y);
+  const jumping = w.lastKick && w.t - w.lastKick.at < 0.7;
+  if (lateral <= wl.halfWidth + FIELD.ballRadius && at.z <= wl.height + (jumping ? wl.jump : 0)) {
+    w.events.push({ type: 'wallBlock', t: w.t });
+    w.status = 'lost';
+  }
+}
+
 function applyInput(w, input, rng) {
   if (!input || w.status !== 'live') return false;
   if (w.mode === 'defense') return applyDefenseInput(w, input);
   if (w.penalty) return applyPenaltyInput(w, input, rng);
+  if (w.wall) return applyFreekickInput(w, input, rng);
   const carrier = byId(w, w.carrierId);
   if (!carrier || carrier.side !== w.attackingSide) return false;
   if (input.type === 'dribble') {
@@ -281,11 +332,14 @@ function controlLooseBall(w, rng) {
   const skill = (w.lastKick?.type === 'shot' ? kickerAttrs?.shooting : kickerAttrs?.passing) ?? 60;
   // Bola rápida é mais difícil de cortar.
   const speedFactor = Math.min(1, Math.max(0.15, 12 / (Math.hypot(b.vel.x, b.vel.y) || 1)));
+  const ballSpeed = Math.hypot(b.vel.x, b.vel.y);
   for (const a of w.agents) {
-    if (a.id === kicker) continue;
+    if (a.id === kicker || a.inWall) continue; // barreira só bloqueia (ver checkWall)
     const d = dist(a.pos, b.pos);
     if (d > (a.side === w.attackingSide ? RECEIVE_REACH : REACH)) continue;
+    if (a.side === w.attackingSide && ballSpeed > RECEIVE_MAX_SPEED) continue;
     if (a.side === w.attackingSide) {
+      if (w.setPieceTaken) resumeOpenPlay(w);
       w.carrierId = a.id;
       w.controlCenter = { ...a.pos };
       w.possessionSince = w.t;
@@ -370,7 +424,8 @@ export function stepWorld(w, input = null) {
   } else {
     const prev = { ...w.ball.pos };
     stepBall(w.ball);
-    checkGoalLine(w, prev);
+    if (w.wall) checkWall(w, prev);
+    if (w.status === 'live') checkGoalLine(w, prev);
     if (w.status === 'live') controlLooseBall(w, rng);
   }
   w.rng = rng.state();

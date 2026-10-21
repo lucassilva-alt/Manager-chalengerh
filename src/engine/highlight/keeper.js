@@ -41,7 +41,7 @@ export function stepKeeper(w, gk, rng) {
     // Pênalti: pula no canto escolhido antes do chute, sem tempo de reação.
     aimY = w.penalty.diveDir * PENALTY_DIVE;
   } else {
-    const reaction = 0.25 - 0.15 * g(gk);
+    const reaction = 0.25 - 0.15 * g(gk) + (w.wall ? 0.15 : 0); // barreira tapa a visão
     if (w.t - w.lastKick.at < reaction) return false;
     // Ponto onde a bola cruza a linha do goleiro (previsão reta, sem o efeito).
     const k = (gk.pos.x - b.pos.x) / (b.vel.x || 1e-6);

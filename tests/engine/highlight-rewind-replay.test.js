@@ -79,6 +79,7 @@ test('gravador guarda só os últimos segundos, em ordem', () => {
 
 test('replay do gol informa autor e distância do chute', () => {
   const m = pendingMatch(7);
+  m.pending.kind = 'open'; // jogada normal (sem barreira de falta)
   const w = startHighlight(m, { seed: 1, defendersIdle: true });
   w.agents = w.agents.filter((a) => a.side === 'home');   // sem defesa nem goleiro
   const rec = createRecorder({ seconds: 3 });

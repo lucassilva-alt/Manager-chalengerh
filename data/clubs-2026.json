@@ -1,0 +1,910 @@
+{
+  "retrievedAt": "2026-10-21",
+  "notes": "Stadium and capacity taken from the pt.wikipedia 2026 season participants tables (cited per division). fullName and kit colors from each club's en.wikipedia infobox (and pt.wikipedia infobox where listed); kit hexes are infobox base colors or approximations of the real home-kit color, see per-club notes. 3-letter codes are conventional scoreboard abbreviations, not taken from a single cited source.",
+  "lists": {
+    "serieA": {
+      "source": "https://pt.wikipedia.org/wiki/Campeonato_Brasileiro_de_Futebol_de_2026_-_S%C3%A9rie_A",
+      "clubs": [
+        "athletico-paranaense",
+        "atletico-mineiro",
+        "bahia",
+        "botafogo",
+        "chapecoense",
+        "corinthians",
+        "coritiba",
+        "cruzeiro",
+        "flamengo",
+        "fluminense",
+        "gremio",
+        "internacional",
+        "mirassol",
+        "palmeiras",
+        "red-bull-bragantino",
+        "remo",
+        "santos",
+        "sao-paulo",
+        "vasco",
+        "vitoria"
+      ]
+    },
+    "serieB": {
+      "source": "https://pt.wikipedia.org/wiki/Campeonato_Brasileiro_de_Futebol_de_2026_-_S%C3%A9rie_B",
+      "clubs": [
+        "america-mg",
+        "athletic",
+        "atletico-go",
+        "avai",
+        "botafogo-sp",
+        "ceara",
+        "crb",
+        "criciuma",
+        "cuiaba",
+        "fortaleza",
+        "goias",
+        "juventude",
+        "londrina",
+        "nautico",
+        "novorizontino",
+        "operario-pr",
+        "ponte-preta",
+        "sao-bernardo",
+        "sport",
+        "vila-nova"
+      ]
+    }
+  },
+  "clubs": [
+    {
+      "id": "athletico-paranaense",
+      "name": "Athletico-PR",
+      "fullName": "Club Athletico Paranaense",
+      "short": "CAP",
+      "city": "Curitiba",
+      "state": "PR",
+      "stadium": "Arena da Baixada",
+      "capacity": 42372,
+      "colors": {
+        "shirt": "#C8102E",
+        "shorts": "#000000"
+      },
+      "crest": "athletico-paranaense",
+      "division": "A",
+      "sources": [
+        "https://pt.wikipedia.org/wiki/Campeonato_Brasileiro_de_Futebol_de_2026_-_S%C3%A9rie_A",
+        "https://en.wikipedia.org/wiki/Club_Athletico_Paranaense"
+      ],
+      "notes": "Red/black home shirt; shorts black per en infobox."
+    },
+    {
+      "id": "atletico-mineiro",
+      "name": "Atlético-MG",
+      "fullName": "Clube Atlético Mineiro",
+      "short": "CAM",
+      "city": "Belo Horizonte",
+      "state": "MG",
+      "stadium": "Arena MRV",
+      "capacity": 46000,
+      "colors": {
+        "shirt": "#FFFFFF",
+        "shorts": "#000000"
+      },
+      "crest": "atletico-mineiro",
+      "division": "A",
+      "sources": [
+        "https://pt.wikipedia.org/wiki/Campeonato_Brasileiro_de_Futebol_de_2026_-_S%C3%A9rie_A",
+        "https://en.wikipedia.org/wiki/Clube_Atlético_Mineiro"
+      ],
+      "notes": "Black/white striped shirt (infobox base white), black shorts."
+    },
+    {
+      "id": "bahia",
+      "name": "Bahia",
+      "fullName": "Esporte Clube Bahia",
+      "short": "BAH",
+      "city": "Salvador",
+      "state": "BA",
+      "stadium": "Arena Fonte Nova",
+      "capacity": 50025,
+      "colors": {
+        "shirt": "#FFFFFF",
+        "shorts": "#0000BF"
+      },
+      "crest": "bahia",
+      "division": "A",
+      "sources": [
+        "https://pt.wikipedia.org/wiki/Campeonato_Brasileiro_de_Futebol_de_2026_-_S%C3%A9rie_A",
+        "https://en.wikipedia.org/wiki/Esporte_Clube_Bahia"
+      ]
+    },
+    {
+      "id": "botafogo",
+      "name": "Botafogo",
+      "fullName": "Botafogo de Futebol e Regatas",
+      "short": "BOT",
+      "city": "Rio de Janeiro",
+      "state": "RJ",
+      "stadium": "Nilton Santos",
+      "capacity": 46831,
+      "colors": {
+        "shirt": "#FFFFFF",
+        "shorts": "#000000"
+      },
+      "crest": "botafogo-fr",
+      "division": "A",
+      "sources": [
+        "https://pt.wikipedia.org/wiki/Campeonato_Brasileiro_de_Futebol_de_2026_-_S%C3%A9rie_A",
+        "https://en.wikipedia.org/wiki/Botafogo_FR"
+      ],
+      "notes": "Black/white striped shirt (infobox base white), black shorts."
+    },
+    {
+      "id": "chapecoense",
+      "name": "Chapecoense",
+      "fullName": "Associação Chapecoense de Futebol",
+      "short": "CHA",
+      "city": "Chapecó",
+      "state": "SC",
+      "stadium": "Arena Condá",
+      "capacity": 22600,
+      "colors": {
+        "shirt": "#007744",
+        "shorts": "#007744"
+      },
+      "crest": "chapecoense",
+      "division": "A",
+      "sources": [
+        "https://pt.wikipedia.org/wiki/Campeonato_Brasileiro_de_Futebol_de_2026_-_S%C3%A9rie_A",
+        "https://en.wikipedia.org/wiki/Associação_Chapecoense_de_Futebol",
+        "https://pt.wikipedia.org/wiki/Associação_Chapecoense_de_Futebol"
+      ]
+    },
+    {
+      "id": "corinthians",
+      "name": "Corinthians",
+      "fullName": "Sport Club Corinthians Paulista",
+      "short": "COR",
+      "city": "São Paulo",
+      "state": "SP",
+      "stadium": "Neo Química Arena",
+      "capacity": 48905,
+      "colors": {
+        "shirt": "#FCFAF5",
+        "shorts": "#000000"
+      },
+      "crest": "corinthians",
+      "division": "A",
+      "sources": [
+        "https://pt.wikipedia.org/wiki/Campeonato_Brasileiro_de_Futebol_de_2026_-_S%C3%A9rie_A",
+        "https://en.wikipedia.org/wiki/SC_Corinthians_Paulista"
+      ]
+    },
+    {
+      "id": "coritiba",
+      "name": "Coritiba",
+      "fullName": "Coritiba Foot Ball Club",
+      "short": "CFC",
+      "city": "Curitiba",
+      "state": "PR",
+      "stadium": "Couto Pereira",
+      "capacity": 40502,
+      "colors": {
+        "shirt": "#FFFFFF",
+        "shorts": "#000000"
+      },
+      "crest": "coritiba",
+      "division": "A",
+      "sources": [
+        "https://pt.wikipedia.org/wiki/Campeonato_Brasileiro_de_Futebol_de_2026_-_S%C3%A9rie_A",
+        "https://en.wikipedia.org/wiki/Coritiba_Foot_Ball_Club"
+      ],
+      "notes": "Infobox shirt base empty (pattern only); white shirt with green detail is the traditional home; shorts black per infobox."
+    },
+    {
+      "id": "cruzeiro",
+      "name": "Cruzeiro",
+      "fullName": "Cruzeiro Esporte Clube",
+      "short": "CRU",
+      "city": "Belo Horizonte",
+      "state": "MG",
+      "stadium": "Mineirão",
+      "capacity": 62000,
+      "colors": {
+        "shirt": "#0000FF",
+        "shorts": "#FFFFFF"
+      },
+      "crest": "cruzeiro",
+      "division": "A",
+      "sources": [
+        "https://pt.wikipedia.org/wiki/Campeonato_Brasileiro_de_Futebol_de_2026_-_S%C3%A9rie_A",
+        "https://en.wikipedia.org/wiki/Cruzeiro_EC"
+      ]
+    },
+    {
+      "id": "flamengo",
+      "name": "Flamengo",
+      "fullName": "Clube de Regatas do Flamengo",
+      "short": "FLA",
+      "city": "Rio de Janeiro",
+      "state": "RJ",
+      "stadium": "Maracanã",
+      "capacity": 78838,
+      "colors": {
+        "shirt": "#FF0000",
+        "shorts": "#FFFFFF"
+      },
+      "crest": "flamengo",
+      "division": "A",
+      "sources": [
+        "https://pt.wikipedia.org/wiki/Campeonato_Brasileiro_de_Futebol_de_2026_-_S%C3%A9rie_A",
+        "https://en.wikipedia.org/wiki/CR_Flamengo"
+      ],
+      "notes": "Red/black hooped shirt, white shorts."
+    },
+    {
+      "id": "fluminense",
+      "name": "Fluminense",
+      "fullName": "Fluminense Football Club",
+      "short": "FLU",
+      "city": "Rio de Janeiro",
+      "state": "RJ",
+      "stadium": "Maracanã",
+      "capacity": 78838,
+      "colors": {
+        "shirt": "#800000",
+        "shorts": "#FFFFFF"
+      },
+      "crest": "fluminense",
+      "division": "A",
+      "sources": [
+        "https://pt.wikipedia.org/wiki/Campeonato_Brasileiro_de_Futebol_de_2026_-_S%C3%A9rie_A",
+        "https://en.wikipedia.org/wiki/Fluminense_FC"
+      ],
+      "notes": "Maroon/green/white striped shirt, white shorts."
+    },
+    {
+      "id": "gremio",
+      "name": "Grêmio",
+      "fullName": "Grêmio Foot-Ball Porto Alegrense",
+      "short": "GRE",
+      "city": "Porto Alegre",
+      "state": "RS",
+      "stadium": "Arena do Grêmio",
+      "capacity": 55662,
+      "colors": {
+        "shirt": "#0D80BF",
+        "shorts": "#000000"
+      },
+      "crest": "gremio",
+      "division": "A",
+      "sources": [
+        "https://pt.wikipedia.org/wiki/Campeonato_Brasileiro_de_Futebol_de_2026_-_S%C3%A9rie_A",
+        "https://en.wikipedia.org/wiki/Grêmio_FBPA",
+        "https://pt.wikipedia.org/wiki/Grêmio_Foot-Ball_Porto_Alegrense"
+      ],
+      "notes": "Blue/black/white striped shirt; infobox base is black, sky-blue hex chosen as the identifying stripe color; shorts black."
+    },
+    {
+      "id": "internacional",
+      "name": "Internacional",
+      "fullName": "Sport Club Internacional",
+      "short": "INT",
+      "city": "Porto Alegre",
+      "state": "RS",
+      "stadium": "Beira-Rio",
+      "capacity": 50128,
+      "colors": {
+        "shirt": "#EF0000",
+        "shorts": "#FFFFFF"
+      },
+      "crest": "internacional",
+      "division": "A",
+      "sources": [
+        "https://pt.wikipedia.org/wiki/Campeonato_Brasileiro_de_Futebol_de_2026_-_S%C3%A9rie_A",
+        "https://en.wikipedia.org/wiki/SC_Internacional"
+      ]
+    },
+    {
+      "id": "mirassol",
+      "name": "Mirassol",
+      "fullName": "Mirassol Futebol Clube",
+      "short": "MIR",
+      "city": "Mirassol",
+      "state": "SP",
+      "stadium": "Maião",
+      "capacity": 15023,
+      "colors": {
+        "shirt": "#FFF200",
+        "shorts": "#FFF200"
+      },
+      "crest": "mirassol",
+      "division": "A",
+      "sources": [
+        "https://pt.wikipedia.org/wiki/Campeonato_Brasileiro_de_Futebol_de_2026_-_S%C3%A9rie_A",
+        "https://en.wikipedia.org/wiki/Mirassol_Futebol_Clube",
+        "https://pt.wikipedia.org/wiki/Mirassol_Futebol_Clube"
+      ],
+      "notes": "en and pt infoboxes both give yellow shorts base."
+    },
+    {
+      "id": "palmeiras",
+      "name": "Palmeiras",
+      "fullName": "Sociedade Esportiva Palmeiras",
+      "short": "PAL",
+      "city": "São Paulo",
+      "state": "SP",
+      "stadium": "Nubank Parque",
+      "capacity": 43713,
+      "colors": {
+        "shirt": "#035F30",
+        "shorts": "#FFFFFF"
+      },
+      "crest": "palmeiras",
+      "division": "A",
+      "sources": [
+        "https://pt.wikipedia.org/wiki/Campeonato_Brasileiro_de_Futebol_de_2026_-_S%C3%A9rie_A",
+        "https://en.wikipedia.org/wiki/SE_Palmeiras"
+      ]
+    },
+    {
+      "id": "red-bull-bragantino",
+      "name": "Red Bull Bragantino",
+      "fullName": "Red Bull Bragantino",
+      "short": "RBB",
+      "city": "Bragança Paulista",
+      "state": "SP",
+      "stadium": "Cícero de Souza Marques",
+      "capacity": 12000,
+      "colors": {
+        "shirt": "#FFFFFF",
+        "shorts": "#FF0000"
+      },
+      "crest": "rb-bragantino",
+      "division": "A",
+      "sources": [
+        "https://pt.wikipedia.org/wiki/Campeonato_Brasileiro_de_Futebol_de_2026_-_S%C3%A9rie_A",
+        "https://en.wikipedia.org/wiki/Red_Bull_Bragantino",
+        "https://pt.wikipedia.org/wiki/Red_Bull_Bragantino"
+      ]
+    },
+    {
+      "id": "remo",
+      "name": "Remo",
+      "fullName": "Clube do Remo",
+      "short": "REM",
+      "city": "Belém",
+      "state": "PA",
+      "stadium": "Mangueirão",
+      "capacity": 53635,
+      "colors": {
+        "shirt": "#111533",
+        "shorts": "#FFFFFF"
+      },
+      "crest": "clube-do-remo",
+      "division": "A",
+      "sources": [
+        "https://pt.wikipedia.org/wiki/Campeonato_Brasileiro_de_Futebol_de_2026_-_S%C3%A9rie_A",
+        "https://en.wikipedia.org/wiki/Clube_do_Remo"
+      ],
+      "notes": "Club also owns Baenão; season page lists Mangueirão as 2026 home."
+    },
+    {
+      "id": "santos",
+      "name": "Santos",
+      "fullName": "Santos Futebol Clube",
+      "short": "SAN",
+      "city": "Santos",
+      "state": "SP",
+      "stadium": "Vila Belmiro",
+      "capacity": 20360,
+      "colors": {
+        "shirt": "#FFFFFF",
+        "shorts": "#FFFFFF"
+      },
+      "crest": "santos-fc",
+      "division": "A",
+      "sources": [
+        "https://pt.wikipedia.org/wiki/Campeonato_Brasileiro_de_Futebol_de_2026_-_S%C3%A9rie_A",
+        "https://en.wikipedia.org/wiki/Santos_FC"
+      ],
+      "notes": "Capacity per season page (en club infobox says 16,068)."
+    },
+    {
+      "id": "sao-paulo",
+      "name": "São Paulo",
+      "fullName": "São Paulo Futebol Clube",
+      "short": "SAO",
+      "city": "São Paulo",
+      "state": "SP",
+      "stadium": "Morumbis",
+      "capacity": 66795,
+      "colors": {
+        "shirt": "#FFFFFF",
+        "shorts": "#FFFFFF"
+      },
+      "crest": "sao-paulo",
+      "division": "A",
+      "sources": [
+        "https://pt.wikipedia.org/wiki/Campeonato_Brasileiro_de_Futebol_de_2026_-_S%C3%A9rie_A",
+        "https://en.wikipedia.org/wiki/São_Paulo_FC"
+      ],
+      "notes": "Capacity per season page (en club infobox says 72,039)."
+    },
+    {
+      "id": "vasco",
+      "name": "Vasco",
+      "fullName": "Club de Regatas Vasco da Gama",
+      "short": "VAS",
+      "city": "Rio de Janeiro",
+      "state": "RJ",
+      "stadium": "São Januário",
+      "capacity": 20419,
+      "colors": {
+        "shirt": "#000000",
+        "shorts": "#000000"
+      },
+      "crest": "vasco-da-gama",
+      "division": "A",
+      "sources": [
+        "https://pt.wikipedia.org/wiki/Campeonato_Brasileiro_de_Futebol_de_2026_-_S%C3%A9rie_A",
+        "https://en.wikipedia.org/wiki/CR_Vasco_da_Gama",
+        "https://www.band.com.br/esportes/vasco-anuncia-camisa-principal-para-2026-veja-detalhes-202601150954"
+      ],
+      "notes": "2026 Nike home shirt is black with white diagonal sash (Band, 15 Jan 2026); shorts color not stated in a source, en infobox gives black socks only -> shorts black is lower confidence."
+    },
+    {
+      "id": "vitoria",
+      "name": "Vitória",
+      "fullName": "Esporte Clube Vitória",
+      "short": "VIT",
+      "city": "Salvador",
+      "state": "BA",
+      "stadium": "Barradão",
+      "capacity": 30793,
+      "colors": {
+        "shirt": "#FF0000",
+        "shorts": "#FFFFFF"
+      },
+      "crest": "vitoria",
+      "division": "A",
+      "sources": [
+        "https://pt.wikipedia.org/wiki/Campeonato_Brasileiro_de_Futebol_de_2026_-_S%C3%A9rie_A",
+        "https://en.wikipedia.org/wiki/Esporte_Clube_Vitória",
+        "https://pt.wikipedia.org/wiki/Esporte_Clube_Vitória"
+      ],
+      "notes": "Red/black striped shirt. Shorts conflict: en infobox (2026 kit) white, pt infobox black; en used."
+    },
+    {
+      "id": "america-mg",
+      "name": "América-MG",
+      "fullName": "América Futebol Clube",
+      "short": "AME",
+      "city": "Belo Horizonte",
+      "state": "MG",
+      "stadium": "Independência",
+      "capacity": 23018,
+      "colors": {
+        "shirt": "#00843D",
+        "shorts": "#000000"
+      },
+      "crest": "america-mineiro",
+      "division": "B",
+      "sources": [
+        "https://pt.wikipedia.org/wiki/Campeonato_Brasileiro_de_Futebol_de_2026_-_S%C3%A9rie_B",
+        "https://en.wikipedia.org/wiki/América_Futebol_Clube_(MG)",
+        "https://pt.wikipedia.org/wiki/América_Futebol_Clube_(Belo_Horizonte)",
+        "https://www.centauro.com.br/nav/linha/americamineiro/marca/volt"
+      ],
+      "notes": "Infoboxes only give black base under a pattern; retailer listing for 'Camisa América Mineiro I 2026' states predominant color green. Green hex approximated; shorts black per infoboxes (medium confidence)."
+    },
+    {
+      "id": "athletic",
+      "name": "Athletic",
+      "fullName": "Athletic Club",
+      "short": "ATH",
+      "city": "São João del-Rei",
+      "state": "MG",
+      "stadium": "Arena Sicredi",
+      "capacity": 6324,
+      "colors": {
+        "shirt": "#000000",
+        "shorts": "#000000"
+      },
+      "crest": "athletic",
+      "division": "B",
+      "sources": [
+        "https://pt.wikipedia.org/wiki/Campeonato_Brasileiro_de_Futebol_de_2026_-_S%C3%A9rie_B",
+        "https://en.wikipedia.org/wiki/Athletic_Club_(MG)"
+      ],
+      "notes": "Black/white club; en infobox base black shirt + black shorts with white sides (2025 kit pattern)."
+    },
+    {
+      "id": "atletico-go",
+      "name": "Atlético-GO",
+      "fullName": "Atlético Clube Goianiense",
+      "short": "ACG",
+      "city": "Goiânia",
+      "state": "GO",
+      "stadium": "Antônio Accioly",
+      "capacity": 12500,
+      "colors": {
+        "shirt": "#FF0000",
+        "shorts": "#000000"
+      },
+      "crest": "atletico-goianiense",
+      "division": "B",
+      "sources": [
+        "https://pt.wikipedia.org/wiki/Campeonato_Brasileiro_de_Futebol_de_2026_-_S%C3%A9rie_B",
+        "https://en.wikipedia.org/wiki/Atlético_Clube_Goianiense"
+      ]
+    },
+    {
+      "id": "avai",
+      "name": "Avaí",
+      "fullName": "Avaí Futebol Clube",
+      "short": "AVA",
+      "city": "Florianópolis",
+      "state": "SC",
+      "stadium": "Ressacada",
+      "capacity": 17800,
+      "colors": {
+        "shirt": "#0040CF",
+        "shorts": "#0040CF"
+      },
+      "crest": "avai",
+      "division": "B",
+      "sources": [
+        "https://pt.wikipedia.org/wiki/Campeonato_Brasileiro_de_Futebol_de_2026_-_S%C3%A9rie_B",
+        "https://en.wikipedia.org/wiki/Avaí_FC",
+        "https://pt.wikipedia.org/wiki/Avaí_Futebol_Clube"
+      ],
+      "notes": "Blue/white striped shirt; pt infobox blue/blue, en shorts blue."
+    },
+    {
+      "id": "botafogo-sp",
+      "name": "Botafogo-SP",
+      "fullName": "Botafogo Futebol Clube",
+      "short": "BSP",
+      "city": "Ribeirão Preto",
+      "state": "SP",
+      "stadium": "Santa Cruz",
+      "capacity": 25000,
+      "colors": {
+        "shirt": "#FFFFFF",
+        "shorts": "#FFFFFF"
+      },
+      "crest": "botafogo-sp",
+      "division": "B",
+      "sources": [
+        "https://pt.wikipedia.org/wiki/Campeonato_Brasileiro_de_Futebol_de_2026_-_S%C3%A9rie_B",
+        "https://en.wikipedia.org/wiki/Botafogo_Futebol_Clube_(SP)"
+      ],
+      "notes": "en infobox base white shirt and shorts (pattern adds red/black). Short code BSP not verified on a TV source."
+    },
+    {
+      "id": "ceara",
+      "name": "Ceará",
+      "fullName": "Ceará Sporting Club",
+      "short": "CEA",
+      "city": "Fortaleza",
+      "state": "CE",
+      "stadium": "Arena Castelão",
+      "capacity": 63903,
+      "colors": {
+        "shirt": "#000000",
+        "shorts": "#000000"
+      },
+      "crest": "ceara",
+      "division": "B",
+      "sources": [
+        "https://pt.wikipedia.org/wiki/Campeonato_Brasileiro_de_Futebol_de_2026_-_S%C3%A9rie_B",
+        "https://en.wikipedia.org/wiki/Ceará_Sporting_Club",
+        "https://pt.wikipedia.org/wiki/Ceará_Sporting_Club"
+      ],
+      "notes": "Black/white striped shirt, black shorts (en+pt agree)."
+    },
+    {
+      "id": "crb",
+      "name": "CRB",
+      "fullName": "Clube de Regatas Brasil",
+      "short": "CRB",
+      "city": "Maceió",
+      "state": "AL",
+      "stadium": "Rei Pelé",
+      "capacity": 17126,
+      "colors": {
+        "shirt": "#FFFFFF",
+        "shorts": "#FF0000"
+      },
+      "crest": "clube-de-regatas-brasil",
+      "division": "B",
+      "sources": [
+        "https://pt.wikipedia.org/wiki/Campeonato_Brasileiro_de_Futebol_de_2026_-_S%C3%A9rie_B",
+        "https://en.wikipedia.org/wiki/Clube_de_Regatas_Brasil",
+        "https://pt.wikipedia.org/wiki/Clube_de_Regatas_Brasil"
+      ],
+      "notes": "Red/white hooped shirt (base white), red shorts (en+pt agree)."
+    },
+    {
+      "id": "criciuma",
+      "name": "Criciúma",
+      "fullName": "Criciúma Esporte Clube",
+      "short": "CRI",
+      "city": "Criciúma",
+      "state": "SC",
+      "stadium": "Heriberto Hülse",
+      "capacity": 19225,
+      "colors": {
+        "shirt": "#FBC500",
+        "shorts": "#000000"
+      },
+      "crest": "criciuma",
+      "division": "B",
+      "sources": [
+        "https://pt.wikipedia.org/wiki/Campeonato_Brasileiro_de_Futebol_de_2026_-_S%C3%A9rie_B",
+        "https://en.wikipedia.org/wiki/Criciúma_Esporte_Clube",
+        "https://pt.wikipedia.org/wiki/Criciúma_Esporte_Clube"
+      ],
+      "notes": "Yellow/black/white striped tradition; infobox base white with yellow (FBC500) sleeves; shorts black (en+pt)."
+    },
+    {
+      "id": "cuiaba",
+      "name": "Cuiabá",
+      "fullName": "Cuiabá Esporte Clube",
+      "short": "CUI",
+      "city": "Cuiabá",
+      "state": "MT",
+      "stadium": "Arena Pantanal",
+      "capacity": 44097,
+      "colors": {
+        "shirt": "#FFEE00",
+        "shorts": "#007020"
+      },
+      "crest": "cuiaba",
+      "division": "B",
+      "sources": [
+        "https://pt.wikipedia.org/wiki/Campeonato_Brasileiro_de_Futebol_de_2026_-_S%C3%A9rie_B",
+        "https://en.wikipedia.org/wiki/Cuiabá_Esporte_Clube",
+        "https://pt.wikipedia.org/wiki/Cuiabá_Esporte_Clube"
+      ],
+      "notes": "Conflict: en infobox (2026 pattern) yellow shirt, pt infobox green shirt (006030); en used. Shorts green in both."
+    },
+    {
+      "id": "fortaleza",
+      "name": "Fortaleza",
+      "fullName": "Fortaleza Esporte Clube",
+      "short": "FOR",
+      "city": "Fortaleza",
+      "state": "CE",
+      "stadium": "Arena Castelão",
+      "capacity": 63903,
+      "colors": {
+        "shirt": "#FD1220",
+        "shorts": "#0E00EE"
+      },
+      "crest": "fortaleza",
+      "division": "B",
+      "sources": [
+        "https://pt.wikipedia.org/wiki/Campeonato_Brasileiro_de_Futebol_de_2026_-_S%C3%A9rie_B",
+        "https://en.wikipedia.org/wiki/Fortaleza_Esporte_Clube"
+      ],
+      "notes": "Red/blue/white tricolor shirt."
+    },
+    {
+      "id": "goias",
+      "name": "Goiás",
+      "fullName": "Goiás Esporte Clube",
+      "short": "GOI",
+      "city": "Goiânia",
+      "state": "GO",
+      "stadium": "Serrinha",
+      "capacity": 14525,
+      "colors": {
+        "shirt": "#00563B",
+        "shorts": "#FFFFFF"
+      },
+      "crest": "goias",
+      "division": "B",
+      "sources": [
+        "https://pt.wikipedia.org/wiki/Campeonato_Brasileiro_de_Futebol_de_2026_-_S%C3%A9rie_B",
+        "https://en.wikipedia.org/wiki/Goiás_Esporte_Clube"
+      ],
+      "notes": "Infobox shirt base empty (pattern); green from infobox socks hex; shorts white."
+    },
+    {
+      "id": "juventude",
+      "name": "Juventude",
+      "fullName": "Esporte Clube Juventude",
+      "short": "JUV",
+      "city": "Caxias do Sul",
+      "state": "RS",
+      "stadium": "Alfredo Jaconi",
+      "capacity": 19924,
+      "colors": {
+        "shirt": "#00843D",
+        "shorts": "#FFFFFF"
+      },
+      "crest": "juventude",
+      "division": "B",
+      "sources": [
+        "https://pt.wikipedia.org/wiki/Campeonato_Brasileiro_de_Futebol_de_2026_-_S%C3%A9rie_B",
+        "https://en.wikipedia.org/wiki/Esporte_Clube_Juventude",
+        "https://pt.wikipedia.org/wiki/Esporte_Clube_Juventude",
+        "https://www.mktesportivo.com/2025/11/juventude-apresenta-nova-colecao-para-a-temporada-2026/"
+      ],
+      "notes": "2026 home shirt keeps green/white stripes (MKT Esportivo, Nov 2025); infoboxes white base; green hex approximated; shorts white."
+    },
+    {
+      "id": "londrina",
+      "name": "Londrina",
+      "fullName": "Londrina Esporte Clube",
+      "short": "LON",
+      "city": "Londrina",
+      "state": "PR",
+      "stadium": "VGD",
+      "capacity": 8000,
+      "colors": {
+        "shirt": "#3EA0FF",
+        "shorts": "#FFFFFF"
+      },
+      "crest": "londrina",
+      "division": "B",
+      "sources": [
+        "https://pt.wikipedia.org/wiki/Campeonato_Brasileiro_de_Futebol_de_2026_-_S%C3%A9rie_B",
+        "https://en.wikipedia.org/wiki/Londrina_Esporte_Clube"
+      ],
+      "notes": "Season page lists VGD (Vitorino Gonçalves Dias), 8,000; en club infobox lists Estádio do Café, 30,000."
+    },
+    {
+      "id": "nautico",
+      "name": "Náutico",
+      "fullName": "Clube Náutico Capibaribe",
+      "short": "NAU",
+      "city": "Recife",
+      "state": "PE",
+      "stadium": "Aflitos",
+      "capacity": 22856,
+      "colors": {
+        "shirt": "#FF0000",
+        "shorts": "#FFFFFF"
+      },
+      "crest": "nautico",
+      "division": "B",
+      "sources": [
+        "https://pt.wikipedia.org/wiki/Campeonato_Brasileiro_de_Futebol_de_2026_-_S%C3%A9rie_B",
+        "https://en.wikipedia.org/wiki/Clube_Náutico_Capibaribe",
+        "https://pt.wikipedia.org/wiki/Clube_Náutico_Capibaribe"
+      ],
+      "notes": "Red/white striped shirt (infobox base white, red sleeves), white shorts."
+    },
+    {
+      "id": "novorizontino",
+      "name": "Novorizontino",
+      "fullName": "Grêmio Novorizontino",
+      "short": "NOV",
+      "city": "Novo Horizonte",
+      "state": "SP",
+      "stadium": "Jorjão",
+      "capacity": 12398,
+      "colors": {
+        "shirt": "#FFD000",
+        "shorts": "#000000"
+      },
+      "crest": "gremio-novorizontino",
+      "division": "B",
+      "sources": [
+        "https://pt.wikipedia.org/wiki/Campeonato_Brasileiro_de_Futebol_de_2026_-_S%C3%A9rie_B",
+        "https://en.wikipedia.org/wiki/Grêmio_Novorizontino",
+        "https://pt.wikipedia.org/wiki/Grêmio_Novorizontino"
+      ],
+      "notes": "pt infobox yellow/black; en infobox base black with yellow sleeves."
+    },
+    {
+      "id": "operario-pr",
+      "name": "Operário-PR",
+      "fullName": "Operário Ferroviário Esporte Clube",
+      "short": "OPE",
+      "city": "Ponta Grossa",
+      "state": "PR",
+      "stadium": "Germano Krüger",
+      "capacity": 10632,
+      "colors": {
+        "shirt": "#FFFFFF",
+        "shorts": "#FFFFFF"
+      },
+      "crest": "operario-ferroviario",
+      "division": "B",
+      "sources": [
+        "https://pt.wikipedia.org/wiki/Campeonato_Brasileiro_de_Futebol_de_2026_-_S%C3%A9rie_B",
+        "https://en.wikipedia.org/wiki/Operário_Ferroviário_Esporte_Clube",
+        "https://pt.wikipedia.org/wiki/Operário_Ferroviário_Esporte_Clube"
+      ],
+      "notes": "Black/white club. en infobox shows only the 2026 away kit; pt infobox base white/white under pattern. Low confidence."
+    },
+    {
+      "id": "ponte-preta",
+      "name": "Ponte Preta",
+      "fullName": "Associação Atlética Ponte Preta",
+      "short": "PON",
+      "city": "Campinas",
+      "state": "SP",
+      "stadium": "Moisés Lucarelli",
+      "capacity": 17728,
+      "colors": {
+        "shirt": "#FFFFFF",
+        "shorts": "#FFFFFF"
+      },
+      "crest": "ponte-preta",
+      "division": "B",
+      "sources": [
+        "https://pt.wikipedia.org/wiki/Campeonato_Brasileiro_de_Futebol_de_2026_-_S%C3%A9rie_B",
+        "https://en.wikipedia.org/wiki/Associação_Atlética_Ponte_Preta"
+      ],
+      "notes": "White shirt with black diagonal band tradition; en infobox base white shirt and shorts."
+    },
+    {
+      "id": "sao-bernardo",
+      "name": "São Bernardo",
+      "fullName": "São Bernardo Futebol Clube",
+      "short": "SBF",
+      "city": "São Bernardo do Campo",
+      "state": "SP",
+      "stadium": "1º de Maio",
+      "capacity": 13440,
+      "colors": {
+        "shirt": "#FFF000",
+        "shorts": "#000000"
+      },
+      "crest": "sao-bernardo",
+      "division": "B",
+      "sources": [
+        "https://pt.wikipedia.org/wiki/Campeonato_Brasileiro_de_Futebol_de_2026_-_S%C3%A9rie_B",
+        "https://en.wikipedia.org/wiki/São_Bernardo_FC",
+        "https://pt.wikipedia.org/wiki/São_Bernardo_Futebol_Clube"
+      ],
+      "notes": "Short code SBF not verified on a TV source."
+    },
+    {
+      "id": "sport",
+      "name": "Sport",
+      "fullName": "Sport Club do Recife",
+      "short": "SPT",
+      "city": "Recife",
+      "state": "PE",
+      "stadium": "Ilha do Retiro",
+      "capacity": 26418,
+      "colors": {
+        "shirt": "#FF0000",
+        "shorts": "#000000"
+      },
+      "crest": "sport-recife",
+      "division": "B",
+      "sources": [
+        "https://pt.wikipedia.org/wiki/Campeonato_Brasileiro_de_Futebol_de_2026_-_S%C3%A9rie_B",
+        "https://en.wikipedia.org/wiki/Sport_Club_do_Recife",
+        "https://pt.wikipedia.org/wiki/Sport_Club_do_Recife"
+      ],
+      "notes": "Red/black hooped shirt (pt base red), black shorts."
+    },
+    {
+      "id": "vila-nova",
+      "name": "Vila Nova",
+      "fullName": "Vila Nova Futebol Clube",
+      "short": "VIL",
+      "city": "Goiânia",
+      "state": "GO",
+      "stadium": "OBA",
+      "capacity": 11788,
+      "colors": {
+        "shirt": "#F00000",
+        "shorts": "#FFFFFF"
+      },
+      "crest": "vila-nova",
+      "division": "B",
+      "sources": [
+        "https://pt.wikipedia.org/wiki/Campeonato_Brasileiro_de_Futebol_de_2026_-_S%C3%A9rie_B",
+        "https://en.wikipedia.org/wiki/Vila_Nova_Futebol_Clube"
+      ],
+      "notes": "OBA = Estádio Onésio Brasileiro Alvarenga."
+    }
+  ]
+}

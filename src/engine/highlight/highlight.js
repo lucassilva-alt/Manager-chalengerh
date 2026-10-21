@@ -215,6 +215,8 @@ function cross(w, kicker, to, rng) {
   kickBall(w, kicker, lobVelocity(w.ball.pos, target, steps), 0, { type: 'cross' });
   w.setPieceTaken = true;
   c.phase = 'flight';
+  c.target = target;
+  c.kickAt = w.t;
   c.arrive = w.t + steps * DT;
   // Quem vai na bola: o atacante mais perto do ponto e o marcador dele.
   const nearest = (list, p) => list.reduce((best, a) => (dist(a.pos, p) < dist(best.pos, p) ? a : best));

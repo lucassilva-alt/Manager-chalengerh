@@ -37,8 +37,8 @@
 ### L — Lance completo
 - [x] L1 Lance de defesa: adversário ataca, você escolhe o bote ou a cobertura (marcador vermelho + seta)
 - [x] L2 Pênalti: mira, força, efeito; goleiro escolhe o lado
-- [ ] L3 Falta: barreira + chute com efeito
-- [ ] L4 Escanteio: alvo do cruzamento + cabeceio no tempo certo
+- [x] L3 Falta: barreira + chute com efeito
+- [x] L4 Escanteio: alvo do cruzamento + cabeceio no tempo certo
 - [ ] L5 Tela de replay: câmera lenta, dois ângulos
 
 ### B — Etapa (b): elenco e tática

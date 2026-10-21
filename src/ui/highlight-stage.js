@@ -17,6 +17,8 @@ function hintFor(world, shotUi) {
   if (world.mode === 'penalty') return t('highlight.penaltyHint');
   if (world.mode === 'penaltyDefense') return t('highlight.penaltyDefenseHint');
   if (world.mode === 'freekick') return t('highlight.freekickHint');
+  if (world.mode === 'corner') return world.corner?.phase === 'aim' ? t('highlight.cornerHint') : t('highlight.headerHint');
+  if (world.mode === 'cornerDefense') return world.corner?.phase === 'aim' ? t('highlight.cornerDefenseHint') : t('highlight.clearHint');
   if (world.mode === 'freekickDefense') return t('highlight.freekickDefenseHint');
   if (shotUi) return t('highlight.swipeHint');
   return world.mode === 'defense' ? t('highlight.defenseHint') : t('highlight.planHint');
@@ -27,6 +29,7 @@ export function HighlightStage({ world, teams, scorebug = null, onView, onEnd, o
   const view = useRef(null);
   const [shotUi, setShotUi] = useState(false);
   const [awaiting, setAwaiting] = useState(true);
+  const [flight, setFlight] = useState(false); // escanteio: bola no ar, hora de cabecear
   const setPiece = world.mode === 'penalty' || world.mode === 'freekick';
 
   useEffect(() => {
@@ -40,6 +43,7 @@ export function HighlightStage({ world, teams, scorebug = null, onView, onEnd, o
       let ended = false;
       off = v.onFrame((w) => {
         setAwaiting(w.awaitingInput && w.status === 'live'); // Preact ignora valor igual
+        setFlight(w.status === 'live' && w.corner?.phase === 'flight' && w.corner.pressAt === null);
         if (!ended && w.status !== 'live') { ended = true; onEnd?.(w); }
       });
     });
@@ -55,7 +59,7 @@ export function HighlightStage({ world, teams, scorebug = null, onView, onEnd, o
           <span class="sb-tag" style=${`background:${scorebug.away.colors.shirt}`}>${scorebug.away.short}</span>
           <span class="hl-scorebug-min">${scorebug.minute}'</span>
         </div>`}
-      ${!finished && (awaiting || shotUi) && html`
+      ${!finished && (awaiting || shotUi || flight) && html`
         <p class="hl-hint" aria-live="polite">${hintFor(world, shotUi)}</p>`}
       ${!finished && awaiting && world.mode === 'penaltyDefense' && html`
         <div class="hl-dive" role="group" aria-label=${t('highlight.diveGroup')}>
@@ -67,9 +71,18 @@ export function HighlightStage({ world, teams, scorebug = null, onView, onEnd, o
           ${[3, 4, 5].map((n) => html`
             <button type="button" class="btn btn-ghost" onClick=${() => view.current?.input({ type: 'go', wall: n })}>${t('highlight.wallSize', { n })}</button>`)}
         </div>`}
+      ${!finished && flight && world.mode === 'corner' && html`
+        <div class="hl-dive" role="group" aria-label=${t('highlight.headerGroup')}>
+          ${[[-1, 'headerLeft'], [0, 'headerCenter'], [1, 'headerRight']].map(([aim, key]) => html`
+            <button type="button" class="btn btn-primary" onClick=${() => view.current?.input({ type: 'header', aim })}>${t(`highlight.${key}`)}</button>`)}
+        </div>`}
+      ${!finished && awaiting && world.mode === 'cornerDefense' && html`
+        <button type="button" class="btn btn-primary hl-go" onClick=${() => view.current?.input({ type: 'go' })}>${t('highlight.takeCorner')}</button>`}
+      ${!finished && flight && world.mode === 'cornerDefense' && html`
+        <button type="button" class="btn btn-primary hl-go" onClick=${() => view.current?.input({ type: 'header' })}>${t('highlight.clear')}</button>`}
       ${!finished && awaiting && world.mode === 'defense' && html`
         <button type="button" class="btn btn-primary hl-go" onClick=${() => view.current?.input({ type: 'go' })}>${t('highlight.start')}</button>`}
-      ${!finished && !shotUi && !setPiece && onSkip && html`
+      ${!finished && (!shotUi || setPiece) && onSkip && html`
         <button type="button" class="btn btn-ghost hl-skip" onClick=${onSkip}>${t('highlight.simulate')}</button>`}
       ${shotUi && !setPiece && html`
         <button type="button" class="btn btn-danger hl-cancel" onClick=${() => view.current?.cancelShot()}>

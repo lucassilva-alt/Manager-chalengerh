@@ -32,13 +32,15 @@ for (const viewport of [{ width: 390, height: 844 }, { width: 844, height: 390 }
       assert.ok(box.y + box.height <= viewport.height && box.x + box.width <= viewport.width, `${name} fora da tela: ${JSON.stringify(box)}`);
     }
     assert.ok(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth), 'sem rolagem horizontal');
+    // Pausa: um lance abrindo no meio cobriria os botões de tática.
+    await page.getByRole('button', { name: 'Pausar' }).click();
     await page.getByRole('button', { name: 'Aumentar ritmo de trabalho' }).click();
     assert.equal(await page.evaluate(() => window.__flow.match.tactics.home.workRate), 6);
     await page.getByRole('button', { name: 'Foco mais ofensivo' }).click();
     assert.equal(await page.evaluate(() => window.__flow.match.tactics.home.focus), 'attack');
     await page.getByRole('button', { name: 'Acelerar' }).click();
     assert.ok(await page.evaluate(() => window.__flow.speed) > 1);
-    await page.evaluate(() => window.__flow.setSpeed(30));
+    await page.evaluate(() => { window.__flow.setSpeed(30); window.__flow.play(); });
 
     // Lance jogável: chuta direto e vê o resultado do lance
     await page.waitForFunction(() => window.__flow.state === 'highlight', null, { timeout: 60000 });

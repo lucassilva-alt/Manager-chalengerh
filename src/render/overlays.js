@@ -39,10 +39,16 @@ export function createOverlays(scene, labelLayer, names) {
   intentShaft.rotation.x = -Math.PI / 2;
   const intentHead = new THREE.Mesh(headGeo, new THREE.MeshBasicMaterial({ color: 0xffffff, side: THREE.DoubleSide, depthWrite: false, transparent: true, opacity: 0.85 }));
   intent.add(intentShaft, intentHead);
-  scene.add(circle, ring, arrow, runs, threat, intent);
+  // Escanteio: anel amarelo que fecha sobre o alvo; cabeceie quando ele some.
+  const timing = new THREE.Mesh(
+    new THREE.RingGeometry(0.85, 1, 48),
+    new THREE.MeshBasicMaterial({ color: 0xf2b33d, transparent: true, opacity: 0.95, depthWrite: false }),
+  );
+  timing.rotation.x = -Math.PI / 2;
+  scene.add(circle, ring, arrow, runs, threat, intent, timing);
 
   const labels = new Map();
-  let state = { circle: false, arrow: false, runs: 0, threat: false, intent: false };
+  let state = { circle: false, arrow: false, runs: 0, threat: false, intent: false, timing: false };
 
   function placeArrow(group, shaftMesh, headMesh, from, to) {
     const dx = to.x - from.x, dy = to.y - from.y, len = Math.hypot(dx, dy);
@@ -109,10 +115,43 @@ export function createOverlays(scene, labelLayer, names) {
       }
     }
     for (const [id, el] of labels) if (!seen.has(id)) el.hidden = true;
-    state = { circle: false, arrow: false, runs: runs.children.length, threat: threat.visible, intent: intent.visible };
+    state = { circle: false, arrow: false, runs: runs.children.length, threat: threat.visible, intent: intent.visible, timing: false };
+  }
+
+  const TIMING_START = 4; // raio (m) do anel no cruzamento
+
+  function updateCorner(world, { project }) {
+    const c = world.corner;
+    circle.visible = false; arrow.visible = false; threat.visible = false; intent.visible = false;
+    const kicker = world.agents.find((a) => a.id === world.carrierId);
+    ring.visible = !!kicker && world.status === 'live';
+    if (ring.visible) ring.position.set(kicker.pos.x, Y + 0.005, kicker.pos.y);
+    timing.visible = c.phase === 'flight' && world.status === 'live';
+    if (timing.visible) {
+      const left = Math.max(0, (c.arrive - world.t) / (c.arrive - c.kickAt));
+      timing.position.set(c.target.x, Y + 0.02, c.target.y);
+      timing.scale.setScalar(0.6 + (TIMING_START - 0.6) * left);
+    }
+    for (const l of runs.children) l.geometry.dispose();
+    runs.clear();
+    // Nomes dos jogadores do usuário na área enquanto ele decide.
+    const seen = new Set();
+    for (const a of world.agents) {
+      if (!world.awaitingInput || a.side !== world.userSide || a.role === 'GK' || a.id === world.carrierId) continue;
+      if (52.5 - a.pos.x > 16.5) continue;
+      const p = project({ x: a.pos.x, y: a.pos.y, z: 2.2 });
+      const el = label(a.id);
+      el.style.transform = `translate(${p.x}px, ${p.y}px) translate(-50%, -100%)`;
+      el.hidden = false;
+      seen.add(a.id);
+    }
+    for (const [id, el] of labels) if (!seen.has(id)) el.hidden = true;
+    state = { circle: false, arrow: false, runs: 0, threat: false, intent: false, timing: timing.visible };
   }
 
   function update(world, opts) {
+    if (world.corner) return updateCorner(world, opts);
+    timing.visible = false;
     if (world.mode === 'defense') return updateDefense(world, opts);
     threat.visible = false; intent.visible = false;
     const { drag, project, mode } = opts;
@@ -156,7 +195,7 @@ export function createOverlays(scene, labelLayer, names) {
       }
     }
     for (const [id, el] of labels) if (!seen.has(id)) el.hidden = true;
-    state = { circle: circle.visible, arrow: arrow.visible, runs: runCount, threat: false, intent: false };
+    state = { circle: circle.visible, arrow: arrow.visible, runs: runCount, threat: false, intent: false, timing: false };
   }
 
   return { update, state: () => state };

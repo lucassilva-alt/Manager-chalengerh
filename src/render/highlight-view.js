@@ -15,6 +15,7 @@ import { createOverlays } from './overlays.js';
 
 const CAMERA_OFFSET = new THREE.Vector3(-22, 28, 14);
 const LOOK_AHEAD = 6;      // m à frente da bola, para o lado do ataque
+const CORNER_FOCUS = (side) => ({ x: 44, y: side * 14 });
 const CAMERA_LERP = 3;     // suavização por segundo
 const MAX_STEPS_PER_FRAME = 12; // até 0,2 s de recuperação por quadro em aparelho lento
 const PICK_RADIUS = 1.6;   // m para acertar um jogador com o dedo
@@ -50,7 +51,8 @@ export function createHighlightView(container, { world, teams, onShotUi, asset =
   const governor = createQualityGovernor({ fixed: quality, onChange: applyQuality });
 
   const camera = new THREE.PerspectiveCamera(38, 1, 0.1, 400);
-  const focus = new THREE.Vector3(world.ball.pos.x + LOOK_AHEAD, 0, world.ball.pos.y);
+  const start = world.corner ? CORNER_FOCUS(world.corner.side) : { x: world.ball.pos.x + LOOK_AHEAD, y: world.ball.pos.y };
+  const focus = new THREE.Vector3(start.x, 0, start.y);
   camera.position.copy(focus).add(CAMERA_OFFSET);
   camera.lookAt(focus);
 
@@ -122,6 +124,11 @@ export function createHighlightView(container, { world, teams, onShotUi, asset =
     if (mode === 'shot') return shotTaken ? null : shootFromSwipe(g.screen);
     const end = groundAt(e.clientX, e.clientY);
     if (!g.start || !end || world.status !== 'live') return;
+    if (world.mode === 'corner') {
+      // Escanteio: o toque escolhe o alvo do cruzamento.
+      if (world.corner?.phase === 'aim') pending = { type: 'cross', to: end };
+      return;
+    }
     if (world.mode === 'defense') {
       // Na defesa os comandos valem a qualquer momento do lance.
       const carrier = world.agents.find((a) => a.id === world.carrierId);
@@ -196,7 +203,9 @@ export function createHighlightView(container, { world, teams, onShotUi, asset =
       camera.lookAt(goal);
       return;
     }
-    focus.lerp(new THREE.Vector3(world.ball.pos.x + LOOK_AHEAD, 0, world.ball.pos.y), Math.min(1, dt * CAMERA_LERP));
+    // Escanteio: enquadra a área antes do cruzamento.
+    const look = world.corner?.phase === 'aim' ? CORNER_FOCUS(world.corner.side) : { x: world.ball.pos.x + LOOK_AHEAD, y: world.ball.pos.y };
+    focus.lerp(new THREE.Vector3(look.x, 0, look.y), Math.min(1, dt * CAMERA_LERP));
     camera.position.copy(focus).add(CAMERA_OFFSET);
     camera.lookAt(focus);
   }

@@ -204,3 +204,4 @@ h1, h2, .display { font-family: var(--font-display); letter-spacing: 0.02em; }
 .hl-go { position: absolute; right: calc(var(--space) * 3); bottom: calc(var(--space) * 3); }
 .hl-result-title.conceded { color: var(--danger); }
 .hl-result-title.defended { color: var(--success); }
+.hl-dive { position: absolute; left: 50%; bottom: calc(var(--space) * 14); transform: translateX(-50%); display: flex; gap: calc(var(--space) * 2); }

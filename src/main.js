@@ -50,6 +50,11 @@ async function devHighlight() {
     if (m.pending) m.pending = null; // pula ataques ao procurar a defesa
     if (m.phase === 'halftime') sim.startSecondHalf(m); else sim.advanceMinute(m);
   }
+  // ?penalty=1 transforma o lance em pênalti (a favor; com defense=1, contra).
+  if (params.get('penalty') === '1' && m.pending) {
+    const side = defense ? 'away' : 'home';
+    m.pending = { side, kind: 'penalty', playerId: m[side].lineup.find((p) => p.pos === 'ATA').id, conversion: 0.76 };
+  }
   const world = startHighlight(m, { seed });
   render(html`<${HighlightStage} world=${world} teams=${{ home, away }} onView=${exposeHighlight} />`, document.getElementById('app'));
 }

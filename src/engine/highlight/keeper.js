@@ -8,6 +8,7 @@ const MAX_OFF_LINE = 3;        // m que sai do gol para fechar o ângulo
 const STAND_REACH = 0.8;
 const DIVE_REACH = 1.2;        // somado ao alcance em pé, escala com o atributo
 const SAVE_HEIGHT = 2.6;
+const PENALTY_DIVE = 2.9;    // m para o lado no pulo de pênalti
 
 const g = (gk) => gk.attrs.goalkeeping / 99;
 const goalOf = (w) => ({ x: FIELD.halfLength * w.attackDir, y: 0 });
@@ -34,11 +35,18 @@ const shotIncoming = (w) =>
 export function stepKeeper(w, gk, rng) {
   if (!shotIncoming(w)) { gk.target = keeperPosition(w); return false; }
   const dive = (w.dive ??= { by: gk.id, tried: false, dir: 0 });
-  const reaction = 0.25 - 0.15 * g(gk);
-  if (w.t - w.lastKick.at < reaction) return false;
-  // Ponto onde a bola cruza a linha do goleiro (previsão reta, sem o efeito).
-  const b = w.ball, k = (gk.pos.x - b.pos.x) / (b.vel.x || 1e-6);
-  const aimY = k > 0 ? b.pos.y + b.vel.y * k : b.pos.y;
+  const b = w.ball;
+  let aimY;
+  if (w.penalty) {
+    // Pênalti: pula no canto escolhido antes do chute, sem tempo de reação.
+    aimY = w.penalty.diveDir * PENALTY_DIVE;
+  } else {
+    const reaction = 0.25 - 0.15 * g(gk);
+    if (w.t - w.lastKick.at < reaction) return false;
+    // Ponto onde a bola cruza a linha do goleiro (previsão reta, sem o efeito).
+    const k = (gk.pos.x - b.pos.x) / (b.vel.x || 1e-6);
+    aimY = k > 0 ? b.pos.y + b.vel.y * k : b.pos.y;
+  }
   const speed = 5 + 3 * g(gk), dy = aimY - gk.pos.y;
   if (!dive.dir && Math.abs(dy) > 0.3) dive.dir = Math.sign(dy); // lado do pulo, para a tela
   gk.pos.y += Math.sign(dy) * Math.min(Math.abs(dy), speed * DT);

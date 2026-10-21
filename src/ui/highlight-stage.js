@@ -13,6 +13,13 @@ import { t } from '../i18n/index.js';
 
 const html = htm.bind(h);
 
+function hintFor(world, shotUi) {
+  if (world.mode === 'penalty') return t('highlight.penaltyHint');
+  if (world.mode === 'penaltyDefense') return t('highlight.penaltyDefenseHint');
+  if (shotUi) return t('highlight.swipeHint');
+  return world.mode === 'defense' ? t('highlight.defenseHint') : t('highlight.planHint');
+}
+
 export function HighlightStage({ world, teams, scorebug = null, onView, onEnd, onSkip, finished = false, children }) {
   const host = useRef(null);
   const view = useRef(null);
@@ -46,12 +53,17 @@ export function HighlightStage({ world, teams, scorebug = null, onView, onEnd, o
           <span class="hl-scorebug-min">${scorebug.minute}'</span>
         </div>`}
       ${!finished && (awaiting || shotUi) && html`
-        <p class="hl-hint" aria-live="polite">${shotUi ? t('highlight.swipeHint') : world.mode === 'defense' ? t('highlight.defenseHint') : t('highlight.planHint')}</p>`}
+        <p class="hl-hint" aria-live="polite">${hintFor(world, shotUi)}</p>`}
+      ${!finished && awaiting && world.mode === 'penaltyDefense' && html`
+        <div class="hl-dive" role="group" aria-label=${t('highlight.diveGroup')}>
+          ${[[-1, 'diveLeft'], [0, 'diveCenter'], [1, 'diveRight']].map(([dir, key]) => html`
+            <button type="button" class="btn btn-ghost" onClick=${() => view.current?.input({ type: 'go', dive: dir })}>${t(`highlight.${key}`)}</button>`)}
+        </div>`}
       ${!finished && awaiting && world.mode === 'defense' && html`
         <button type="button" class="btn btn-primary hl-go" onClick=${() => view.current?.input({ type: 'go' })}>${t('highlight.start')}</button>`}
-      ${!finished && !shotUi && onSkip && html`
+      ${!finished && !shotUi && !world.penalty && onSkip && html`
         <button type="button" class="btn btn-ghost hl-skip" onClick=${onSkip}>${t('highlight.simulate')}</button>`}
-      ${shotUi && html`
+      ${shotUi && !world.penalty && html`
         <button type="button" class="btn btn-danger hl-cancel" onClick=${() => view.current?.cancelShot()}>
           ${t('common.cancel')}
         </button>`}

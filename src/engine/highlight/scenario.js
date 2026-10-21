@@ -2,6 +2,7 @@
 // desfecho para ela. O time do jogador sempre ataca para x positivo.
 import { createWorld } from './highlight.js';
 import { resolveHighlight } from '../match-sim.js';
+import { createRng } from '../rng.js';
 
 // Profundidade (x) de cada posição no ataque e na defesa; a largura (y)
 // se espalha pelo número de jogadores na mesma posição.
@@ -32,7 +33,58 @@ function toAgent(m, side, slot) {
   };
 }
 
+// Pênalti: batedor na marca, goleiro na linha, o resto fora da área.
+const PENALTY_SPOT = 11;
+const BOX_EDGE = 18.5;
+
+function penaltyLayout(m, side, playerId) {
+  const goalX = 52.5;
+  const spread = (i, n, w) => (n === 1 ? 0 : -w + (2 * w * i) / (n - 1));
+  const att = m[side].lineup, def = m[other(side)].lineup;
+  const attField = att.filter((p) => p.id !== playerId && p.pos !== 'GOL');
+  const defField = def.filter((p) => p.pos !== 'GOL');
+  return [
+    ...att.map((p) => {
+      if (p.id === playerId) return toAgent(m, side, { player: p, x: goalX - PENALTY_SPOT, y: 0 });
+      if (p.pos === 'GOL') return toAgent(m, side, { player: p, x: -45, y: 0 });
+      const i = attField.indexOf(p);
+      return toAgent(m, side, { player: p, x: goalX - BOX_EDGE - 1.5 - (i % 2) * 2, y: spread(i, attField.length, 18) });
+    }),
+    ...def.map((p) => {
+      if (p.pos === 'GOL') return toAgent(m, other(side), { player: p, x: goalX - 0.3, y: 0 });
+      const i = defField.indexOf(p);
+      return toAgent(m, other(side), { player: p, x: goalX - BOX_EDGE - 0.5 - (i % 2) * 2, y: spread(i, defField.length, 18) + 0.8 });
+    }),
+  ];
+}
+
+// Escolha de canto (-1, 0, 1): canto mais provável que o meio.
+function pickSide(rng) {
+  const r = rng.next();
+  return r < 0.42 ? -1 : r < 0.58 ? 0 : 1;
+}
+
+function buildPenalty(m, { seed }) {
+  const { side, playerId } = m.pending;
+  const defense = m.userSide && side !== m.userSide;
+  const w = createWorld({
+    agents: penaltyLayout(m, side, playerId), carrierId: playerId, attackDir: 1, seed,
+    defendersIdle: true, turnBased: true,
+    mode: defense ? 'penaltyDefense' : 'penalty', userSide: m.userSide ?? side,
+  });
+  // Escolhas do jogo sorteadas já no começo (determinístico para replay e voltar o lance).
+  w.penalty = penaltyChoices(seed ^ 0x9e3779b9);
+  w.awaitingInput = true;
+  return w;
+}
+
+function penaltyChoices(seed) {
+  const rng = createRng(seed);
+  return { keeperDive: pickSide(rng), shotSide: pickSide(rng), diveDir: null, power: 0.75 + rng.next() * 0.2, aimNoise: (rng.next() - 0.5) * 0.6 };
+}
+
 export function buildScenario(m, { seed = m.rng, defendersIdle = false, turnBased = true } = {}) {
+  if (m.pending.kind === 'penalty') return buildPenalty(m, { seed });
   const { side, playerId } = m.pending;
   const attackers = slots(m[side].lineup, ATTACK_X).map((s) => {
     if (s.player.id === playerId) return { ...s, ...CARRIER_START };
@@ -72,7 +124,10 @@ export function startHighlight(m, opts) {
 export function rewindHighlight(m) {
   if (!m.highlightStart || m.rewindsLeft <= 0) return null;
   m.rewindsLeft -= 1;
-  return structuredClone(m.highlightStart);
+  const w = structuredClone(m.highlightStart);
+  // Pênalti: novo sorteio dos cantos, senão daria para ver o pulo e bater do outro lado.
+  if (w.penalty) w.penalty = penaltyChoices((w.rng ^ 0x85ebca6b ^ (m.rewindsLeft + 1) * 2654435761) >>> 0);
+  return w;
 }
 
 export function outcomeOf(w) {

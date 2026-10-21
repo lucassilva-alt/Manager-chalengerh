@@ -140,9 +140,29 @@ function applyDefenseInput(w, input) {
   return true;
 }
 
+// Pênalti a favor: só chute; o goleiro do jogo pula no canto sorteado.
+// Pênalti contra: o jogador escolhe o canto do goleiro e manda bater.
+function applyPenaltyInput(w, input, rng) {
+  const shooter = byId(w, w.carrierId);
+  if (w.mode === 'penalty') {
+    if (input.type !== 'shoot') return false;
+    w.penalty.diveDir = w.penalty.keeperDive;
+    shoot(w, shooter, input, rng);
+    return true;
+  }
+  if (input.type === 'dive') { w.penalty.diveDir = Math.sign(input.dir); return false; }
+  if (input.type !== 'go') return false;
+  if (input.dive !== undefined) w.penalty.diveDir = Math.sign(input.dive);
+  if (w.penalty.diveDir === null) w.penalty.diveDir = w.penalty.keeperDive;
+  const aimY = w.penalty.shotSide * (FIELD.goalHalfWidth - 0.6) + w.penalty.aimNoise;
+  shoot(w, shooter, { dir: { x: FIELD.halfLength - shooter.pos.x, y: aimY - shooter.pos.y }, power: w.penalty.power, lift: 0.1 }, rng);
+  return true;
+}
+
 function applyInput(w, input, rng) {
   if (!input || w.status !== 'live') return false;
   if (w.mode === 'defense') return applyDefenseInput(w, input);
+  if (w.penalty) return applyPenaltyInput(w, input, rng);
   const carrier = byId(w, w.carrierId);
   if (!carrier || carrier.side !== w.attackingSide) return false;
   if (input.type === 'dribble') {

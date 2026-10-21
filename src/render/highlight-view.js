@@ -75,7 +75,7 @@ export function createHighlightView(container, { world, teams, onShotUi, asset =
   const overlays = createOverlays(scene, labelLayer, names);
 
   let pending = null, acc = 0, last = performance.now(), raf = 0, frames = 0;
-  let mode = 'play', drag = null, gesture = null, netShaken = false;
+  let mode = 'play', drag = null, gesture = null, netShaken = false, shotTaken = false;
   const listeners = new Set();
 
   // ---- projeções ----
@@ -119,7 +119,7 @@ export function createHighlightView(container, { world, teams, onShotUi, asset =
     const g = gesture;
     gesture = null; drag = null;
     g.screen.push({ x: e.clientX, y: e.clientY, t: performance.now() - g.t0 });
-    if (mode === 'shot') return shootFromSwipe(g.screen);
+    if (mode === 'shot') return shotTaken ? null : shootFromSwipe(g.screen);
     const end = groundAt(e.clientX, e.clientY);
     if (!g.start || !end || world.status !== 'live') return;
     if (world.mode === 'defense') {
@@ -150,8 +150,11 @@ export function createHighlightView(container, { world, teams, onShotUi, asset =
   });
   canvas.addEventListener('pointercancel', () => { gesture = null; drag = null; });
 
+  let shotAnchor = null;
   function setMode(next) {
     mode = next;
+    // Close do chute com âncora fixa: a câmera não corre atrás da bola.
+    shotAnchor = next === 'shot' ? { x: world.ball.pos.x, y: world.ball.pos.y } : null;
     // Câmera muda na hora: um toque logo depois já usa o enquadramento novo.
     placeCamera(0);
     camera.updateMatrixWorld();
@@ -166,7 +169,8 @@ export function createHighlightView(container, { world, teams, onShotUi, asset =
       type: 'shoot', dir: { x: FIELD.halfLength - carrier.pos.x, y: aimY - carrier.pos.y },
       power: s.power, lift: s.lift, curl: s.curl,
     };
-    setMode('play');
+    if (!world.penalty) setMode('play'); // no pênalti a câmera fica atrás da marca
+    else shotTaken = true;
   }
 
   // ---- quadro ----
@@ -185,7 +189,7 @@ export function createHighlightView(container, { world, teams, onShotUi, asset =
   function placeCamera(dt) {
     if (mode === 'shot') {
       // Close da bola, de frente para o gol.
-      const b = world.ball.pos, goal = new THREE.Vector3(FIELD.halfLength, 1, 0);
+      const b = shotAnchor ?? world.ball.pos, goal = new THREE.Vector3(FIELD.halfLength, 1, 0);
       const dir = new THREE.Vector3(goal.x - b.x, 0, goal.z - b.y).normalize();
       camera.position.set(b.x - dir.x * SHOT_CAMERA.back, SHOT_CAMERA.height, b.y - dir.z * SHOT_CAMERA.back);
       camera.lookAt(goal);
@@ -247,6 +251,7 @@ export function createHighlightView(container, { world, teams, onShotUi, asset =
     raf = requestAnimationFrame(frame);
   }
   raf = requestAnimationFrame(frame);
+  if (world.penalty) setMode('shot'); // pênalti começa no close da bola
 
   return {
     world: () => world,

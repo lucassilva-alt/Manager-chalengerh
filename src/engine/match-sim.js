@@ -2,6 +2,7 @@
 // restaurar, voltar o lance); o sorteio vive em `rng` como número.
 import { createRng } from './rng.js';
 import { teamStrength } from './teams.js';
+import { positionFit } from './formations.js';
 
 const HALF_END = { first: 45, second: 90 };
 const SIDES = ['home', 'away'];
@@ -65,6 +66,54 @@ const INJURY_PER_MINUTE = 0.0017;  // por time
 const INJURED_ENERGY = 30;
 const BOOKED_CARE = 0.25;
 const FOUL_WEIGHT = { ZAG: 3, VOL: 3, LAT: 2, MEI: 1.5, ATA: 1, GOL: 0.3 };
+
+// Substituições: 5 trocas em até 3 paradas; trocas no intervalo não gastam parada.
+const MAX_SUBS = 5, MAX_STOPS = 3;
+
+export function substitute(m, side, outId, inId) {
+  if (m.phase === 'ended') return false;
+  const s = m.subs[side], team = m[side];
+  const out = team.lineup.find((p) => p.id === outId);
+  const inc = (team.bench ?? []).find((p) => p.id === inId);
+  if (!out || !inc || s.count >= MAX_SUBS) return false;
+  const stop = m.phase === 'halftime' ? null : m.minute;
+  const newStop = stop !== null && !s.stops.includes(stop);
+  if (newStop && s.stops.length >= MAX_STOPS) return false;
+  if (newStop) s.stops.push(stop);
+  s.count += 1;
+  const natural = inc.natural ?? inc.pos;
+  const placed = { ...inc, pos: out.pos, natural, fit: positionFit(natural, out.pos) };
+  m[side] = {
+    ...team,
+    lineup: team.lineup.map((p) => (p.id === outId ? placed : p)),
+    bench: team.bench.filter((p) => p.id !== inId),
+  };
+  m.energy[inc.id] = 100;
+  m.ratings[inc.id] = 6.5;
+  m.subbedOff.push(out);
+  m.subbedOn.push(inc.id);
+  m.events.push({ minute: m.minute, type: 'sub', side, playerId: inc.id, outId });
+  return true;
+}
+
+// Time do jogo: tira lesionado na hora; do minuto 60 em diante, os mais cansados.
+const AI_SUB_FROM = 60, TIRED = 78, AI_SUBS_PER_STOP = 2;
+
+function aiSubstitutions(m, side) {
+  const team = m[side];
+  if (!team.bench?.length || m.subs[side].count >= MAX_SUBS) return;
+  const injured = team.lineup.filter((p) => m.injuries[p.id]);
+  const tired = m.minute >= AI_SUB_FROM
+    ? team.lineup.filter((p) => p.pos !== 'GOL' && !m.injuries[p.id] && m.energy[p.id] < TIRED && !m.subbedOn.includes(p.id))
+      .sort((a, b) => m.energy[a.id] - m.energy[b.id]).slice(0, AI_SUBS_PER_STOP)
+    : [];
+  for (const out of [...injured, ...tired]) {
+    const options = m[side].bench.filter((p) => (p.pos === 'GOL') === (out.pos === 'GOL'));
+    if (!options.length) continue;
+    const best = options.reduce((a, b) => (positionFit(b.natural ?? b.pos, out.pos) > positionFit(a.natural ?? a.pos, out.pos) ? b : a));
+    if (!substitute(m, side, out.id, best.id)) return;
+  }
+}
 
 export function bookPlayer(m, side, playerId, card) {
   const yellows = (m.cards[playerId] ?? 0) + (card === 'yellow' ? 1 : 0);
@@ -198,6 +247,9 @@ export function createMatch({ home, away, seed, userSide = null, interactive = f
     discRng: (seed ^ 0x5bd1e995) >>> 0,
     cards: {},
     sentOff: [],
+    subbedOff: [],
+    subbedOn: [],
+    subs: { home: { count: 0, stops: [] }, away: { count: 0, stops: [] } },
     injuries: {},
     startingSize: { home: home.lineup.length, away: away.lineup.length },
     energy: Object.fromEntries(ids.map((id) => [id, 100])),
@@ -218,6 +270,7 @@ export function advanceMinute(m) {
   simulateMinute(m, rng);
   m.rng = rng.state();
   simulateDiscipline(m);
+  for (const side of SIDES) if (side !== m.userSide) aiSubstitutions(m, side);
   drainEnergy(m);
   if (!m.pending) closeMinute(m);
 }

@@ -49,7 +49,7 @@ test('defesa: tocar no atacante com a bola manda o defensor mais perto dar o bot
 
 test('partida: resultado do lance de defesa fala do ponto de vista de quem defende', async () => {
   const page = await browser.newPage({ viewport: { width: 844, height: 390 } });
-  await page.goto(`${base}?seed=3&quality=low`);
+  await page.goto(`${base}?quick=1&seed=3&quality=low`);
   await page.getByRole('button', { name: 'Jogar' }).click();
   await page.evaluate(() => window.__flow.setSpeed(30));
   let found = false;

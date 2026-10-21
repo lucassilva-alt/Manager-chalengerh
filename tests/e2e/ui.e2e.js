@@ -18,7 +18,7 @@ async function matchPage() {
   const errors = [];
   page.on('pageerror', (e) => errors.push(String(e)));
   page.on('console', (m) => { if (m.type() === 'error') errors.push(m.text()); });
-  await page.goto(`${base}?seed=1&quality=low`);
+  await page.goto(`${base}?quick=1&seed=1&quality=low`);
   await page.getByRole('button', { name: 'Jogar' }).click();
   await page.getByRole('button', { name: 'Pausar' }).click();
   return { page, errors };

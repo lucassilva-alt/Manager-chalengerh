@@ -14,7 +14,7 @@ after(async () => { await browser?.close(); server?.close(); });
 
 test('fechar o lance libera texturas, malhas e o contexto WebGL', async () => {
   const page = await browser.newPage({ viewport: { width: 844, height: 390 } });
-  await page.goto(`${base}?seed=1&quality=low`);
+  await page.goto(`${base}?quick=1&seed=1&quality=low`);
   await page.getByRole('button', { name: 'Jogar' }).click();
   await page.evaluate(() => window.__flow.setSpeed(30));
   await page.waitForFunction(() => window.__flow.state === 'highlight', null, { timeout: 60000 });

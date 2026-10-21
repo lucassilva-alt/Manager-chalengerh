@@ -71,6 +71,7 @@ test('posições escritas de vários jeitos viram as 6 do jogo', () => {
     Goleiro: 'GOL', GK: 'GOL', Zagueiro: 'ZAG', CB: 'ZAG', 'Lateral-direito': 'LAT', 'Lateral-esquerdo': 'LAT', LB: 'LAT', RB: 'LAT',
     Volante: 'VOL', DM: 'VOL', 'Meio-campista': 'MEI', Meia: 'MEI', CM: 'MEI', AM: 'MEI', Ponta: 'ATA', Atacante: 'ATA',
     Centroavante: 'ATA', 'Ponta-esquerda': 'ATA', LW: 'ATA', RW: 'ATA', ST: 'ATA', CF: 'ATA',
+    'Meia Central': 'MEI', 'Meia Ofensivo': 'MEI', 'Lateral Esq.': 'LAT', 'Lateral Dir.': 'LAT',
   };
   for (const [raw, pos] of Object.entries(cases)) assert.equal(mapPosition(raw), pos, raw);
   assert.equal(mapPosition('???'), null);

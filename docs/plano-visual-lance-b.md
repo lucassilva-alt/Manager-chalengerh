@@ -55,7 +55,7 @@ Cada tarefa: teste que falha → mínimo → refatorar → commit. Toda tarefa v
 ### E — Clubes reais e escudos (pedido do usuário)
 - [x] E1 Escudos: SVGs brasileiros de JoseArroyave/football-logos (MIT) copiados em `assets/crests/`, limpos (sem script/eventos), com fallback para o escudo desenhado
 - [x] E2 Cadastro de clubes reais (nome, sigla, cores, escudo, estádio, capacidade) com fonte por clube
-- [ ] E3 Elencos reais com fonte por clube (sem inventar jogador)
+- [x] E3 Elencos reais com fonte por clube (sem inventar jogador)
 
 ### NSM — Funcionalidades de gestão (após L e B)
 Lista viva: o que aparece no material enviado (prints/vídeo) vira especificação; o que não aparece segue o prompt do projeto.

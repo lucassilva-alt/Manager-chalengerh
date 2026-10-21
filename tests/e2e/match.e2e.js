@@ -19,7 +19,7 @@ for (const viewport of [{ width: 390, height: 844 }, { width: 844, height: 390 }
     const errors = [];
     page.on('console', (m) => { if (m.type() === 'error') errors.push(m.text()); });
     page.on('pageerror', (e) => errors.push(String(e)));
-    await page.goto(`${base}?seed=1`);
+    await page.goto(`${base}?quick=1&seed=1`);
 
     // Pré-jogo
     await page.getByText('Demo Azul').first().waitFor();

@@ -73,7 +73,7 @@ const POSITION_WORDS = [
   [/^(cb|df|zag|zagueiro|centre-back|center-back|defensor central|defensor)$/, 'ZAG'],
   [/^(lb|rb|lwb|rwb|lat|lateral.*|full-back|ala)$/, 'LAT'],
   [/^(dm|cdm|vol|volante|defensive midfielder)$/, 'VOL'],
-  [/^(mf|cm|am|cam|mei|meia|meio-campista|meio-campo|midfielder|meia-atacante|attacking midfielder)$/, 'MEI'],
+  [/^(mf|cm|am|cam|mei|meia|meia central|meia ofensivo|meio-campista|meio-campo|midfielder|meia-atacante|attacking midfielder)$/, 'MEI'],
   [/^(fw|st|cf|lw|rw|ata|atacante|centroavante|ponta.*|forward|winger|striker)$/, 'ATA'],
 ];
 

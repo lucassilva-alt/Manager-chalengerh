@@ -1,0 +1,9423 @@
+{
+ "asOf": "2026-10-21",
+ "note": "Elencos reais; atributos são estimativa do jogo.",
+ "squads": {
+  "america-mg": {
+   "source": "https://en.wikipedia.org/wiki/América_Futebol_Clube_(MG)",
+   "retrievedAt": "2026-10-21",
+   "players": [
+    {
+     "name": "Gustavo",
+     "pos": "GK",
+     "number": 1,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Emerson Santos",
+     "pos": "DF",
+     "number": 2,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Nathan Pelae",
+     "pos": "DF",
+     "number": 3,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Rafa Barcelos",
+     "pos": "DF",
+     "number": 4,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Fernando Elizari",
+     "pos": "MF",
+     "number": 5,
+     "birthDate": null,
+     "nationality": "Argentina"
+    },
+    {
+     "name": "Guilherme Parede",
+     "pos": "FW",
+     "number": 7,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Felipe Amaral",
+     "pos": "MF",
+     "number": 8,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Willian Bigode",
+     "pos": "FW",
+     "number": 9,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Yago Souza",
+     "pos": "MF",
+     "number": 10,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Gabriel Barros",
+     "pos": "FW",
+     "number": 11,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Samuel Alves",
+     "pos": "DF",
+     "number": 12,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Alex Silva",
+     "pos": "DF",
+     "number": 15,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Alê",
+     "pos": "MF",
+     "number": 16,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Gonzalo Mastriani",
+     "pos": "FW",
+     "number": 17,
+     "birthDate": null,
+     "nationality": "Uruguai"
+    },
+    {
+     "name": "William",
+     "pos": "GK",
+     "number": 19,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Paulo Victor",
+     "pos": "FW",
+     "number": 20,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Eduardo Person",
+     "pos": "MF",
+     "number": 21,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Léo Alaba",
+     "pos": "DF",
+     "number": 22,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Cássio",
+     "pos": "GK",
+     "number": 27,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Dalbert",
+     "pos": "DF",
+     "number": 29,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Yago Santos",
+     "pos": "MF",
+     "number": 33,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Jhonny",
+     "pos": "DF",
+     "number": 42,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Wesley",
+     "pos": "DF",
+     "number": 43,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Thallyson",
+     "pos": "DF",
+     "number": 44,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Ricardo Silva",
+     "pos": "DF",
+     "number": 45,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Ítalo Brito",
+     "pos": "GK",
+     "number": 52,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Otávio Gonçalves",
+     "pos": "MF",
+     "number": 55,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Yarlen",
+     "pos": "FW",
+     "number": 67,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Matías Segovia",
+     "pos": "FW",
+     "number": 77,
+     "birthDate": null,
+     "nationality": "Paraguai"
+    },
+    {
+     "name": "Jhonatan Lima",
+     "pos": "MF",
+     "number": 88,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Artur",
+     "pos": "DF",
+     "number": 96,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Val Soares",
+     "pos": "MF",
+     "number": 97,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Heitor",
+     "pos": "DF",
+     "number": null,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Kaique Zizero",
+     "pos": "FW",
+     "number": null,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Thauan Willians",
+     "pos": "FW",
+     "number": null,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Rodrigo Piñeiro",
+     "pos": "FW",
+     "number": null,
+     "birthDate": null,
+     "nationality": "Uruguai"
+    }
+   ]
+  },
+  "athletic": {
+   "source": "https://en.wikipedia.org/wiki/Athletic_Club_(MG)",
+   "retrievedAt": "2026-10-21",
+   "players": [
+    {
+     "name": "Eduardo Freire",
+     "pos": "GK",
+     "number": null,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Glauco",
+     "pos": "GK",
+     "number": null,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Jhonatan Luiz",
+     "pos": "GK",
+     "number": null,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Luan Polli",
+     "pos": "GK",
+     "number": null,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Jhonatan Silva",
+     "pos": "DF",
+     "number": null,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Kazim",
+     "pos": "DF",
+     "number": null,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Lucas Belezi",
+     "pos": "DF",
+     "number": null,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Philipe Sampaio",
+     "pos": "DF",
+     "number": null,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Sidimar",
+     "pos": "DF",
+     "number": null,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Diogo Batista",
+     "pos": "DF",
+     "number": null,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Douglas Pelé",
+     "pos": "DF",
+     "number": null,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Enzo Santos",
+     "pos": "DF",
+     "number": null,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Felipe Vieira",
+     "pos": "DF",
+     "number": null,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Marcelo Henrique",
+     "pos": "DF",
+     "number": null,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Rodrigo Gelado",
+     "pos": "DF",
+     "number": null,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Zeca",
+     "pos": "DF",
+     "number": null,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Alexandre Pena",
+     "pos": "MF",
+     "number": null,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Fabrício Isidoro",
+     "pos": "MF",
+     "number": null,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Gian Cabezas",
+     "pos": "MF",
+     "number": null,
+     "birthDate": null,
+     "nationality": "Colômbia"
+    },
+    {
+     "name": "Gustavinho",
+     "pos": "MF",
+     "number": null,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Ian Luccas",
+     "pos": "MF",
+     "number": null,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "João Miguel",
+     "pos": "MF",
+     "number": null,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Jota",
+     "pos": "MF",
+     "number": null,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Kauan Lindes",
+     "pos": "MF",
+     "number": null,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Kauan Rodrigues",
+     "pos": "MF",
+     "number": null,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Pedro Oliveira",
+     "pos": "MF",
+     "number": null,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Bruninho",
+     "pos": "FW",
+     "number": null,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Cauã",
+     "pos": "FW",
+     "number": null,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Dixon Vera",
+     "pos": "FW",
+     "number": null,
+     "birthDate": null,
+     "nationality": "Equador"
+    },
+    {
+     "name": "Gabriel Moysés",
+     "pos": "FW",
+     "number": null,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Leandro Alves",
+     "pos": "FW",
+     "number": null,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Léo Chú",
+     "pos": "FW",
+     "number": null,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Ronaldo Tavares",
+     "pos": "FW",
+     "number": null,
+     "birthDate": null,
+     "nationality": "Portugal"
+    },
+    {
+     "name": "Ruan Assis",
+     "pos": "FW",
+     "number": null,
+     "birthDate": null,
+     "nationality": "Brasil"
+    }
+   ]
+  },
+  "athletico-paranaense": {
+   "source": "https://en.wikipedia.org/wiki/Club_Athletico_Paranaense",
+   "retrievedAt": "2026-10-21",
+   "players": [
+    {
+     "name": "Mycael",
+     "pos": "GK",
+     "number": 1,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Gilberto dos Santos",
+     "pos": "DF",
+     "number": 2,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Léo Pelé",
+     "pos": "DF",
+     "number": 3,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Arthur Dias",
+     "pos": "DF",
+     "number": 4,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Felipinho",
+     "pos": "MF",
+     "number": 5,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Léo Derik",
+     "pos": "DF",
+     "number": 6,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Stiven Mendoza",
+     "pos": "FW",
+     "number": 7,
+     "birthDate": null,
+     "nationality": "Colômbia"
+    },
+    {
+     "name": "João Cruz",
+     "pos": "MF",
+     "number": 8,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Kevin Viveros",
+     "pos": "FW",
+     "number": 9,
+     "birthDate": null,
+     "nationality": "Colômbia"
+    },
+    {
+     "name": "Bruno Zapelli",
+     "pos": "MF",
+     "number": 10,
+     "birthDate": null,
+     "nationality": "Argentina"
+    },
+    {
+     "name": "Gilberto Moraes",
+     "pos": "DF",
+     "number": 12,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Luiz Gustavo",
+     "pos": "MF",
+     "number": 14,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Jadson",
+     "pos": "MF",
+     "number": 16,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Alejandro García",
+     "pos": "MF",
+     "number": 17,
+     "birthDate": null,
+     "nationality": "Colômbia"
+    },
+    {
+     "name": "Kerwin Vargas",
+     "pos": "FW",
+     "number": 18,
+     "birthDate": null,
+     "nationality": "Colômbia"
+    },
+    {
+     "name": "Jorge Rivaldo",
+     "pos": "FW",
+     "number": 19,
+     "birthDate": null,
+     "nationality": "Colômbia"
+    },
+    {
+     "name": "Leozinho",
+     "pos": "FW",
+     "number": 21,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Carlos Terán",
+     "pos": "DF",
+     "number": 22,
+     "birthDate": null,
+     "nationality": "Colômbia"
+    },
+    {
+     "name": "Santos",
+     "pos": "GK",
+     "number": 23,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Dantas",
+     "pos": "DF",
+     "number": 25,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Claudinho",
+     "pos": "DF",
+     "number": 26,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Juan Portilla",
+     "pos": "MF",
+     "number": 27,
+     "birthDate": null,
+     "nationality": "Colômbia"
+    },
+    {
+     "name": "Gastón Benavídez",
+     "pos": "DF",
+     "number": 29,
+     "birthDate": null,
+     "nationality": "Argentina"
+    },
+    {
+     "name": "Juan Felipe Aguirre",
+     "pos": "DF",
+     "number": 33,
+     "birthDate": null,
+     "nationality": "Colômbia"
+    },
+    {
+     "name": "Lucas Esquivel",
+     "pos": "DF",
+     "number": 37,
+     "birthDate": null,
+     "nationality": "Argentina"
+    },
+    {
+     "name": "Matheus Soares",
+     "pos": "GK",
+     "number": 42,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Felipe Chiqueti",
+     "pos": "FW",
+     "number": 47,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Renan Viana",
+     "pos": "FW",
+     "number": 50,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Dudu Kogitzki",
+     "pos": "MF",
+     "number": 53,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Riquelme",
+     "pos": "MF",
+     "number": 63,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Renan Peixoto",
+     "pos": "FW",
+     "number": 70,
+     "birthDate": null,
+     "nationality": "Brasil"
+    }
+   ]
+  },
+  "atletico-go": {
+   "source": "https://en.wikipedia.org/wiki/Atlético_Clube_Goianiense",
+   "retrievedAt": "2026-10-21",
+   "players": [
+    {
+     "name": "Léo Rosa",
+     "pos": "GK",
+     "number": null,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Paulo Henrique",
+     "pos": "GK",
+     "number": null,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Paulo Vítor",
+     "pos": "GK",
+     "number": null,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Vladimir",
+     "pos": "GK",
+     "number": null,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Yuri",
+     "pos": "GK",
+     "number": null,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Adriano Martins",
+     "pos": "DF",
+     "number": null,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Junior Barreto",
+     "pos": "DF",
+     "number": null,
+     "birthDate": null,
+     "nationality": "Paraguai"
+    },
+    {
+     "name": "Matheus Bebeto",
+     "pos": "DF",
+     "number": null,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Natã Felipe",
+     "pos": "DF",
+     "number": null,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Tito",
+     "pos": "DF",
+     "number": null,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Ewerthon",
+     "pos": "DF",
+     "number": null,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Felipe Guimarães",
+     "pos": "DF",
+     "number": null,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Guilherme Lopes",
+     "pos": "DF",
+     "number": null,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Gustavo Daniel",
+     "pos": "DF",
+     "number": null,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Jampierre",
+     "pos": "DF",
+     "number": null,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Kauã Henrique",
+     "pos": "DF",
+     "number": null,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Yuri Silva",
+     "pos": "DF",
+     "number": null,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Warley",
+     "pos": "DF",
+     "number": null,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Cristiano",
+     "pos": "MF",
+     "number": null,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Daniel Peixoto",
+     "pos": "MF",
+     "number": null,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Geovane",
+     "pos": "MF",
+     "number": null,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Henrique Freitas",
+     "pos": "MF",
+     "number": null,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Igor Henrique",
+     "pos": "MF",
+     "number": null,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Klebert",
+     "pos": "MF",
+     "number": null,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Leandro Vilela",
+     "pos": "MF",
+     "number": null,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Netinho",
+     "pos": "MF",
+     "number": null,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "David Terans",
+     "pos": "MF",
+     "number": null,
+     "birthDate": null,
+     "nationality": "Uruguai"
+    },
+    {
+     "name": "Guilherme Marques",
+     "pos": "MF",
+     "number": null,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Brenno",
+     "pos": "FW",
+     "number": null,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Bruno José",
+     "pos": "FW",
+     "number": null,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Gabriel Paé",
+     "pos": "FW",
+     "number": null,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Geovany Soares",
+     "pos": "FW",
+     "number": null,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Gustavo Coutinho",
+     "pos": "FW",
+     "number": null,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Gustavo Maia",
+     "pos": "FW",
+     "number": null,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "João Pedro",
+     "pos": "FW",
+     "number": null,
+     "birthDate": null,
+     "nationality": "Guiné-Bissau"
+    },
+    {
+     "name": "Kahiser Lenis",
+     "pos": "FW",
+     "number": null,
+     "birthDate": null,
+     "nationality": "Panamá"
+    },
+    {
+     "name": "Léo Tocantins",
+     "pos": "FW",
+     "number": null,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Marrony",
+     "pos": "FW",
+     "number": null,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Matheusinho",
+     "pos": "FW",
+     "number": null,
+     "birthDate": null,
+     "nationality": "Brasil"
+    }
+   ]
+  },
+  "atletico-mineiro": {
+   "source": "https://en.wikipedia.org/wiki/Clube_Atlético_Mineiro",
+   "retrievedAt": "2026-10-21",
+   "players": [
+    {
+     "name": "Gabriel Delfim",
+     "pos": "GK",
+     "number": 1,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Natanael",
+     "pos": "DF",
+     "number": 2,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Léo Duarte",
+     "pos": "DF",
+     "number": 3,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Ruan Tressoldi",
+     "pos": "DF",
+     "number": 4,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Alexsander",
+     "pos": "MF",
+     "number": 5,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Renan Lodi",
+     "pos": "DF",
+     "number": 6,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Fred",
+     "pos": "MF",
+     "number": 7,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Maycon",
+     "pos": "MF",
+     "number": 8,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Mateo Cassierra",
+     "pos": "FW",
+     "number": 9,
+     "birthDate": null,
+     "nationality": "Colômbia"
+    },
+    {
+     "name": "Gustavo Scarpa",
+     "pos": "MF",
+     "number": 10,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Bernard",
+     "pos": "MF",
+     "number": 11,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Lyanco",
+     "pos": "DF",
+     "number": 13,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Vitor Hugo",
+     "pos": "DF",
+     "number": 14,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Kevin Castaño",
+     "pos": "MF",
+     "number": 15,
+     "birthDate": null,
+     "nationality": "Colômbia"
+    },
+    {
+     "name": "Igor Gomes",
+     "pos": "MF",
+     "number": 17,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Thiago Borbas",
+     "pos": "FW",
+     "number": 18,
+     "birthDate": null,
+     "nationality": "Uruguai"
+    },
+    {
+     "name": "Reinier",
+     "pos": "MF",
+     "number": 19,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Alan Franco",
+     "pos": "MF",
+     "number": 21,
+     "birthDate": null,
+     "nationality": "Equador"
+    },
+    {
+     "name": "Everson",
+     "pos": "GK",
+     "number": 22,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Ángelo Preciado",
+     "pos": "DF",
+     "number": 23,
+     "birthDate": null,
+     "nationality": "Equador"
+    },
+    {
+     "name": "Tomás Pérez",
+     "pos": "MF",
+     "number": 25,
+     "birthDate": null,
+     "nationality": "Argentina"
+    },
+    {
+     "name": "Alan Minda",
+     "pos": "FW",
+     "number": 27,
+     "birthDate": null,
+     "nationality": "Equador"
+    },
+    {
+     "name": "Tomás Cuello",
+     "pos": "FW",
+     "number": 28,
+     "birthDate": null,
+     "nationality": "Argentina"
+    },
+    {
+     "name": "Cauã Soares",
+     "pos": "FW",
+     "number": 29,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Victor Hugo",
+     "pos": "MF",
+     "number": 30,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Robert",
+     "pos": "GK",
+     "number": 31,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Kauã Pascini",
+     "pos": "DF",
+     "number": 36,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Índio",
+     "pos": "MF",
+     "number": 38,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Mamady Cissé",
+     "pos": "MF",
+     "number": 39,
+     "birthDate": null,
+     "nationality": "Guiné"
+    },
+    {
+     "name": "Vitão",
+     "pos": "DF",
+     "number": 40,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Pedro Cobra",
+     "pos": "GK",
+     "number": 46,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Dudu",
+     "pos": "FW",
+     "number": 92,
+     "birthDate": null,
+     "nationality": "Brasil"
+    }
+   ]
+  },
+  "avai": {
+   "source": "https://en.wikipedia.org/wiki/Avaí_FC",
+   "retrievedAt": "2026-10-21",
+   "players": [
+    {
+     "name": "Igor Bohn",
+     "pos": "GK",
+     "number": 1,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Wallison",
+     "pos": "DF",
+     "number": 2,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Allyson",
+     "pos": "DF",
+     "number": 3,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Gabriel Simples",
+     "pos": "DF",
+     "number": 4,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Romildo Del Piage",
+     "pos": "MF",
+     "number": 5,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Nicolás Cabral",
+     "pos": "DF",
+     "number": 6,
+     "birthDate": null,
+     "nationality": "Argentina"
+    },
+    {
+     "name": "Léo Chú",
+     "pos": "FW",
+     "number": 7,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Luiz Henrique",
+     "pos": "MF",
+     "number": 8,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Léo Gamalho",
+     "pos": "FW",
+     "number": 9,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Jean Lucas",
+     "pos": "MF",
+     "number": 10,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Felipe Vizeu",
+     "pos": "FW",
+     "number": 11,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Daniel Penha",
+     "pos": "MF",
+     "number": 14,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Guilherme Aquino",
+     "pos": "DF",
+     "number": 15,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Jamerson",
+     "pos": "MF",
+     "number": 16,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Hyan",
+     "pos": "MF",
+     "number": 18,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Vinicius Gugel",
+     "pos": "MF",
+     "number": 19,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Isaías",
+     "pos": "FW",
+     "number": 20,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Otávio Passos",
+     "pos": "GK",
+     "number": 21,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Paulo Vitor",
+     "pos": "MF",
+     "number": 25,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Pedro Cuiabá",
+     "pos": "MF",
+     "number": 27,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Léo",
+     "pos": "GK",
+     "number": 33,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Douglas Teixeira",
+     "pos": "DF",
+     "number": 36,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Jefferson Maciel",
+     "pos": "DF",
+     "number": 38,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Léo Aragão",
+     "pos": "GK",
+     "number": 41,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Thayllon",
+     "pos": "FW",
+     "number": 43,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "João Maistro",
+     "pos": "DF",
+     "number": 50,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Mateus Quaresma",
+     "pos": "DF",
+     "number": 66,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Joaquim",
+     "pos": "GK",
+     "number": 71,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Zé Ricardo",
+     "pos": "MF",
+     "number": 77,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Kevin",
+     "pos": "FW",
+     "number": 90,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Vinicius Marques",
+     "pos": "DF",
+     "number": 91,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Bruno Ferreira",
+     "pos": "GK",
+     "number": 94,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Wenderson",
+     "pos": "MF",
+     "number": 95,
+     "birthDate": null,
+     "nationality": "Brasil"
+    }
+   ]
+  },
+  "bahia": {
+   "source": "https://en.wikipedia.org/wiki/Esporte_Clube_Bahia",
+   "retrievedAt": "2026-10-21",
+   "players": [
+    {
+     "name": "Ronaldo",
+     "pos": "GK",
+     "number": 1,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Marco Moreno",
+     "pos": "DF",
+     "number": 3,
+     "birthDate": null,
+     "nationality": "Espanha"
+    },
+    {
+     "name": "Kanu",
+     "pos": "DF",
+     "number": 4,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Nicolás Acevedo",
+     "pos": "MF",
+     "number": 5,
+     "birthDate": null,
+     "nationality": "Uruguai"
+    },
+    {
+     "name": "Jean Lucas",
+     "pos": "MF",
+     "number": 6,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Ademir",
+     "pos": "FW",
+     "number": 7,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Caio Alexandre",
+     "pos": "MF",
+     "number": 8,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Alejo Véliz",
+     "pos": "FW",
+     "number": 9,
+     "birthDate": null,
+     "nationality": "Argentina"
+    },
+    {
+     "name": "Éverton Ribeiro",
+     "pos": "MF",
+     "number": 10,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Rodrigo Nestor",
+     "pos": "MF",
+     "number": 11,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Willian José",
+     "pos": "FW",
+     "number": 12,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Erick",
+     "pos": "MF",
+     "number": 14,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Michel Araújo",
+     "pos": "MF",
+     "number": 15,
+     "birthDate": null,
+     "nationality": "Uruguai"
+    },
+    {
+     "name": "Erick Pulga",
+     "pos": "FW",
+     "number": 16,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Guido Herrera",
+     "pos": "GK",
+     "number": 17,
+     "birthDate": null,
+     "nationality": "Argentina"
+    },
+    {
+     "name": "Lautaro López",
+     "pos": "MF",
+     "number": 18,
+     "birthDate": null,
+     "nationality": "Argentina"
+    },
+    {
+     "name": "Léo Vieira",
+     "pos": "GK",
+     "number": 22,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Mateo Sanabria",
+     "pos": "FW",
+     "number": 23,
+     "birthDate": null,
+     "nationality": "Argentina"
+    },
+    {
+     "name": "Everaldo",
+     "pos": "FW",
+     "number": 27,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Román Gómez",
+     "pos": "DF",
+     "number": 31,
+     "birthDate": null,
+     "nationality": "Argentina"
+    },
+    {
+     "name": "David Duarte",
+     "pos": "DF",
+     "number": 33,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Luiz Gustavo",
+     "pos": "DF",
+     "number": 43,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Marcos Victor",
+     "pos": "DF",
+     "number": 44,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Luciano Juba",
+     "pos": "DF",
+     "number": 46,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Kauê Furquim",
+     "pos": "FW",
+     "number": 57,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "David Martins",
+     "pos": "MF",
+     "number": 63,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Zé Guilherme",
+     "pos": "DF",
+     "number": 66,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Ruan Pablo",
+     "pos": "FW",
+     "number": 77,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Kike Olivera",
+     "pos": "FW",
+     "number": 99,
+     "birthDate": null,
+     "nationality": "Uruguai"
+    }
+   ]
+  },
+  "botafogo-sp": {
+   "source": "https://en.wikipedia.org/wiki/Botafogo_Futebol_Clube_(SP)",
+   "retrievedAt": "2026-10-21",
+   "players": [
+    {
+     "name": "Adriano",
+     "pos": "GK",
+     "number": null,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Brenno",
+     "pos": "GK",
+     "number": null,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Jordan",
+     "pos": "GK",
+     "number": null,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Victor Souza",
+     "pos": "GK",
+     "number": null,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Badaró",
+     "pos": "DF",
+     "number": null,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Carlos Eduardo",
+     "pos": "DF",
+     "number": null,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Darlan",
+     "pos": "DF",
+     "number": null,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Ericson",
+     "pos": "DF",
+     "number": null,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Gui Mariano",
+     "pos": "DF",
+     "number": null,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Gustavo Vilar",
+     "pos": "DF",
+     "number": null,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Wallace",
+     "pos": "DF",
+     "number": null,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Felipe Vieira",
+     "pos": "DF",
+     "number": null,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Gabriel Inocêncio",
+     "pos": "DF",
+     "number": null,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Henrique Teles",
+     "pos": "DF",
+     "number": null,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Jonathan",
+     "pos": "DF",
+     "number": null,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Patrick Brey",
+     "pos": "DF",
+     "number": null,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Pedrinho",
+     "pos": "DF",
+     "number": null,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Erik",
+     "pos": "MF",
+     "number": null,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Everton Morelli",
+     "pos": "MF",
+     "number": null,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Leandro Maciel",
+     "pos": "MF",
+     "number": null,
+     "birthDate": null,
+     "nationality": "Argentina"
+    },
+    {
+     "name": "Marco Antônio",
+     "pos": "MF",
+     "number": null,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Marquinho",
+     "pos": "MF",
+     "number": null,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Matheus Sales",
+     "pos": "MF",
+     "number": null,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Pedro Tortello",
+     "pos": "MF",
+     "number": null,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Penha",
+     "pos": "MF",
+     "number": null,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Rafael Gava",
+     "pos": "MF",
+     "number": null,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Thiago Moraes",
+     "pos": "MF",
+     "number": null,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Yuri Felipe",
+     "pos": "MF",
+     "number": null,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Guilherme Queiróz",
+     "pos": "FW",
+     "number": null,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Hygor",
+     "pos": "FW",
+     "number": null,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Jefferson Nem",
+     "pos": "FW",
+     "number": null,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Kelvin",
+     "pos": "FW",
+     "number": null,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Luizão",
+     "pos": "FW",
+     "number": null,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Márcio Maranhão",
+     "pos": "FW",
+     "number": null,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Ruan Pablo",
+     "pos": "FW",
+     "number": null,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Thalles",
+     "pos": "FW",
+     "number": null,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Wesley Santos",
+     "pos": "FW",
+     "number": null,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Zé Hugo",
+     "pos": "FW",
+     "number": null,
+     "birthDate": null,
+     "nationality": "Brasil"
+    }
+   ]
+  },
+  "botafogo": {
+   "source": "https://en.wikipedia.org/wiki/Botafogo_FR",
+   "retrievedAt": "2026-10-21",
+   "players": [
+    {
+     "name": "Vitinho",
+     "pos": "DF",
+     "number": 2,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Arthur Chaves",
+     "pos": "DF",
+     "number": 3,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Mateo Ponte",
+     "pos": "DF",
+     "number": 4,
+     "birthDate": null,
+     "nationality": "Uruguai"
+    },
+    {
+     "name": "Nahuel Ferraresi",
+     "pos": "DF",
+     "number": 5,
+     "birthDate": null,
+     "nationality": "Venezuela"
+    },
+    {
+     "name": "Cristian Medina",
+     "pos": "MF",
+     "number": 6,
+     "birthDate": null,
+     "nationality": "Argentina"
+    },
+    {
+     "name": "Júnior Santos",
+     "pos": "FW",
+     "number": 7,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Danilo Santos",
+     "pos": "MF",
+     "number": 8,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Tiquinho Soares",
+     "pos": "FW",
+     "number": 9,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Álvaro Montoro",
+     "pos": "MF",
+     "number": 10,
+     "birthDate": null,
+     "nationality": "Argentina"
+    },
+    {
+     "name": "Matheus Martins",
+     "pos": "FW",
+     "number": 11,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Gabriel Batista",
+     "pos": "GK",
+     "number": 12,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Alex Telles",
+     "pos": "DF",
+     "number": 13,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Jordan Barrera",
+     "pos": "MF",
+     "number": 14,
+     "birthDate": null,
+     "nationality": "Colômbia"
+    },
+    {
+     "name": "Warleson",
+     "pos": "GK",
+     "number": 17,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Arthur Cabral",
+     "pos": "FW",
+     "number": 19,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Marçal",
+     "pos": "DF",
+     "number": 21,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Hakim Ziyech",
+     "pos": "FW",
+     "number": 22,
+     "birthDate": null,
+     "nationality": "Marrocos"
+    },
+    {
+     "name": "Allan",
+     "pos": "MF",
+     "number": 25,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Anthony",
+     "pos": "DF",
+     "number": 26,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Paulinho",
+     "pos": "DF",
+     "number": 29,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Kaio Pantaleão",
+     "pos": "DF",
+     "number": 31,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Lucas Monzón",
+     "pos": "DF",
+     "number": 33,
+     "birthDate": null,
+     "nationality": "Uruguai"
+    },
+    {
+     "name": "Gabriel Justino",
+     "pos": "DF",
+     "number": 34,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Kadir Barría",
+     "pos": "FW",
+     "number": 37,
+     "birthDate": null,
+     "nationality": "Panamá"
+    },
+    {
+     "name": "Kadu",
+     "pos": "DF",
+     "number": 42,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Kauan Toledo",
+     "pos": "FW",
+     "number": 59,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Huguinho",
+     "pos": "MF",
+     "number": 75,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Lucas Villalba",
+     "pos": "FW",
+     "number": 77,
+     "birthDate": null,
+     "nationality": "Uruguai"
+    },
+    {
+     "name": "Lucas Emanuel",
+     "pos": "FW",
+     "number": 79,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Edenilson",
+     "pos": "MF",
+     "number": 88,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Danilo Pereira",
+     "pos": "FW",
+     "number": 90,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Domingos Andrade",
+     "pos": "MF",
+     "number": 91,
+     "birthDate": null,
+     "nationality": "Angola"
+    }
+   ]
+  },
+  "ceara": {
+   "source": "https://en.wikipedia.org/wiki/Ceará_Sporting_Club",
+   "retrievedAt": "2026-10-21",
+   "players": [
+    {
+     "name": "Richard Costa",
+     "pos": "GK",
+     "number": 1,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Rafael Ramos",
+     "pos": "DF",
+     "number": 2,
+     "birthDate": null,
+     "nationality": "Portugal"
+    },
+    {
+     "name": "Thalisson",
+     "pos": "DF",
+     "number": 3,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Luizão",
+     "pos": "DF",
+     "number": 4,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Sávio",
+     "pos": "DF",
+     "number": 6,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Giovanni Pavani",
+     "pos": "MF",
+     "number": 7,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Matheus Araújo",
+     "pos": "MF",
+     "number": 8,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Wendel Silva",
+     "pos": "FW",
+     "number": 9,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Lucas Mugni",
+     "pos": "MF",
+     "number": 10,
+     "birthDate": null,
+     "nationality": "Argentina"
+    },
+    {
+     "name": "Sanchez",
+     "pos": "DF",
+     "number": 12,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Luiz Otávio",
+     "pos": "DF",
+     "number": 13,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Rian Santana",
+     "pos": "FW",
+     "number": 16,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Júlio César",
+     "pos": "DF",
+     "number": 18,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Nicolás Ferreira",
+     "pos": "FW",
+     "number": 20,
+     "birthDate": null,
+     "nationality": "Uruguai"
+    },
+    {
+     "name": "Matheus Nogueira",
+     "pos": "GK",
+     "number": 22,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Caíque França",
+     "pos": "GK",
+     "number": 23,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Vinicius Zanocelo",
+     "pos": "MF",
+     "number": 25,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Richardson",
+     "pos": "MF",
+     "number": 26,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Vina",
+     "pos": "MF",
+     "number": 29,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Bryan Borges",
+     "pos": "DF",
+     "number": 31,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Éder",
+     "pos": "DF",
+     "number": 33,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Melk",
+     "pos": "MF",
+     "number": 40,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Pedro Gilmar",
+     "pos": "DF",
+     "number": 63,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Saulo Mineiro",
+     "pos": "FW",
+     "number": 73,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Lenny Lobato",
+     "pos": "FW",
+     "number": 77,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "João Gabriel",
+     "pos": "MF",
+     "number": 81,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Kauã Ziegler",
+     "pos": "FW",
+     "number": 90,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Renzo López",
+     "pos": "FW",
+     "number": 94,
+     "birthDate": null,
+     "nationality": "Uruguai"
+    },
+    {
+     "name": "Lucca",
+     "pos": "FW",
+     "number": 99,
+     "birthDate": null,
+     "nationality": "Brasil"
+    }
+   ]
+  },
+  "chapecoense": {
+   "source": "https://en.wikipedia.org/wiki/Associação_Chapecoense_de_Futebol",
+   "retrievedAt": "2026-10-21",
+   "players": [
+    {
+     "name": "Rafael Santos",
+     "pos": "GK",
+     "number": 1,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Eduardo Doma",
+     "pos": "DF",
+     "number": 3,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "João Paulo",
+     "pos": "DF",
+     "number": 4,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Heitor",
+     "pos": "DF",
+     "number": 5,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Mancha",
+     "pos": "DF",
+     "number": 6,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Marcinho",
+     "pos": "FW",
+     "number": 7,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Robert Santos",
+     "pos": "MF",
+     "number": 8,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Túlio Eduardo",
+     "pos": "FW",
+     "number": 9,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Giovanni Augusto",
+     "pos": "MF",
+     "number": 10,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Yannick Bolasie",
+     "pos": "FW",
+     "number": 11,
+     "birthDate": null,
+     "nationality": "República Democrática do Congo"
+    },
+    {
+     "name": "Fernando",
+     "pos": "DF",
+     "number": 12,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Gabriel Werner",
+     "pos": "GK",
+     "number": 14,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Rafael Thyere",
+     "pos": "DF",
+     "number": 15,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Bruno Matias",
+     "pos": "MF",
+     "number": 16,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Vinicius Balieiro",
+     "pos": "MF",
+     "number": 17,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "David Antunes",
+     "pos": "MF",
+     "number": 19,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Bruno Tubarão",
+     "pos": "DF",
+     "number": 20,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Kauan Faria",
+     "pos": "DF",
+     "number": 21,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Max Alves",
+     "pos": "MF",
+     "number": 22,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Dudu",
+     "pos": "DF",
+     "number": 23,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Victor Caetano",
+     "pos": "DF",
+     "number": 25,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Everton",
+     "pos": "DF",
+     "number": 26,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Camilo",
+     "pos": "MF",
+     "number": 27,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Franco Rossi",
+     "pos": "FW",
+     "number": 29,
+     "birthDate": null,
+     "nationality": "Uruguai"
+    },
+    {
+     "name": "Matheus Aurélio",
+     "pos": "GK",
+     "number": 30,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Maurício Garcez",
+     "pos": "FW",
+     "number": 31,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Kainã",
+     "pos": "GK",
+     "number": 34,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Vinicius Eduardo",
+     "pos": "DF",
+     "number": 35,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Rosivan",
+     "pos": "MF",
+     "number": 55,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Rubens Ricoldi",
+     "pos": "FW",
+     "number": 70,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Dylan Borrero",
+     "pos": "FW",
+     "number": 77,
+     "birthDate": null,
+     "nationality": "Colômbia"
+    },
+    {
+     "name": "Miguel Carvalho",
+     "pos": "MF",
+     "number": 80,
+     "birthDate": null,
+     "nationality": "Espanha"
+    },
+    {
+     "name": "Yago Felipe",
+     "pos": "MF",
+     "number": 88,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Bruno Pacheco",
+     "pos": "DF",
+     "number": 91,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Kevin Ramírez",
+     "pos": "FW",
+     "number": 94,
+     "birthDate": null,
+     "nationality": "Uruguai"
+    },
+    {
+     "name": "Anderson",
+     "pos": "GK",
+     "number": 98,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Rafael Carvalheira",
+     "pos": "MF",
+     "number": 99,
+     "birthDate": null,
+     "nationality": "Brasil"
+    }
+   ]
+  },
+  "corinthians": {
+   "source": "https://en.wikipedia.org/wiki/SC_Corinthians_Paulista",
+   "retrievedAt": "2026-10-21",
+   "players": [
+    {
+     "name": "Hugo Souza",
+     "pos": "GK",
+     "number": 1,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Matheuzinho",
+     "pos": "DF",
+     "number": 2,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Gabriel Paulista",
+     "pos": "DF",
+     "number": 3,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "João Pedro",
+     "pos": "DF",
+     "number": 4,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "André Ramalho",
+     "pos": "DF",
+     "number": 5,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Breno Bidon",
+     "pos": "MF",
+     "number": 7,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Rodrigo Garro",
+     "pos": "MF",
+     "number": 8,
+     "birthDate": null,
+     "nationality": "Argentina"
+    },
+    {
+     "name": "Yuri Alberto",
+     "pos": "FW",
+     "number": 9,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Memphis Depay",
+     "pos": "FW",
+     "number": 10,
+     "birthDate": null,
+     "nationality": "Países Baixos"
+    },
+    {
+     "name": "Vitinho",
+     "pos": "MF",
+     "number": 11,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Gustavo Henrique",
+     "pos": "DF",
+     "number": 13,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Raniele",
+     "pos": "MF",
+     "number": 14,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Pedro Raul",
+     "pos": "FW",
+     "number": 18,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "André Carrillo",
+     "pos": "MF",
+     "number": 19,
+     "birthDate": null,
+     "nationality": "Peru"
+    },
+    {
+     "name": "Pedro Milans",
+     "pos": "DF",
+     "number": 20,
+     "birthDate": null,
+     "nationality": "Uruguai"
+    },
+    {
+     "name": "Matheus Bidu",
+     "pos": "DF",
+     "number": 21,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Matheus Pereira",
+     "pos": "MF",
+     "number": 23,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Fabrizio Angileri",
+     "pos": "DF",
+     "number": 26,
+     "birthDate": null,
+     "nationality": "Argentina"
+    },
+    {
+     "name": "Allan",
+     "pos": "MF",
+     "number": 29,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Kayke",
+     "pos": "FW",
+     "number": 31,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Charles",
+     "pos": "MF",
+     "number": 35,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Kaio César",
+     "pos": "FW",
+     "number": 37,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Felipe Longo",
+     "pos": "GK",
+     "number": 40,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Hugo Farias",
+     "pos": "DF",
+     "number": 46,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "André",
+     "pos": "MF",
+     "number": 49,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Kauê",
+     "pos": "GK",
+     "number": 51,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Zakaria Labyad",
+     "pos": "MF",
+     "number": 52,
+     "birthDate": null,
+     "nationality": "Marrocos"
+    },
+    {
+     "name": "Luiz Gustavo",
+     "pos": "MF",
+     "number": 54,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Iago Machado",
+     "pos": "DF",
+     "number": 55,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Gui Negão",
+     "pos": "FW",
+     "number": 56,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Dieguinho",
+     "pos": "FW",
+     "number": 61,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Jesse Lingard",
+     "pos": "MF",
+     "number": 77,
+     "birthDate": null,
+     "nationality": "Inglaterra"
+    },
+    {
+     "name": "Alex Santana",
+     "pos": "MF",
+     "number": 80,
+     "birthDate": null,
+     "nationality": "Brasil"
+    }
+   ]
+  },
+  "coritiba": {
+   "source": "https://en.wikipedia.org/wiki/Coritiba_Foot_Ball_Club",
+   "retrievedAt": "2026-10-21",
+   "players": [
+    {
+     "name": "Pedro Morisco",
+     "pos": "GK",
+     "number": 1,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Tinga",
+     "pos": "DF",
+     "number": 2,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Maicon",
+     "pos": "DF",
+     "number": 3,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Rodrigo Moledo",
+     "pos": "DF",
+     "number": 4,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Nicolás Fonseca",
+     "pos": "MF",
+     "number": 5,
+     "birthDate": null,
+     "nationality": "Uruguai"
+    },
+    {
+     "name": "Felipe Jonatan",
+     "pos": "DF",
+     "number": 6,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Joaquín Lavega",
+     "pos": "FW",
+     "number": 7,
+     "birthDate": null,
+     "nationality": "Uruguai"
+    },
+    {
+     "name": "Josué Pesqueira",
+     "pos": "MF",
+     "number": 10,
+     "birthDate": null,
+     "nationality": "Portugal"
+    },
+    {
+     "name": "Lucas Ronier",
+     "pos": "FW",
+     "number": 11,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Keiller",
+     "pos": "GK",
+     "number": 13,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Fabricio Bustos",
+     "pos": "DF",
+     "number": 14,
+     "birthDate": null,
+     "nationality": "Argentina"
+    },
+    {
+     "name": "Alejandro Ararat",
+     "pos": "MF",
+     "number": 15,
+     "birthDate": null,
+     "nationality": "Colômbia"
+    },
+    {
+     "name": "Brian Ocampo",
+     "pos": "FW",
+     "number": 17,
+     "birthDate": null,
+     "nationality": "Uruguai"
+    },
+    {
+     "name": "Paulo Roberto",
+     "pos": "FW",
+     "number": 18,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Sebastián Gómez",
+     "pos": "MF",
+     "number": 19,
+     "birthDate": null,
+     "nationality": "Colômbia"
+    },
+    {
+     "name": "Keno",
+     "pos": "FW",
+     "number": 20,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Thiago Santos",
+     "pos": "DF",
+     "number": 21,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Pedro Rangel",
+     "pos": "GK",
+     "number": 22,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Tiago Cóser",
+     "pos": "DF",
+     "number": 23,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Richard",
+     "pos": "MF",
+     "number": 25,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Bruno Melo",
+     "pos": "DF",
+     "number": 26,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Fabinho",
+     "pos": "FW",
+     "number": 28,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Pedro Rocha",
+     "pos": "FW",
+     "number": 32,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Vini Paulista",
+     "pos": "MF",
+     "number": 36,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Gustavo Silva",
+     "pos": "MF",
+     "number": 39,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Vitor Tissi",
+     "pos": "MF",
+     "number": 50,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Jacy Maranhão",
+     "pos": "DF",
+     "number": 55,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Rodrigo Gelado",
+     "pos": "DF",
+     "number": 66,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Benassi",
+     "pos": "GK",
+     "number": 67,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Breno Lopes",
+     "pos": "FW",
+     "number": 77,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Renato Marques",
+     "pos": "FW",
+     "number": 78,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Lucas Taverna",
+     "pos": "DF",
+     "number": 86,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Rodrigo Rodrigues",
+     "pos": "FW",
+     "number": 99,
+     "birthDate": null,
+     "nationality": "Brasil"
+    }
+   ]
+  },
+  "crb": {
+   "source": "https://en.wikipedia.org/wiki/Clube_de_Regatas_Brasil",
+   "retrievedAt": "2026-10-21",
+   "players": [
+    {
+     "name": "Vitor Caetano",
+     "pos": "GK",
+     "number": 1,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Kevin",
+     "pos": "DF",
+     "number": 2,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Douglas Baggio",
+     "pos": "FW",
+     "number": 7,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Crystopher",
+     "pos": "MF",
+     "number": 8,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "João Neto",
+     "pos": "FW",
+     "number": 9,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Danielzinho",
+     "pos": "MF",
+     "number": 10,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Guilherme Pato",
+     "pos": "FW",
+     "number": 11,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Matheus Albino",
+     "pos": "GK",
+     "number": 12,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Guilherme Estrella",
+     "pos": "MF",
+     "number": 14,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "David Braw",
+     "pos": "MF",
+     "number": 16,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Thiaguinho",
+     "pos": "FW",
+     "number": 17,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Geovane",
+     "pos": "MF",
+     "number": 18,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Luiz Phellype",
+     "pos": "FW",
+     "number": 19,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Vinícius Nunes",
+     "pos": "FW",
+     "number": 20,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Pedro Castro",
+     "pos": "MF",
+     "number": 21,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Bressan",
+     "pos": "DF",
+     "number": 22,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Fábio Henrique",
+     "pos": "GK",
+     "number": 23,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Fábio Alemão",
+     "pos": "DF",
+     "number": 27,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Mikael",
+     "pos": "FW",
+     "number": 28,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Ruy",
+     "pos": "DF",
+     "number": 31,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Hereda",
+     "pos": "DF",
+     "number": 32,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Lyncon",
+     "pos": "DF",
+     "number": 33,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Lucas Lovat",
+     "pos": "DF",
+     "number": 36,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Henri",
+     "pos": "DF",
+     "number": 44,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Patrick de Lucca",
+     "pos": "MF",
+     "number": 45,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Luizão",
+     "pos": "MF",
+     "number": 50,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Maycon",
+     "pos": "DF",
+     "number": 60,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Léo Campos",
+     "pos": "DF",
+     "number": 77,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Dadá Belmonte",
+     "pos": "FW",
+     "number": 97,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Cândido",
+     "pos": "GK",
+     "number": null,
+     "birthDate": null,
+     "nationality": "Brasil"
+    }
+   ]
+  },
+  "criciuma": {
+   "source": "https://en.wikipedia.org/wiki/Criciúma_Esporte_Clube",
+   "retrievedAt": "2026-10-21",
+   "players": [
+    {
+     "name": "Alisson",
+     "pos": "GK",
+     "number": 1,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Rodrigo",
+     "pos": "DF",
+     "number": 3,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Luciano Castán",
+     "pos": "DF",
+     "number": 4,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Eduardo",
+     "pos": "MF",
+     "number": 5,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Marcinho",
+     "pos": "DF",
+     "number": 6,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Fellipe Mateus",
+     "pos": "MF",
+     "number": 7,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Guilherme Lobo",
+     "pos": "MF",
+     "number": 8,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Nicolas",
+     "pos": "FW",
+     "number": 9,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Jhonata Robert",
+     "pos": "FW",
+     "number": 10,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Romarinho",
+     "pos": "FW",
+     "number": 11,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Waguininho",
+     "pos": "FW",
+     "number": 13,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Ronald",
+     "pos": "MF",
+     "number": 14,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Octávio Henrique",
+     "pos": "DF",
+     "number": 15,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Steven Nufour",
+     "pos": "MF",
+     "number": 18,
+     "birthDate": null,
+     "nationality": "Gana"
+    },
+    {
+     "name": "Thales",
+     "pos": "FW",
+     "number": 19,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "João Carlos",
+     "pos": "FW",
+     "number": 21,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Marcelo Hermes",
+     "pos": "DF",
+     "number": 22,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Hiago Alves",
+     "pos": "DF",
+     "number": 31,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Airton",
+     "pos": "GK",
+     "number": 32,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Yuri Tanque",
+     "pos": "FW",
+     "number": 33,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Bruno Alves",
+     "pos": "DF",
+     "number": 34,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Heitor Roca",
+     "pos": "DF",
+     "number": 36,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "César Martins",
+     "pos": "DF",
+     "number": 37,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Thales",
+     "pos": "FW",
+     "number": 39,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Jean Irmer",
+     "pos": "MF",
+     "number": 41,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Ruan Carvalho",
+     "pos": "DF",
+     "number": 43,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Thiaguinho",
+     "pos": "MF",
+     "number": 50,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Pedro Santos",
+     "pos": "GK",
+     "number": 70,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Kauã Moroso",
+     "pos": "GK",
+     "number": 73,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Diego Gonçalves",
+     "pos": "FW",
+     "number": 77,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Cauê",
+     "pos": "FW",
+     "number": 88,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Rómulo Otero",
+     "pos": "FW",
+     "number": 91,
+     "birthDate": null,
+     "nationality": "Venezuela"
+    },
+    {
+     "name": "Willean Lepo",
+     "pos": "DF",
+     "number": 97,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Erick",
+     "pos": "DF",
+     "number": null,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Rômulo",
+     "pos": "DF",
+     "number": null,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Eliel Costa",
+     "pos": "MF",
+     "number": null,
+     "birthDate": null,
+     "nationality": "Brasil"
+    }
+   ]
+  },
+  "cruzeiro": {
+   "source": "https://en.wikipedia.org/wiki/Cruzeiro_EC",
+   "retrievedAt": "2026-10-21",
+   "players": [
+    {
+     "name": "Cássio",
+     "pos": "GK",
+     "number": 1,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Kauã Moraes",
+     "pos": "DF",
+     "number": 2,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Zé Lucas",
+     "pos": "MF",
+     "number": 5,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Matías Viña",
+     "pos": "DF",
+     "number": 6,
+     "birthDate": null,
+     "nationality": "Uruguai"
+    },
+    {
+     "name": "Matheus Henrique",
+     "pos": "MF",
+     "number": 7,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Gerson",
+     "pos": "MF",
+     "number": 8,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Bruno Rodrigues",
+     "pos": "FW",
+     "number": 9,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Matheus Pereira",
+     "pos": "MF",
+     "number": 10,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Marquinhos",
+     "pos": "FW",
+     "number": 11,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "William",
+     "pos": "DF",
+     "number": 12,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Fabrício Bruno",
+     "pos": "DF",
+     "number": 15,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Lucas Silva",
+     "pos": "MF",
+     "number": 16,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Luis Sinisterra",
+     "pos": "FW",
+     "number": 17,
+     "birthDate": null,
+     "nationality": "Colômbia"
+    },
+    {
+     "name": "Kaio Jorge",
+     "pos": "FW",
+     "number": 19,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Wesley",
+     "pos": "FW",
+     "number": 20,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Néiser Villarreal",
+     "pos": "FW",
+     "number": 22,
+     "birthDate": null,
+     "nationality": "Colômbia"
+    },
+    {
+     "name": "Fagner",
+     "pos": "DF",
+     "number": 23,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Marcelo Eráclito",
+     "pos": "GK",
+     "number": 24,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Lucas Villalba",
+     "pos": "DF",
+     "number": 25,
+     "birthDate": null,
+     "nationality": "Argentina"
+    },
+    {
+     "name": "Gabriel Rojas",
+     "pos": "DF",
+     "number": 27,
+     "birthDate": null,
+     "nationality": "Argentina"
+    },
+    {
+     "name": "Lucas Romero",
+     "pos": "MF",
+     "number": 29,
+     "birthDate": null,
+     "nationality": "Argentina"
+    },
+    {
+     "name": "Jonathan Jesus",
+     "pos": "DF",
+     "number": 34,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Rhuan Gabriel",
+     "pos": "MF",
+     "number": 40,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Léo Aragão",
+     "pos": "GK",
+     "number": 41,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "João Marcelo",
+     "pos": "DF",
+     "number": 43,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Vitor Lamounier",
+     "pos": "GK",
+     "number": 51,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Rayan Lelis",
+     "pos": "FW",
+     "number": 57,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "João Costa",
+     "pos": "FW",
+     "number": 67,
+     "birthDate": null,
+     "nationality": "Portugal"
+    },
+    {
+     "name": "Kaique Kenji",
+     "pos": "FW",
+     "number": 70,
+     "birthDate": null,
+     "nationality": "Japão"
+    },
+    {
+     "name": "Gabriel Pec",
+     "pos": "FW",
+     "number": 77,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Otávio",
+     "pos": "GK",
+     "number": 81,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Wanderson",
+     "pos": "FW",
+     "number": 94,
+     "birthDate": null,
+     "nationality": "Bélgica"
+    },
+    {
+     "name": "Luciano Rodríguez",
+     "pos": "FW",
+     "number": 97,
+     "birthDate": null,
+     "nationality": "Uruguai"
+    },
+    {
+     "name": "Keny Arroyo",
+     "pos": "FW",
+     "number": 99,
+     "birthDate": null,
+     "nationality": "Equador"
+    }
+   ]
+  },
+  "cuiaba": {
+   "source": "https://en.wikipedia.org/wiki/Cuiabá_Esporte_Clube",
+   "retrievedAt": "2026-10-21",
+   "players": [
+    {
+     "name": "João Carlos",
+     "pos": "GK",
+     "number": 1,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Igor Inocêncio",
+     "pos": "DF",
+     "number": 2,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Vitor Mendes",
+     "pos": "DF",
+     "number": 4,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Calebe",
+     "pos": "MF",
+     "number": 5,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Marlon",
+     "pos": "DF",
+     "number": 6,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Ramon",
+     "pos": "FW",
+     "number": 7,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Pepê",
+     "pos": "MF",
+     "number": 8,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Eliel",
+     "pos": "FW",
+     "number": 11,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Gustavo Busatto",
+     "pos": "GK",
+     "number": 12,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "João Basso",
+     "pos": "DF",
+     "number": 13,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Eric Melo",
+     "pos": "DF",
+     "number": 14,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "David Miguel",
+     "pos": "MF",
+     "number": 20,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Rodrigo Rodrigues",
+     "pos": "FW",
+     "number": 27,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Vinícius Peixoto",
+     "pos": "FW",
+     "number": 29,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Raul",
+     "pos": "MF",
+     "number": 30,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Marcelo Carné",
+     "pos": "GK",
+     "number": 31,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Alan Empereur",
+     "pos": "DF",
+     "number": 33,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Jean Carlos",
+     "pos": "GK",
+     "number": 34,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Lorenzo",
+     "pos": "DF",
+     "number": 36,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Raylan",
+     "pos": "DF",
+     "number": 37,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Kauan Cristtyan",
+     "pos": "FW",
+     "number": 41,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "João Araújo",
+     "pos": "MF",
+     "number": 49,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Weverson",
+     "pos": "MF",
+     "number": 53,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Tarcísio",
+     "pos": "DF",
+     "number": 59,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Wesley Dias",
+     "pos": "MF",
+     "number": 70,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Jean Dias",
+     "pos": "FW",
+     "number": 77,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Pedro Mello",
+     "pos": "GK",
+     "number": 78,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Fábio Gomes",
+     "pos": "FW",
+     "number": 90,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Luis Soares",
+     "pos": "DF",
+     "number": 91,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Pedro Henrique",
+     "pos": "FW",
+     "number": 96,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Luiz Otávio",
+     "pos": "MF",
+     "number": 97,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Nathan Cruz",
+     "pos": "FW",
+     "number": 99,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Vitão",
+     "pos": "DF",
+     "number": null,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Luiz Felipe",
+     "pos": "MF",
+     "number": null,
+     "birthDate": null,
+     "nationality": "Brasil"
+    }
+   ]
+  },
+  "flamengo": {
+   "source": "https://en.wikipedia.org/wiki/CR_Flamengo",
+   "retrievedAt": "2026-10-21",
+   "players": [
+    {
+     "name": "Agustín Rossi",
+     "pos": "GK",
+     "number": 1,
+     "birthDate": null,
+     "nationality": "Argentina"
+    },
+    {
+     "name": "Guillermo Varela",
+     "pos": "DF",
+     "number": 2,
+     "birthDate": null,
+     "nationality": "Uruguai"
+    },
+    {
+     "name": "Léo Ortiz",
+     "pos": "DF",
+     "number": 3,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Léo Pereira",
+     "pos": "DF",
+     "number": 4,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Erick Pulgar",
+     "pos": "MF",
+     "number": 5,
+     "birthDate": null,
+     "nationality": "Chile"
+    },
+    {
+     "name": "Ayrton Lucas",
+     "pos": "DF",
+     "number": 6,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Luiz Araújo",
+     "pos": "FW",
+     "number": 7,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Saúl Ñíguez",
+     "pos": "MF",
+     "number": 8,
+     "birthDate": null,
+     "nationality": "Espanha"
+    },
+    {
+     "name": "Pedro",
+     "pos": "FW",
+     "number": 9,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Giorgian de Arrascaeta",
+     "pos": "MF",
+     "number": 10,
+     "birthDate": null,
+     "nationality": "Uruguai"
+    },
+    {
+     "name": "Lucas Paquetá",
+     "pos": "MF",
+     "number": 11,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Danilo",
+     "pos": "DF",
+     "number": 13,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Anthony Valencia",
+     "pos": "FW",
+     "number": 14,
+     "birthDate": null,
+     "nationality": "Equador"
+    },
+    {
+     "name": "Jorge Carrascal",
+     "pos": "MF",
+     "number": 15,
+     "birthDate": null,
+     "nationality": "Colômbia"
+    },
+    {
+     "name": "Samuel Lino",
+     "pos": "FW",
+     "number": 16,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Nicolás de la Cruz",
+     "pos": "MF",
+     "number": 18,
+     "birthDate": null,
+     "nationality": "Uruguai"
+    },
+    {
+     "name": "Gonzalo Plata",
+     "pos": "FW",
+     "number": 19,
+     "birthDate": null,
+     "nationality": "Equador"
+    },
+    {
+     "name": "Jorginho",
+     "pos": "MF",
+     "number": 21,
+     "birthDate": null,
+     "nationality": "Itália"
+    },
+    {
+     "name": "Emerson Royal",
+     "pos": "DF",
+     "number": 22,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Alex Sandro",
+     "pos": "DF",
+     "number": 26,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Bruno Henrique",
+     "pos": "FW",
+     "number": 27,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Joaquín Freitas",
+     "pos": "FW",
+     "number": 30,
+     "birthDate": null,
+     "nationality": "Argentina"
+    },
+    {
+     "name": "Andrew",
+     "pos": "GK",
+     "number": 42,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Vitão",
+     "pos": "DF",
+     "number": 44,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Dyogo Alves",
+     "pos": "GK",
+     "number": 49,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Evertton Araújo",
+     "pos": "MF",
+     "number": 52,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "João Victor",
+     "pos": "DF",
+     "number": 61,
+     "birthDate": null,
+     "nationality": "Brasil"
+    }
+   ]
+  },
+  "fluminense": {
+   "source": "https://en.wikipedia.org/wiki/Fluminense_FC",
+   "retrievedAt": "2026-10-21",
+   "players": [
+    {
+     "name": "Fábio",
+     "pos": "GK",
+     "number": 1,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Samuel Xavier",
+     "pos": "DF",
+     "number": 2,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Thiago Silva",
+     "pos": "DF",
+     "number": 3,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Ignácio",
+     "pos": "DF",
+     "number": 4,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Renê",
+     "pos": "DF",
+     "number": 6,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Hulk",
+     "pos": "FW",
+     "number": 7,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Matheus Martinelli",
+     "pos": "MF",
+     "number": 8,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "John Kennedy",
+     "pos": "FW",
+     "number": 9,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Ganso",
+     "pos": "MF",
+     "number": 10,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Jefferson Savarino",
+     "pos": "MF",
+     "number": 11,
+     "birthDate": null,
+     "nationality": "Venezuela"
+    },
+    {
+     "name": "Guilherme Arana",
+     "pos": "DF",
+     "number": 13,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Germán Cano",
+     "pos": "FW",
+     "number": 14,
+     "birthDate": null,
+     "nationality": "Argentina"
+    },
+    {
+     "name": "Nonato",
+     "pos": "MF",
+     "number": 16,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Agustín Canobbio",
+     "pos": "FW",
+     "number": 17,
+     "birthDate": null,
+     "nationality": "Uruguai"
+    },
+    {
+     "name": "Rodrigo Castillo",
+     "pos": "FW",
+     "number": 19,
+     "birthDate": null,
+     "nationality": "Argentina"
+    },
+    {
+     "name": "Igor Rabello",
+     "pos": "DF",
+     "number": 21,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Juan Pablo Freytes",
+     "pos": "DF",
+     "number": 22,
+     "birthDate": null,
+     "nationality": "Argentina"
+    },
+    {
+     "name": "Guga",
+     "pos": "DF",
+     "number": 23,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Alisson",
+     "pos": "MF",
+     "number": 25,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Marcelo Pitaluga",
+     "pos": "GK",
+     "number": 27,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Riquelme",
+     "pos": "FW",
+     "number": 28,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Julián Millán",
+     "pos": "DF",
+     "number": 29,
+     "birthDate": null,
+     "nationality": "Colômbia"
+    },
+    {
+     "name": "Yeferson Soteldo",
+     "pos": "FW",
+     "number": 30,
+     "birthDate": null,
+     "nationality": "Venezuela"
+    },
+    {
+     "name": "Lucho Acosta",
+     "pos": "MF",
+     "number": 32,
+     "birthDate": null,
+     "nationality": "Argentina"
+    },
+    {
+     "name": "Hércules",
+     "pos": "MF",
+     "number": 35,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Jemmes",
+     "pos": "DF",
+     "number": 44,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Júlio Fidelis",
+     "pos": "DF",
+     "number": 46,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Kevin Serna",
+     "pos": "FW",
+     "number": 90,
+     "birthDate": null,
+     "nationality": "Colômbia"
+    },
+    {
+     "name": "Otávio",
+     "pos": "MF",
+     "number": 94,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Vitor Eudes",
+     "pos": "GK",
+     "number": 98,
+     "birthDate": null,
+     "nationality": "Brasil"
+    }
+   ]
+  },
+  "fortaleza": {
+   "source": "https://en.wikipedia.org/wiki/Fortaleza_Esporte_Clube",
+   "retrievedAt": "2026-10-21",
+   "players": [
+    {
+     "name": "João Ricardo",
+     "pos": "GK",
+     "number": 1,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Luan Freitas",
+     "pos": "DF",
+     "number": 4,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Pierre",
+     "pos": "MF",
+     "number": 5,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Tomás Cardona",
+     "pos": "DF",
+     "number": 6,
+     "birthDate": null,
+     "nationality": "Argentina"
+    },
+    {
+     "name": "Ronald",
+     "pos": "MF",
+     "number": 8,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Juan Miritello",
+     "pos": "FW",
+     "number": 9,
+     "birthDate": null,
+     "nationality": "Argentina"
+    },
+    {
+     "name": "Lucas Crispim",
+     "pos": "MF",
+     "number": 10,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Vitinho",
+     "pos": "FW",
+     "number": 11,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Kaio Henrique",
+     "pos": "DF",
+     "number": 12,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Maurício Mucuri",
+     "pos": "DF",
+     "number": 13,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Magrão",
+     "pos": "GK",
+     "number": 15,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Pedro Henrique",
+     "pos": "FW",
+     "number": 16,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Nathan Fogaça",
+     "pos": "FW",
+     "number": 17,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Gabriel Fuentes",
+     "pos": "DF",
+     "number": 18,
+     "birthDate": null,
+     "nationality": "Colômbia"
+    },
+    {
+     "name": "Lucas Emanoel",
+     "pos": "MF",
+     "number": 19,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Jaílson",
+     "pos": "MF",
+     "number": 20,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Juan Cantillo",
+     "pos": "MF",
+     "number": 21,
+     "birthDate": null,
+     "nationality": "Colômbia"
+    },
+    {
+     "name": "Maílton",
+     "pos": "DF",
+     "number": 22,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Neris",
+     "pos": "DF",
+     "number": 23,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Vinícius Silvestre",
+     "pos": "GK",
+     "number": 25,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Paulinho",
+     "pos": "DF",
+     "number": 28,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Rodrigo Santos",
+     "pos": "MF",
+     "number": 29,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Welliton",
+     "pos": "FW",
+     "number": 31,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Luiz Fernando",
+     "pos": "FW",
+     "number": 32,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Kauã Rocha",
+     "pos": "DF",
+     "number": 33,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Bastos",
+     "pos": "DF",
+     "number": 34,
+     "birthDate": null,
+     "nationality": "Angola"
+    },
+    {
+     "name": "Bruninho",
+     "pos": "MF",
+     "number": 35,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Ryan",
+     "pos": "MF",
+     "number": 37,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Lucca Prior",
+     "pos": "MF",
+     "number": 38,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Cássio",
+     "pos": "GK",
+     "number": 41,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Rodriguinho",
+     "pos": "FW",
+     "number": 75,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Paulo Baya",
+     "pos": "FW",
+     "number": 77,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Lucas Sasha",
+     "pos": "MF",
+     "number": 88,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Chico da Costa",
+     "pos": "FW",
+     "number": 91,
+     "birthDate": null,
+     "nationality": "Brasil"
+    }
+   ]
+  },
+  "goias": {
+   "source": "https://en.wikipedia.org/wiki/Goi%C3%A1s_Esporte_Clube#First_team_squad",
+   "retrievedAt": "2026-10-21",
+   "players": [
+    {
+     "name": "Thiago Rodrigues",
+     "pos": "GK",
+     "number": 1,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Rodrigo Soares",
+     "pos": "DF",
+     "number": 2,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Luiz Felipe",
+     "pos": "DF",
+     "number": 3,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Ramon Menezes",
+     "pos": "DF",
+     "number": 4,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Filipe Machado",
+     "pos": "MF",
+     "number": 5,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Nicolas Vichiatto",
+     "pos": "DF",
+     "number": 6,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Juninho",
+     "pos": "MF",
+     "number": 8,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Anselmo Ramon",
+     "pos": "FW",
+     "number": 9,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Lucas Lima",
+     "pos": "MF",
+     "number": 10,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Felipe Clemente",
+     "pos": "FW",
+     "number": 11,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Lucas Ribeiro",
+     "pos": "DF",
+     "number": 14,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Esli García",
+     "pos": "FW",
+     "number": 15,
+     "birthDate": null,
+     "nationality": "Venezuela"
+    },
+    {
+     "name": "Pedrinho",
+     "pos": "FW",
+     "number": 17,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Cadu",
+     "pos": "FW",
+     "number": 18,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Jean Carlos",
+     "pos": "FW",
+     "number": 21,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Tadeu",
+     "pos": "GK",
+     "number": 23,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Luisão",
+     "pos": "DF",
+     "number": 25,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Wellington Rato",
+     "pos": "FW",
+     "number": 27,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Gegê",
+     "pos": "MF",
+     "number": 28,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Murilo Câmara",
+     "pos": "DF",
+     "number": 29,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Lucas Rodrigues",
+     "pos": "MF",
+     "number": 35,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Kadu Souza",
+     "pos": "FW",
+     "number": 40,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Ezequiel Ribeiro",
+     "pos": "GK",
+     "number": 41,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Djalma Silva",
+     "pos": "DF",
+     "number": 54,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Baldória",
+     "pos": "MF",
+     "number": 55,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Marcos Vinícius",
+     "pos": "DF",
+     "number": 63,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Danilo Cunha",
+     "pos": "DF",
+     "number": 66,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Halerrandrio",
+     "pos": "FW",
+     "number": 77,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Brayann",
+     "pos": "MF",
+     "number": 88,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Lourenço",
+     "pos": "MF",
+     "number": 97,
+     "birthDate": null,
+     "nationality": "Brasil"
+    }
+   ]
+  },
+  "gremio": {
+   "source": "https://en.wikipedia.org/wiki/Grêmio_FBPA#First_team_squad",
+   "retrievedAt": "2026-10-21",
+   "players": [
+    {
+     "name": "Weverton",
+     "pos": "GK",
+     "number": 1,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Fabián Balbuena",
+     "pos": "DF",
+     "number": 2,
+     "birthDate": null,
+     "nationality": "Paraguai"
+    },
+    {
+     "name": "Wagner Leonardo",
+     "pos": "DF",
+     "number": 3,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Walter Kannemann",
+     "pos": "DF",
+     "number": 4,
+     "birthDate": null,
+     "nationality": "Argentina"
+    },
+    {
+     "name": "Juan Nardoni",
+     "pos": "MF",
+     "number": 5,
+     "birthDate": null,
+     "nationality": "Argentina"
+    },
+    {
+     "name": "Gustavo Martins",
+     "pos": "DF",
+     "number": 6,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Cristian Pavon",
+     "pos": "FW",
+     "number": 7,
+     "birthDate": null,
+     "nationality": "Argentina"
+    },
+    {
+     "name": "Erick Noriega",
+     "pos": "MF",
+     "number": 8,
+     "birthDate": null,
+     "nationality": "Peru"
+    },
+    {
+     "name": "Francis Amuzu",
+     "pos": "FW",
+     "number": 9,
+     "birthDate": null,
+     "nationality": "Gana"
+    },
+    {
+     "name": "Filip Krovinović",
+     "pos": "MF",
+     "number": 10,
+     "birthDate": null,
+     "nationality": "Croácia"
+    },
+    {
+     "name": "Tetê",
+     "pos": "FW",
+     "number": 11,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Gabriel Grando",
+     "pos": "GK",
+     "number": 12,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Marcos Rocha",
+     "pos": "DF",
+     "number": 14,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Danilo Barbosa",
+     "pos": "MF",
+     "number": 15,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Dodi",
+     "pos": "MF",
+     "number": 17,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "João Pedro",
+     "pos": "DF",
+     "number": 18,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Mathías Villasanti",
+     "pos": "MF",
+     "number": 20,
+     "birthDate": null,
+     "nationality": "Paraguai"
+    },
+    {
+     "name": "Martin Braithwaite",
+     "pos": "FW",
+     "number": 22,
+     "birthDate": null,
+     "nationality": "Dinamarca"
+    },
+    {
+     "name": "Marlon",
+     "pos": "DF",
+     "number": 23,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Thiago Beltrame",
+     "pos": "GK",
+     "number": 24,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Diego Caito",
+     "pos": "DF",
+     "number": 27,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Matheus Nascimento",
+     "pos": "FW",
+     "number": 30,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Gabriel Menegon",
+     "pos": "GK",
+     "number": 31,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Caio Paulista",
+     "pos": "DF",
+     "number": 38,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Tiago",
+     "pos": "MF",
+     "number": 39,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Athos",
+     "pos": "DF",
+     "number": 42,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Luis Eduardo",
+     "pos": "DF",
+     "number": 43,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Roger",
+     "pos": "MF",
+     "number": 47,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Pedro Gabriel",
+     "pos": "DF",
+     "number": 54,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Riquelme",
+     "pos": "MF",
+     "number": 65,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Jovane Cabral",
+     "pos": "FW",
+     "number": 77,
+     "birthDate": null,
+     "nationality": "Cabo Verde"
+    },
+    {
+     "name": "Wallace",
+     "pos": "DF",
+     "number": 82,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Carlos Vinícius",
+     "pos": "FW",
+     "number": 95,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "José Enamorado",
+     "pos": "FW",
+     "number": 99,
+     "birthDate": null,
+     "nationality": "Colômbia"
+    }
+   ]
+  },
+  "internacional": {
+   "source": "https://en.wikipedia.org/wiki/SC_Internacional#First_team",
+   "retrievedAt": "2026-10-21",
+   "players": [
+    {
+     "name": "Sergio Rochet",
+     "pos": "GK",
+     "number": 1,
+     "birthDate": null,
+     "nationality": "Uruguai"
+    },
+    {
+     "name": "Guillermo Maripán",
+     "pos": "DF",
+     "number": 3,
+     "birthDate": null,
+     "nationality": "Chile"
+    },
+    {
+     "name": "Félix Torres",
+     "pos": "DF",
+     "number": 4,
+     "birthDate": null,
+     "nationality": "Equador"
+    },
+    {
+     "name": "Rodrigo Villagra",
+     "pos": "MF",
+     "number": 5,
+     "birthDate": null,
+     "nationality": "Argentina"
+    },
+    {
+     "name": "Matheus Bahia",
+     "pos": "DF",
+     "number": 6,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Johan Carbonero",
+     "pos": "FW",
+     "number": 7,
+     "birthDate": null,
+     "nationality": "Colômbia"
+    },
+    {
+     "name": "Bruno Henrique",
+     "pos": "MF",
+     "number": 8,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Alerrandro",
+     "pos": "FW",
+     "number": 9,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Alan Patrick",
+     "pos": "MF",
+     "number": 10,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Kayky",
+     "pos": "FW",
+     "number": 11,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Anthoni",
+     "pos": "GK",
+     "number": 12,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Bruno Gomes",
+     "pos": "DF",
+     "number": 15,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Ronaldo",
+     "pos": "MF",
+     "number": 16,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Niclas Eliasson",
+     "pos": "FW",
+     "number": 17,
+     "birthDate": null,
+     "nationality": "Suécia"
+    },
+    {
+     "name": "Juninho",
+     "pos": "DF",
+     "number": 18,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Kauan Jesus",
+     "pos": "GK",
+     "number": 22,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Matheus Cunha",
+     "pos": "GK",
+     "number": 23,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Gabriel Mercado",
+     "pos": "DF",
+     "number": 25,
+     "birthDate": null,
+     "nationality": "Argentina"
+    },
+    {
+     "name": "Alexandro Bernabei",
+     "pos": "DF",
+     "number": 26,
+     "birthDate": null,
+     "nationality": "Argentina"
+    },
+    {
+     "name": "Paulinho",
+     "pos": "MF",
+     "number": 27,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Vitinho",
+     "pos": "FW",
+     "number": 28,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Thiago Maia",
+     "pos": "MF",
+     "number": 29,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Calebe",
+     "pos": "MF",
+     "number": 30,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Diego Esser",
+     "pos": "GK",
+     "number": 32,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Braian Aguirre",
+     "pos": "DF",
+     "number": 35,
+     "birthDate": null,
+     "nationality": "Argentina"
+    },
+    {
+     "name": "Victor Gabriel",
+     "pos": "DF",
+     "number": 41,
+     "birthDate": null,
+     "nationality": "Brasil"
+    }
+   ]
+  },
+  "juventude": {
+   "source": "https://en.wikipedia.org/wiki/Esporte_Clube_Juventude#Current_squad",
+   "retrievedAt": "2026-10-21",
+   "players": [
+    {
+     "name": "Raí Ramos",
+     "pos": "DF",
+     "number": 2,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Titi",
+     "pos": "DF",
+     "number": 3,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Messias",
+     "pos": "DF",
+     "number": 4,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Luan Martins",
+     "pos": "MF",
+     "number": 5,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Wadson",
+     "pos": "DF",
+     "number": 6,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Pablo Roberto",
+     "pos": "MF",
+     "number": 7,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Lucas Mineiro",
+     "pos": "MF",
+     "number": 8,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Alan Kardec",
+     "pos": "FW",
+     "number": 9,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Marcos Paulo Costa",
+     "pos": "FW",
+     "number": 10,
+     "birthDate": null,
+     "nationality": "Portugal"
+    },
+    {
+     "name": "Fábio Lima",
+     "pos": "FW",
+     "number": 11,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Pedro Rocha",
+     "pos": "GK",
+     "number": 12,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Aderlan",
+     "pos": "DF",
+     "number": 13,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Diogo Barbosa",
+     "pos": "DF",
+     "number": 16,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Manuel Castro",
+     "pos": "FW",
+     "number": 17,
+     "birthDate": null,
+     "nationality": "Uruguai"
+    },
+    {
+     "name": "Luis Amarilla",
+     "pos": "FW",
+     "number": 18,
+     "birthDate": null,
+     "nationality": "Paraguai"
+    },
+    {
+     "name": "Allanzinho",
+     "pos": "FW",
+     "number": 20,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Ruan Carneiro",
+     "pos": "GK",
+     "number": 21,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Nathan Santos",
+     "pos": "DF",
+     "number": 22,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Alisson Safira",
+     "pos": "FW",
+     "number": 25,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Iba Ly",
+     "pos": "MF",
+     "number": 26,
+     "birthDate": null,
+     "nationality": "Senegal"
+    },
+    {
+     "name": "Ray Breno",
+     "pos": "MF",
+     "number": 27,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Alan Ruschel",
+     "pos": "DF",
+     "number": 28,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Gabriel Pires",
+     "pos": "MF",
+     "number": 29,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Patryck Lanza",
+     "pos": "DF",
+     "number": 30,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Zé Henrique",
+     "pos": "GK",
+     "number": 31,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Rodrigo Sam",
+     "pos": "DF",
+     "number": 34,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Bernardo",
+     "pos": "DF",
+     "number": 43,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Luis Mandaca",
+     "pos": "MF",
+     "number": 44,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Marcos Paulo Lima",
+     "pos": "DF",
+     "number": 47,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Lucas Alves",
+     "pos": "FW",
+     "number": 72,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Juan Christian",
+     "pos": "FW",
+     "number": 73,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Raí Silva",
+     "pos": "MF",
+     "number": 75,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Davi Góes",
+     "pos": "MF",
+     "number": 88,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Jandrei",
+     "pos": "GK",
+     "number": 93,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Gabriel Pinheiro",
+     "pos": "DF",
+     "number": 97,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Luiz Eduardo",
+     "pos": "DF",
+     "number": null,
+     "birthDate": null,
+     "nationality": "Brasil"
+    }
+   ]
+  },
+  "londrina": {
+   "source": "https://londrinasaf.com.br/futebol/principal/equipe",
+   "retrievedAt": "2026-10-21",
+   "players": [
+    {
+     "name": "Luan Ribeiro",
+     "pos": "Goleiro",
+     "number": 1,
+     "birthDate": "1997-06-10",
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Zanella",
+     "pos": "Goleiro",
+     "number": 12,
+     "birthDate": "2004-05-12",
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Kozlinski",
+     "pos": "Goleiro",
+     "number": 30,
+     "birthDate": "1991-06-18",
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Nino Paraíba",
+     "pos": "Lateral Direito",
+     "number": 2,
+     "birthDate": "1986-01-10",
+     "nationality": "Brasil"
+    },
+    {
+     "name": "André Dhominique",
+     "pos": "Lateral Direito",
+     "number": 13,
+     "birthDate": "2003-10-07",
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Kauê Leonardo",
+     "pos": "Lateral Direito",
+     "number": 75,
+     "birthDate": "2005-04-11",
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Artur",
+     "pos": "Lateral Esquerdo",
+     "number": 22,
+     "birthDate": "1994-08-05",
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Kevyn",
+     "pos": "Lateral Esquerdo",
+     "number": 33,
+     "birthDate": "1997-12-28",
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Wallace",
+     "pos": "Zagueiro",
+     "number": 4,
+     "birthDate": "1987-12-26",
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Gabriel Lacerda",
+     "pos": "Zagueiro",
+     "number": 15,
+     "birthDate": "1999-08-29",
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Heron",
+     "pos": "Zagueiro",
+     "number": 34,
+     "birthDate": "2000-08-17",
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Caio",
+     "pos": "Zagueiro",
+     "number": 44,
+     "birthDate": "2004-08-23",
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Matheus",
+     "pos": "Zagueiro",
+     "number": null,
+     "birthDate": "2006-11-16",
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Victor Feitosa",
+     "pos": "Volante",
+     "number": 3,
+     "birthDate": "1996-03-10",
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Tárik",
+     "pos": "Volante",
+     "number": 5,
+     "birthDate": "1993-02-18",
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Lucas Marques",
+     "pos": "Volante",
+     "number": 8,
+     "birthDate": "1995-05-24",
+     "nationality": "Brasil"
+    },
+    {
+     "name": "João Vitor",
+     "pos": "Volante",
+     "number": 20,
+     "birthDate": "1998-03-31",
+     "nationality": "Brasil"
+    },
+    {
+     "name": "João Tavares",
+     "pos": "Volante",
+     "number": 32,
+     "birthDate": "2004-02-23",
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Geovane Meurer",
+     "pos": "Meia",
+     "number": 38,
+     "birthDate": "2002-05-25",
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Chumbinho",
+     "pos": "Meia",
+     "number": 53,
+     "birthDate": "2003-09-22",
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Guilherme Portuga",
+     "pos": "Meia",
+     "number": 77,
+     "birthDate": "1998-07-16",
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Thalis",
+     "pos": "Meia",
+     "number": 96,
+     "birthDate": "1996-03-19",
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Juninho",
+     "pos": "Meia",
+     "number": null,
+     "birthDate": "1999-02-02",
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Vitinho",
+     "pos": "Atacante",
+     "number": 7,
+     "birthDate": "2003-07-27",
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Gilberto",
+     "pos": "Atacante",
+     "number": 9,
+     "birthDate": "1989-06-05",
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Pablo Dyego",
+     "pos": "Atacante",
+     "number": 11,
+     "birthDate": "1994-03-08",
+     "nationality": "Brasil"
+    },
+    {
+     "name": "João Andrade",
+     "pos": "Atacante",
+     "number": 17,
+     "birthDate": "2006-06-15",
+     "nationality": "Brasil"
+    },
+    {
+     "name": "William Pottker",
+     "pos": "Atacante",
+     "number": 23,
+     "birthDate": "1993-12-22",
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Hebert",
+     "pos": "Atacante",
+     "number": 28,
+     "birthDate": "1999-11-10",
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Igor Bahia",
+     "pos": "Atacante",
+     "number": 99,
+     "birthDate": "1993-02-25",
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Guilherme Cachoeira",
+     "pos": "Atacante",
+     "number": null,
+     "birthDate": "2002-04-25",
+     "nationality": "Brasil"
+    }
+   ]
+  },
+  "mirassol": {
+   "source": "https://en.wikipedia.org/wiki/Mirassol_Futebol_Clube#Current_squad",
+   "retrievedAt": "2026-10-21",
+   "players": [
+    {
+     "name": "Georgemy",
+     "pos": "GK",
+     "number": 1,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Lucas Oliveira",
+     "pos": "DF",
+     "number": 2,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Willian Machado",
+     "pos": "DF",
+     "number": 3,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Japa",
+     "pos": "MF",
+     "number": 5,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Reinaldo",
+     "pos": "DF",
+     "number": 6,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Shaylon",
+     "pos": "MF",
+     "number": 7,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Denilson",
+     "pos": "MF",
+     "number": 8,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Zé Roberto",
+     "pos": "FW",
+     "number": 9,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Chico Kim",
+     "pos": "MF",
+     "number": 10,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Negueba",
+     "pos": "FW",
+     "number": 11,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Victor Luis",
+     "pos": "DF",
+     "number": 12,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Gustavo Silva",
+     "pos": "FW",
+     "number": 16,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Fernandinho",
+     "pos": "FW",
+     "number": 17,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Elias",
+     "pos": "DF",
+     "number": 18,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Daniel Borges",
+     "pos": "DF",
+     "number": 20,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "José Aldo",
+     "pos": "MF",
+     "number": 21,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Walter",
+     "pos": "GK",
+     "number": 22,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Alex Muralha",
+     "pos": "GK",
+     "number": 23,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Neto Moura",
+     "pos": "MF",
+     "number": 25,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Bruno Santos",
+     "pos": "FW",
+     "number": 30,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Igor Formiga",
+     "pos": "DF",
+     "number": 32,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Eduardo",
+     "pos": "MF",
+     "number": 33,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "João Victor",
+     "pos": "DF",
+     "number": 34,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Gabriel Knesowitsch",
+     "pos": "DF",
+     "number": 44,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Marcelinho",
+     "pos": "DF",
+     "number": 53,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Gustavo Cazonatti",
+     "pos": "MF",
+     "number": 55,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Alesson",
+     "pos": "FW",
+     "number": 77,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Wallisson",
+     "pos": "MF",
+     "number": 80,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Thomazella",
+     "pos": "GK",
+     "number": 90,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Edson Carioca",
+     "pos": "FW",
+     "number": 95,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Carlos Eduardo",
+     "pos": "FW",
+     "number": 96,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "André Luis",
+     "pos": "FW",
+     "number": 99,
+     "birthDate": null,
+     "nationality": "Brasil"
+    }
+   ]
+  },
+  "nautico": {
+   "source": "https://en.wikipedia.org/wiki/Clube_N%C3%A1utico_Capibaribe#Current_squad",
+   "retrievedAt": "2026-10-21",
+   "players": [
+    {
+     "name": "Muriel",
+     "pos": "GK",
+     "number": 1,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Arnaldo",
+     "pos": "DF",
+     "number": 2,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Betão",
+     "pos": "DF",
+     "number": 3,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Auremir",
+     "pos": "MF",
+     "number": 5,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Ryan Carlos",
+     "pos": "DF",
+     "number": 6,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Vinícius",
+     "pos": "FW",
+     "number": 7,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Wenderson",
+     "pos": "MF",
+     "number": 8,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Paulo Sérgio",
+     "pos": "FW",
+     "number": 9,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Jean Carlos",
+     "pos": "MF",
+     "number": 10,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Victor Andrade",
+     "pos": "FW",
+     "number": 11,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Índio",
+     "pos": "DF",
+     "number": 13,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Matheus Ribeiro",
+     "pos": "DF",
+     "number": 14,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Léo Oliveira",
+     "pos": "MF",
+     "number": 15,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Kauã Maranhão",
+     "pos": "FW",
+     "number": 19,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Felipe Redaelli",
+     "pos": "MF",
+     "number": 21,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Patricio Núñez",
+     "pos": "MF",
+     "number": 22,
+     "birthDate": null,
+     "nationality": "Argentina"
+    },
+    {
+     "name": "Igor Fernandes",
+     "pos": "DF",
+     "number": 23,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Benjamín Borasi",
+     "pos": "FW",
+     "number": 24,
+     "birthDate": null,
+     "nationality": "Argentina"
+    },
+    {
+     "name": "Mateus Silva",
+     "pos": "DF",
+     "number": 25,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Luiz Felipe",
+     "pos": "MF",
+     "number": 27,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Júnior Todinho",
+     "pos": "FW",
+     "number": 29,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Wanderson",
+     "pos": "DF",
+     "number": 34,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Samuel",
+     "pos": "MF",
+     "number": 41,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Gustavo Henrique",
+     "pos": "DF",
+     "number": 46,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Gastón Guruceaga",
+     "pos": "GK",
+     "number": 55,
+     "birthDate": null,
+     "nationality": "Uruguai"
+    },
+    {
+     "name": "Luiz Paulo",
+     "pos": "DF",
+     "number": 60,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Derek",
+     "pos": "FW",
+     "number": 72,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Juninho",
+     "pos": "MF",
+     "number": 77,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Reginaldo",
+     "pos": "DF",
+     "number": 93,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Léo Honorio",
+     "pos": "GK",
+     "number": null,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Danielzinho",
+     "pos": "FW",
+     "number": null,
+     "birthDate": null,
+     "nationality": "Brasil"
+    }
+   ]
+  },
+  "novorizontino": {
+   "source": "https://en.wikipedia.org/wiki/Gr%C3%AAmio_Novorizontino#Current_squad",
+   "retrievedAt": "2026-10-21",
+   "players": [
+    {
+     "name": "Lucas Ribeiro",
+     "pos": "GK",
+     "number": 1,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Madson",
+     "pos": "DF",
+     "number": 2,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Carlinhos",
+     "pos": "DF",
+     "number": 3,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Patrick",
+     "pos": "DF",
+     "number": 4,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Sander",
+     "pos": "DF",
+     "number": 5,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Luís Oyama",
+     "pos": "MF",
+     "number": 6,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Ronald Barcellos",
+     "pos": "FW",
+     "number": 7,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Tití Ortiz",
+     "pos": "FW",
+     "number": 8,
+     "birthDate": null,
+     "nationality": "Argentina"
+    },
+    {
+     "name": "Carlão",
+     "pos": "FW",
+     "number": 9,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Rômulo",
+     "pos": "MF",
+     "number": 10,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Robson",
+     "pos": "FW",
+     "number": 11,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "João Scapin",
+     "pos": "GK",
+     "number": 12,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Eduardo Brock",
+     "pos": "DF",
+     "number": 14,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Tavinho",
+     "pos": "MF",
+     "number": 15,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Vinícius Paiva",
+     "pos": "FW",
+     "number": 16,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Matheus Bianqui",
+     "pos": "MF",
+     "number": 17,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Léo Naldi",
+     "pos": "MF",
+     "number": 18,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Diego Galo",
+     "pos": "MF",
+     "number": 19,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Iván Alvariño",
+     "pos": "DF",
+     "number": 22,
+     "birthDate": null,
+     "nationality": "Argentina"
+    },
+    {
+     "name": "Jhilmar Lora",
+     "pos": "DF",
+     "number": 24,
+     "birthDate": null,
+     "nationality": "Peru"
+    },
+    {
+     "name": "Gabriel Bahia",
+     "pos": "DF",
+     "number": 26,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Diego Mathias",
+     "pos": "FW",
+     "number": 27,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Marlon",
+     "pos": "MF",
+     "number": 28,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Paulo Henrique",
+     "pos": "GK",
+     "number": 29,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Nicolas Careca",
+     "pos": "FW",
+     "number": 30,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "César Augusto",
+     "pos": "GK",
+     "number": 31,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Renato Palm",
+     "pos": "DF",
+     "number": 33,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Hector",
+     "pos": "MF",
+     "number": 35,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Miguel Contiero",
+     "pos": "MF",
+     "number": 36,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Jardiel",
+     "pos": "FW",
+     "number": 40,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Reidiney",
+     "pos": "FW",
+     "number": 41,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Juninho",
+     "pos": "MF",
+     "number": 50,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Maykon Jesus",
+     "pos": "DF",
+     "number": 66,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Hélio Borges",
+     "pos": "FW",
+     "number": 77,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Arthur Barbosa",
+     "pos": "DF",
+     "number": 78,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Jordi",
+     "pos": "GK",
+     "number": 93,
+     "birthDate": null,
+     "nationality": "Brasil"
+    }
+   ]
+  },
+  "operario-pr": {
+   "source": "https://en.wikipedia.org/wiki/Oper%C3%A1rio_Ferrovi%C3%A1rio_Esporte_Clube#Current_squad",
+   "retrievedAt": "2026-10-21",
+   "players": [
+    {
+     "name": "Elias Curzel",
+     "pos": "GK",
+     "number": 1,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Mikael Doka",
+     "pos": "DF",
+     "number": 2,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Índio",
+     "pos": "MF",
+     "number": 5,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Moraes Júnior",
+     "pos": "DF",
+     "number": 6,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Ángel Torres",
+     "pos": "FW",
+     "number": 7,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Juan Zuluaga",
+     "pos": "MF",
+     "number": 8,
+     "birthDate": null,
+     "nationality": "Colômbia"
+    },
+    {
+     "name": "Vinícius Mingotti",
+     "pos": "FW",
+     "number": 9,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Gabriel Boschilia",
+     "pos": "MF",
+     "number": 10,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Aylon",
+     "pos": "FW",
+     "number": 11,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Talles",
+     "pos": "GK",
+     "number": 12,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Berto",
+     "pos": "FW",
+     "number": 14,
+     "birthDate": null,
+     "nationality": "Cabo Verde"
+    },
+    {
+     "name": "Miranda",
+     "pos": "DF",
+     "number": 16,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Vinícius Diniz",
+     "pos": "MF",
+     "number": 20,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "José Cuenú",
+     "pos": "DF",
+     "number": 22,
+     "birthDate": null,
+     "nationality": "Colômbia"
+    },
+    {
+     "name": "João Gabriel",
+     "pos": "DF",
+     "number": 23,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Maguinho",
+     "pos": "DF",
+     "number": 26,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Gabriel Feliciano",
+     "pos": "DF",
+     "number": 27,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Dudu Mosconi",
+     "pos": "MF",
+     "number": 28,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Edwin Torres",
+     "pos": "FW",
+     "number": 29,
+     "birthDate": null,
+     "nationality": "Colômbia"
+    },
+    {
+     "name": "Pedro Vilhena",
+     "pos": "MF",
+     "number": 30,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Charles Raphael",
+     "pos": "MF",
+     "number": 32,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Vagner",
+     "pos": "GK",
+     "number": 33,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Renan Gustavo",
+     "pos": "DF",
+     "number": 34,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Matheus Trindade",
+     "pos": "MF",
+     "number": 39,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Diego Monteiro",
+     "pos": "GK",
+     "number": 41,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Joseph",
+     "pos": "DF",
+     "number": 43,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "William Klaus",
+     "pos": "DF",
+     "number": 44,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Maxwell",
+     "pos": "FW",
+     "number": 77,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Neto Paraíba",
+     "pos": "MF",
+     "number": 88,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Pablo",
+     "pos": "FW",
+     "number": 92,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Caio Dantas",
+     "pos": "FW",
+     "number": 99,
+     "birthDate": null,
+     "nationality": "Brasil"
+    }
+   ]
+  },
+  "palmeiras": {
+   "source": "https://en.wikipedia.org/wiki/SE_Palmeiras#First-team_squad",
+   "retrievedAt": "2026-10-21",
+   "players": [
+    {
+     "name": "Carlos Miguel",
+     "pos": "GK",
+     "number": 1,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Alexander Barboza",
+     "pos": "DF",
+     "number": 2,
+     "birthDate": null,
+     "nationality": "Argentina"
+    },
+    {
+     "name": "Bruno Fuchs",
+     "pos": "DF",
+     "number": 3,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Agustín Giay",
+     "pos": "DF",
+     "number": 4,
+     "birthDate": null,
+     "nationality": "Argentina"
+    },
+    {
+     "name": "Jefté",
+     "pos": "DF",
+     "number": 6,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Felipe Anderson",
+     "pos": "MF",
+     "number": 7,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Andreas Pereira",
+     "pos": "MF",
+     "number": 8,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Vitor Roque",
+     "pos": "FW",
+     "number": 9,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Paulinho",
+     "pos": "FW",
+     "number": 10,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Jhon Arias",
+     "pos": "FW",
+     "number": 11,
+     "birthDate": null,
+     "nationality": "Colômbia"
+    },
+    {
+     "name": "Khellven",
+     "pos": "DF",
+     "number": 12,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Marcelo Lomba",
+     "pos": "GK",
+     "number": 14,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Gustavo Gómez",
+     "pos": "DF",
+     "number": 15,
+     "birthDate": null,
+     "nationality": "Paraguai"
+    },
+    {
+     "name": "Marlon Freitas",
+     "pos": "MF",
+     "number": 17,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Maurício",
+     "pos": "MF",
+     "number": 18,
+     "birthDate": null,
+     "nationality": "Paraguai"
+    },
+    {
+     "name": "Ramón Sosa",
+     "pos": "FW",
+     "number": 19,
+     "birthDate": null,
+     "nationality": "Paraguai"
+    },
+    {
+     "name": "Bruno Bertinato",
+     "pos": "GK",
+     "number": 21,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Joaquín Piquerez",
+     "pos": "DF",
+     "number": 22,
+     "birthDate": null,
+     "nationality": "Uruguai"
+    },
+    {
+     "name": "Murilo",
+     "pos": "DF",
+     "number": 26,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Lucas Evangelista",
+     "pos": "MF",
+     "number": 30,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Emiliano Martínez",
+     "pos": "MF",
+     "number": 32,
+     "birthDate": null,
+     "nationality": "Uruguai"
+    },
+    {
+     "name": "José Manuel López",
+     "pos": "FW",
+     "number": 42,
+     "birthDate": null,
+     "nationality": "Argentina"
+    },
+    {
+     "name": "Luiz Benedetti",
+     "pos": "DF",
+     "number": 43,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Larson",
+     "pos": "MF",
+     "number": 48,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Arthur Gabriel",
+     "pos": "DF",
+     "number": 56,
+     "birthDate": null,
+     "nationality": "Brasil"
+    }
+   ]
+  },
+  "ponte-preta": {
+   "source": "https://www.transfermarkt.com.br/ponte-preta/kader/verein/1134/saison_id/2025/plus/1",
+   "retrievedAt": "2026-10-21",
+   "players": [
+    {
+     "name": "Vinicius Ferrari",
+     "pos": "Goleiro",
+     "number": 30,
+     "birthDate": "2003-02-18",
+     "nationality": "Brasil"
+    },
+    {
+     "name": "José Luiz",
+     "pos": "Goleiro",
+     "number": null,
+     "birthDate": "2008-01-21",
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Guilherme Viana",
+     "pos": "Goleiro",
+     "number": 1,
+     "birthDate": "2003-08-25",
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Lucas Cunha",
+     "pos": "Zagueiro",
+     "number": 3,
+     "birthDate": "1997-01-23",
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Sergio Palacios",
+     "pos": "Zagueiro",
+     "number": 23,
+     "birthDate": "2005-02-14",
+     "nationality": "Colômbia"
+    },
+    {
+     "name": "Gabriel Caran",
+     "pos": "Zagueiro",
+     "number": 15,
+     "birthDate": "1998-09-28",
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Diego Leão",
+     "pos": "Zagueiro",
+     "number": 4,
+     "birthDate": "2005-02-11",
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Gustavo Almeida",
+     "pos": "Zagueiro",
+     "number": 44,
+     "birthDate": "2006-01-04",
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Kevyson",
+     "pos": "Lateral Esq.",
+     "number": 32,
+     "birthDate": "2004-03-29",
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Danilo Barcelos",
+     "pos": "Lateral Esq.",
+     "number": 14,
+     "birthDate": "1991-08-17",
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Diego Porfírio",
+     "pos": "Lateral Esq.",
+     "number": 13,
+     "birthDate": "1999-08-01",
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Jota",
+     "pos": "Lateral Esq.",
+     "number": 6,
+     "birthDate": "2002-10-26",
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Guilherme Martins",
+     "pos": "Lateral Dir.",
+     "number": null,
+     "birthDate": "2005-03-05",
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Kawann",
+     "pos": "Lateral Dir.",
+     "number": null,
+     "birthDate": "2005-01-18",
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Júlio",
+     "pos": "Lateral Dir.",
+     "number": 2,
+     "birthDate": "2007-06-25",
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Di Mauro",
+     "pos": "Lateral Dir.",
+     "number": 32,
+     "birthDate": "2006-09-16",
+     "nationality": "Brasil"
+    },
+    {
+     "name": "André Lima",
+     "pos": "Volante",
+     "number": 8,
+     "birthDate": "2000-04-07",
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Murilo",
+     "pos": "Volante",
+     "number": 20,
+     "birthDate": "1999-03-15",
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Rodrigo Souza",
+     "pos": "Volante",
+     "number": 5,
+     "birthDate": "1987-10-27",
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Gustavo Telles",
+     "pos": "Volante",
+     "number": 35,
+     "birthDate": "2005-04-28",
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Karl",
+     "pos": "Meia Central",
+     "number": 16,
+     "birthDate": "1993-04-07",
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Denis",
+     "pos": "Meia Central",
+     "number": 22,
+     "birthDate": "2004-01-08",
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Élvis",
+     "pos": "Meia Ofensivo",
+     "number": 10,
+     "birthDate": "1990-09-09",
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Diogo Mora",
+     "pos": "Meia Ofensivo",
+     "number": null,
+     "birthDate": "2002-01-22",
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Manu",
+     "pos": "Meia Ofensivo",
+     "number": 7,
+     "birthDate": "2006-04-03",
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Miguel Morais",
+     "pos": "Meia Ofensivo",
+     "number": 17,
+     "birthDate": "2005-06-09",
+     "nationality": "Brasil"
+    },
+    {
+     "name": "David da Hora",
+     "pos": "Ponta-Esquerda",
+     "number": 18,
+     "birthDate": "2000-01-09",
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Jonathan Cafu",
+     "pos": "Ponta-Direita",
+     "number": 19,
+     "birthDate": "1991-07-10",
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Peu",
+     "pos": "Ponta-Direita",
+     "number": null,
+     "birthDate": "2003-03-22",
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Brandão",
+     "pos": "Centroavante",
+     "number": 9,
+     "birthDate": "2004-06-25",
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Vitor Ribeiro",
+     "pos": "Centroavante",
+     "number": 21,
+     "birthDate": "1999-03-14",
+     "nationality": "Brasil"
+    }
+   ]
+  },
+  "red-bull-bragantino": {
+   "source": "https://en.wikipedia.org/wiki/Red_Bull_Bragantino#Current_squad",
+   "retrievedAt": "2026-10-21",
+   "players": [
+    {
+     "name": "Cleiton",
+     "pos": "GK",
+     "number": 1,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Guzmán Rodríguez",
+     "pos": "DF",
+     "number": 2,
+     "birthDate": null,
+     "nationality": "Uruguai"
+    },
+    {
+     "name": "Eduardo Santos",
+     "pos": "DF",
+     "number": 3,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Alix Vinicius",
+     "pos": "DF",
+     "number": 4,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Fabinho",
+     "pos": "MF",
+     "number": 5,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Gabriel",
+     "pos": "MF",
+     "number": 6,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Eric Ramires",
+     "pos": "MF",
+     "number": 7,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Eduardo Sasha",
+     "pos": "FW",
+     "number": 8,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Isidro Pitta",
+     "pos": "FW",
+     "number": 9,
+     "birthDate": null,
+     "nationality": "Paraguai"
+    },
+    {
+     "name": "Fernando",
+     "pos": "FW",
+     "number": 11,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Vanderlan",
+     "pos": "DF",
+     "number": 12,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Nacho Sosa",
+     "pos": "MF",
+     "number": 15,
+     "birthDate": null,
+     "nationality": "Uruguai"
+    },
+    {
+     "name": "Gustavo Marques",
+     "pos": "DF",
+     "number": 16,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Vinicinho",
+     "pos": "FW",
+     "number": 17,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Tiago Volpi",
+     "pos": "GK",
+     "number": 18,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Bruno Gonçalves",
+     "pos": "FW",
+     "number": 19,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Rodriguinho",
+     "pos": "MF",
+     "number": 20,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Lucas Barbosa",
+     "pos": "FW",
+     "number": 21,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Gustavo Neves",
+     "pos": "MF",
+     "number": 22,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Agustín Sant'Anna",
+     "pos": "DF",
+     "number": 23,
+     "birthDate": null,
+     "nationality": "Uruguai"
+    },
+    {
+     "name": "Davi Gomes",
+     "pos": "FW",
+     "number": 27,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Patrick",
+     "pos": "MF",
+     "number": 28,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Juninho Capixaba",
+     "pos": "DF",
+     "number": 29,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Henry Mosquera",
+     "pos": "FW",
+     "number": 30,
+     "birthDate": null,
+     "nationality": "Colômbia"
+    },
+    {
+     "name": "José María Herrera",
+     "pos": "FW",
+     "number": 32,
+     "birthDate": null,
+     "nationality": "Argentina"
+    },
+    {
+     "name": "Andrés Hurtado",
+     "pos": "DF",
+     "number": 34,
+     "birthDate": null,
+     "nationality": "Equador"
+    },
+    {
+     "name": "Matheus Fernandes",
+     "pos": "MF",
+     "number": 35,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Fabrício",
+     "pos": "GK",
+     "number": 37,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Wallace Yan",
+     "pos": "FW",
+     "number": 47,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Cauê Nascimento",
+     "pos": "DF",
+     "number": 51,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Gustavo Reis",
+     "pos": "GK",
+     "number": 56,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Marcelinho Braz",
+     "pos": "FW",
+     "number": 57,
+     "birthDate": null,
+     "nationality": "Brasil"
+    }
+   ]
+  },
+  "remo": {
+   "source": "https://en.wikipedia.org/wiki/Clube_do_Remo#First_team_squad",
+   "retrievedAt": "2026-10-21",
+   "players": [
+    {
+     "name": "Alexandre",
+     "pos": "GK",
+     "number": 1,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Matheus Alexandre",
+     "pos": "DF",
+     "number": 2,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Matheus Felipe",
+     "pos": "DF",
+     "number": 4,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Léo Andrade",
+     "pos": "DF",
+     "number": 5,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Marlon",
+     "pos": "DF",
+     "number": 6,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Jajá",
+     "pos": "FW",
+     "number": 7,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Patrick",
+     "pos": "MF",
+     "number": 8,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Gabriel Poveda",
+     "pos": "FW",
+     "number": 9,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Jáderson",
+     "pos": "MF",
+     "number": 10,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Marllon",
+     "pos": "DF",
+     "number": 13,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Leonel Picco",
+     "pos": "MF",
+     "number": 14,
+     "birthDate": null,
+     "nationality": "Argentina"
+    },
+    {
+     "name": "Vitor Bueno",
+     "pos": "MF",
+     "number": 15,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Cristian Tassano",
+     "pos": "DF",
+     "number": 17,
+     "birthDate": null,
+     "nationality": "Uruguai"
+    },
+    {
+     "name": "Duplexe Tchamba",
+     "pos": "DF",
+     "number": 18,
+     "birthDate": null,
+     "nationality": "Camarões"
+    },
+    {
+     "name": "Gabriel Taliari",
+     "pos": "FW",
+     "number": 19,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Antonio Galeano",
+     "pos": "FW",
+     "number": 21,
+     "birthDate": null,
+     "nationality": "Paraguai"
+    },
+    {
+     "name": "Yago Pikachu",
+     "pos": "FW",
+     "number": 22,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Franco Catarozzi",
+     "pos": "MF",
+     "number": 23,
+     "birthDate": null,
+     "nationality": "Uruguai"
+    },
+    {
+     "name": "David Braga",
+     "pos": "MF",
+     "number": 26,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Zé Ivaldo",
+     "pos": "DF",
+     "number": 27,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Zé Welison",
+     "pos": "MF",
+     "number": 28,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "João Victor",
+     "pos": "GK",
+     "number": 30,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Edson Fernando",
+     "pos": "MF",
+     "number": 35,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Eduardo Melo",
+     "pos": "FW",
+     "number": 39,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Zé Ricardo",
+     "pos": "MF",
+     "number": 55,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Tico",
+     "pos": "FW",
+     "number": 61,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Mayk",
+     "pos": "DF",
+     "number": 77,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Marcelinho",
+     "pos": "DF",
+     "number": 79,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Marcelo Rangel",
+     "pos": "GK",
+     "number": 88,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Ygor Vinhas",
+     "pos": "GK",
+     "number": 94,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Ivan",
+     "pos": "GK",
+     "number": 97,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "João Lucas",
+     "pos": "DF",
+     "number": null,
+     "birthDate": null,
+     "nationality": "Brasil"
+    }
+   ]
+  },
+  "santos": {
+   "source": "https://en.wikipedia.org/wiki/Santos_FC#Current_squad",
+   "retrievedAt": "2026-10-21",
+   "players": [
+    {
+     "name": "Diógenes",
+     "pos": "GK",
+     "number": 1,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Vinicius Lira",
+     "pos": "DF",
+     "number": 3,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Lucas Veríssimo",
+     "pos": "DF",
+     "number": 4,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "João Schmidt",
+     "pos": "MF",
+     "number": 5,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Arthur",
+     "pos": "MF",
+     "number": 6,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Everton Cebolinha",
+     "pos": "FW",
+     "number": 7,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Gabriel Bontempo",
+     "pos": "MF",
+     "number": 8,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Gabriel Barbosa",
+     "pos": "FW",
+     "number": 9,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Neymar",
+     "pos": "MF",
+     "number": 10,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Philippe Coutinho",
+     "pos": "MF",
+     "number": 11,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Luan Peres",
+     "pos": "DF",
+     "number": 14,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Willian Arão",
+     "pos": "MF",
+     "number": 15,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Thaciano",
+     "pos": "FW",
+     "number": 16,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Gustavo Caballero",
+     "pos": "FW",
+     "number": 17,
+     "birthDate": null,
+     "nationality": "Paraguai"
+    },
+    {
+     "name": "Igor Vinícius",
+     "pos": "DF",
+     "number": 18,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Pepê Fermino",
+     "pos": "MF",
+     "number": 20,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Moisés",
+     "pos": "FW",
+     "number": 21,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Álvaro Barreal",
+     "pos": "FW",
+     "number": 22,
+     "birthDate": null,
+     "nationality": "Argentina"
+    },
+    {
+     "name": "Rodinei",
+     "pos": "DF",
+     "number": 23,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Gabriel Menino",
+     "pos": "DF",
+     "number": 25,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "João Ananias",
+     "pos": "DF",
+     "number": 26,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Davizinho",
+     "pos": "DF",
+     "number": 27,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Christian Oliva",
+     "pos": "MF",
+     "number": 28,
+     "birthDate": null,
+     "nationality": "Uruguai"
+    },
+    {
+     "name": "Miguel Terceros",
+     "pos": "MF",
+     "number": 30,
+     "birthDate": null,
+     "nationality": "Bolívia"
+    },
+    {
+     "name": "Gonzalo Escobar",
+     "pos": "DF",
+     "number": 31,
+     "birthDate": null,
+     "nationality": "Argentina"
+    },
+    {
+     "name": "Benjamín Rollheiser",
+     "pos": "MF",
+     "number": 32,
+     "birthDate": null,
+     "nationality": "Argentina"
+    },
+    {
+     "name": "Rony",
+     "pos": "FW",
+     "number": 33,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "João Paulo",
+     "pos": "GK",
+     "number": 34,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Rafael Gonzaga",
+     "pos": "DF",
+     "number": 38,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "João Alencar",
+     "pos": "DF",
+     "number": 42,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Lima",
+     "pos": "MF",
+     "number": 45,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Gustavo Henrique",
+     "pos": "MF",
+     "number": 48,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Nadson",
+     "pos": "FW",
+     "number": 57,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Rodrigo Falcão",
+     "pos": "GK",
+     "number": 67,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Gabriel Brazão",
+     "pos": "GK",
+     "number": 77,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "João Pedro",
+     "pos": "GK",
+     "number": 79,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Samuel Pierri",
+     "pos": "MF",
+     "number": 81,
+     "birthDate": null,
+     "nationality": "Brasil"
+    }
+   ]
+  },
+  "sao-bernardo": {
+   "source": "https://pt.wikipedia.org/wiki/S%C3%A3o_Bernardo_Futebol_Clube#Elenco_atual",
+   "retrievedAt": "2026-10-21",
+   "players": [
+    {
+     "name": "Alex Alves",
+     "pos": "Goleiro",
+     "number": 1,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Junior Oliveira",
+     "pos": "Goleiro",
+     "number": 12,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Léo Lang",
+     "pos": "Goleiro",
+     "number": 22,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Arthur Bassi",
+     "pos": "Goleiro",
+     "number": 23,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Hélder Maciel",
+     "pos": "Zagueiro",
+     "number": 3,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Wellington Manzoli",
+     "pos": "Zagueiro",
+     "number": 25,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Augusto",
+     "pos": "Zagueiro",
+     "number": 97,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Matheus Salustiano",
+     "pos": "Zagueiro",
+     "number": 5,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Luizão",
+     "pos": "Zagueiro",
+     "number": 90,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Jemerson",
+     "pos": "Zagueiro",
+     "number": 35,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Hugo Sanches",
+     "pos": "Lateral-direito",
+     "number": 21,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Rodrigo Ferreira",
+     "pos": "Lateral-direito",
+     "number": 2,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Mário Sérgio",
+     "pos": "Lateral-esquerdo",
+     "number": 33,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Anderson Pará",
+     "pos": "Lateral-esquerdo",
+     "number": 6,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "João Pedro",
+     "pos": "Lateral-esquerdo",
+     "number": 16,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Romisson",
+     "pos": "Volante",
+     "number": 17,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Lucas Lima",
+     "pos": "Volante",
+     "number": 14,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Marcão",
+     "pos": "Volante",
+     "number": 77,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Foguinho",
+     "pos": "Volante",
+     "number": 8,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Rodrigo Andrade",
+     "pos": "Volante",
+     "number": 32,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Galdino",
+     "pos": "Volante",
+     "number": 36,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Dudu Miraíma",
+     "pos": "Meia",
+     "number": 26,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Breno Melo",
+     "pos": "Meia",
+     "number": 30,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Lucas Fernandes",
+     "pos": "Meia",
+     "number": 31,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Hyoran",
+     "pos": "Meia",
+     "number": 42,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Echaporã",
+     "pos": "Atacante",
+     "number": 27,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Léo Jabá",
+     "pos": "Atacante",
+     "number": 98,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Lucas Rian",
+     "pos": "Atacante",
+     "number": 7,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Daniel Amorim",
+     "pos": "Atacante",
+     "number": 89,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Daniel Davi",
+     "pos": "Atacante",
+     "number": 37,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Lucas Reis",
+     "pos": "Atacante",
+     "number": 70,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Pedrinho",
+     "pos": "Atacante",
+     "number": 29,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Fabrício Daniel",
+     "pos": "Atacante",
+     "number": 10,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Pedro Vitor",
+     "pos": "Atacante",
+     "number": 11,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Felipe Garcia",
+     "pos": "Atacante",
+     "number": 9,
+     "birthDate": null,
+     "nationality": "Brasil"
+    }
+   ]
+  },
+  "sao-paulo": {
+   "source": "https://en.wikipedia.org/wiki/São_Paulo_FC#First-team_squad",
+   "retrievedAt": "2026-10-21",
+   "players": [
+    {
+     "name": "Rafael Tolói",
+     "pos": "DF",
+     "number": 2,
+     "birthDate": null,
+     "nationality": "Itália"
+    },
+    {
+     "name": "Robert Arboleda",
+     "pos": "DF",
+     "number": 5,
+     "birthDate": null,
+     "nationality": "Equador"
+    },
+    {
+     "name": "Lucas Moura",
+     "pos": "MF",
+     "number": 7,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Marcos Antônio",
+     "pos": "MF",
+     "number": 8,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Jonathan Calleri",
+     "pos": "FW",
+     "number": 9,
+     "birthDate": null,
+     "nationality": "Argentina"
+    },
+    {
+     "name": "Luciano",
+     "pos": "FW",
+     "number": 10,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Ferreira",
+     "pos": "FW",
+     "number": 11,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Iago Borduchi",
+     "pos": "DF",
+     "number": 12,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Enzo Díaz",
+     "pos": "DF",
+     "number": 13,
+     "birthDate": null,
+     "nationality": "Argentina"
+    },
+    {
+     "name": "Damián Bobadilla",
+     "pos": "MF",
+     "number": 16,
+     "birthDate": null,
+     "nationality": "Paraguai"
+    },
+    {
+     "name": "André Silva",
+     "pos": "FW",
+     "number": 17,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Wendell",
+     "pos": "DF",
+     "number": 18,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Lucas Ramon",
+     "pos": "DF",
+     "number": 19,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Aurélio Buta",
+     "pos": "DF",
+     "number": 20,
+     "birthDate": null,
+     "nationality": "Portugal"
+    },
+    {
+     "name": "Cédric Soares",
+     "pos": "DF",
+     "number": 21,
+     "birthDate": null,
+     "nationality": "Portugal"
+    },
+    {
+     "name": "Domingos Duarte",
+     "pos": "DF",
+     "number": 22,
+     "birthDate": null,
+     "nationality": "Portugal"
+    },
+    {
+     "name": "Rafael",
+     "pos": "GK",
+     "number": 23,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Victor Sá",
+     "pos": "FW",
+     "number": 27,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Newton",
+     "pos": "MF",
+     "number": 28,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Pablo Maia",
+     "pos": "MF",
+     "number": 29,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Carlos Coronel",
+     "pos": "GK",
+     "number": 31,
+     "birthDate": null,
+     "nationality": "Paraguai"
+    },
+    {
+     "name": "Pedro Lima",
+     "pos": "DF",
+     "number": 32,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Tetê",
+     "pos": "FW",
+     "number": 34,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Sabino",
+     "pos": "DF",
+     "number": 35,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Artur",
+     "pos": "FW",
+     "number": 37,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "João Pedro",
+     "pos": "GK",
+     "number": 41,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Gustavo Santana",
+     "pos": "FW",
+     "number": 43,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Lucca Marques",
+     "pos": "FW",
+     "number": 45,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Pedro Ferreira",
+     "pos": "MF",
+     "number": 46,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Djhordney",
+     "pos": "MF",
+     "number": 48,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Ryan Francisco",
+     "pos": "FW",
+     "number": 49,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Young",
+     "pos": "GK",
+     "number": 50,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Felipe Preis",
+     "pos": "GK",
+     "number": 52,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Isac",
+     "pos": "DF",
+     "number": 53,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Luis Osorio",
+     "pos": "DF",
+     "number": 54,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Nicolas",
+     "pos": "DF",
+     "number": 56,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Cauly",
+     "pos": "MF",
+     "number": 80,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Danielzinho",
+     "pos": "MF",
+     "number": 94,
+     "birthDate": null,
+     "nationality": "Brasil"
+    }
+   ]
+  },
+  "sport": {
+   "source": "https://en.wikipedia.org/wiki/Sport_Club_do_Recife#First_team",
+   "retrievedAt": "2026-10-21",
+   "players": [
+    {
+     "name": "Marcelo Ajul",
+     "pos": "DF",
+     "number": 3,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Marcelo Benevenuto",
+     "pos": "DF",
+     "number": 5,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Biel",
+     "pos": "MF",
+     "number": 6,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Patrick de Paula",
+     "pos": "MF",
+     "number": 7,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Juan Alano",
+     "pos": "MF",
+     "number": 8,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Pedro Perotti",
+     "pos": "FW",
+     "number": 9,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Carlos de Pena",
+     "pos": "FW",
+     "number": 10,
+     "birthDate": null,
+     "nationality": "Uruguai"
+    },
+    {
+     "name": "Denis",
+     "pos": "GK",
+     "number": 12,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Murilo Rhikman",
+     "pos": "MF",
+     "number": 15,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Neto Pessoa",
+     "pos": "FW",
+     "number": 19,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Diego Hernández",
+     "pos": "FW",
+     "number": 20,
+     "birthDate": null,
+     "nationality": "Uruguai"
+    },
+    {
+     "name": "Brenno",
+     "pos": "GK",
+     "number": 21,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Zé Gabriel",
+     "pos": "MF",
+     "number": 23,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Clayson",
+     "pos": "FW",
+     "number": 25,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Thiago Couto",
+     "pos": "GK",
+     "number": 26,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Claudinho",
+     "pos": "DF",
+     "number": 27,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Habraão",
+     "pos": "DF",
+     "number": 28,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Willian Oliveira",
+     "pos": "MF",
+     "number": 29,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Chrystian Barletta",
+     "pos": "FW",
+     "number": 30,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Marlon Douglas",
+     "pos": "FW",
+     "number": 31,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Kayky Almeida",
+     "pos": "DF",
+     "number": 33,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Adriano",
+     "pos": "GK",
+     "number": 42,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Fábio Matheus",
+     "pos": "MF",
+     "number": 47,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Pedro Martins",
+     "pos": "MF",
+     "number": 48,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Felipinho",
+     "pos": "DF",
+     "number": 60,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Patrick",
+     "pos": "DF",
+     "number": 63,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Augusto Pucci",
+     "pos": "DF",
+     "number": 68,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Raí Lopes",
+     "pos": "DF",
+     "number": 76,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Dudu Teodora",
+     "pos": "FW",
+     "number": 77,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Fernando Sobral",
+     "pos": "MF",
+     "number": 88,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Edson Lucas",
+     "pos": "DF",
+     "number": 96,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Kervin Andrade",
+     "pos": "MF",
+     "number": null,
+     "birthDate": null,
+     "nationality": "Venezuela"
+    }
+   ]
+  },
+  "vasco": {
+   "source": "https://en.wikipedia.org/wiki/CR_Vasco_da_Gama#First-team_squad",
+   "retrievedAt": "2026-10-21",
+   "players": [
+    {
+     "name": "Léo Jardim",
+     "pos": "GK",
+     "number": 1,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Puma Rodríguez",
+     "pos": "DF",
+     "number": 2,
+     "birthDate": null,
+     "nationality": "Uruguai"
+    },
+    {
+     "name": "Tchê Tchê",
+     "pos": "MF",
+     "number": 3,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Alan Saldivia",
+     "pos": "DF",
+     "number": 4,
+     "birthDate": null,
+     "nationality": "Uruguai"
+    },
+    {
+     "name": "Santiago Sosa",
+     "pos": "MF",
+     "number": 5,
+     "birthDate": null,
+     "nationality": "Argentina"
+    },
+    {
+     "name": "Lucas Piton",
+     "pos": "DF",
+     "number": 6,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "David",
+     "pos": "FW",
+     "number": 7,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Jair",
+     "pos": "MF",
+     "number": 8,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Facundo Colidio",
+     "pos": "FW",
+     "number": 9,
+     "birthDate": null,
+     "nationality": "Argentina"
+    },
+    {
+     "name": "Johan Rojas",
+     "pos": "MF",
+     "number": 10,
+     "birthDate": null,
+     "nationality": "Colômbia"
+    },
+    {
+     "name": "Andrés Gómez",
+     "pos": "FW",
+     "number": 11,
+     "birthDate": null,
+     "nationality": "Colômbia"
+    },
+    {
+     "name": "Daniel Fuzato",
+     "pos": "GK",
+     "number": 13,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Nuno Moreira",
+     "pos": "FW",
+     "number": 17,
+     "birthDate": null,
+     "nationality": "Portugal"
+    },
+    {
+     "name": "Marino Hinestroza",
+     "pos": "FW",
+     "number": 18,
+     "birthDate": null,
+     "nationality": "Colômbia"
+    },
+    {
+     "name": "Bruno Duarte",
+     "pos": "FW",
+     "number": 19,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Brenner",
+     "pos": "FW",
+     "number": 20,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Alan Lescano",
+     "pos": "MF",
+     "number": 22,
+     "birthDate": null,
+     "nationality": "Argentina"
+    },
+    {
+     "name": "Thiago Mendes",
+     "pos": "MF",
+     "number": 23,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Adson",
+     "pos": "FW",
+     "number": 28,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Paulinho",
+     "pos": "DF",
+     "number": 29,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Robert Renan",
+     "pos": "DF",
+     "number": 30,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Pablo",
+     "pos": "GK",
+     "number": 37,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Lucas Freitas",
+     "pos": "DF",
+     "number": 43,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Carlos Cuesta",
+     "pos": "DF",
+     "number": 46,
+     "birthDate": null,
+     "nationality": "Colômbia"
+    },
+    {
+     "name": "Gabriel Pereira",
+     "pos": "DF",
+     "number": 55,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "João Vitor",
+     "pos": "DF",
+     "number": 60,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Walace Falcão",
+     "pos": "DF",
+     "number": 64,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Cuiabano",
+     "pos": "DF",
+     "number": 66,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Claudio Spinelli",
+     "pos": "FW",
+     "number": 77,
+     "birthDate": null,
+     "nationality": "Argentina"
+    },
+    {
+     "name": "Ramon Rique",
+     "pos": "MF",
+     "number": 83,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Mateus Carvalho",
+     "pos": "MF",
+     "number": 85,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Cauan Barros",
+     "pos": "MF",
+     "number": 88,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Paulo Henrique",
+     "pos": "DF",
+     "number": 96,
+     "birthDate": null,
+     "nationality": "Brasil"
+    }
+   ]
+  },
+  "vila-nova": {
+   "source": "https://en.wikipedia.org/wiki/Vila_Nova_Futebol_Clube#Current_squad",
+   "retrievedAt": "2026-10-21",
+   "players": [
+    {
+     "name": "Helton Leite",
+     "pos": "GK",
+     "number": 1,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Tiago Pagnussat",
+     "pos": "DF",
+     "number": 3,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Douglas Mendes",
+     "pos": "DF",
+     "number": 4,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "João Vieira",
+     "pos": "MF",
+     "number": 5,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Higor Luiz",
+     "pos": "DF",
+     "number": 6,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "André Luis",
+     "pos": "FW",
+     "number": 7,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Willian Maranhão",
+     "pos": "MF",
+     "number": 8,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Lincoln",
+     "pos": "FW",
+     "number": 9,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Marquinhos Gabriel",
+     "pos": "MF",
+     "number": 10,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Ryan",
+     "pos": "FW",
+     "number": 11,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Willian Formiga",
+     "pos": "DF",
+     "number": 13,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Samuel Lucas",
+     "pos": "DF",
+     "number": 14,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Dudu",
+     "pos": "MF",
+     "number": 15,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Igor Cariús",
+     "pos": "DF",
+     "number": 16,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Everton Galdino",
+     "pos": "FW",
+     "number": 17,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Enzo",
+     "pos": "MF",
+     "number": 18,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Nathan Camargo",
+     "pos": "MF",
+     "number": 20,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Higor Meritão",
+     "pos": "MF",
+     "number": 21,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Hayner",
+     "pos": "DF",
+     "number": 22,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Jonathan Costa",
+     "pos": "DF",
+     "number": 23,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Dalberson",
+     "pos": "GK",
+     "number": 29,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Gabriel Átila",
+     "pos": "GK",
+     "number": 30,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Dodô",
+     "pos": "MF",
+     "number": 31,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Bruno Xavier",
+     "pos": "FW",
+     "number": 33,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Dellatorre",
+     "pos": "FW",
+     "number": 49,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Emerson Urso",
+     "pos": "FW",
+     "number": 70,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Janderson",
+     "pos": "FW",
+     "number": 99,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Anderson Jesus",
+     "pos": "DF",
+     "number": null,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Breno Bora",
+     "pos": "DF",
+     "number": null,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Gustavo Puskas",
+     "pos": "FW",
+     "number": null,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Rafa Silva",
+     "pos": "FW",
+     "number": null,
+     "birthDate": null,
+     "nationality": "Brasil"
+    }
+   ]
+  },
+  "vitoria": {
+   "source": "https://en.wikipedia.org/wiki/Esporte_Clube_Vitória#Current_squad",
+   "retrievedAt": "2026-10-21",
+   "players": [
+    {
+     "name": "Lucas Arcanjo",
+     "pos": "GK",
+     "number": 1,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Emanuel Brítez",
+     "pos": "DF",
+     "number": 2,
+     "birthDate": null,
+     "nationality": "Argentina"
+    },
+    {
+     "name": "Darlan",
+     "pos": "DF",
+     "number": 3,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Camutanga",
+     "pos": "DF",
+     "number": 4,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Emmanuel Martínez",
+     "pos": "MF",
+     "number": 6,
+     "birthDate": null,
+     "nationality": "Argentina"
+    },
+    {
+     "name": "Marinho",
+     "pos": "FW",
+     "number": 7,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Tomás Pochettino",
+     "pos": "MF",
+     "number": 8,
+     "birthDate": null,
+     "nationality": "Argentina"
+    },
+    {
+     "name": "Alex Bruno",
+     "pos": "FW",
+     "number": 9,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Matheuzinho",
+     "pos": "MF",
+     "number": 10,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Osvaldo",
+     "pos": "FW",
+     "number": 11,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Diego Tarzia",
+     "pos": "FW",
+     "number": 12,
+     "birthDate": null,
+     "nationality": "Argentina"
+    },
+    {
+     "name": "Ramon",
+     "pos": "DF",
+     "number": 13,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Walace",
+     "pos": "MF",
+     "number": 15,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Rúben Ismael",
+     "pos": "MF",
+     "number": 16,
+     "birthDate": null,
+     "nationality": "Portugal"
+    },
+    {
+     "name": "Kauan Coutinho",
+     "pos": "DF",
+     "number": 18,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Lucas Silva",
+     "pos": "FW",
+     "number": 20,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Dudu",
+     "pos": "MF",
+     "number": 21,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Fabrí",
+     "pos": "FW",
+     "number": 23,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Cacá",
+     "pos": "DF",
+     "number": 25,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Edenilson",
+     "pos": "DF",
+     "number": 26,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Anderson Pato",
+     "pos": "FW",
+     "number": 28,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Erick",
+     "pos": "FW",
+     "number": 33,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Fintelman",
+     "pos": "GK",
+     "number": 35,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Luan Cândido",
+     "pos": "DF",
+     "number": 36,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Wendell Santos",
+     "pos": "MF",
+     "number": 41,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Edu Ribeiro",
+     "pos": "DF",
+     "number": 43,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Gabriel Baralhas",
+     "pos": "MF",
+     "number": 44,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Nathan Mendes",
+     "pos": "DF",
+     "number": 45,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Fabiano",
+     "pos": "DF",
+     "number": 70,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Yuri Sena",
+     "pos": "GK",
+     "number": 71,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Ignacio Laquintana",
+     "pos": "FW",
+     "number": 77,
+     "birthDate": null,
+     "nationality": "Uruguai"
+    },
+    {
+     "name": "Renato Kayzer",
+     "pos": "FW",
+     "number": 79,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Jamerson",
+     "pos": "DF",
+     "number": 83,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Zé Vitor",
+     "pos": "MF",
+     "number": 88,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Renê",
+     "pos": "FW",
+     "number": 91,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Caíque Gonçalves",
+     "pos": "MF",
+     "number": 95,
+     "birthDate": null,
+     "nationality": "Brasil"
+    },
+    {
+     "name": "Mateus Silva",
+     "pos": "DF",
+     "number": 98,
+     "birthDate": null,
+     "nationality": "Brasil"
+    }
+   ]
+  }
+ }
+}

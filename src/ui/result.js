@@ -6,7 +6,7 @@ import { t } from '../i18n/index.js';
 
 const html = htm.bind(h);
 
-export function ResultScreen({ match, onAgain }) {
+export function ResultScreen({ match, onAgain, actionLabel = null }) {
   const goals = match.events.filter((e) => e.type === 'goal');
   const players = [...match.home.lineup, ...match.away.lineup];
   const nameOf = (id) => players.find((p) => p.id === id)?.name ?? id;
@@ -28,6 +28,6 @@ export function ResultScreen({ match, onAgain }) {
           </ul>`
         : html`<p class="muted">${t('result.noGoals')}</p>`}
       <p class="result-best">${t('result.best')}: <strong>${best.name}</strong> · ${match.ratings[best.id].toFixed(1)}</p>
-      <button type="button" class="btn btn-primary btn-lg" onClick=${onAgain}>${t('result.again')}</button>
+      <button type="button" class="btn btn-primary btn-lg" onClick=${onAgain}>${actionLabel ?? t('result.again')}</button>
     </section>`;
 }

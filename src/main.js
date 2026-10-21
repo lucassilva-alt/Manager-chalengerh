@@ -73,6 +73,8 @@ async function devHighlight() {
 
 if (params.get('dev') === 'highlight') {
   devHighlight();
+} else if (params.get('dev') === 'crests') {
+  import('./dev/crests.js').then(({ devCrests }) => devCrests(document.getElementById('app')));
 } else if (params.get('dev') === 'kit') {
   const stage = document.getElementById('app');
   stage.classList.add('stage');

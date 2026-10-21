@@ -1,11 +1,25 @@
-// Escudo desenhado por código: forma de escudo, cores do clube e sigla.
+// Escudo do clube: o escudo real (assets/crests) quando o time tem `crest`;
+// sem ele, ou se a imagem falhar, o escudo desenhado com cores e sigla.
 import { h } from 'preact';
+import { useState } from 'preact/hooks';
 import htm from 'htm';
 
 const html = htm.bind(h);
 const SHIELD = 'M50 4 L92 16 V52 C92 76 72 92 50 98 C28 92 8 76 8 52 V16 Z';
 
+export const crestSrc = (team) => (team.crest ? `assets/crests/br/${team.crest}.svg` : null);
+
 export function Crest({ team, size = 48 }) {
+  const [failed, setFailed] = useState(false);
+  const src = crestSrc(team);
+  if (src && !failed) {
+    return html`<img class="crest" src=${src} alt=${team.name} width=${size} height=${size}
+      decoding="async" onError=${() => setFailed(true)} />`;
+  }
+  return html`<${DrawnCrest} team=${team} size=${size} />`;
+}
+
+function DrawnCrest({ team, size }) {
   const { shirt, shorts } = team.colors;
   const id = `crest-${team.id}`;
   return html`

@@ -214,3 +214,9 @@ h1, h2, .display { font-family: var(--font-display); letter-spacing: 0.02em; }
   background: var(--danger); color: #fff;
   font: 700 1.125rem/1 'Barlow Condensed', sans-serif; letter-spacing: 0.12em; text-transform: uppercase;
 }
+
+/* E1 — escudos reais: imagem sem distorção; galeria de conferência. */
+img.crest { object-fit: contain; display: inline-block; }
+.crest-gallery { display: grid; grid-template-columns: repeat(auto-fill, minmax(96px, 1fr)); gap: calc(var(--space) * 2); padding: calc(var(--space) * 4); overflow: auto; height: 100%; }
+.crest-gallery figure { margin: 0; display: grid; justify-items: center; gap: var(--space); }
+.crest-gallery figcaption { font-size: 0.75rem; text-align: center; word-break: break-word; }

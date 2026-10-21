@@ -1,0 +1,954 @@
+{
+  "source": "https://github.com/JoseArroyave/football-logos (logos/brazil)",
+  "license": "MIT (repositório). Escudos são marcas registradas dos respectivos clubes.",
+  "crests": {
+    "15-de-novembro": {
+      "file": "15-de-novembro.svg",
+      "original": "15_de_Novembro.svg"
+    },
+    "abc-futebol-clube": {
+      "file": "abc-futebol-clube.svg",
+      "original": "ABC_Futebol_Clube.svg"
+    },
+    "abecat-ouvidorense": {
+      "file": "abecat-ouvidorense.svg",
+      "original": "ABECAT_Ouvidorense.svg"
+    },
+    "adesg": {
+      "file": "adesg.svg",
+      "original": "ADESG.svg"
+    },
+    "asa-de-arapiraca": {
+      "file": "asa-de-arapiraca.svg",
+      "original": "ASA_de_Arapiraca.svg"
+    },
+    "abaete": {
+      "file": "abaete.svg",
+      "original": "Abaeté.svg"
+    },
+    "alegrense": {
+      "file": "alegrense.svg",
+      "original": "Alegrense.svg"
+    },
+    "amazonas": {
+      "file": "amazonas.svg",
+      "original": "Amazonas.svg"
+    },
+    "america-football-club-rj": {
+      "file": "america-football-club-rj.svg",
+      "original": "America_Football_Club_(RJ).svg"
+    },
+    "america-am": {
+      "file": "america-am.svg",
+      "original": "América-AM.svg"
+    },
+    "america-go": {
+      "file": "america-go.svg",
+      "original": "América-GO.svg"
+    },
+    "america-pe": {
+      "file": "america-pe.svg",
+      "original": "América-PE.svg"
+    },
+    "america-sp": {
+      "file": "america-sp.svg",
+      "original": "América-SP.svg"
+    },
+    "america-mineiro": {
+      "file": "america-mineiro.svg",
+      "original": "América_Mineiro.svg"
+    },
+    "america-de-joinville": {
+      "file": "america-de-joinville.svg",
+      "original": "América_de_Joinville.svg"
+    },
+    "america-de-natal": {
+      "file": "america-de-natal.svg",
+      "original": "América_de_Natal.svg"
+    },
+    "anapolina": {
+      "file": "anapolina.svg",
+      "original": "Anapolina.svg"
+    },
+    "andraus": {
+      "file": "andraus.svg",
+      "original": "Andraus.svg"
+    },
+    "anapolis": {
+      "file": "anapolis.svg",
+      "original": "Anápolis.svg"
+    },
+    "araguaina-futebol-e-regatas": {
+      "file": "araguaina-futebol-e-regatas.svg",
+      "original": "Araguaína_Futebol_e_Regatas.svg"
+    },
+    "araxa": {
+      "file": "araxa.svg",
+      "original": "Araxá.svg"
+    },
+    "aracatuba": {
+      "file": "aracatuba.svg",
+      "original": "Araçatuba.svg"
+    },
+    "associacao-atletica-aparecidense": {
+      "file": "associacao-atletica-aparecidense.svg",
+      "original": "Associação_Atlética_Aparecidense.svg"
+    },
+    "associacao-atletica-maguary": {
+      "file": "associacao-atletica-maguary.svg",
+      "original": "Associação_Atlética_Maguary.svg"
+    },
+    "associacao-atletica-portuguesa-rj": {
+      "file": "associacao-atletica-portuguesa-rj.svg",
+      "original": "Associação_Atlética_Portuguesa_(RJ).svg"
+    },
+    "associacao-atletica-de-altos": {
+      "file": "associacao-atletica-de-altos.svg",
+      "original": "Associação_Atlética_de_Altos.svg"
+    },
+    "associacao-desportiva-iguatu": {
+      "file": "associacao-desportiva-iguatu.svg",
+      "original": "Associação_Desportiva_Iguatu.svg"
+    },
+    "associacao-portuguesa-de-desportos": {
+      "file": "associacao-portuguesa-de-desportos.svg",
+      "original": "Associação_Portuguesa_de_Desportos.svg"
+    },
+    "athletic": {
+      "file": "athletic.svg",
+      "original": "Athletic.svg"
+    },
+    "athletico-paranaense": {
+      "file": "athletico-paranaense.svg",
+      "original": "Athletico_Paranaense.svg"
+    },
+    "atletico-acreano": {
+      "file": "atletico-acreano.svg",
+      "original": "Atlético_Acreano.svg"
+    },
+    "atletico-gloriense": {
+      "file": "atletico-gloriense.svg",
+      "original": "Atlético_Gloriense.svg"
+    },
+    "atletico-goianiense": {
+      "file": "atletico-goianiense.svg",
+      "original": "Atlético_Goianiense.svg"
+    },
+    "atletico-mineiro": {
+      "file": "atletico-mineiro.svg",
+      "original": "Atlético_Mineiro.svg"
+    },
+    "atletico-de-alagoinhas": {
+      "file": "atletico-de-alagoinhas.svg",
+      "original": "Atlético_de_Alagoinhas.svg"
+    },
+    "avai": {
+      "file": "avai.svg",
+      "original": "Avai.svg"
+    },
+    "avenida": {
+      "file": "avenida.svg",
+      "original": "Avenida.svg"
+    },
+    "azuriz-fc": {
+      "file": "azuriz-fc.svg",
+      "original": "Azuriz_FC.svg"
+    },
+    "bage": {
+      "file": "bage.svg",
+      "original": "Bagé.svg"
+    },
+    "bahia": {
+      "file": "bahia.svg",
+      "original": "Bahia.svg"
+    },
+    "bahia-de-feira": {
+      "file": "bahia-de-feira.svg",
+      "original": "Bahia_de_Feira.svg"
+    },
+    "bandeirante": {
+      "file": "bandeirante.svg",
+      "original": "Bandeirante.svg"
+    },
+    "bangu": {
+      "file": "bangu.svg",
+      "original": "Bangu.svg"
+    },
+    "barra": {
+      "file": "barra.svg",
+      "original": "Barra.svg"
+    },
+    "barretos": {
+      "file": "barretos.svg",
+      "original": "Barretos.svg"
+    },
+    "betim-futebol": {
+      "file": "betim-futebol.svg",
+      "original": "Betim_Futebol.svg"
+    },
+    "blumenau-esporte-clube": {
+      "file": "blumenau-esporte-clube.svg",
+      "original": "Blumenau_Esporte_Clube.svg"
+    },
+    "boa-esporte": {
+      "file": "boa-esporte.svg",
+      "original": "Boa_Esporte.svg"
+    },
+    "boavista-sc": {
+      "file": "boavista-sc.svg",
+      "original": "Boavista_SC.svg"
+    },
+    "botafogo-fr": {
+      "file": "botafogo-fr.svg",
+      "original": "Botafogo_FR.svg"
+    },
+    "botafogo-pb": {
+      "file": "botafogo-pb.svg",
+      "original": "Botafogo_PB.svg"
+    },
+    "botafogo-sp": {
+      "file": "botafogo-sp.svg",
+      "original": "Botafogo_SP.svg"
+    },
+    "brasil-de-pelotas": {
+      "file": "brasil-de-pelotas.svg",
+      "original": "Brasil_de_Pelotas.svg"
+    },
+    "brasiliense-futebol-clube": {
+      "file": "brasiliense-futebol-clube.svg",
+      "original": "Brasiliense_Futebol_Clube.svg"
+    },
+    "brazil-national-team": {
+      "file": "brazil-national-team.svg",
+      "original": "Brazil_National_Team.svg"
+    },
+    "brazilian-serie-a": {
+      "file": "brazilian-serie-a.svg",
+      "original": "Brazilian_Serie_A.svg"
+    },
+    "brazilian-serie-b": {
+      "file": "brazilian-serie-b.svg",
+      "original": "Brazilian_Serie_B.svg"
+    },
+    "brazilian-serie-c": {
+      "file": "brazilian-serie-c.svg",
+      "original": "Brazilian_Serie_C.svg"
+    },
+    "brazilian-serie-d": {
+      "file": "brazilian-serie-d.svg",
+      "original": "Brazilian_Serie_D.svg"
+    },
+    "brusque": {
+      "file": "brusque.svg",
+      "original": "Brusque.svg"
+    },
+    "crac": {
+      "file": "crac.svg",
+      "original": "CRAC.svg"
+    },
+    "csa": {
+      "file": "csa.svg",
+      "original": "CSA.svg"
+    },
+    "cse": {
+      "file": "cse.svg",
+      "original": "CSE.svg"
+    },
+    "cabofriense": {
+      "file": "cabofriense.svg",
+      "original": "Cabofriense.svg"
+    },
+    "caldense": {
+      "file": "caldense.svg",
+      "original": "Caldense.svg"
+    },
+    "campinense": {
+      "file": "campinense.svg",
+      "original": "Campinense.svg"
+    },
+    "campo-grande-rj": {
+      "file": "campo-grande-rj.svg",
+      "original": "Campo_Grande-RJ.svg"
+    },
+    "capital-clube-de-futebol": {
+      "file": "capital-clube-de-futebol.svg",
+      "original": "Capital_Clube_de_Futebol.svg"
+    },
+    "caxias": {
+      "file": "caxias.svg",
+      "original": "Caxias.svg"
+    },
+    "ceara": {
+      "file": "ceara.svg",
+      "original": "Ceará.svg"
+    },
+    "ceilandia-esporte-clube": {
+      "file": "ceilandia-esporte-clube.svg",
+      "original": "Ceilândia_Esporte_Clube.svg"
+    },
+    "central-sport-club": {
+      "file": "central-sport-club.svg",
+      "original": "Central_Sport_Club.svg"
+    },
+    "centro-oeste-fc": {
+      "file": "centro-oeste-fc.svg",
+      "original": "Centro_Oeste_FC.svg"
+    },
+    "centro-de-formacao-de-atletas-tirol": {
+      "file": "centro-de-formacao-de-atletas-tirol.svg",
+      "original": "Centro_de_Formação_de_Atletas_Tirol.svg"
+    },
+    "chapecoense": {
+      "file": "chapecoense.svg",
+      "original": "Chapecoense.svg"
+    },
+    "cianorte-fc": {
+      "file": "cianorte-fc.svg",
+      "original": "Cianorte_FC.svg"
+    },
+    "club-sportivo-sergipe": {
+      "file": "club-sportivo-sergipe.svg",
+      "original": "Club_Sportivo_Sergipe.svg"
+    },
+    "clube-laguna-saf": {
+      "file": "clube-laguna-saf.svg",
+      "original": "Clube_Laguna_SAF.svg"
+    },
+    "clube-de-regatas-brasil": {
+      "file": "clube-de-regatas-brasil.svg",
+      "original": "Clube_de_Regatas_Brasil.svg"
+    },
+    "clube-do-remo": {
+      "file": "clube-do-remo.svg",
+      "original": "Clube_do_Remo.svg"
+    },
+    "comercial": {
+      "file": "comercial.svg",
+      "original": "Comercial.svg"
+    },
+    "confianca": {
+      "file": "confianca.svg",
+      "original": "Confiança.svg"
+    },
+    "copa-paulista": {
+      "file": "copa-paulista.svg",
+      "original": "Copa_Paulista.svg"
+    },
+    "copa-sul-sudeste": {
+      "file": "copa-sul-sudeste.svg",
+      "original": "Copa_Sul-Sudeste.svg"
+    },
+    "copa-do-brasil": {
+      "file": "copa-do-brasil.svg",
+      "original": "Copa_do_Brasil.svg"
+    },
+    "copa-do-nordeste": {
+      "file": "copa-do-nordeste.svg",
+      "original": "Copa_do_Nordeste.svg"
+    },
+    "corinthians": {
+      "file": "corinthians.svg",
+      "original": "Corinthians.svg"
+    },
+    "coritiba": {
+      "file": "coritiba.svg",
+      "original": "Coritiba.svg"
+    },
+    "criciuma": {
+      "file": "criciuma.svg",
+      "original": "Criciúma.svg"
+    },
+    "cruzeiro": {
+      "file": "cruzeiro.svg",
+      "original": "Cruzeiro.svg"
+    },
+    "cuiaba": {
+      "file": "cuiaba.svg",
+      "original": "Cuiabá.svg"
+    },
+    "decisao-goiana-fc": {
+      "file": "decisao-goiana-fc.svg",
+      "original": "Decisão_Goiana_FC.svg"
+    },
+    "democrata-gv": {
+      "file": "democrata-gv.svg",
+      "original": "Democrata-GV.svg"
+    },
+    "ec-jacuipense": {
+      "file": "ec-jacuipense.svg",
+      "original": "EC_Jacuipense.svg"
+    },
+    "ec-sao-bernardo": {
+      "file": "ec-sao-bernardo.svg",
+      "original": "EC_São_Bernardo.svg"
+    },
+    "ec-sao-jose": {
+      "file": "ec-sao-jose.svg",
+      "original": "EC_São_José.svg"
+    },
+    "ec-sao-luiz": {
+      "file": "ec-sao-luiz.svg",
+      "original": "EC_São_Luiz.svg"
+    },
+    "esporte-clube-agua-santa": {
+      "file": "esporte-clube-agua-santa.svg",
+      "original": "Esporte_Clube_Água_Santa.svg"
+    },
+    "esportivo-bento-goncalves": {
+      "file": "esportivo-bento-goncalves.svg",
+      "original": "Esportivo_Bento_Gonçalves.svg"
+    },
+    "fc-cascavel": {
+      "file": "fc-cascavel.svg",
+      "original": "FC_Cascavel.svg"
+    },
+    "ferroviaria": {
+      "file": "ferroviaria.svg",
+      "original": "Ferroviaria.svg"
+    },
+    "ferroviario-atletico-clube": {
+      "file": "ferroviario-atletico-clube.svg",
+      "original": "Ferroviário_Atlético_Clube.svg"
+    },
+    "figueirense": {
+      "file": "figueirense.svg",
+      "original": "Figueirense.svg"
+    },
+    "flamengo": {
+      "file": "flamengo.svg",
+      "original": "Flamengo.svg"
+    },
+    "floresta": {
+      "file": "floresta.svg",
+      "original": "Floresta.svg"
+    },
+    "fluminense": {
+      "file": "fluminense.svg",
+      "original": "Fluminense.svg"
+    },
+    "fluminense-esporte-clube": {
+      "file": "fluminense-esporte-clube.svg",
+      "original": "Fluminense_Esporte_Clube.svg"
+    },
+    "fortaleza": {
+      "file": "fortaleza.svg",
+      "original": "Fortaleza.svg"
+    },
+    "foz-do-iguacu-fc": {
+      "file": "foz-do-iguacu-fc.svg",
+      "original": "Foz_do_Iguaçu_FC.svg"
+    },
+    "futebol-clube-atletico-cearense": {
+      "file": "futebol-clube-atletico-cearense.svg",
+      "original": "Futebol_Clube_Atlético_Cearense.svg"
+    },
+    "galo-maringa": {
+      "file": "galo-maringa.svg",
+      "original": "Galo_Maringá.svg"
+    },
+    "galvez-esporte-clube": {
+      "file": "galvez-esporte-clube.svg",
+      "original": "Galvez_Esporte_Clube.svg"
+    },
+    "goiatuba-esporte-clube": {
+      "file": "goiatuba-esporte-clube.svg",
+      "original": "Goiatuba_Esporte_Clube.svg"
+    },
+    "goias": {
+      "file": "goias.svg",
+      "original": "Goiás.svg"
+    },
+    "goiania": {
+      "file": "goiania.svg",
+      "original": "Goiânia.svg"
+    },
+    "gremio": {
+      "file": "gremio.svg",
+      "original": "Grêmio.svg"
+    },
+    "gremio-atletico-sampaio-gas": {
+      "file": "gremio-atletico-sampaio-gas.svg",
+      "original": "Grêmio_Atlético_Sampaio_(GAS).svg"
+    },
+    "gremio-novorizontino": {
+      "file": "gremio-novorizontino.svg",
+      "original": "Grêmio_Novorizontino.svg"
+    },
+    "gremio-prudente": {
+      "file": "gremio-prudente.svg",
+      "original": "Grêmio_Prudente.svg"
+    },
+    "guapore-futebol-clube": {
+      "file": "guapore-futebol-clube.svg",
+      "original": "Guaporé_Futebol_Clube.svg"
+    },
+    "guarani-mg": {
+      "file": "guarani-mg.svg",
+      "original": "Guarani-MG.svg"
+    },
+    "guarani": {
+      "file": "guarani.svg",
+      "original": "Guarani.svg"
+    },
+    "guarany-de-bage": {
+      "file": "guarany-de-bage.svg",
+      "original": "Guarany_de_Bagé.svg"
+    },
+    "holanda-am": {
+      "file": "holanda-am.svg",
+      "original": "Holanda-AM.svg"
+    },
+    "icasa": {
+      "file": "icasa.svg",
+      "original": "Icasa.svg"
+    },
+    "independencia-futebol-clube": {
+      "file": "independencia-futebol-clube.svg",
+      "original": "Independência_Futebol_Clube.svg"
+    },
+    "inhumas-esporte-clube": {
+      "file": "inhumas-esporte-clube.svg",
+      "original": "Inhumas_Esporte_Clube.svg"
+    },
+    "instituto-de-administracao-de-projetos-educacionais-futebol-clube": {
+      "file": "instituto-de-administracao-de-projetos-educacionais-futebol-clube.svg",
+      "original": "Instituto_de_Administração_de_Projetos_Educacionais_Futebol_Clube.svg"
+    },
+    "inter-de-limeira": {
+      "file": "inter-de-limeira.svg",
+      "original": "Inter_de_Limeira.svg"
+    },
+    "internacional": {
+      "file": "internacional.svg",
+      "original": "Internacional.svg"
+    },
+    "internacional-de-lages": {
+      "file": "internacional-de-lages.svg",
+      "original": "Internacional_de_Lages.svg"
+    },
+    "internacional-de-santa-maria": {
+      "file": "internacional-de-santa-maria.svg",
+      "original": "Internacional_de_Santa_Maria.svg"
+    },
+    "itabaiana": {
+      "file": "itabaiana.svg",
+      "original": "Itabaiana.svg"
+    },
+    "itabirito-fc": {
+      "file": "itabirito-fc.svg",
+      "original": "Itabirito_FC.svg"
+    },
+    "itapirense": {
+      "file": "itapirense.svg",
+      "original": "Itapirense.svg"
+    },
+    "ituano": {
+      "file": "ituano.svg",
+      "original": "Ituano.svg"
+    },
+    "ivinhema-futebol-clube": {
+      "file": "ivinhema-futebol-clube.svg",
+      "original": "Ivinhema_Futebol_Clube.svg"
+    },
+    "jataiense": {
+      "file": "jataiense.svg",
+      "original": "Jataiense.svg"
+    },
+    "joinville-esporte-clube": {
+      "file": "joinville-esporte-clube.svg",
+      "original": "Joinville_Esporte_Clube.svg"
+    },
+    "juazeirense": {
+      "file": "juazeirense.svg",
+      "original": "Juazeirense.svg"
+    },
+    "juventude": {
+      "file": "juventude.svg",
+      "original": "Juventude.svg"
+    },
+    "juventus-da-mooca": {
+      "file": "juventus-da-mooca.svg",
+      "original": "Juventus_da_Mooca.svg"
+    },
+    "lagarto-fc": {
+      "file": "lagarto-fc.svg",
+      "original": "Lagarto_FC.svg"
+    },
+    "lajeadense": {
+      "file": "lajeadense.svg",
+      "original": "Lajeadense.svg"
+    },
+    "linense": {
+      "file": "linense.svg",
+      "original": "Linense.svg"
+    },
+    "londrina": {
+      "file": "londrina.svg",
+      "original": "Londrina.svg"
+    },
+    "luverdense-esporte-clube": {
+      "file": "luverdense-esporte-clube.svg",
+      "original": "Luverdense_Esporte_Clube.svg"
+    },
+    "macae": {
+      "file": "macae.svg",
+      "original": "Macaé.svg"
+    },
+    "madureira-esporte-clube": {
+      "file": "madureira-esporte-clube.svg",
+      "original": "Madureira_Esporte_Clube.svg"
+    },
+    "manauara-esporte-clube": {
+      "file": "manauara-esporte-clube.svg",
+      "original": "Manauara_Esporte_Clube.svg"
+    },
+    "manaus-futebol-clube": {
+      "file": "manaus-futebol-clube.svg",
+      "original": "Manaus_Futebol_Clube.svg"
+    },
+    "maracana-esporte-clube": {
+      "file": "maracana-esporte-clube.svg",
+      "original": "Maracanã_Esporte_Clube.svg"
+    },
+    "maranhao": {
+      "file": "maranhao.svg",
+      "original": "Maranhão.svg"
+    },
+    "marcilio-dias": {
+      "file": "marcilio-dias.svg",
+      "original": "Marcílio_Dias.svg"
+    },
+    "marica-fc": {
+      "file": "marica-fc.svg",
+      "original": "Maricá_FC.svg"
+    },
+    "maringa": {
+      "file": "maringa.svg",
+      "original": "Maringá.svg"
+    },
+    "marilia": {
+      "file": "marilia.svg",
+      "original": "Marília.svg"
+    },
+    "metropolitano": {
+      "file": "metropolitano.svg",
+      "original": "Metropolitano.svg"
+    },
+    "mirassol": {
+      "file": "mirassol.svg",
+      "original": "Mirassol.svg"
+    },
+    "mixto-esporte-clube": {
+      "file": "mixto-esporte-clube.svg",
+      "original": "Mixto_Esporte_Clube.svg"
+    },
+    "monsoon-fc": {
+      "file": "monsoon-fc.svg",
+      "original": "Monsoon_FC.svg"
+    },
+    "monte-roraima": {
+      "file": "monte-roraima.svg",
+      "original": "Monte_Roraima.svg"
+    },
+    "moto-club-de-sao-luis": {
+      "file": "moto-club-de-sao-luis.svg",
+      "original": "Moto_Club_de_São_Luís.svg"
+    },
+    "nacional-futebol-clube": {
+      "file": "nacional-futebol-clube.svg",
+      "original": "Nacional_Futebol_Clube.svg"
+    },
+    "noroeste": {
+      "file": "noroeste.svg",
+      "original": "Noroeste.svg"
+    },
+    "north-esporte-clube": {
+      "file": "north-esporte-clube.svg",
+      "original": "North_Esporte_Clube.svg"
+    },
+    "nova-iguacu-fc": {
+      "file": "nova-iguacu-fc.svg",
+      "original": "Nova_Iguaçu_FC.svg"
+    },
+    "novo-hamburgo": {
+      "file": "novo-hamburgo.svg",
+      "original": "Novo_Hamburgo.svg"
+    },
+    "nautico": {
+      "file": "nautico.svg",
+      "original": "Náutico.svg"
+    },
+    "olimpico-se": {
+      "file": "olimpico-se.svg",
+      "original": "Olímpico-SE.svg"
+    },
+    "operario-ms": {
+      "file": "operario-ms.svg",
+      "original": "Operário-MS.svg"
+    },
+    "operario-ferroviario": {
+      "file": "operario-ferroviario.svg",
+      "original": "Operário_Ferroviário.svg"
+    },
+    "operario-varzea-grandense": {
+      "file": "operario-varzea-grandense.svg",
+      "original": "Operário_Várzea-Grandense.svg"
+    },
+    "oratorio-recreativo-clube": {
+      "file": "oratorio-recreativo-clube.svg",
+      "original": "Oratório_Recreativo_Clube.svg"
+    },
+    "osasco-sporting": {
+      "file": "osasco-sporting.svg",
+      "original": "Osasco_Sporting.svg"
+    },
+    "palmeiras": {
+      "file": "palmeiras.svg",
+      "original": "Palmeiras.svg"
+    },
+    "parnahyba-sport-club": {
+      "file": "parnahyba-sport-club.svg",
+      "original": "Parnahyba_Sport_Club.svg"
+    },
+    "passo-fundo": {
+      "file": "passo-fundo.svg",
+      "original": "Passo_Fundo.svg"
+    },
+    "paulista": {
+      "file": "paulista.svg",
+      "original": "Paulista.svg"
+    },
+    "paysandu": {
+      "file": "paysandu.svg",
+      "original": "Paysandu.svg"
+    },
+    "piaui-esporte-clube": {
+      "file": "piaui-esporte-clube.svg",
+      "original": "Piauí_Esporte_Clube.svg"
+    },
+    "ponte-preta": {
+      "file": "ponte-preta.svg",
+      "original": "Ponte_Preta.svg"
+    },
+    "porto-ba": {
+      "file": "porto-ba.svg",
+      "original": "Porto-BA.svg"
+    },
+    "porto-velho-esporte-clube": {
+      "file": "porto-velho-esporte-clube.svg",
+      "original": "Porto_Velho_Esporte_Clube.svg"
+    },
+    "pouso-alegre-futebol-clube": {
+      "file": "pouso-alegre-futebol-clube.svg",
+      "original": "Pouso_Alegre_Futebol_Clube.svg"
+    },
+    "primavera": {
+      "file": "primavera.svg",
+      "original": "Primavera.svg"
+    },
+    "primavera-atletico-clube": {
+      "file": "primavera-atletico-clube.svg",
+      "original": "Primavera_Atlético_Clube.svg"
+    },
+    "rb-bragantino": {
+      "file": "rb-bragantino.svg",
+      "original": "RB_Bragantino.svg"
+    },
+    "real-brasilia": {
+      "file": "real-brasilia.svg",
+      "original": "Real_Brasília.svg"
+    },
+    "real-noroeste": {
+      "file": "real-noroeste.svg",
+      "original": "Real_Noroeste.svg"
+    },
+    "retro-fc": {
+      "file": "retro-fc.svg",
+      "original": "Retrô_FC.svg"
+    },
+    "rio-branco-es": {
+      "file": "rio-branco-es.svg",
+      "original": "Rio_Branco-ES.svg"
+    },
+    "rio-branco-sp": {
+      "file": "rio-branco-sp.svg",
+      "original": "Rio_Branco-SP.svg"
+    },
+    "sampaio-correa-rj": {
+      "file": "sampaio-correa-rj.svg",
+      "original": "Sampaio_Corrêa-RJ.svg"
+    },
+    "sampaio-correa-futebol-clube": {
+      "file": "sampaio-correa-futebol-clube.svg",
+      "original": "Sampaio_Corrêa_Futebol_Clube.svg"
+    },
+    "santa-catarina-clube": {
+      "file": "santa-catarina-clube.svg",
+      "original": "Santa_Catarina_Clube.svg"
+    },
+    "santa-cruz": {
+      "file": "santa-cruz.svg",
+      "original": "Santa_Cruz.svg"
+    },
+    "santanense": {
+      "file": "santanense.svg",
+      "original": "Santanense.svg"
+    },
+    "santo-andre": {
+      "file": "santo-andre.svg",
+      "original": "Santo_André.svg"
+    },
+    "santos-fc": {
+      "file": "santos-fc.svg",
+      "original": "Santos_FC.svg"
+    },
+    "serra-branca-ec": {
+      "file": "serra-branca-ec.svg",
+      "original": "Serra_Branca_EC.svg"
+    },
+    "sociedade-esportiva-do-gama": {
+      "file": "sociedade-esportiva-do-gama.svg",
+      "original": "Sociedade_Esportiva_do_Gama.svg"
+    },
+    "sociedade-imperatriz-de-desportos": {
+      "file": "sociedade-imperatriz-de-desportos.svg",
+      "original": "Sociedade_Imperatriz_de_Desportos.svg"
+    },
+    "sousa-esporte-clube": {
+      "file": "sousa-esporte-clube.svg",
+      "original": "Sousa_Esporte_Clube.svg"
+    },
+    "sport-clube-humaita": {
+      "file": "sport-clube-humaita.svg",
+      "original": "Sport_Clube_Humaitá.svg"
+    },
+    "sport-recife": {
+      "file": "sport-recife.svg",
+      "original": "Sport_Recife.svg"
+    },
+    "sul-america-am": {
+      "file": "sul-america-am.svg",
+      "original": "Sul_América-AM.svg"
+    },
+    "sao-bernardo": {
+      "file": "sao-bernardo.svg",
+      "original": "São_Bernardo.svg"
+    },
+    "sao-caetano": {
+      "file": "sao-caetano.svg",
+      "original": "São_Caetano.svg"
+    },
+    "sao-joseense": {
+      "file": "sao-joseense.svg",
+      "original": "São_Joseense.svg"
+    },
+    "sao-jose-ec": {
+      "file": "sao-jose-ec.svg",
+      "original": "São_José_EC.svg"
+    },
+    "sao-paulo": {
+      "file": "sao-paulo.svg",
+      "original": "São_Paulo.svg"
+    },
+    "sao-raimundo-rr": {
+      "file": "sao-raimundo-rr.svg",
+      "original": "São_Raimundo-RR.svg"
+    },
+    "taquaritinga": {
+      "file": "taquaritinga.svg",
+      "original": "Taquaritinga.svg"
+    },
+    "taubate": {
+      "file": "taubate.svg",
+      "original": "Taubaté.svg"
+    },
+    "tocantinopolis-esporte-clube": {
+      "file": "tocantinopolis-esporte-clube.svg",
+      "original": "Tocantinópolis_Esporte_Clube.svg"
+    },
+    "tombense-fc": {
+      "file": "tombense-fc.svg",
+      "original": "Tombense_FC.svg"
+    },
+    "trem-desportivo-clube": {
+      "file": "trem-desportivo-clube.svg",
+      "original": "Trem_Desportivo_Clube.svg"
+    },
+    "treze-fc": {
+      "file": "treze-fc.svg",
+      "original": "Treze_FC.svg"
+    },
+    "tuna-luso-brasileira": {
+      "file": "tuna-luso-brasileira.svg",
+      "original": "Tuna_Luso_Brasileira.svg"
+    },
+    "urt": {
+      "file": "urt.svg",
+      "original": "URT.svg"
+    },
+    "uberlandia-esporte-clube": {
+      "file": "uberlandia-esporte-clube.svg",
+      "original": "Uberlândia_Esporte_Clube.svg"
+    },
+    "uniao-esporte-clube": {
+      "file": "uniao-esporte-clube.svg",
+      "original": "União_Esporte_Clube.svg"
+    },
+    "uniao-sao-joao": {
+      "file": "uniao-sao-joao.svg",
+      "original": "União_São_João.svg"
+    },
+    "vasco-da-gama": {
+      "file": "vasco-da-gama.svg",
+      "original": "Vasco_da_Gama.svg"
+    },
+    "velo-clube": {
+      "file": "velo-clube.svg",
+      "original": "Velo_Clube.svg"
+    },
+    "vila-nova": {
+      "file": "vila-nova.svg",
+      "original": "Vila_Nova.svg"
+    },
+    "villa-nova-mg": {
+      "file": "villa-nova-mg.svg",
+      "original": "Villa_Nova-MG.svg"
+    },
+    "vitoria-es": {
+      "file": "vitoria-es.svg",
+      "original": "Vitória-ES.svg"
+    },
+    "vitoria": {
+      "file": "vitoria.svg",
+      "original": "Vitória.svg"
+    },
+    "vitoria-da-conquista": {
+      "file": "vitoria-da-conquista.svg",
+      "original": "Vitória_da_Conquista.svg"
+    },
+    "volta-redonda": {
+      "file": "volta-redonda.svg",
+      "original": "Volta_Redonda.svg"
+    },
+    "varzea-grande-esporte-clube": {
+      "file": "varzea-grande-esporte-clube.svg",
+      "original": "Várzea_Grande_Esporte_Clube.svg"
+    },
+    "xv-de-piracicaba": {
+      "file": "xv-de-piracicaba.svg",
+      "original": "XV_de_Piracicaba.svg"
+    },
+    "ypiranga-sp": {
+      "file": "ypiranga-sp.svg",
+      "original": "Ypiranga-SP.svg"
+    },
+    "ypiranga": {
+      "file": "ypiranga.svg",
+      "original": "Ypiranga.svg"
+    },
+    "aguia-de-maraba-futebol-clube": {
+      "file": "aguia-de-maraba-futebol-clube.svg",
+      "original": "Águia_de_Marabá_Futebol_Clube.svg"
+    }
+  }
+}

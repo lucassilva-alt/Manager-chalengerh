@@ -53,7 +53,10 @@ function trySave(w, gk, rng, dive) {
   if (Math.hypot(b.pos.x - gk.pos.x, b.pos.y - gk.pos.y) > reach || b.pos.z > SAVE_HEIGHT) return;
   dive.tried = true;
   const ballSpeed = Math.hypot(b.vel.x, b.vel.y, b.vel.z);
-  const p = Math.min(0.97, Math.max(0, (gk.attrs.goalkeeping / 100) * (1.25 - (ballSpeed - 14) / 40)));
+  // Chute de longe dá tempo ao goleiro; de perto, quase não.
+  const range = w.lastKick?.distance ?? 18;
+  const distanceFactor = 1 + Math.max(-0.25, Math.min(0.35, (range - 16) * 0.025));
+  const p = Math.min(0.97, Math.max(0, (gk.attrs.goalkeeping / 100) * (1.25 - (ballSpeed - 14) / 40) * distanceFactor));
   if (rng.next() < p) {
     w.status = 'saved';
     b.vel.x = -b.vel.x * 0.3; b.vel.y *= 0.3; b.vel.z = Math.abs(b.vel.z) * 0.3;

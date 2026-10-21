@@ -43,7 +43,14 @@ export function buildScenario(m, { seed = m.rng, defendersIdle = false, turnBase
     ...attackers.map((s) => toAgent(m, side, s)),
     ...defenders.map((s) => toAgent(m, other(side), s)),
   ];
-  const w = createWorld({ agents, carrierId: playerId, attackDir: 1, seed, defendersIdle, turnBased });
+  // Chance do adversário: lance de defesa (o jogo ataca, o jogador comanda a defesa).
+  const defense = m.userSide && side !== m.userSide;
+  const w = createWorld({
+    agents, carrierId: playerId, attackDir: 1, seed, defendersIdle,
+    turnBased: defense ? false : turnBased,
+    mode: defense ? 'defense' : 'attack',
+    userSide: m.userSide ?? side,
+  });
   // Corridas dos companheiros (linhas tracejadas na tela).
   for (const s of attackers) {
     const run = RUN_TO[s.player.pos];

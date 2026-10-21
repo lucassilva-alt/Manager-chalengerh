@@ -93,7 +93,8 @@ function simulateMinute(m, rng) {
     const conversion = Math.min(0.9, kind === 'penalty' ? baseConversion : baseConversion * edge);
     const chance = { side, kind, playerId: shooter.id, conversion };
     // A chance do time do jogador vira lance jogável; o relógio espera a resposta.
-    if (m.interactive && side === m.userSide) m.pending = chance;
+    // Chance do jogador (ataque) — ou do adversário, com defesa ligada — vira lance jogável.
+    if (m.interactive && !m.pending && (side === m.userSide || m.defend)) m.pending = chance;
     else applyChance(m, chance, rollOutcome(rng, conversion));
   }
   if (m.pending) {
@@ -125,10 +126,10 @@ function closeMinute(m) {
 
 const everyone = (home, away) => [...home.lineup, ...away.lineup];
 
-export function createMatch({ home, away, seed, userSide = null, interactive = false }) {
+export function createMatch({ home, away, seed, userSide = null, interactive = false, defend = false }) {
   const ids = everyone(home, away).map((p) => p.id);
   return {
-    home, away, userSide, interactive,
+    home, away, userSide, interactive, defend,
     pending: null,
     highlightStart: null,
     rewindsLeft: 1,

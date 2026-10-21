@@ -5,6 +5,7 @@ import { createBall, stepBall, DT } from './physics.js';
 import { createAgent, stepAgent } from './agents.js';
 import { FIELD } from './field.js';
 import { isKeeper, stepKeeper } from './keeper.js';
+import { decideAttack } from './attack-ai.js';
 
 const CONTROL_RADIUS = 6;   // zona de condução (círculo verde)
 const DRIBBLE_STEP = 5;     // quanto um arrasto leva o jogador à frente
@@ -12,10 +13,12 @@ const BALL_OFFSET = 0.6;    // bola à frente do pé
 const TACKLE_RANGE = 1.0;
 const TACKLE_BASE = 0.04;   // chance por passo com atributos iguais
 const TACKLE_EXPONENT = 3;
-const REACH = 1.0;           // alcance para dominar/interceptar bola solta
+const REACH = 1.0;           // alcance para interceptar bola solta
+const RECEIVE_REACH = 1.4;   // companheiro dominando o passe (vai ao encontro da bola)
 const REACH_HEIGHT = 1.2;
 const KICK_IMMUNITY = 0.3;   // s: quem chutou não domina a própria bola logo em seguida
 const INTERCEPT_BASE = 0.3;  // chance por passo com atributos iguais
+const BLOCK_SHARE = 0.35;    // chute é bem mais difícil de bloquear que passe
 const PASS_MAX_ERROR = (12 * Math.PI) / 180; // erro com passe 0; some com passe 100
 const SHOT_MAX_ERROR = (14 * Math.PI) / 180; // erro com chute 0, força máxima
 const SHOT_SPEED = { min: 12, range: 24 };  // m/s com força 0 e 1
@@ -23,12 +26,13 @@ const SHOT_LIFT = 12;                       // m/s verticais com lift 1
 const SHOT_SPIN = 12;                       // giro com curl 1
 const POST_BOUNCE = 0.6;
 const MAX_DURATION = 25;      // s: lance sem desfecho acaba por tempo
+const AI_TICK = 0.4;          // s entre decisões do atacante controlado pelo jogo
 const DRIBBLE_DONE = 0.4;     // m do ponto de condução para devolver a vez ao jogador
 
 const norm = (v) => { const d = Math.hypot(v.x, v.y) || 1; return { x: v.x / d, y: v.y / d }; };
 const dist = (a, b) => Math.hypot(a.x - b.x, a.y - b.y);
 
-export function createWorld({ agents, carrierId, attackDir = 1, seed = 1, defendersIdle = false, turnBased = true }) {
+export function createWorld({ agents, carrierId, attackDir = 1, seed = 1, defendersIdle = false, turnBased = true, mode = 'attack', userSide = null }) {
   const list = agents.map((spec) => ({ ...createAgent(spec), home: { x: spec.x, y: spec.y } }));
   const carrier = list.find((a) => a.id === carrierId);
   const ball = createBall({ x: carrier.pos.x + BALL_OFFSET * attackDir, y: carrier.pos.y });
@@ -40,13 +44,19 @@ export function createWorld({ agents, carrierId, attackDir = 1, seed = 1, defend
     ball,
     carrierId,
     attackingSide: carrier.side,
+    // 'attack': o jogador conduz o ataque; 'defense': o jogo ataca e o jogador comanda a defesa.
+    mode,
+    userSide: userSide ?? carrier.side,
+    orders: {},
+    aiNext: 0,
+    possessionSince: 0,
     controlCenter: { ...carrier.pos },
     controlRadius: CONTROL_RADIUS,
     status: 'live',
     defendersIdle,
     turnBased,
     // Por vez: o tempo só anda depois de um comando e para quando a jogada se completa.
-    awaitingInput: turnBased,
+    awaitingInput: turnBased || mode === 'defense',
     lastKick: null,
     events: [],
   };
@@ -78,7 +88,7 @@ function kickBall(w, kicker, vel, spin, lastKick) {
 
 function pass(w, carrier, receiver, rng) {
   const d = dist(carrier.pos, receiver.pos);
-  const speed = Math.min(24, Math.max(10, 6 + 0.8 * d));
+  const speed = Math.min(20, Math.max(9, 8 + 0.4 * d)); // passe rasteiro: 18 m ≈ 15 m/s
   const error = aimError(rng, PASS_MAX_ERROR * (1 - carrier.attrs.passing / 100));
   const dir = rotate(norm({ x: receiver.pos.x - carrier.pos.x, y: receiver.pos.y - carrier.pos.y }), error);
   kickBall(w, carrier, { x: dir.x * speed, y: dir.y * speed, z: 0 }, 0, { type: 'pass', to: receiver.id, error });
@@ -119,8 +129,20 @@ function checkGoalLine(w, prev) {
 }
 
 // Aplica o comando; devolve true se ele virou jogada.
+const DEFENSE_ORDERS = new Set(['press', 'move', 'mark']);
+
+function applyDefenseInput(w, input) {
+  if (input.type === 'go') return true;
+  if (!DEFENSE_ORDERS.has(input.type)) return false;
+  const who = byId(w, input.by);
+  if (!who || who.side !== w.userSide || isKeeper(who)) return false;
+  w.orders[who.id] = { type: input.type, to: input.to, target: input.target };
+  return true;
+}
+
 function applyInput(w, input, rng) {
   if (!input || w.status !== 'live') return false;
+  if (w.mode === 'defense') return applyDefenseInput(w, input);
   const carrier = byId(w, w.carrierId);
   if (!carrier || carrier.side !== w.attackingSide) return false;
   if (input.type === 'dribble') {
@@ -172,8 +194,14 @@ function moveDefenders(w, carrier) {
   const ranked = [...field].sort((a, b) => dist(a.pos, focus) - dist(b.pos, focus));
   const goal = { x: FIELD.halfLength * w.attackDir, y: 0 };
   ranked.forEach((a, i) => {
+    const order = w.orders[a.id];
+    if (order) return followOrder(w, a, order, carrier, goal);
     if (carrier) {
-      if (i === 0) a.target = { ...carrier.pos };
+      if (i === 0 && w.mode === 'defense' && a.side === w.userSide) {
+        // Cerca: fica entre o atacante e o gol, sem dar o bote sozinho.
+        const gx = goal.x - carrier.pos.x, gy = goal.y - carrier.pos.y, gl = Math.hypot(gx, gy) || 1;
+        a.target = { x: carrier.pos.x + (gx / gl) * 1.8, y: carrier.pos.y + (gy / gl) * 1.8 };
+      } else if (i === 0) a.target = { ...carrier.pos };
       else if (i === 1) a.target = {
         x: carrier.pos.x + (goal.x - carrier.pos.x) * COVER_SHARE,
         y: carrier.pos.y + (goal.y - carrier.pos.y) * COVER_SHARE,
@@ -183,6 +211,37 @@ function moveDefenders(w, carrier) {
       a.target = i < PRESSERS_ON_LOOSE_BALL ? interceptPoint(w.ball, a.pos) : holdPosition(w, a);
     }
   });
+}
+
+// Atacante do jogo: decide a cada AI_TICK enquanto tem a bola.
+function attackByAi(w, rng) {
+  const carrier = byId(w, w.carrierId);
+  if (!carrier || carrier.side !== w.attackingSide || w.t < w.aiNext) return;
+  w.aiNext = w.t + AI_TICK;
+  const cmd = decideAttack(w, rng);
+  if (cmd.type === 'shoot') shoot(w, carrier, cmd, rng);
+  else if (cmd.type === 'pass') pass(w, carrier, byId(w, cmd.to), rng);
+  else {
+    const len = Math.hypot(cmd.dir.x, cmd.dir.y) || 1;
+    carrier.path = [];
+    carrier.target = { x: carrier.pos.x + (cmd.dir.x / len) * cmd.length, y: carrier.pos.y + (cmd.dir.y / len) * cmd.length };
+  }
+}
+
+// Ordem do jogador para um defensor: bote no portador, ir a um ponto, marcar um atacante.
+function followOrder(w, a, order, carrier, goal) {
+  a.rush = order.type === 'press';
+  // Bote: corre para onde o atacante vai estar (lê a jogada), não para onde está.
+  const LEAD = 0.4;
+  if (order.type === 'press') {
+    a.target = carrier ? { x: carrier.pos.x + carrier.vel.x * LEAD, y: carrier.pos.y + carrier.vel.y * LEAD } : interceptPoint(w.ball, a.pos);
+  }
+  else if (order.type === 'move') a.target = { ...order.to };
+  else if (order.type === 'mark') {
+    const t = byId(w, order.target);
+    // Entre o atacante e o gol, colado nele.
+    if (t) a.target = { x: t.pos.x + (goal.x - t.pos.x) * 0.15, y: t.pos.y + (goal.y - t.pos.y) * 0.15 };
+  }
 }
 
 function moveOffBall(w) {
@@ -203,15 +262,19 @@ function controlLooseBall(w, rng) {
   // Bola rápida é mais difícil de cortar.
   const speedFactor = Math.min(1, Math.max(0.15, 12 / (Math.hypot(b.vel.x, b.vel.y) || 1)));
   for (const a of w.agents) {
-    if (a.id === kicker || dist(a.pos, b.pos) > REACH) continue;
+    if (a.id === kicker) continue;
+    const d = dist(a.pos, b.pos);
+    if (d > (a.side === w.attackingSide ? RECEIVE_REACH : REACH)) continue;
     if (a.side === w.attackingSide) {
       w.carrierId = a.id;
       w.controlCenter = { ...a.pos };
+      w.possessionSince = w.t;
       a.target = null;
       if (w.turnBased) w.awaitingInput = true; // dominou: vez do jogador
       return;
     }
-    if (rng.next() < Math.min(0.9, INTERCEPT_BASE * (a.attrs.defending / skill) * speedFactor)) {
+    const base = w.lastKick?.type === 'shot' ? INTERCEPT_BASE * BLOCK_SHARE : INTERCEPT_BASE;
+    if (rng.next() < Math.min(0.9, base * (a.attrs.defending / skill) * speedFactor)) {
       w.carrierId = a.id;
       w.status = 'lost';
       return;
@@ -227,10 +290,38 @@ function carryBall(w) {
   w.ball.vel = { x: carrier.vel.x, y: carrier.vel.y, z: 0 };
 }
 
+// Bote decidido (ordem do jogador na defesa): uma tentativa; errou, fica caído.
+const COMMITTED_BASE = 0.45;
+const LUNGE_RANGE = 2.2;     // m: alcance do carrinho
+const STUN_TIME = 1.0;
+
+function committedTackle(w, d, carrier, rng) {
+  const ratio = d.attrs.defending / carrier.attrs.dribbling;
+  delete w.orders[d.id];
+  d.rush = false;
+  if (rng.next() < Math.min(0.9, Math.max(0.1, COMMITTED_BASE * ratio ** 2))) {
+    w.carrierId = d.id;
+    w.status = 'lost';
+    w.events.push({ type: 'tackle', by: d.id, t: w.t });
+  } else {
+    d.stunUntil = w.t + STUN_TIME;
+    d.target = null;
+    d.vel = { x: 0, y: 0 };
+    w.events.push({ type: 'missedTackle', by: d.id, t: w.t });
+  }
+}
+
 function checkTackles(w, rng) {
   const carrier = byId(w, w.carrierId);
   for (const d of w.agents) {
-    if (d.side === carrier.side || dist(d.pos, carrier.pos) > TACKLE_RANGE) continue;
+    if (d.side === carrier.side || d.stunUntil > w.t) continue;
+    const gap = dist(d.pos, carrier.pos);
+    // Na defesa do jogador, só quem recebeu a ordem de bote tenta o desarme (carrinho).
+    if (w.mode === 'defense' && d.side === w.userSide) {
+      if (gap <= LUNGE_RANGE && w.orders[d.id]?.type === 'press') { committedTackle(w, d, carrier, rng); if (w.status !== 'live') return; }
+      continue;
+    }
+    if (gap > TACKLE_RANGE) continue;
     const ratio = d.attrs.defending / carrier.attrs.dribbling;
     if (rng.next() < Math.min(0.5, TACKLE_BASE * ratio ** TACKLE_EXPONENT)) {
       w.carrierId = d.id;
@@ -245,9 +336,12 @@ export function stepWorld(w, input = null) {
   const rng = createRng(w.rng);
   if (applyInput(w, input, rng)) w.awaitingInput = false;
   if (w.awaitingInput) { w.rng = rng.state(); return w; }
+  if (w.mode === 'defense') attackByAi(w, rng);
   moveOffBall(w);
   for (const a of w.agents) {
+    a.withBall = a.id === w.carrierId;
     if (isKeeper(a) && a.side !== w.attackingSide && stepKeeper(w, a, rng)) continue;
+    if (a.stunUntil > w.t) continue; // caído depois de errar o bote
     stepAgent(a);
   }
   if (w.carrierId) {

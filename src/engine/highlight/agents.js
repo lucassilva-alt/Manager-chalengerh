@@ -4,10 +4,12 @@ import { DT } from './physics.js';
 
 const ARRIVE_RADIUS = 2;   // começa a frear a esta distância do alvo
 const REACHED = 0.3;
+const RUSH_BOOST = 1.08;
+const WITH_BALL = 0.85;       // conduzindo, corre menos que sem a bola
 
 const energyFactor = (e) => 0.6 + 0.4 * (e / 100);
 
-export const maxSpeed = (a) => (5 + (a.attrs.pace / 99) * 4) * energyFactor(a.energy);
+export const maxSpeed = (a) => (5 + (a.attrs.pace / 99) * 4) * energyFactor(a.energy) * (a.withBall ? WITH_BALL : 1);
 const maxAccel = (a) => (6 + (a.attrs.physical / 99) * 4) * energyFactor(a.energy);
 
 export function createAgent({ id, side, x, y, attrs, energy = 100, role = null }) {
@@ -23,7 +25,8 @@ export function stepAgent(a) {
     if (d < REACHED && a.path.length) {
       a.target = a.path.shift();
     } else if (d > 1e-6) {
-      const speed = maxSpeed(a) * Math.min(1, d / ARRIVE_RADIUS);
+      // No bote (rush) o jogador entra em velocidade, sem frear perto do alvo.
+      const speed = a.rush ? maxSpeed(a) * RUSH_BOOST : maxSpeed(a) * Math.min(1, d / ARRIVE_RADIUS);
       desiredX = (dx / d) * speed; desiredY = (dy / d) * speed;
     }
   }

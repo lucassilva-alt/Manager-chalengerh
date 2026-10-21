@@ -48,7 +48,7 @@
 - [ ] B4 Substituições na partida (5 trocas, 3 paradas)
 - [ ] B5 Conversa no intervalo (elogiar, cobrar, acalmar) com efeito e risco por traço
 - [x] B6 Cartões e lesões na simulação
-- [ ] B7 Entrevista pós-jogo (moral, torcida, diretoria)
+- [x] B7 Entrevista pós-jogo (moral, torcida, diretoria)
 
 Cada tarefa: teste que falha → mínimo → refatorar → commit. Toda tarefa visual fecha com print em celular e notebook para comparação.
 

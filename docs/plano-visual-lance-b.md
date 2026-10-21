@@ -42,8 +42,8 @@
 - [x] L5 Tela de replay: câmera lenta, dois ângulos
 
 ### B — Etapa (b): elenco e tática
-- [ ] B1 Elenco: atributos, idade, potencial, traços, moral, forma (modelo de dados + gerador)
-- [ ] B2 Formações (4-4-2, 4-3-3, 3-5-2, 4-2-3-1, 5-3-2) com funções; afetam força e cenário do lance
+- [x] B1 Elenco: atributos, idade, potencial, traços, moral, forma (modelo de dados + gerador)
+- [x] B2 Formações (4-4-2, 4-3-3, 3-5-2, 4-2-3-1, 5-3-2) com funções; afetam força e cenário do lance
 - [ ] B3 Tela de escalação: cartas com retrato, arrastar entre campo e banco
 - [ ] B4 Substituições na partida (5 trocas, 3 paradas)
 - [ ] B5 Conversa no intervalo (elogiar, cobrar, acalmar) com efeito e risco por traço

@@ -43,6 +43,48 @@ const workRateFactor = (wr) => 0.9 + wr * 0.02;
 // Energia perdida por minuto: ~0,38 no ritmo 5 com físico 60.
 const ENERGY_DRAIN = 0.55;
 
+// Moral média do time: 70 = neutro; 95 rende ~7% a mais, 20 ~15% a menos.
+const MORALE_NEUTRAL = 70, MORALE_WEIGHT = 0.3;
+function moraleFactor(m, side) {
+  const team = m[side].lineup;
+  if (!team.length) return 1;
+  const avg = team.reduce((s, p) => s + (m.morale[p.id] ?? MORALE_NEUTRAL), 0) / team.length;
+  return 1 + ((avg - MORALE_NEUTRAL) / 100) * MORALE_WEIGHT;
+}
+
+// Conversa no intervalo: efeito por placar (perdendo/empatando/ganhando) e traço.
+const TALK = {
+  praise: { losing: -2, drawing: 4, winning: 8 },
+  demand: { losing: 8, drawing: 4, winning: -3 },
+  calm: { losing: 3, drawing: 3, winning: 3 },
+};
+const TRAIT_TALK = {
+  praise: { Vaidoso: 4, Preguiçoso: -3 },
+  demand: { Profissional: 3, 'Líder': 2, Ambicioso: 2 },
+  calm: { Temperamental: 4, Tranquilo: 1 },
+};
+const TEMPER_RISK = 0.5, TEMPER_DROP = 10;
+
+export function halftimeTalk(m, side, tone) {
+  if (m.phase !== 'halftime' || m.talked[side] || !TALK[tone]) return false;
+  m.talked[side] = true;
+  const diff = m.score[side] - m.score[other(side)];
+  const state = diff < 0 ? 'losing' : diff > 0 ? 'winning' : 'drawing';
+  const rng = createRng(m.discRng);
+  let total = 0;
+  for (const p of m[side].lineup) {
+    const traits = p.traits ?? [];
+    let delta = TALK[tone][state];
+    for (const t of traits) delta += TRAIT_TALK[tone][t] ?? 0;
+    if (tone === 'demand' && traits.includes('Temperamental') && rng.next() < TEMPER_RISK) delta = -TEMPER_DROP;
+    m.morale[p.id] = Math.max(0, Math.min(100, (m.morale[p.id] ?? MORALE_NEUTRAL) + delta));
+    total += delta;
+  }
+  m.discRng = rng.state();
+  m.events.push({ minute: m.minute, type: 'talk', side, tone, effect: Math.round(total / Math.max(1, m[side].lineup.length)) });
+  return true;
+}
+
 // Cada jogador a menos (expulso) tira força do time todo.
 const MAN_DOWN = 0.07;
 
@@ -51,9 +93,10 @@ function effectiveStrength(m, side) {
   const base = teamStrength(m[side], { energy: m.energy });
   const missing = Math.max(0, (m.startingSize?.[side] ?? m[side].lineup.length) - m[side].lineup.length);
   const short = 1 - MAN_DOWN * missing;
+  const spirit = moraleFactor(m, side);
   return {
-    attack: base.attack * workRateFactor(workRate) * FOCUS[focus].attack * short,
-    defense: base.defense * workRateFactor(workRate) * FOCUS[focus].defense * short,
+    attack: base.attack * workRateFactor(workRate) * FOCUS[focus].attack * short * spirit,
+    defense: base.defense * workRateFactor(workRate) * FOCUS[focus].defense * short * spirit,
   };
 }
 export const matchStrength = effectiveStrength;
@@ -247,6 +290,8 @@ export function createMatch({ home, away, seed, userSide = null, interactive = f
     discRng: (seed ^ 0x5bd1e995) >>> 0,
     cards: {},
     sentOff: [],
+    morale: Object.fromEntries(everyone(home, away).map((p) => [p.id, p.morale ?? 70])),
+    talked: { home: false, away: false },
     subbedOff: [],
     subbedOn: [],
     subs: { home: { count: 0, stops: [] }, away: { count: 0, stops: [] } },

@@ -42,13 +42,68 @@ const workRateFactor = (wr) => 0.9 + wr * 0.02;
 // Energia perdida por minuto: ~0,38 no ritmo 5 com físico 60.
 const ENERGY_DRAIN = 0.55;
 
+// Cada jogador a menos (expulso) tira força do time todo.
+const MAN_DOWN = 0.07;
+
 function effectiveStrength(m, side) {
   const { workRate, focus } = m.tactics[side];
   const base = teamStrength(m[side], { energy: m.energy });
+  const missing = Math.max(0, (m.startingSize?.[side] ?? m[side].lineup.length) - m[side].lineup.length);
+  const short = 1 - MAN_DOWN * missing;
   return {
-    attack: base.attack * workRateFactor(workRate) * FOCUS[focus].attack,
-    defense: base.defense * workRateFactor(workRate) * FOCUS[focus].defense,
+    attack: base.attack * workRateFactor(workRate) * FOCUS[focus].attack * short,
+    defense: base.defense * workRateFactor(workRate) * FOCUS[focus].defense * short,
   };
+}
+export const matchStrength = effectiveStrength;
+
+// Cartões e lesões: sorteio próprio, para não mexer na sequência das chances.
+// Calibrado para o Brasileirão: ~5 amarelos e ~0,25 vermelho por jogo.
+const YELLOW_PER_MINUTE = 0.026;   // por time, no ritmo 5
+const STRAIGHT_RED_PER_MINUTE = 0.0005;
+const INJURY_PER_MINUTE = 0.0017;  // por time
+const INJURED_ENERGY = 30;
+const BOOKED_CARE = 0.25;
+const FOUL_WEIGHT = { ZAG: 3, VOL: 3, LAT: 2, MEI: 1.5, ATA: 1, GOL: 0.3 };
+
+export function bookPlayer(m, side, playerId, card) {
+  const yellows = (m.cards[playerId] ?? 0) + (card === 'yellow' ? 1 : 0);
+  m.cards[playerId] = yellows;
+  if (card === 'yellow') {
+    m.events.push({ minute: m.minute, type: 'yellow', side, playerId });
+    bumpRating(m, playerId, -0.3);
+    if (yellows < 2) return;
+  }
+  m.events.push({ minute: m.minute, type: 'red', side, playerId, ...(card === 'yellow' ? { second: true } : {}) });
+  bumpRating(m, playerId, -1.5);
+  m.sentOff.push(m[side].lineup.find((p) => p.id === playerId));
+  m[side] = { ...m[side], lineup: m[side].lineup.filter((p) => p.id !== playerId) };
+}
+
+function simulateDiscipline(m) {
+  const rng = createRng(m.discRng);
+  for (const side of SIDES) {
+    const team = m[side];
+    const aggression = workRateFactor(m.tactics[side].workRate);
+    const outfield = team.lineup.filter((p) => p.pos !== 'GOL');
+    if (rng.next() < YELLOW_PER_MINUTE * aggression && team.lineup.length) {
+      // Amarelado joga com mais cuidado.
+      bookPlayer(m, side, pickWeighted(rng, team.lineup, (p) => FOUL_WEIGHT[p.pos] * (m.cards[p.id] ? BOOKED_CARE : 1)).id, 'yellow');
+    } else if (rng.next() < STRAIGHT_RED_PER_MINUTE * aggression && outfield.length) {
+      bookPlayer(m, side, pickWeighted(rng, outfield, (p) => FOUL_WEIGHT[p.pos]).id, 'red');
+    }
+    if (rng.next() < INJURY_PER_MINUTE) {
+      const fit = m[side].lineup.filter((p) => !m.injuries[p.id]);
+      if (fit.length) {
+        const p = fit[Math.floor(rng.next() * fit.length)];
+        const weeks = 1 + Math.floor(rng.next() ** 2 * 8); // maioria leve
+        m.injuries[p.id] = { weeks, minute: m.minute };
+        m.energy[p.id] = Math.min(m.energy[p.id], INJURED_ENERGY);
+        m.events.push({ minute: m.minute, type: 'injury', side, playerId: p.id, weeks });
+      }
+    }
+  }
+  m.discRng = rng.state();
 }
 
 function drainEnergy(m) {
@@ -57,6 +112,7 @@ function drainEnergy(m) {
     for (const p of m[side].lineup) {
       const loss = ENERGY_DRAIN * effort * (1 - p.attrs.physical / 200);
       m.energy[p.id] = Math.max(0, m.energy[p.id] - loss);
+      if (m.injuries[p.id]) m.energy[p.id] = Math.min(m.energy[p.id], INJURED_ENERGY);
     }
   }
 }
@@ -139,6 +195,11 @@ export function createMatch({ home, away, seed, userSide = null, interactive = f
     score: { home: 0, away: 0 },
     tactics: { home: { workRate: 5, focus: 'balanced' }, away: { workRate: 5, focus: 'balanced' } },
     ratings: Object.fromEntries(ids.map((id) => [id, 6.5])),
+    discRng: (seed ^ 0x5bd1e995) >>> 0,
+    cards: {},
+    sentOff: [],
+    injuries: {},
+    startingSize: { home: home.lineup.length, away: away.lineup.length },
     energy: Object.fromEntries(ids.map((id) => [id, 100])),
     events: [{ minute: 0, type: 'kickoff' }],
   };
@@ -156,6 +217,7 @@ export function advanceMinute(m) {
   const rng = createRng(m.rng);
   simulateMinute(m, rng);
   m.rng = rng.state();
+  simulateDiscipline(m);
   drainEnergy(m);
   if (!m.pending) closeMinute(m);
 }

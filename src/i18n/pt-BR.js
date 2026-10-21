@@ -41,6 +41,10 @@ export default {
   'event.goal.penalty': 'GOL de pênalti! {player} não perdoa.',
   'event.saved': 'O goleiro defende o chute de {player}.',
   'event.wide': '{player} finaliza para fora.',
+  'event.yellow': 'Cartão amarelo para {player}.',
+  'event.red': 'Vermelho direto! {player} expulso.',
+  'event.red.second': 'Segundo amarelo: {player} expulso!',
+  'event.injury': '{player} sente lesão e pede atendimento.',
 
   'highlight.planHint': 'Arraste do jogador para conduzir · toque num companheiro para passar · toque no gol para chutar',
   'highlight.swipeHint': 'Deslize o dedo na bola em direção ao gol para chutar',
